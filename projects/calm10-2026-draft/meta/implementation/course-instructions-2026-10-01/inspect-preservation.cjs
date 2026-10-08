@@ -1,0 +1,13 @@
+const fs=require('fs'),assert=require('node:assert/strict'),path=require('path'),ch=require(path.join(process.cwd(),'node_modules/cheerio'));
+const base='projects/calm10-2026-draft/',before=fs.readFileSync(__dirname+'/before-index.html','utf8'),now=fs.readFileSync(base+'workspace/index.html','utf8');const a=ch.load(before,{sourceCodeLocationInfo:true}),b=ch.load(now,{sourceCodeLocationInfo:true});
+const attrs=(e,$)=>Object.fromEntries(Object.entries(e.attribs||{}).sort((x,y)=>x[0].localeCompare(y[0])));
+const inventory=($,selector)=>$(selector).toArray().map(e=>({tag:e.tagName,attrs:attrs(e,$),html:$(e).html()}));
+const groups=['input,select,textarea','button','video,audio,img,source,track','template','details.authored-model,details.finlit-model,details.review-model','.authored-response-group','.completion-criteria,.review-signoff,.finlit-signoff'];
+for(const g of groups)assert.deepEqual(inventory(b,g),inventory(a,g),'Preservation: '+g);
+const lessons=b('article.authored-lesson').toArray();assert.equal(lessons.length,40);assert.equal(b('.student-instructions').length,120);assert.equal(b('.student-extra-guidance').length,120);assert.equal(b('.student-extra-guidance[open]').length,0);assert.equal(b('.student-extra-guidance input,.student-extra-guidance select,.student-extra-guidance textarea,.student-extra-guidance button').length,0);
+for(const lesson of lessons)assert.equal(b(lesson).find('.student-instructions').length,3,lesson.attribs.id);
+const protectedArticle='#ce1-01';assert.equal(a(protectedArticle).prop('outerHTML'),b(protectedArticle).prop('outerHTML'),'Approved pilot HTML changed');
+const links=b('.student-instructions a[href^="#"]').toArray();for(const e of links)assert.equal(b('[id="'+e.attribs.href.slice(1)+'"]').length,1,'Instruction link target '+e.attribs.href);
+const ids=b('[id]').toArray().map(e=>e.attribs.id),duplicates=ids.filter((id,i)=>ids.indexOf(id)!==i);assert.equal(duplicates.length,0,'Duplicate IDs');
+const stageIds=require('./adaptation-map.json').map(x=>x.stage);for(const id of stageIds){a('#'+id).remove();b('#'+id).remove();}assert.equal(a.html(),b.html(),'HTML outside affected stage bodies changed');
+const result={lessons:40,instructionAreas:120,initiallyClosedGuidance:120,savedFieldsAndAnswerControls:'unchanged',professionalMediaAndAssets:'unchanged',modelsAndResponseGroups:'unchanged',completionSignoffs:'unchanged',approvedCE101:'unchanged',outsideStageBodies:'unchanged',instructionLinks:links.length,duplicateIds:0};fs.writeFileSync(__dirname+'/source-preservation.json',JSON.stringify(result,null,2));console.log(result);

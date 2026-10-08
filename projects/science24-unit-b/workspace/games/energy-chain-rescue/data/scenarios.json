@@ -1,0 +1,365 @@
+{
+  "game_id": "B1",
+  "version": "2.0.1",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "B1-W01",
+      "stage": "worked",
+      "title": "Generator to Lamp",
+      "purpose": "produce visible light",
+      "input": 200,
+      "steps": [
+        {
+          "node": "generator",
+          "in": 200,
+          "outputs": {
+            "electrical": 150,
+            "thermal": 50
+          }
+        },
+        {
+          "node": "lamp",
+          "in": 150,
+          "outputs": {
+            "light": 45,
+            "thermal": 105
+          },
+          "receives": [
+            "electrical"
+          ]
+        }
+      ],
+      "whole_system": {
+        "light": 45,
+        "thermal": 155
+      },
+      "extension": "useful fraction 22.5%",
+      "scene": "assets/scenes/scene_01_b1_w01.png",
+      "path": [
+        "mechanical input",
+        "generator",
+        "electrical transfer",
+        "lamp",
+        "light + thermal"
+      ],
+      "pathOptions": [
+        "mechanical input",
+        "generator",
+        "electrical transfer",
+        "lamp",
+        "light + thermal",
+        "energy disappears",
+        "matter becomes energy"
+      ],
+      "records": "Generator: 150 J electrical and 50 J thermal. Lamp: 45 J light and 105 J thermal.",
+      "initial": {
+        "path0": "mechanical input",
+        "path1": "generator",
+        "path2": "electrical transfer",
+        "path3": "lamp",
+        "path4": "light + thermal",
+        "out_light": 45,
+        "out_thermal": 155
+      },
+      "predictionPrompt": "Which output is useful for the stated mission?",
+      "predictions": [
+        "Motion",
+        "Electrical",
+        "Light",
+        "Stored chemical",
+        "All energy is useful for every purpose"
+      ],
+      "explanationPrompt": "Explain the complete energy account and why the stated purpose determines useful output.",
+      "keyIdea": "Energy is conserved. Include useful and less-useful transfers; matter does not become energy.",
+      "hints": [
+        "Identify the stated input and the output that meets the mission purpose.",
+        "The output amounts must total the input. Less-useful thermal and sound outputs still belong in the account."
+      ],
+      "useful": "light",
+      "teacherReasoning": "The generator gives 150 J electrical to the lamp and 50 J thermal. The lamp gives 45 J light and 105 J thermal; the whole account is 200 J."
+    },
+    {
+      "id": "B1-P01",
+      "stage": "supported",
+      "title": "Battery Toy",
+      "purpose": "move a toy",
+      "input": 500,
+      "steps": [
+        {
+          "node": "motor",
+          "in": 500,
+          "outputs": {
+            "motion": 180,
+            "thermal": 280,
+            "sound": 40
+          }
+        }
+      ],
+      "whole_system": {
+        "motion": 180,
+        "thermal": 280,
+        "sound": 40
+      },
+      "scene": "assets/scenes/scene_02_b1_p01.png",
+      "path": [
+        "chemical energy in battery",
+        "electrical transfer",
+        "motor",
+        "motion + thermal + sound"
+      ],
+      "pathOptions": [
+        "chemical energy in battery",
+        "electrical transfer",
+        "motor",
+        "motion + thermal + sound",
+        "energy disappears",
+        "matter becomes energy"
+      ],
+      "records": "Measured model outputs: 180 J motion and 40 J sound. Complete the thermal account.",
+      "initial": {},
+      "predictionPrompt": "Which output is useful for the stated mission?",
+      "predictions": [
+        "Motion",
+        "Electrical",
+        "Light",
+        "Stored chemical",
+        "All energy is useful for every purpose"
+      ],
+      "explanationPrompt": "Explain the complete energy account and why the stated purpose determines useful output.",
+      "keyIdea": "Energy is conserved. Include useful and less-useful transfers; matter does not become energy.",
+      "hints": [
+        "Identify the stated input and the output that meets the mission purpose.",
+        "The output amounts must total the input. Less-useful thermal and sound outputs still belong in the account."
+      ],
+      "useful": "motion",
+      "teacherReasoning": "The 500 J input becomes 180 J motion, 280 J thermal and 40 J sound. Motion meets the toy purpose; no energy disappears."
+    },
+    {
+      "id": "B1-P02",
+      "stage": "practice",
+      "title": "Hydroelectric Station",
+      "purpose": "supply electrical energy",
+      "input": 1000,
+      "steps": [
+        {
+          "node": "turbine-generator",
+          "in": 1000,
+          "outputs": {
+            "electrical": 780,
+            "thermal": 180,
+            "sound": 40
+          }
+        }
+      ],
+      "whole_system": {
+        "electrical": 780,
+        "thermal": 180,
+        "sound": 40
+      },
+      "scene": "assets/scenes/scene_03_b1_p02.png",
+      "path": [
+        "gravitational potential of water",
+        "moving water",
+        "turbine-generator",
+        "electrical + thermal + sound"
+      ],
+      "pathOptions": [
+        "gravitational potential of water",
+        "moving water",
+        "turbine-generator",
+        "electrical + thermal + sound",
+        "energy disappears",
+        "matter becomes energy"
+      ],
+      "records": "Supplied outputs: 780 J electrical and 40 J sound. Complete the thermal account.",
+      "initial": {},
+      "predictionPrompt": "Which output is useful for the stated mission?",
+      "predictions": [
+        "Motion",
+        "Electrical",
+        "Light",
+        "Stored chemical",
+        "All energy is useful for every purpose"
+      ],
+      "explanationPrompt": "Explain the complete energy account and why the stated purpose determines useful output.",
+      "keyIdea": "Energy is conserved. Include useful and less-useful transfers; matter does not become energy.",
+      "hints": [
+        "Identify the stated input and the output that meets the mission purpose.",
+        "The output amounts must total the input. Less-useful thermal and sound outputs still belong in the account."
+      ],
+      "useful": "electrical",
+      "teacherReasoning": "Electrical 780 J, thermal 180 J and sound 40 J account for all 1000 J. Useful output depends on the mission."
+    },
+    {
+      "id": "B1-P03",
+      "stage": "practice",
+      "title": "Food to Movement",
+      "purpose": "produce muscle movement",
+      "input": 600,
+      "steps": [
+        {
+          "node": "respiration-muscle",
+          "in": 600,
+          "outputs": {
+            "motion": 150,
+            "thermal": 450
+          }
+        }
+      ],
+      "whole_system": {
+        "motion": 150,
+        "thermal": 450
+      },
+      "guardrail": "Food is matter containing chemical potential energy; atoms do not become energy.",
+      "scene": "assets/scenes/scene_04_b1_p03.png",
+      "path": [
+        "chemical potential in food",
+        "cellular respiration",
+        "muscles",
+        "motion + thermal"
+      ],
+      "pathOptions": [
+        "chemical potential in food",
+        "cellular respiration",
+        "muscles",
+        "motion + thermal",
+        "energy disappears",
+        "matter becomes energy"
+      ],
+      "records": "Supplied muscle motion: 150 J. Complete the thermal account.",
+      "initial": {},
+      "predictionPrompt": "Which output is useful for the stated mission?",
+      "predictions": [
+        "Motion",
+        "Electrical",
+        "Light",
+        "Stored chemical",
+        "All energy is useful for every purpose"
+      ],
+      "explanationPrompt": "Explain the complete energy account and why the stated purpose determines useful output.",
+      "keyIdea": "Energy is conserved. Include useful and less-useful transfers; matter does not become energy.",
+      "hints": [
+        "Identify the stated input and the output that meets the mission purpose.",
+        "The output amounts must total the input. Less-useful thermal and sound outputs still belong in the account."
+      ],
+      "matterNote": "Matter: food and oxygen are rearranged into carbon dioxide and water; chemical potential energy is transferred. Plants also respire.",
+      "useful": "motion",
+      "teacherReasoning": "Food contains matter and chemical potential energy. Motion 150 J plus thermal 450 J accounts for 600 J; food atoms do not become energy."
+    },
+    {
+      "id": "B1-P04",
+      "stage": "low_support",
+      "title": "Plant Energy Storage",
+      "purpose": "store chemical potential energy",
+      "input": 400,
+      "steps": [
+        {
+          "node": "photosynthesis-model",
+          "in": 400,
+          "outputs": {
+            "stored_chemical": 320,
+            "thermal": 80
+          }
+        }
+      ],
+      "whole_system": {
+        "stored_chemical": 320,
+        "thermal": 80
+      },
+      "guardrail": "Illustrative energy values; matter inputs and products are represented separately.",
+      "scene": "assets/scenes/scene_05_b1_p04.png",
+      "path": [
+        "light energy",
+        "photosynthesis",
+        "stored chemical + thermal"
+      ],
+      "pathOptions": [
+        "light energy",
+        "photosynthesis",
+        "stored chemical + thermal",
+        "energy disappears",
+        "matter becomes energy"
+      ],
+      "records": "Supplied stored chemical energy: 320 J. Complete the thermal account.",
+      "initial": {},
+      "predictionPrompt": "Which output is useful for the stated mission?",
+      "predictions": [
+        "Motion",
+        "Electrical",
+        "Light",
+        "Stored chemical",
+        "All energy is useful for every purpose"
+      ],
+      "explanationPrompt": "Account for the supplied 400 J of light input, keep matter separate from energy transfers, and explain why the plant also needs cellular respiration.",
+      "keyIdea": "Energy is conserved. Include useful and less-useful transfers; matter does not become energy.",
+      "hints": [],
+      "matterNote": "Matter: carbon dioxide and water form carbohydrate and oxygen. Light energy is stored as chemical potential energy. These values are illustrative, not measured photosynthetic efficiency. Plants also respire, transferring stored chemical potential energy for cellular functions.",
+      "useful": "stored_chemical",
+      "teacherReasoning": "The illustrative 400 J light input gives 320 J stored chemical and 80 J thermal. Matter inputs and products remain separate. Plants also respire to transfer stored chemical energy for cellular functions."
+    },
+    {
+      "id": "B1-T01",
+      "stage": "transfer",
+      "title": "Motor Account",
+      "purpose": "produce motion",
+      "input": 1200,
+      "steps": [
+        {
+          "node": "motor",
+          "in": 1200,
+          "outputs": {
+            "motion": 450,
+            "thermal": 750
+          }
+        }
+      ],
+      "whole_system": {
+        "motion": 450,
+        "thermal": 750
+      },
+      "extension": "useful fraction 37.5%",
+      "scene": "assets/scenes/scene_06_b1_t01.png",
+      "path": [
+        "electrical input",
+        "motor",
+        "motion + thermal"
+      ],
+      "pathOptions": [
+        "electrical input",
+        "motor",
+        "motion + thermal",
+        "energy disappears",
+        "matter becomes energy"
+      ],
+      "records": "Electrical input: 1200 J. Useful motion: 450 J. Calculate the other output and useful percentage.",
+      "initial": {},
+      "predictionPrompt": "Which output is useful for the stated mission?",
+      "predictions": [
+        "Motion",
+        "Electrical",
+        "Light",
+        "Stored chemical",
+        "All energy is useful for every purpose"
+      ],
+      "explanationPrompt": "Explain the complete energy account and why the stated purpose determines useful output.",
+      "keyIdea": "Energy is conserved. Include useful and less-useful transfers; matter does not become energy.",
+      "hints": [
+        "Identify the stated input and the output that meets the mission purpose.",
+        "The output amounts must total the input. Less-useful thermal and sound outputs still belong in the account."
+      ],
+      "useful": "motion",
+      "teacherReasoning": "1200 J input \u2212 450 J useful motion = 750 J thermal. Useful fraction is 450/1200 = 37.5%; the complete account is conserved."
+    }
+  ],
+  "title": "Energy Chain Rescue",
+  "unitTitle": "Understanding Common Energy Conversion Systems",
+  "nextPractice": "Trace a new conversion system, include every output, and identify usefulness from its purpose.",
+  "instructions": [
+    "Follow the generator-to-lamp worked account.",
+    "Predict an output before opening the energy model.",
+    "Choose an ordered pathway and allocate all supplied joules.",
+    "Check conservation at each converter and across the whole system.",
+    "Explain useful and other outputs; distinguish matter from energy in biological cases."
+  ]
+}

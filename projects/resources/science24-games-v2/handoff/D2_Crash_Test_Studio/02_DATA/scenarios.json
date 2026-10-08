@@ -1,0 +1,104 @@
+{
+  "game_id": "D2",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "D2-W01",
+      "stage": "worked",
+      "title": "Two Stopping Fixtures",
+      "mass": 60,
+      "vi": 20,
+      "vf": 0,
+      "delta_p": -1200,
+      "times": [
+        0.06,
+        0.15
+      ],
+      "forces": [
+        -20000,
+        -8000
+      ],
+      "answer": "Same impulse; longer supplied stopping time lowers average-force magnitude."
+    },
+    {
+      "id": "D2-P01",
+      "stage": "supported",
+      "title": "New Occupant Model",
+      "mass": 50,
+      "vi": 16,
+      "vf": 0,
+      "delta_p": -800,
+      "times": [
+        0.08,
+        0.16
+      ],
+      "forces": [
+        -10000,
+        -5000
+      ]
+    },
+    {
+      "id": "D2-P02",
+      "stage": "practice",
+      "title": "Controlled Comparison",
+      "mass": 75,
+      "vi": 12,
+      "vf": 0,
+      "delta_p": -900,
+      "times": [
+        0.09,
+        0.18
+      ],
+      "forces": [
+        -10000,
+        -5000
+      ]
+    },
+    {
+      "id": "D2-P03",
+      "stage": "practice",
+      "title": "System Boundary Check",
+      "occupant_mass": 60,
+      "vehicle_mass": 1200,
+      "answer": "Use the occupant mass for the occupant ledger. Do not insert the whole vehicle mass."
+    },
+    {
+      "id": "D2-P04",
+      "stage": "low_support",
+      "title": "Locking Carts",
+      "carts": [
+        {
+          "m": 2,
+          "v": 3
+        },
+        {
+          "m": 1,
+          "v": 0
+        }
+      ],
+      "initial_momentum": 6,
+      "combined_mass": 3,
+      "final_velocity": 2,
+      "answer": "Combined momentum is conserved in the supplied low-friction system; kinetic energy is not claimed conserved."
+    },
+    {
+      "id": "D2-T01",
+      "stage": "transfer",
+      "title": "Fresh Stopping Test",
+      "mass": 55,
+      "vi": 18,
+      "vf": 0,
+      "delta_p": -990,
+      "times": [
+        0.1,
+        0.2
+      ],
+      "forces": [
+        -9900,
+        -4950
+      ],
+      "answer": "Explain the inverse relationship for the same Δp and identify direction."
+    }
+  ]
+}

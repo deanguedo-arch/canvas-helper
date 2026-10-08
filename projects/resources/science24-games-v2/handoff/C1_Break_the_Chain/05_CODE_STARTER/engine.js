@@ -1,0 +1,2 @@
+export function evaluateRoutes(routes,measureMap,chosenMeasures){const blocked=routes.map(()=>false);for(const m of chosenMeasures){for(const idx of (measureMap[m]||[]))if(idx>=0&&idx<blocked.length)blocked[idx]=true}return {blocked,openRouteIndexes:blocked.map((v,i)=>v?null:i).filter(v=>v!==null),allBlocked:blocked.every(Boolean)}}
+export function measureAddressesRoute(measureMap,measure,routeIndex){return (measureMap[measure]||[]).includes(routeIndex)}

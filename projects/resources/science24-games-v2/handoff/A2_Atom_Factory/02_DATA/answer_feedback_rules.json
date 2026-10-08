@@ -1,0 +1,96 @@
+{
+  "game_id": "A2",
+  "version": "2.0.0-design",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "A2-W01",
+      "accepted_result": "See scenario data",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P01",
+      "accepted_result": [
+        2,
+        2,
+        1
+      ],
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P02",
+      "accepted_result": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P03",
+      "accepted_result": [
+        4,
+        3,
+        2
+      ],
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P04",
+      "accepted_result": [
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-T01",
+      "accepted_result": [
+        1,
+        3,
+        2
+      ],
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    }
+  ]
+}

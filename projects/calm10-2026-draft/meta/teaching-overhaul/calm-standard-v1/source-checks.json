@@ -1,0 +1,184 @@
+{
+  "status": "pass",
+  "canonicalRootFilesUnchanged": 32,
+  "lessons": {
+    "ce1-01": {
+      "protected": {
+        "input": 49,
+        "textarea": 6,
+        "select": 1,
+        "button:not(.vocab-term)": 14,
+        "fieldset": 10,
+        "template": 10,
+        "video": 1,
+        "source": 1,
+        ".student-instructions": 3,
+        "details.lesson-vocabulary-help": 1,
+        ".authored-hint": 2
+      },
+      "originalIdsAndEditKeysRetained": true,
+      "documentTablesPreserved": "CE1-04 forecast label correction only",
+      "modelsPreservedWithLoggedCorrections": true
+    },
+    "ce1-02": {
+      "protected": {
+        "input": 41,
+        "textarea": 6,
+        "select": 1,
+        "button:not(.vocab-term)": 12,
+        "fieldset": 8,
+        "template": 8,
+        "video": 0,
+        "source": 0,
+        ".student-instructions": 3,
+        "details.lesson-vocabulary-help": 1,
+        ".authored-hint": 1
+      },
+      "originalIdsAndEditKeysRetained": true,
+      "documentTablesPreserved": "CE1-04 forecast label correction only",
+      "modelsPreservedWithLoggedCorrections": true
+    },
+    "ce1-04": {
+      "protected": {
+        "input": 41,
+        "textarea": 6,
+        "select": 1,
+        "button:not(.vocab-term)": 12,
+        "fieldset": 8,
+        "template": 8,
+        "video": 1,
+        "source": 1,
+        ".student-instructions": 3,
+        "details.lesson-vocabulary-help": 1,
+        ".authored-hint": 1
+      },
+      "originalIdsAndEditKeysRetained": true,
+      "documentTablesPreserved": "CE1-04 forecast label correction only",
+      "modelsPreservedWithLoggedCorrections": true
+    },
+    "ce1-05": {
+      "protected": {
+        "input": 41,
+        "textarea": 6,
+        "select": 1,
+        "button:not(.vocab-term)": 12,
+        "fieldset": 8,
+        "template": 8,
+        "video": 0,
+        "source": 0,
+        ".student-instructions": 3,
+        "details.lesson-vocabulary-help": 1,
+        ".authored-hint": 2
+      },
+      "originalIdsAndEditKeysRetained": true,
+      "documentTablesPreserved": "Explicit Alberta course mapping and INF2050 prerequisite correction; original amounts/dates retained",
+      "modelsPreservedWithLoggedCorrections": true
+    },
+    "ce1-06": {
+      "protected": {
+        "input": 53,
+        "textarea": 4,
+        "select": 1,
+        "button:not(.vocab-term)": 17,
+        "fieldset": 9,
+        "template": 9,
+        "video": 1,
+        "source": 1,
+        ".student-instructions": 3,
+        "details.lesson-vocabulary-help": 1,
+        ".authored-hint": 2
+      },
+      "originalIdsAndEditKeysRetained": true,
+      "documentTablesPreserved": "CE1-04 forecast label correction only",
+      "modelsPreservedWithLoggedCorrections": true
+    },
+    "ce1-07": {
+      "protected": {
+        "input": 41,
+        "textarea": 6,
+        "select": 1,
+        "button:not(.vocab-term)": 12,
+        "fieldset": 8,
+        "template": 8,
+        "video": 0,
+        "source": 0,
+        ".student-instructions": 3,
+        "details.lesson-vocabulary-help": 1,
+        ".authored-hint": 2
+      },
+      "originalIdsAndEditKeysRetained": true,
+      "documentTablesPreserved": "CE1-04 forecast label correction only",
+      "modelsPreservedWithLoggedCorrections": true
+    }
+  },
+  "corrections": [
+    {
+      "id": "ce1-01",
+      "type": "model-fidelity",
+      "before": "At the workshop, Amina compared wheel movement around an adjustment and explained the change.",
+      "after": "At the workshop, Amina compared wheel movement around an adjustment and explained the change; the wheel then turned without rubbing during the workshop check."
+    },
+    {
+      "id": "ce1-01",
+      "type": "media-purpose",
+      "before": "Use the video’s distinction as you read: Jordan’s poster action supports a skill claim; the predictable-schedule preference helps frame a question about work.",
+      "after": "The video explains influences on values. This lesson adds a separate distinction: Jordan’s poster action supports a skill claim, while the predictable-schedule preference helps frame a question about work."
+    },
+    {
+      "id": "ce1-01",
+      "type": "media-purpose",
+      "before": "Keep the two kinds of evidence separate in your practice response: what the person did, and what the person wants work to support.",
+      "after": "The video helps explain where values can come from. In your practice response, use the lesson’s method to keep an observed action separate from a preference about work."
+    },
+    {
+      "id": "ce1-01",
+      "type": "media-purpose",
+      "before": "You have read Jordan’s notebook. Watch or read how family, friends and other influences can shape what matters to a person. Listen for the difference between a preference and something a person can demonstrate.",
+      "after": "Listen for influences on values; use the notebook for skill evidence."
+    },
+    {
+      "id": "ce1-04",
+      "type": "date-label",
+      "before": "Source period 2024–2026",
+      "after": "Forecast period 2024–2026",
+      "reason": "Forecast coverage must not be read as employment measurement period."
+    },
+    {
+      "id": "ce1-05",
+      "type": "model-fidelity",
+      "before": "A second is before April 1 in Grade 12, to check the samples.",
+      "after": "A second is before April 1 in Grade 12, to check the samples and submission readiness; the plan also needs Program C’s May 1 application before the stated June course-completion limit."
+    },
+    {
+      "id": "ce1-05",
+      "type": "alberta-course-task-revision",
+      "version": "2026-10-05.alberta-course-review.2",
+      "reason": "Replace invented course names with Alberta courses; correct INF2050 prerequisite; distinguish diploma requirements from fictional provider conditions. Prior review answers retain their previous prompt."
+    },
+    {
+      "id": "ce1-06",
+      "type": "control-wording",
+      "before": "Check my calculation",
+      "after": "Check this calculation",
+      "reason": "Instruction wording must match the retained calculation buttons."
+    }
+  ],
+  "a": {
+    "unalteredLessonArticles": 40,
+    "exactAuthoredFragments": true
+  },
+  "b": {
+    "unalteredLessonArticles": 34,
+    "exactAuthoredFragments": true
+  },
+  "comparisonLessonTitlesMatchCanonical": true,
+  "runtimeChanges": "Review delivery prefixes only",
+  "notProof": [
+    "teacher acceptance",
+    "curriculum coverage certification",
+    "Studio",
+    "SCORM",
+    "Brightspace",
+    "release"
+  ]
+}

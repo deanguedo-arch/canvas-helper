@@ -1,0 +1,17 @@
+BUILD C2 — Inheritance Detective FROM THIS PRODUCTION HANDOFF.
+
+Do not redesign it. The executable files in `04_MOCKUPS/html/` are the exact visual source; the screenshots in `04_MOCKUPS/png/` are reference previews. Render the mockup HTML in the target browser to establish the runtime visual-regression baseline. Reuse their DOM, CSS, supplied assets, dimensions, responsive behavior and component states. Read `00_SHARED/VISUAL_EXACTNESS_CONTRACT.md` first.
+
+Required process:
+1. Read every file under this game folder and the shared folder.
+2. Run the starter engine tests.
+3. Implement the full scenario progression from `02_DATA/scenarios.json`.
+4. Keep the pure domain engine separate from render/state/navigation code.
+5. Preserve reversible navigation and all learner state.
+6. Apply the exact accepted-answer and misconception rules; do not auto-grade open explanation quality with keywords.
+7. Use the game-specific deterministic representation: Case File / Pedigree Evidence / Genotype & Probability.
+8. Implement scaffold fading and the unscaffolded transfer screen.
+9. Use all provided assets by their manifest paths; do not substitute generic graphics.
+10. Run all QA gates and visual regression. Report unperformed tests as Not tested.
+
+Do not modify unrelated course files or claim deployment. Return a complete runnable folder, test outputs, screenshots and a change log.

@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-08",
+  "currentOwner": {
+    "workspace/index.html": "7ff098c0763a1eedbe8c7e562e13082aa7a832582f9c73fd1739eaa4c31f0109",
+    "workspace/main.js": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f",
+    "workspace/styles.css": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+    "meta/external-generation/authoring/course-config.json": "8ae42534366bf744c39a584059d2b1be871bbdd6ffae2954d1384ad7e802faaf"
+  },
+  "verifiedPayloads": 79,
+  "replacements": [
+    {
+      "id": "ch15-l01-teaching-01",
+      "beforeSha256": "7c125239f250eaad55d0fbdda83099fb2804f4aa604a034f4b82c68ab459b60d",
+      "afterSha256": "c5b6e42c9cba9c7d9c2719581d4617dd1be9a5df157dfd9227a021057a438888"
+    },
+    {
+      "id": "ch15-l01-teaching-02",
+      "beforeSha256": "21e332fb0e2a4a082562ea3cb5ea2fdcafa13b887a9a37740719d67f7b0e8ac3",
+      "afterSha256": "bc68bc38d0f110579c157ddf9ffc556b77b4dcd74780a12e237cbbc4fd091fb1"
+    },
+    {
+      "id": "ch15-l01-teaching-03",
+      "beforeSha256": "ea607dde4761d0db175066105507c3d0613676db6a8edd85b24ec03c7809144e",
+      "afterSha256": "4fa7e7c9c6f212759c873c53a4640f768c3198d3148da3b6bb8020e21891405a"
+    },
+    {
+      "id": "ch15-l01-worked",
+      "beforeSha256": "8c97487ecdd072a606a66d76e435c81b5d953c7f1a148049dc280ff3c9fa392e",
+      "afterSha256": "0ebe179807f7ef0db143005f9e4ba01314369f53cd8719d03649a7876486b242"
+    },
+    {
+      "id": "ch15-l02-teaching-01",
+      "beforeSha256": "55b5bc8014ae81b3f0f6c3102d35fd3a2583a43606f03c914001a309989022c6",
+      "afterSha256": "eabc4c529a0c9611faef2684d004739647df500f0aedbafb7c863324d690833b"
+    },
+    {
+      "id": "ch15-l02-teaching-02",
+      "beforeSha256": "f4da06cbae5f457ff1124e0043ebbf96007e539c3af01218653be96ac103fa7b",
+      "afterSha256": "8e0ba278bffb35f4076419bfa5f3bd56759ba1e53d7e26d656cc22f20b6aad37"
+    },
+    {
+      "id": "ch15-l02-teaching-03",
+      "beforeSha256": "862e8e037919e2660b9e68dde2a7b533a015e615fa667706ac78f556f9fd7ea2",
+      "afterSha256": "085023e4f006dba5a9ebdaa765aea6d8701c745a7c41186d3727e6eb0b831800"
+    },
+    {
+      "id": "ch15-l02-worked",
+      "beforeSha256": "7438181922d22dce72efbfdf2b0070c09a35c0cdda7b415d78d766e62ed481ea",
+      "afterSha256": "d68993357c34fada462d8ae316dd9b63d81ff4ff240640070d910a6a6ca4e9be"
+    }
+  ],
+  "candidateHTML": "9df5d0862c281fac3f23438be46e0828c962a6c14508fbb66b1936e1ac7d58d7",
+  "baselineHTML": "7ff098c0763a1eedbe8c7e562e13082aa7a832582f9c73fd1739eaa4c31f0109",
+  "originalIDs": 217,
+  "originalFigures": 16,
+  "newFigureID": "ch15-source-fertilization-detail",
+  "supplement": {
+    "asset": "learner/assets/figures/ch15-source-fertilization-detail.jpg",
+    "sha256": "f03f1942d6df774f0996989c84a92c84513b13cb09928f24f9869ddcc95d4783",
+    "exactTeacherMedia": true
+  },
+  "originalFiles": 147,
+  "candidateFiles": 148,
+  "allOriginalAssetsByteExact": true,
+  "protectedTasksByteExact": true,
+  "reversalByteExact": true,
+  "originalIDSequenceRetained": true,
+  "changedConfigurationPaths": [
+    "guidedActivities[route=lesson-01].worked",
+    "guidedActivities[route=lesson-02].worked"
+  ],
+  "canonicalChanged": false,
+  "teacherAccepted": false,
+  "consumedStandard": "v0.3 exact supplied bytes",
+  "integrationStandard": "v0.4 existing reconciled boundary",
+  "fullBankFreshReview": "Not verified",
+  "deferred": [
+    "Native interaction and image checks",
+    "Whole-bank fresh review including runtime vocabulary/Frayer and cumulative prerequisites",
+    "Teacher acceptance",
+    "Responsive/keyboard/reader/export",
+    "Studio/LMS/release"
+  ]
+}

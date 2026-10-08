@@ -1,0 +1,461 @@
+{
+  "version": "2.1.0-pilot1",
+  "core": {
+    "B2-W01": {
+      "goal": "Keep four lamps on for five hours and the fan on for four. Repair the plan to fit 0.500 kWh.",
+      "initialOverrides": {
+        "lamps_power": 40
+      },
+      "coach": true
+    },
+    "B2-P01": {
+      "goal": "Light all six places for the full six hours within 0.750 kWh.",
+      "initialOverrides": {
+        "lamps_power": 40
+      }
+    },
+    "B2-P02": {
+      "goal": "Eight learners need two computer hours. Keep every service and remove the unnecessary energy use.",
+      "initialOverrides": {
+        "computers_hours": 3
+      }
+    },
+    "B2-P03": {
+      "goal": "Run the full 90-minute presentation and all three lamps within 0.400 kWh."
+    },
+    "B2-P04": {
+      "goal": "Choose a motor giving at least 900 J of useful motion with at least 55% efficiency.",
+      "usefulMinimum": 900,
+      "efficiencyMinimum": 55,
+      "fixtures": [
+        {
+          "id": "reference",
+          "name": "Motor A",
+          "input": 1500,
+          "useful": 900
+        },
+        {
+          "id": "comparison",
+          "name": "Motor B",
+          "input": 1200,
+          "useful": 600
+        }
+      ],
+      "initialFixture": "comparison"
+    },
+    "B2-T01": {
+      "goal": "Plan the new event independently: four 9 W lamps for five hours, plus one projector for two hours. Cap: 0.500 kWh. Calculate the original total and the total for your repair."
+    }
+  },
+  "variants": [
+    {
+      "id": "B2-P01-R1",
+      "baseScenarioId": "B2-P01",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "Reading club after dark",
+      "cap_kwh": 0.35,
+      "serviceRequirements": [
+        {
+          "id": "lamps",
+          "name": "reading lamps",
+          "requiredCount": 4,
+          "requiredHours": 8,
+          "powers": [
+            10,
+            40
+          ]
+        }
+      ],
+      "initial": {
+        "lamps_power": 40,
+        "lamps_count": 4,
+        "lamps_hours": 8
+      },
+      "goal": "Light four reading places for eight hours using at most 0.350 kWh.",
+      "keyIdea": "Keep the full service while changing the energy account.",
+      "hints": [
+        "Use quantity \u00d7 watts \u00d7 hours / 1000.",
+        "Check service quantities and hours as well as the energy cap."
+      ]
+    },
+    {
+      "id": "B2-P01-R2",
+      "baseScenarioId": "B2-P01",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "Eight places at the workshop",
+      "cap_kwh": 0.3,
+      "serviceRequirements": [
+        {
+          "id": "lamps",
+          "name": "workshop lamps",
+          "requiredCount": 8,
+          "requiredHours": 3,
+          "powers": [
+            12,
+            24
+          ]
+        }
+      ],
+      "initial": {
+        "lamps_power": 12,
+        "lamps_count": 6,
+        "lamps_hours": 3
+      },
+      "goal": "Provide eight lamps for three hours. A cheap plan that leaves two places dark will not work.",
+      "keyIdea": "Keep the full service while changing the energy account.",
+      "hints": [
+        "Use quantity \u00d7 watts \u00d7 hours / 1000.",
+        "Check service quantities and hours as well as the energy cap."
+      ]
+    },
+    {
+      "id": "B2-P02-R1",
+      "baseScenarioId": "B2-P02",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "Trim the extra computer hour",
+      "cap_kwh": 1.2,
+      "serviceRequirements": [
+        {
+          "id": "computers",
+          "name": "study computers",
+          "requiredCount": 4,
+          "requiredHours": 3,
+          "powers": [
+            75
+          ]
+        },
+        {
+          "id": "lamps",
+          "name": "study lamps",
+          "requiredCount": 4,
+          "requiredHours": 4,
+          "powers": [
+            10
+          ]
+        },
+        {
+          "id": "fan",
+          "name": "room fan",
+          "requiredCount": 1,
+          "requiredHours": 2,
+          "powers": [
+            60
+          ]
+        }
+      ],
+      "initial": {
+        "computers_power": 75,
+        "computers_count": 4,
+        "computers_hours": 4,
+        "lamps_power": 10,
+        "lamps_count": 4,
+        "lamps_hours": 4,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 2
+      },
+      "goal": "Keep three computer hours, four lighting hours and two fan hours within 1.200 kWh.",
+      "keyIdea": "Keep the full service while changing the energy account.",
+      "hints": [
+        "Use quantity \u00d7 watts \u00d7 hours / 1000.",
+        "Check service quantities and hours as well as the energy cap."
+      ]
+    },
+    {
+      "id": "B2-P02-R2",
+      "baseScenarioId": "B2-P02",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "A full computer room",
+      "cap_kwh": 1.1,
+      "serviceRequirements": [
+        {
+          "id": "computers",
+          "name": "study computers",
+          "requiredCount": 6,
+          "requiredHours": 2,
+          "powers": [
+            65
+          ]
+        },
+        {
+          "id": "lamps",
+          "name": "study lamps",
+          "requiredCount": 6,
+          "requiredHours": 3,
+          "powers": [
+            10
+          ]
+        },
+        {
+          "id": "fan",
+          "name": "room fan",
+          "requiredCount": 1,
+          "requiredHours": 2,
+          "powers": [
+            60
+          ]
+        }
+      ],
+      "initial": {
+        "computers_power": 65,
+        "computers_count": 4,
+        "computers_hours": 2,
+        "lamps_power": 10,
+        "lamps_count": 6,
+        "lamps_hours": 3,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 2
+      },
+      "goal": "Six learners need computers. Restore the missing places and stay within 1.100 kWh.",
+      "keyIdea": "Keep the full service while changing the energy account.",
+      "hints": [
+        "Use quantity \u00d7 watts \u00d7 hours / 1000.",
+        "Check service quantities and hours as well as the energy cap."
+      ]
+    },
+    {
+      "id": "B2-P03-R1",
+      "baseScenarioId": "B2-P03",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "Two-hour film night",
+      "cap_kwh": 0.45,
+      "serviceRequirements": [
+        {
+          "id": "lamps",
+          "name": "hall lamps",
+          "requiredCount": 5,
+          "requiredHours": 4,
+          "powers": [
+            8
+          ]
+        },
+        {
+          "id": "projector",
+          "name": "film projector",
+          "requiredCount": 1,
+          "requiredHours": 2,
+          "powers": [
+            180,
+            120
+          ]
+        }
+      ],
+      "initial": {
+        "lamps_power": 8,
+        "lamps_count": 5,
+        "lamps_hours": 4,
+        "projector_power": 180,
+        "projector_count": 1,
+        "projector_hours": 2
+      },
+      "goal": "Keep the full two-hour screening and four hours of light within 0.450 kWh.",
+      "keyIdea": "Keep the full service while changing the energy account.",
+      "hints": [
+        "Use quantity \u00d7 watts \u00d7 hours / 1000.",
+        "Check service quantities and hours as well as the energy cap."
+      ]
+    },
+    {
+      "id": "B2-P03-R2",
+      "baseScenarioId": "B2-P03",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "The talk cannot finish early",
+      "cap_kwh": 0.45,
+      "serviceRequirements": [
+        {
+          "id": "lamps",
+          "name": "hall lamps",
+          "requiredCount": 2,
+          "requiredHours": 5,
+          "powers": [
+            10
+          ]
+        },
+        {
+          "id": "projector",
+          "name": "presentation projector",
+          "requiredCount": 1,
+          "requiredHours": 3,
+          "powers": [
+            160,
+            100
+          ]
+        }
+      ],
+      "initial": {
+        "lamps_power": 10,
+        "lamps_count": 2,
+        "lamps_hours": 5,
+        "projector_power": 100,
+        "projector_count": 1,
+        "projector_hours": 2
+      },
+      "goal": "The presentation lasts three hours. Repair its schedule without exceeding 0.450 kWh.",
+      "keyIdea": "Keep the full service while changing the energy account.",
+      "hints": [
+        "Use quantity \u00d7 watts \u00d7 hours / 1000.",
+        "Check service quantities and hours as well as the energy cap."
+      ]
+    },
+    {
+      "id": "B2-P04-R1",
+      "baseScenarioId": "B2-P04",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "Equal motion, different accounts",
+      "input_j": 1800,
+      "useful_j": 1200,
+      "serviceRequirements": [],
+      "initial": {},
+      "goal": "Choose a motor delivering at least 1200 J of useful motion with at least 60% efficiency.",
+      "usefulMinimum": 1200,
+      "efficiencyMinimum": 60,
+      "fixtures": [
+        {
+          "id": "reference",
+          "name": "Motor A",
+          "input": 1800,
+          "useful": 1200
+        },
+        {
+          "id": "comparison",
+          "name": "Motor B",
+          "input": 1500,
+          "useful": 750
+        }
+      ],
+      "initialFixture": "comparison",
+      "keyIdea": "Compare useful output with input; neither power nor useful output alone establishes efficiency.",
+      "hints": [
+        "Efficiency = useful output / input \u00d7 100.",
+        "Compare both the useful-output requirement and the efficiency target."
+      ]
+    },
+    {
+      "id": "B2-P04-R2",
+      "baseScenarioId": "B2-P04",
+      "contentVersion": "2.1.0-pilot1",
+      "stage": "replay",
+      "title": "More useful energy is not the whole story",
+      "input_j": 2000,
+      "useful_j": 1400,
+      "serviceRequirements": [],
+      "initial": {},
+      "goal": "Choose a motor delivering at least 1300 J of useful motion with at least 65% efficiency.",
+      "usefulMinimum": 1300,
+      "efficiencyMinimum": 65,
+      "fixtures": [
+        {
+          "id": "reference",
+          "name": "Motor A",
+          "input": 2000,
+          "useful": 1400
+        },
+        {
+          "id": "comparison",
+          "name": "Motor B",
+          "input": 2500,
+          "useful": 1500
+        }
+      ],
+      "initialFixture": "comparison",
+      "keyIdea": "Compare useful output with input; neither power nor useful output alone establishes efficiency.",
+      "hints": [
+        "Efficiency = useful output / input \u00d7 100.",
+        "Compare both the useful-output requirement and the efficiency target."
+      ]
+    }
+  ],
+  "lab": {
+    "id": "B2-LAB",
+    "baseScenarioId": null,
+    "contentVersion": "2.1.0-pilot1",
+    "stage": "lab",
+    "title": "Run the whole centre",
+    "cap_kwh": 12,
+    "serviceRequirements": [
+      {
+        "id": "lamps",
+        "name": "LED lights",
+        "requiredCount": 10,
+        "requiredHours": 6,
+        "powers": [
+          10
+        ]
+      },
+      {
+        "id": "heater",
+        "name": "room heater",
+        "requiredCount": 1,
+        "requiredHours": 4,
+        "powers": [
+          1500
+        ]
+      },
+      {
+        "id": "computers",
+        "name": "study computers",
+        "requiredCount": 5,
+        "requiredHours": 3,
+        "powers": [
+          50
+        ]
+      },
+      {
+        "id": "water",
+        "name": "water heater",
+        "requiredCount": 1,
+        "requiredHours": 1.5,
+        "powers": [
+          2000
+        ]
+      },
+      {
+        "id": "chargers",
+        "name": "device chargers",
+        "requiredCount": 10,
+        "requiredHours": 2,
+        "powers": [
+          2
+        ]
+      }
+    ],
+    "initial": {
+      "lamps_power": 10,
+      "lamps_count": 10,
+      "lamps_hours": 8,
+      "heater_power": 1500,
+      "heater_count": 1,
+      "heater_hours": 6,
+      "computers_power": 50,
+      "computers_count": 5,
+      "computers_hours": 4,
+      "water_power": 2000,
+      "water_count": 1,
+      "water_hours": 2,
+      "chargers_power": 2,
+      "chargers_count": 10,
+      "chargers_hours": 6
+    },
+    "goal": "The centre plan uses extra hours. Keep all five services and bring it down to 12.000 kWh.",
+    "keyIdea": "Keep the full service while changing the energy account.",
+    "hints": [
+      "Use quantity \u00d7 watts \u00d7 hours / 1000.",
+      "Check service quantities and hours as well as the energy cap."
+    ],
+    "fixedCounts": true
+  },
+  "assumptions": [
+    "Alternative wattage options provide the same stated service in the supplied model.",
+    "Each listed power rating applies to one device.",
+    "The illustrative day replay starts every device together; it is not a booking timetable.",
+    "All explanation quality remains teacher review pending."
+  ]
+}

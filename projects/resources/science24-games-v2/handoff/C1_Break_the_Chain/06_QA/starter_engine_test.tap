@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: two route-specific measures block both
+ok 1 - two route-specific measures block both
+  ---
+  duration_ms: 0.614888
+  type: 'test'
+  ...
+# Subtest: one route remains open
+ok 2 - one route remains open
+  ---
+  duration_ms: 0.547596
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 59.035243

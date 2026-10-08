@@ -1,0 +1,28 @@
+TAP version 13
+# Subtest: generator account
+ok 1 - generator account
+  ---
+  duration_ms: 0.745594
+  type: 'test'
+  ...
+# Subtest: missing energy rejected
+ok 2 - missing energy rejected
+  ---
+  duration_ms: 0.106811
+  type: 'test'
+  ...
+# Subtest: motor useful fraction
+ok 3 - motor useful fraction
+  ---
+  duration_ms: 0.239932
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 54.523417

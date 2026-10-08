@@ -1,0 +1,9 @@
+# Source review and cautions
+
+Read teacher slides 4–13 for the first three lessons and the full adjacent context. Textbook printed 436–442 = PDF 3–9. The full PDF/deck and native full chapter are supplied for continuity. Native routes are authoritative identities, not proof that every existing explanation is complete.
+
+Actual rendered printed pages 440 and 441 inspected by Codex. Page 440 lists thyroxine among water-soluble hormones: this conflicts with the current scientifically corrected lesson's intracellular thyroid-hormone mechanism. Do not regress the correction; independently verify through primary science/authoritative reference and document the source conflict separately. Slide shorthand about whole-body endocrine effects must retain target specificity. Do not imply all cells depend on insulin for glucose uptake or basal insulin secretion completely ceases. Oxytocin milk ejection differs from prolactin milk production. Positive feedback needs its endpoint, not a vague claim of being harmful. Hormone solubility is not identical to chemical origin. Steroid receptors can be cytoplasmic or nuclear. Timing contrasts are typical, not absolute. Historical procedures or clinical treatments are not at-home instructions.
+
+The lesson 3 existing optional response asks about stimulating hormone versus target-gland hormone. Teach enough of that two-level relationship before the optional task without stealing the later detailed pituitary lesson. Preserve all frozen assessments; flag a conflict instead of changing an old key.
+
+All native figures in the teaching interval are locked. Explain their actual labels/arrows near them, do not replace them with generic images. Other extracted slide assets still need actual pixel review. Missing visuals require explicit status rather than invisible placeholders.

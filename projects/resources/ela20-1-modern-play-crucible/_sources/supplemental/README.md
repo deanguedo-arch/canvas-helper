@@ -11,6 +11,14 @@ The Act 1 PDF is byte-identical to the existing teacher-archive Act 1 sheet. It 
 
 The learner guide keeps the instructional content and all 62 act questions. Obsolete exam submission directions were removed from the learner-facing DOCX/PDF derivatives.
 
+The original film is preserved in the approved external Project Archives registry; the learner derivative remains in place. From the repository root, resolve and verify the original with:
+
+```bash
+npx --no-install tsx scripts/resolve-project-archive.ts --source "projects/resources/ela20-1-modern-play-crucible/_sources/supplemental/originals/The Crucible Movie source.mp4" --path-only
+```
+
+Use the returned absolute filename as the input to the historical conversion command below. Set `CANVAS_HELPER_ARCHIVE_ROOT` on another computer if its Project Archives folder differs. This resolver reads/verifies only; it does not regenerate a course or restore files automatically.
+
 The film derivative was generated with:
 
 ```bash

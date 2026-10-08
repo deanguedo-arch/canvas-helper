@@ -1,0 +1,5 @@
+export const formulaCounts={H2:{H:2},O2:{O:2},H2O:{H:2,O:1},H2O2:{H:2,O:2},CH4:{C:1,H:4},CO2:{C:1,O:2},Fe:{Fe:1},Fe2O3:{Fe:2,O:3},CaCO3:{Ca:1,C:1,O:3},HCl:{H:1,Cl:1},CaCl2:{Ca:1,Cl:2},N2:{N:2},NH3:{N:1,H:3}};
+export function countSide(species,coefficients){const out={};species.forEach((f,i)=>{const c=Number(coefficients[i]);if(!Number.isInteger(c)||c<0)throw new Error('Coefficients must be non-negative integers');for(const [el,n] of Object.entries(formulaCounts[f]||{}))out[el]=(out[el]||0)+n*c;});return out}
+export function validateBalance(reactants,products,coefficients){const l=countSide(reactants,coefficients.slice(0,reactants.length));const r=countSide(products,coefficients.slice(reactants.length));const els=[...new Set([...Object.keys(l),...Object.keys(r)])];return {balanced:els.every(e=>(l[e]||0)===(r[e]||0)),left:l,right:r,differences:Object.fromEntries(els.map(e=>[e,(l[e]||0)-(r[e]||0)]))}}
+export function gcdAll(values){const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);return values.reduce((a,b)=>gcd(a,b),0)}
+export function simplest(coefficients){const g=gcdAll(coefficients);return g>1?coefficients.map(n=>n/g):coefficients.slice()}

@@ -1,0 +1,20 @@
+{
+  "status": "paused-pending-late-record-reconciliation",
+  "userWarning": "The previous task may have changed the course before stopping. Compare the current files with the handoff hashes before applying anything.",
+  "intakeBaseIsSuperseded": true,
+  "latestCandidate": "/Users/deanguedo/Documents/Codex/2026-10-08/task-2/comparison/ch13-teacher-pass-v0.3.2/new",
+  "latestCandidateHtmlSha256": "74088c927f8a2d4660e5c781e3ed6f5494bead160e94fb79fecc2f045cfde2af",
+  "latestCandidateCssSha256": "db0dc21929ed0fec8aee45633ef0fd9de2e3cae5b48ac207d0390ee8472fb344",
+  "canonicalHtmlSha256": "341c2f943c4178bc2abf3d56290f0d8f2cb31e6b78b2b89b187694385ebc62e6",
+  "findings": [
+    "Late candidate lessons 06 and 07 already match the reviewed package candidate route hashes.",
+    "Late candidate lesson 05, a diagram asset and mobile dialog CSS differ from the earlier intake base.",
+    "Lessons 08 through 13 still match the package base route hashes.",
+    "Canonical course HTML remains unchanged; no lesson replacements have been applied by this intake task."
+  ],
+  "verificationLimits": "The late receipt marks diagram and mobile repair verification pending. Later task reports must be reconciled before making verification claims.",
+  "nextAction": "Resolve the late task record with Dean before assembly. Preserve v0.3.2 and do not reapply lessons 06/07 or discard its lesson 05 and CSS changes.",
+  "assemblyGuard": "The intake script --build path is disabled until the stale baseline is reconciled.",
+  "canonicalIntegrated": false,
+  "packagingOrDeploymentPerformed": false
+}

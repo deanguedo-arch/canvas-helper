@@ -1,0 +1,35 @@
+.compare-brand{position:absolute;left:28px;top:11px}
+.compare-brand img{display:block;width:112px}
+.compare-header-label{margin-left:auto;padding:0 28px;font-size:13px;font-weight:800}
+.finlit-comparison{max-width:1780px;margin:0 auto;padding:106px 34px 75px}
+.compare-intro{max-width:1120px;margin:0 auto 25px;padding:32px 39px;border:1px solid var(--border);border-top:5px solid var(--green);background:#fff}
+.compare-intro h1{margin:0 0 12px;font-size:clamp(32px,4vw,46px)}
+.compare-intro>p{max-width:82ch}
+.compare-boundary{margin:18px 0 0;padding:12px 15px;border-left:3px solid var(--teal);background:#f1f6f2;font-size:14px}
+.compare-layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px;align-items:start}
+.compare-controls,.compare-content,.compare-change-list,.compare-review-prompt{border:1px solid var(--border);background:#fff}
+.compare-controls{position:sticky;top:82px;padding:22px}
+.compare-controls label{display:block;margin:0 0 6px;font-size:14px;font-weight:800}
+.compare-controls select{display:block;width:100%;min-height:44px;margin:0 0 18px;padding:7px;border:1px solid #aeb8af;border-radius:4px;background:#fff;color:var(--ink);font:15px 'Work Sans',sans-serif}
+.compare-controls select:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.compare-point-note{margin:4px 0 21px;font-size:14px;line-height:1.5;color:#3d5144}
+.compare-full-links{display:grid;gap:12px;padding-top:16px;border-top:1px solid var(--border);font-size:14px;font-weight:800;line-height:1.4}
+.compare-content{min-width:0;padding:20px}
+.compare-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.compare-pair figure{min-width:0;margin:0;border:1px solid #cbd3cb;background:#f5f7f4}
+.compare-pair figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 10px;min-height:70px;padding:11px 14px;border-bottom:1px solid #cbd3cb;background:#fff;font-size:14px}
+.compare-pair figcaption strong{font-size:18px}
+.compare-pair figcaption span:last-child{flex-basis:100%;color:var(--muted);line-height:1.3}
+.compare-letter{display:inline-grid;place-items:center;width:25px;height:25px;background:var(--green);color:#fff;font:850 14px 'Hanken Grotesk',sans-serif}
+.compare-pair a{display:block}
+.compare-pair img{display:block;width:100%;height:auto}
+.compare-image-note{margin:14px 0 0;color:var(--muted);font-size:13px}
+.compare-change-list,.compare-review-prompt{max-width:1120px;margin:25px auto 0;padding:28px 38px}
+.compare-change-list h2,.compare-review-prompt h2{margin:0 0 15px;font-size:30px}
+.compare-change-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.compare-change-grid h3{margin:8px 0 12px;font-size:23px}
+.compare-change-grid p{font-size:15px}
+.compare-review-prompt ul{max-width:850px;padding-left:24px}
+.compare-review-prompt li{margin:7px 0}
+@media(max-width:900px){.compare-layout{grid-template-columns:1fr}.compare-controls{position:static;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px 12px}.compare-controls label{margin:0}.compare-controls select{grid-row:2}.compare-point-note,.compare-full-links{grid-column:1/-1}.compare-intro,.compare-change-list,.compare-review-prompt{padding:25px}.finlit-comparison{padding:87px 14px 50px}}
+@media(max-width:620px){.compare-brand{left:12px}.compare-brand img{width:94px}.compare-header-label{padding-right:12px;font-size:12px}.compare-controls{display:block}.compare-controls select{margin-bottom:14px}.compare-pair,.compare-change-grid{grid-template-columns:1fr}.compare-content{padding:12px}.compare-pair figcaption{min-height:0}.compare-intro h1{font-size:33px}}

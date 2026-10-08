@@ -1,0 +1,18 @@
+# Science 24 Exam-Demand Matrix
+
+The game layer must terminate in the academic representation students are expected to handle independently.
+
+| Game | Game title | Demands deliberately rehearsed | Independent evidence |
+| --- | --- | --- | --- |
+| A1 | Reaction Detective | Distinguish an observation from evidence that identifies a new substance.<br>Classify physical and chemical changes and recognize common reaction categories.<br>Interpret temperature change as supporting—not automatically conclusive—evidence.<br>Use multiple records to make a claim and justify a practical or environmental response.<br>Apply the reasoning to a fresh conventional question without the evidence-board scaffolds. | Fresh transfer without the worked solution |
+| A2 | Atom Factory | Read formulas and count each element separately.<br>Distinguish coefficients from subscripts.<br>Determine whether an equation is balanced.<br>Balance equations with smallest whole-number coefficients while accepting valid multiples.<br>Explain conservation using an atom-by-atom ledger. | Fresh transfer without the worked solution |
+| B1 | Energy Chain Rescue | Identify energy forms, sources and converters.<br>Trace multi-stage transformations in order.<br>Account for useful and less-useful outputs without saying energy disappeared.<br>Separate matter flow from energy transfer in biological systems.<br>Interpret photosynthesis and cellular respiration as linked energy-conversion contexts. | Fresh transfer without the worked solution |
+| B2 | Power Budget Challenge | Use E = P × t with compatible units.<br>Distinguish W and kW from Wh and kWh.<br>Add energy across multiple devices and operating periods.<br>Evaluate a plan against both an energy cap and mandatory service requirements.<br>Calculate efficiency from useful output divided by input. | Fresh transfer without the worked solution |
+| C1 | Break the Chain | Distinguish communicable and non-communicable causes.<br>Trace a pathogen through an explicitly supplied transmission route.<br>Match a prevention measure to the route it interrupts.<br>Distinguish external prevention, treatment, innate defence and adaptive immune memory.<br>Explain why one measure may leave another route open. | Fresh transfer without the worked solution |
+| C2 | Inheritance Detective | Distinguish gene, allele, genotype and phenotype.<br>Build and interpret a Punnett square.<br>Infer possible genotypes from a fictional pedigree.<br>Calculate probabilities and explain that each outcome is not guaranteed.<br>Preserve uncertainty when evidence supports more than one genotype. | Fresh transfer without the worked solution |
+| D1 | Safe Stop Challenge | Use speed × time to calculate reaction distance.<br>Keep reaction distance separate from supplied braking distance.<br>Calculate total stopping distance and margin to a stationary obstacle.<br>Interpret slope and horizontal segments on a distance–time graph.<br>Use evidence rather than reflex performance or real-driving claims. | Fresh transfer without the worked solution |
+| D2 | Crash-Test Studio | Calculate signed momentum and momentum change.<br>Relate impulse to momentum change.<br>Compare average force for the same momentum change over different stopping times.<br>Keep occupant and vehicle/cart system boundaries separate.<br>Apply conservation of momentum to one-dimensional carts that lock together. | Fresh transfer without the worked solution |
+
+## Non-negotiable progression
+
+**Play it → see it → explain it → solve it → exam it.** Early rounds make cause and effect visible; later rounds progressively remove supports; the transfer round changes context or representation and does not expose the worked solution first.

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "role": "isolated review candidate",
+  "teacherAccepted": false,
+  "canonicalIntegrated": false,
+  "originalSha256": "341c2f943c4178bc2abf3d56290f0d8f2cb31e6b78b2b89b187694385ebc62e6",
+  "lessons": [
+    {
+      "lessonId": "lesson-01",
+      "beforeSha256": "24b057a26cd6db4b0c244e668b981b7e0c00757c00330d513fcd19e76754f79e",
+      "fragmentSha256": "eb2b5b2dde67a2169325816abd825a1c09a6fa2eb0100e5cd589cd79eb489c33",
+      "lockedFigureExact": true,
+      "wordingRepairCount": 0,
+      "restoredHormoneVocabularyLink": false,
+      "preservedOuterTags": 5
+    },
+    {
+      "lessonId": "lesson-02",
+      "beforeSha256": "33abec10072d0bc6d23162ec503958f2257f7cc5a94126672313b0a18e631756",
+      "fragmentSha256": "58f297fb7b15eba2cc675285f0cf4697c3d14bedee7d7782f135dedfda5e3f55",
+      "lockedFigureExact": false,
+      "wordingRepairCount": 1,
+      "restoredHormoneVocabularyLink": true,
+      "preservedOuterTags": 5,
+      "figureChangeAuthorizedByLatestUser": true
+    },
+    {
+      "lessonId": "lesson-03",
+      "beforeSha256": "4f7ae3c8bbcca37f18de304f7bec428b19652f7d51745883fcfa7fc6a763c096",
+      "fragmentSha256": "9cbf5b2887ba1807a5fd82bc10523e125e6632b5688e224dda50cfc20a42e45c",
+      "lockedFigureExact": true,
+      "wordingRepairCount": 1,
+      "restoredHormoneVocabularyLink": false,
+      "preservedOuterTags": 5
+    }
+  ],
+  "outsideIntervalsExact": true,
+  "candidateSha256": "1984778161a90a506abb3401169828c9766c315f84dc633ae70419083f083f21",
+  "runtimeHashes": {
+    "styles.css": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+    "main.js": "e6c0fe539c253bd73de6e9b672e070a8e534e0404319b64a92bc900798a901ad"
+  },
+  "visualChangeAuthorization": "Dean Oct08 12:39UTC: high-quality imagegen improvements; source reference preserved as evidence",
+  "visualArtifact": {
+    "path": "new/assets/teaching-review/ch13-l02-receptors.svg",
+    "sha256": "7ab9449228fd79bb8ff5e903907ae67a05f45b4ac8e74e13046261bc320d6c9b",
+    "generatedArtworkSha256": "261658f66916b641c530d5c4ad993f0416ed733e094ff6b2e74958fc972ac9ef",
+    "scientificallyReviewed": true,
+    "browserVerified": true,
+    "chemicalStructureDepicted": false,
+    "deterministicLabels": true,
+    "purpose": "show phospholipid barrier and distinguish external recognition/internal relay from intracellular steroid binding",
+    "browserCoverage": "desktop lesson02 rendered + native View larger modal, full image labels/caption checked; mobile/print pending"
+  },
+  "onlyDeltaFromV012": "lesson02 figure image src, accessible caption and new visual assets; all protected tasks and runtime exact"
+}

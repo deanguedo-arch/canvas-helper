@@ -1,0 +1,45 @@
+{
+  "baseCandidateSha256": "15df5967cc8fe94173c1d5a69ed485f28d52fcdbd292c9b1df62145b9264f9bc",
+  "canonicalIntegration": false,
+  "runtimeBehavior": "Not verified; inert content only",
+  "lessons": [
+    {
+      "lesson": 10,
+      "baseRouteSha256": "c477a3666c08954072268ea4e891b5c221917a65d83e4d7b1318d7cd22a9a58d",
+      "candidateRouteSha256": "d35c6302ec674dffc543e5eacf302a2e1436660341da114d984fd86f684844df",
+      "changedBlockIds": [
+        "ch13-l10-teaching-01",
+        "ch13-l10-teaching-02",
+        "ch13-l10-teaching-03",
+        "ch13-l10-teaching-04",
+        "ch13-l10-worked"
+      ],
+      "exactOutsideReplacementRecovery": true,
+      "allFiguresByteExact": true,
+      "nativeTermButtonsByteExact": true,
+      "blindFeedbackDisclosuresRemoved": 4
+    },
+    {
+      "lesson": 11,
+      "baseRouteSha256": "1f4544d14a4e60d3efebaf1e776be70123d49c5c533c3e314b7e3606f005909b",
+      "candidateRouteSha256": "ffd547f9bf4ef67a7bce4540aa3d08fc467b95cfd4dc3fc75f0de52c64269c4d",
+      "changedBlockIds": [
+        "ch13-l11-teaching-01",
+        "ch13-l11-teaching-02",
+        "ch13-l11-teaching-03",
+        "ch13-l11-teaching-04",
+        "ch13-l11-worked"
+      ],
+      "exactOutsideReplacementRecovery": true,
+      "allFiguresByteExact": true,
+      "nativeTermButtonsByteExact": true,
+      "blindFeedbackDisclosuresRemoved": 4
+    }
+  ],
+  "installation": "CONDITIONAL on latest local10/11 route hashes matching these frozen bases",
+  "standardsInput": {
+    "version": "0.2",
+    "bytes": 48641,
+    "sha256": "ba406705d9a0251079ddd81a4baecb84d60f1d1b68819b3665bedccb1e91c9d1"
+  }
+}

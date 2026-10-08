@@ -1,0 +1,69 @@
+Biology 30 Chapter 15 lessons 01–02 source coverage preflight
+Checked 2026-10-08 UTC
+
+Result
+The existing required checks are supported at a basic level by the native lesson text. The supplied source files are now sufficient to proceed with authoring, provided the source conflicts and optional-practice dependencies below are handled explicitly. No source file was changed, and no revised lesson or author rationale was read or drafted. This is a source-coverage inspection, not learner QA or a certification of the current lessons.
+
+Inspected evidence
+- Full native lesson-01 and lesson-02 sections in chapter-15/workspace/index.html, including vocabulary, teaching, figure instructions, worked examples, guided questions, stop-and-think, video fallback text, required checks, optional written response and textbook-practice links
+- Relevant course-config.json checks, guidedActivities, practiceQuestions, practiceConcepts, authoredPractice, typedPractice, multiSelectPractice, sequences, labelDiagrams, diagramPractice, videos and notes
+- Printed textbook pages 508–511, viewed as supplied complete page images and checked against embedded chapter-15.pdf text (PDF pages 3–6)
+- Textbook-question-manifest.json and question assets, optional-source-responses.json, relevant original assessment-catalogue item, lesson-source-map.json and teacher-slide-transcript.json
+- Actual Unit B Chapter 15 Notes.pptx, slides 3–10 XML, notes and image relationships, with substantive embedded images visually inspected
+- Native ch15-source-cleavage.png, teaching and labeling ch15-cleavage.svg (rendered for inspection), and optional assessment image 1fdf0c6c0550cf02.png
+PPTX SHA256: 38149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84. It has 42 slides. Slides 3–10 text matches the saved transcript after whitespace normalization. Their referenced image/notes files exist; notes contain no additional teaching content.
+
+1. Missing inputs and source-to-lesson omissions
+No file needed for the assigned p508–511/lesson01–02 scope remains missing. The teacher PPTX was initially pending and is now verified. The following learning inputs are missing from the native lessons, rather than from the source package:
+- Lesson01 asks learners to locate the sperm head, oocyte membrane and protective layers in the fertilization figure, but its only teaching figure is the p510 reproductive-tract overview (Figure 15.2). Detailed Figure 15.1 on p509 is available in the textbook and actual slide06 media/image4.jpg. It explicitly labels acrosome, head, nuclei, corona radiata, zona pellucida and membrane.
+- Lesson01 never names/defines corona radiata. It names zona pellucida without explaining the two surrounding layers as clearly as p508/slide05. This matters to the process trace and figure reading.
+- Lesson01 omits the textbook's 12–24-hour post-ovulation viability window, sperm journey/attrition, and the source explanation of why the first sperm to arrive need not be the fertilizing sperm. These are needed for its optional p509 Q2–Q4, although not for its required check.
+- Lesson02 instructs learners to connect its sequence figure to movement from oviduct to uterus. Its own ch15-cleavage.svg shows cell organization only, with no reproductive-tract location or implantation. The needed geographical sequence exists in p510 Figure15.2, currently placed in lesson01, and slide10's image-only diagram.
+- Lesson02's practice-bank item OBJ_2131152 asks where nutrients/energy come from in the first three days (key: oocyte cytoplasm). The native lesson does not explicitly teach this. The selected textbook pages and slides3–10 do not explicitly substantiate the exact first-three-days proposition; only the imported assessment/explanation supplies it. Additional authoritative support is needed if this claim will be expanded as new teaching.
+- The selected source pages/slides do not explicitly support the native additions about completion of meiosis II or cortical-granule modification of the zona pellucida. These are already in the native required-check model. Retain the distinction from the old source account, but use a suitable scientific reference if formally documenting the correction.
+- Video hyperlinks are present; playback/content was not reviewed or certified. Native text must continue to stand alone.
+
+2. Actual-slide and source-map corrections
+- lesson-source-map assigns lesson01 slides3–5, but slide03 is an overview, slide04 a linked-video title, slide05 the fertilization introduction, and slide06 the detailed fertilization process. Lesson01's video map already identifies the second video as slide06, confirming the inconsistent boundary.
+- lesson02's current slides6–9 range starts with fertilization, then a broad development overview (slide07). The focused cleavage/implantation explanation is slides08–09.
+- Slide10 has an empty text transcript but a substantive image: cleavage and blastocyst formation in the reproductive tract, with blastomeres, morula, inner cell mass, blastocoele, trophoblast, hatching and implantation. It is currently mapped only to lesson03. Include its evidence when covering lesson02.
+- Slide08 media/image8.png supplies 2-, 4-, 8-cell and morula micrographs. Slide09 media/image20.png supplies a labeled blastocyst. These are present, not missing diagram sources.
+- Lesson02 printedPages [509,511] functions as a range in native presentation. Page510 must not be dropped during source retrieval; it contains the principal blastocyst/implantation explanation and tract diagram.
+
+3. Source conflicts and wording hazards
+- Textbook p508 and slide06 say the egg membrane depolarizes to prevent further sperm entry. Native lesson01 uses cortical granules/zona changes. These are materially different mechanisms; do not silently copy the old mechanism over the existing human-fertilization explanation.
+- Slide05 says the coating layers ensure only one sperm can successfully attach. The textbook diagram and narrative show multiple sperm interacting with the coating. Distinguish contact/attachment to surrounding layers from successful entry/fertilization.
+- Slide06 and p509 Figure15.1 describe nuclei 'fusing.' Native wording instead centers the chromosome contributions and first division. The source figure retains its older fusion label; any use must reconcile that simplification with nearby prose.
+- Slide07 says fetal stage 'weeks 9–12'; p508 says from week9 through birth. Do not reproduce the slide's truncated fetal range. This is overview content, not a reason to expand these lessons into later fetal development.
+- Textbook p510 calls the endometrium the 'outer lining' of the uterus. Native language appropriately refers to the uterine lining; preserve that distinction when extracting text.
+- Slide09 says trophoblast turns into 'chorion and placenta.' Textbook p510 says chorion forms part of the placenta; native lesson02 specifically says supporting tissues including the fetal part. Avoid implying the whole placenta is trophoblast-derived.
+- Textbook p509 and slide08 specify a 16-cell morula. Native text correctly emphasizes compact organization instead of an exact count, but the optional imported OBJ_2131125 still explicitly uses 16 cells. Teach it as the source's typical landmark, without making cell count the sole identification criterion.
+- Main text/slide09 places attachment at days5–7 and completion at days10–14. Slide10's diagram labels implantation days7–10. Treat these as approximate source conventions and keep the existing end-of-week1/into-week2 framing; avoid a new exact-day requirement.
+- Textbook p511 begins later gastrulation material and calls the early two-layer disk ectoderm/endoderm. This is outside the present lesson boundary and should not be imported incidentally as a blastocyst explanation.
+
+4. Required and optional assessment scope
+Required, preserve exactly two selections and two written explanations per lesson:
+- ch15-check-01: 2n=24 immediate zygote; zona changes/blocking extra sperm; trace fertilization; explain normal ovulation/hormones with failed gamete transport
+- ch15-check-02: mitosis inhibition affects cleavage; inner cell mass versus trophoblast; more smaller cells/little total enlargement; fertilization versus implantation stage and location
+The native text covers these premises. Necessary learning distinctions are location, n versus 2n, successful entry versus proximity, chromosome contribution, growth versus division, cavity versus cell mass, and stage versus implantation status.
+
+Supported practice remains optional: two guided questions per lesson, definition/context/application banks, lesson01 multi-select, sequences, and lesson02 lettered diagram practice. Diagram key is A zygote, B morula, C blastocyst cavity, D inner cell mass, E trophoblast. Teaching and labeling versions differ appropriately in whether the key is displayed.
+
+Optional written response ch15-source-written-OBJ_2131150 belongs to lesson02. Its numbered diagram is present and legible: 1 ovary, 2 oviduct, 3 uterus/endometrium. The original assessment catalogue supplies numeric key2213 for fertilization, cleavage, ovulation, implantation. The current adaptation is saved writing, not a required numeric/autograded check. Do not change that behavior or add a required calculation.
+
+Optional textbook question routing:
+- lesson01 filter: p509 Q1–Q4
+- lesson02 filter: p509 Q1–Q4; p511 Q5,Q6,Q8,Q9; p512 Q10–Q12; p518 Section15.1 Q4
+- p511 Q7 (embryo from inner cell mass) is mapped only to lesson03 despite being a direct lesson02 concept
+All associated question crops/full-page assets exist. SourceText has PDF extraction control-character/number artifacts; the visual crops are the reliable wording.
+Dependencies: p511 Q9 needs lesson03 hCG content; p512 Q10–Q12 need amniotic-cavity/embryonic-disk/gastrulation teaching; p518 Q4 adds gastrula to the stage order. Do not make lesson02 longer just to absorb this broad optional filter. Preserve optional status and original questions. Changing routing or assessment scope needs a deliberate separately scoped decision. Relevant in-scope p511 questions are Q5–Q8, even though Q7 is currently routed elsewhere.
+
+5. Preservation boundaries for subsequent authoring
+- Limit new lesson content to native lesson01/02 learning content and their explicitly permitted source/figure improvements. Leave lesson03 onward, chapter navigation, progress, storage and activity machinery intact.
+- Preserve route IDs lesson-01/lesson-02; check IDs ch15-check-01/ch15-check-02; all ch15-l01/l02 check-mc-1/2 and check-writing-1/2 identities, answers, response IDs and 3200-character limits. Preserve both guided-item IDs and their answer mappings.
+- Keep the two-selection writing gate, save-before-compare behavior, submit/finish rule, and statement that saving writing does not grade accuracy. Do not turn videos, supported practice, textbook practice or the 5000-character optional source response into completion requirements.
+- Preserve data-canvas-edit-key and data-canvas-helper-edit-key identities for titles, goals, prior knowledge, teaching sections/paragraphs, worked examples, guided sections and assessment prompts. Keep stable figure/term identities and working enlargement/vocabulary hooks when adjusting content placement.
+- Preserve glossary links for fertilization, zygote, haploid, diploid, cleavage, morula, blastocyst and implantation. Do not conflate blastocyst cavity with inner cell mass, or blastocyst formation with implantation.
+- Preserve both optional lesson01 videos and complete fallback explanations. Keep source citations adjacent to reused source figures. Check figure instructions against what the actual displayed image shows.
+- Do not mutate optional assessment stems, original textbook crops, imported answer keys, or cross-lesson question routing as an incidental prose edit.
+- No browser/runtime behavior was tested. This preflight establishes source coverage and content dependencies only.

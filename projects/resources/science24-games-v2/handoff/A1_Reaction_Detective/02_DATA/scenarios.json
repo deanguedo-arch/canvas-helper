@@ -1,0 +1,99 @@
+{
+  "game_id": "A1",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "A1-W01",
+      "stage": "worked",
+      "title": "Peroxide Decomposition",
+      "context": "A sealed virtual record identifies hydrogen peroxide before the change and water plus oxygen afterward. The mixture warms without external heating.",
+      "accepted": "Chemical change; decomposition",
+      "strong_evidence": [
+        "Substance identity changed from hydrogen peroxide to water and oxygen"
+      ],
+      "supporting": [
+        "Mixture warmed without external heating",
+        "Gas was produced"
+      ],
+      "response": "Isolate the record and label the case for review; do not perform unknown mixing.",
+      "transfer_skill": "New substance identity is stronger evidence than bubbles alone."
+    },
+    {
+      "id": "A1-P01",
+      "stage": "supported",
+      "title": "Cooling Solution",
+      "context": "A solid dissolves and the container cools. A later recovery test identifies the same solid.",
+      "accepted": "Physical change after identity comparison",
+      "strong_evidence": [
+        "Recovered substance matches the original"
+      ],
+      "supporting": [
+        "Temperature decreased",
+        "Solid disappeared from view"
+      ],
+      "alternate": "Not enough information before the identity comparison is opened",
+      "transfer_skill": "Cooling and dissolving alone do not prove chemical change."
+    },
+    {
+      "id": "A1-P02",
+      "stage": "practice",
+      "title": "Corroding Tool",
+      "context": "A clean iron tool is left in moist air and develops a reddish-brown coating with new properties.",
+      "accepted": "Chemical change; corrosion/rusting",
+      "strong_evidence": [
+        "New iron–oxygen product with different appearance and properties"
+      ],
+      "supporting": [
+        "Mass can increase as oxygen becomes part of the product"
+      ],
+      "response": "Use a barrier coating to reduce contact with oxygen and moisture.",
+      "transfer_skill": "Matter from the surroundings can become part of a product."
+    },
+    {
+      "id": "A1-P03",
+      "stage": "practice",
+      "title": "Antacid Record",
+      "context": "A calcium-carbonate antacid reacts with stomach acid in a supplied virtual record.",
+      "accepted": "Acid–carbonate reaction within the unit's neutralization context",
+      "strong_evidence": [
+        "Carbon dioxide, water and a calcium salt are identified"
+      ],
+      "supporting": [
+        "Bubbles form",
+        "Acidity decreases"
+      ],
+      "response": "Use only the supplied record; no dose or treatment advice.",
+      "transfer_skill": "Classify from reactants/products, not bubbles alone."
+    },
+    {
+      "id": "A1-P04",
+      "stage": "low_support",
+      "title": "Methane Combustion",
+      "context": "Methane reacts with oxygen in a controlled virtual burner record.",
+      "accepted": "Combustion",
+      "strong_evidence": [
+        "Carbon dioxide and water are identified as products"
+      ],
+      "supporting": [
+        "Thermal and light energy are released"
+      ],
+      "response": "Identify carbon dioxide as the product connected to the environmental issue studied in Unit A.",
+      "transfer_skill": "Connect reaction evidence, category and consequence."
+    },
+    {
+      "id": "A1-T01",
+      "stage": "transfer",
+      "title": "Boiling Water",
+      "context": "Liquid water forms bubbles; the vapour is collected and condenses back to water.",
+      "accepted": "Physical change; change of state",
+      "strong_evidence": [
+        "The substance remains water"
+      ],
+      "supporting": [
+        "Bubbles and vapour are observed"
+      ],
+      "transfer_skill": "Bubbles do not automatically mean a chemical reaction."
+    }
+  ]
+}

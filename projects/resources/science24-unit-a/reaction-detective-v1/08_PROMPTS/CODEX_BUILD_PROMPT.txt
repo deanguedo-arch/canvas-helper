@@ -1,0 +1,59 @@
+Build A1 Reaction Detective from the attached Science24_A1_Reaction_Detective_Handoff_v1.0 package.
+
+READ FIRST, IN THIS ORDER:
+1. 00_READ_ME/HANDOFF_MASTER.md
+2. 01_DESIGN/Science24_Games_Visual_Standard_v0.1.md
+3. 04_CONTENT/GAME_DESIGN_SPEC.md
+4. 04_CONTENT/SCENARIO_BANK.json
+5. 04_CONTENT/ANSWER_AND_FEEDBACK_RULES.md
+6. 01_DESIGN/UI_SCREEN_SPEC.md
+7. 05_CODE/TECHNICAL_ARCHITECTURE.md
+8. 06_QA/QA_TEST_PLAN.md
+
+AUTHORITATIVE CONTENT RULE:
+The PNG mockups are visual references only. Do NOT copy chemistry wording, formulas, values, evidence or answers from pixels. Use SCENARIO_BANK.json and the content documents as the source of truth. In particular, do not define rust as a single exact Fe2O3 formula just because a generated mockup may show that simplification.
+
+IMPLEMENTATION:
+- Produce a polished self-contained static web game using semantic HTML5, CSS3 and vanilla JavaScript.
+- No framework, CDN, account, analytics, database, network service or cloud save.
+- Keep state in memory for v1.
+- Use local SVG icons and the supplied local context art.
+- Preserve the approved charcoal + forest green + white Next Step / Science 24 visual identity.
+- Desktop should use the Case / Evidence / Reasoning hierarchy; narrow layouts stack in that order.
+- Every control must work by keyboard and touch.
+- No drag-only mechanic.
+- Respect prefers-reduced-motion.
+
+GAME FLOW:
+brief → worked example → four practice cases → feedback/retry → independent transfer → review.
+
+PRACTICE MECHANIC:
+- base observations visible;
+- initial prediction before extra evidence where specified;
+- 2 investigation tokens; learner may reveal at most 2 of 4 optional evidence records;
+- choose up to 2 strongest pieces of evidence;
+- choose conclusion;
+- choose reaction type when applicable;
+- enter an explanation;
+- submit;
+- targeted feedback and one-at-a-time hint ladder;
+- unlimited retry without score penalty.
+
+OPEN-RESPONSE RULE:
+Do not auto-grade explanation quality with keyword matching. Structured choices may be deterministic; the explanation is required and then shown against the visible Claim/Evidence/Reasoning/Limits rubric. Record it as submitted, not automatically correct.
+
+TRANSFER:
+T01 Boiling Water has no hints before first submission and no investigation-token mechanic. It must feel closer to a conventional exam question than the earlier cases.
+
+DO NOT ADD:
+coins, XP, leaderboard, timer, streak pressure, avatars, unrelated mini-games, unsafe lab directions, real student data, medical advice or real-furnace instructions.
+
+QA BEFORE CLAIMING COMPLETE:
+Run every item possible in 06_QA/QA_TEST_PLAN.md. Test correct, misconception, incomplete and valid-alternative responses. Test keyboard-only, touch-sized controls, narrow width, 200% zoom, reset, case changes and reduced motion. Report Pass / Revise / Not tested. Do not infer runtime success from screenshots.
+
+DELIVER:
+1. source folder;
+2. static runnable build;
+3. brief implementation notes;
+4. test report;
+5. any deviations from the handoff clearly listed.

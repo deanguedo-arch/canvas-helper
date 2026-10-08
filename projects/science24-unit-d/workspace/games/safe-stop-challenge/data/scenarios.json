@@ -1,0 +1,233 @@
+{
+  "game_id": "D1",
+  "version": "2.0.1",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "D1-W01",
+      "stage": "worked",
+      "title": "80 m Gap",
+      "speed": 20,
+      "reaction_time": 1.5,
+      "reaction_distance": 30,
+      "braking_distance": 40,
+      "gap": 80,
+      "total": 70,
+      "margin": 10,
+      "braking_time": 4,
+      "stop_time": 5.5,
+      "scene": "assets/scenes/scene_01_d1_w01.png",
+      "initial": {
+        "reaction": 30,
+        "total": 70,
+        "margin": 10,
+        "outcome": "before"
+      },
+      "kind": "stop",
+      "predictionPrompt": "Does shorter reaction time alone guarantee a shorter total stop across different speeds?",
+      "predictions": [
+        "Always",
+        "Only after considering speed and braking travel",
+        "Reaction distance is the whole stopping distance"
+      ],
+      "explanationPrompt": "Explain the separate reaction and braking contributions, using units and the stationary-obstacle model.",
+      "keyIdea": "Reaction travel is v \u00d7 t. Braking travel uses the supplied consistent model; slope shows speed.",
+      "hints": [
+        "Multiply speed by reaction time for reaction travel. Braking distance is supplied separately.",
+        "Add reaction and braking travel. Clearance = obstacle gap \u2212 total stop; zero means reaching its position."
+      ],
+      "deceleration": 5,
+      "teacherReasoning": "20\u00d71.5 = 30 m reaction; add 40 m braking for 70 m total. The 80 m obstacle leaves 10 m in this illustrative model."
+    },
+    {
+      "id": "D1-P01",
+      "stage": "supported",
+      "title": "45 m Gap",
+      "speed": 15,
+      "reaction_time": 1,
+      "reaction_distance": 15,
+      "braking_distance": 22.5,
+      "gap": 45,
+      "total": 37.5,
+      "margin": 7.5,
+      "braking_time": 3,
+      "stop_time": 4,
+      "scene": "assets/scenes/scene_02_d1_p01.png",
+      "initial": {},
+      "kind": "stop",
+      "predictionPrompt": "Do you predict that the vehicle stops before the 45 m obstacle after reaction and braking?",
+      "predictions": [
+        "Before the obstacle",
+        "Exactly at the obstacle",
+        "Past its position"
+      ],
+      "explanationPrompt": "Explain the separate reaction and braking contributions, using units and the stationary-obstacle model.",
+      "keyIdea": "Reaction travel is v \u00d7 t. Braking travel uses the supplied consistent model; slope shows speed.",
+      "hints": [
+        "Multiply speed by reaction time for reaction travel. Braking distance is supplied separately.",
+        "Add reaction and braking travel. Clearance = obstacle gap \u2212 total stop; zero means reaching its position."
+      ],
+      "deceleration": 5,
+      "teacherReasoning": "15\u00d71 = 15 m reaction; plus 22.5 m braking gives 37.5 m. Clearance is 45\u221237.5 = 7.5 m."
+    },
+    {
+      "id": "D1-P02",
+      "stage": "practice",
+      "title": "Longer Reaction",
+      "speed": 20,
+      "reaction_time": 2,
+      "reaction_distance": 40,
+      "braking_distance": 40,
+      "gap": 75,
+      "total": 80,
+      "margin": -5,
+      "braking_time": 4,
+      "stop_time": 6,
+      "scene": "assets/scenes/scene_03_d1_p02.png",
+      "initial": {},
+      "kind": "stop",
+      "predictionPrompt": "Do you predict that the vehicle stops before the 75 m obstacle after reaction and braking?",
+      "predictions": [
+        "Before the obstacle",
+        "Exactly at the obstacle",
+        "Past its position"
+      ],
+      "explanationPrompt": "Explain the separate reaction and braking contributions, using units and the stationary-obstacle model.",
+      "keyIdea": "Reaction travel is v \u00d7 t. Braking travel uses the supplied consistent model; slope shows speed.",
+      "hints": [
+        "Multiply speed by reaction time for reaction travel. Braking distance is supplied separately.",
+        "Add reaction and braking travel. Clearance = obstacle gap \u2212 total stop; zero means reaching its position."
+      ],
+      "deceleration": 5,
+      "teacherReasoning": "20\u00d72 = 40 m reaction; plus 40 m braking gives 80 m. Clearance 75\u221280 = \u22125 m, so the stop passes the obstacle position."
+    },
+    {
+      "id": "D1-P03",
+      "stage": "practice",
+      "title": "Same Speed, Different Reaction Time",
+      "speed": 20,
+      "reaction_times": [
+        1,
+        1.5,
+        2
+      ],
+      "reaction_distances": [
+        20,
+        30,
+        40
+      ],
+      "braking_distance": 40,
+      "answer": "Reaction travel changes linearly; braking distance stays supplied and unchanged.",
+      "scene": "assets/scenes/scene_04_d1_p03.png",
+      "initial": {},
+      "kind": "comparison",
+      "predictionPrompt": "At unchanged speed and braking conditions, what does a longer reaction time change?",
+      "predictions": [
+        "Reaction travel only",
+        "Braking travel only",
+        "Both by the same amount"
+      ],
+      "explanationPrompt": "Compare reaction distances for the three supplied times and explain why braking distance stays unchanged when speed and braking conditions stay fixed.",
+      "keyIdea": "At constant speed, reaction travel changes linearly with reaction time; the supplied braking distance stays unchanged.",
+      "hints": [
+        "Multiply speed by reaction time for reaction travel. Braking distance is supplied separately.",
+        "Add reaction and braking travel. Clearance = obstacle gap \u2212 total stop; zero means reaching its position."
+      ],
+      "deceleration": 5,
+      "reaction_time": 1,
+      "braking_time": 4,
+      "gap": 80,
+      "total": 60,
+      "teacherReasoning": "At 20 m/s, reaction times 1, 1.5 and 2 s give 20, 30 and 40 m. The supplied 40 m braking distance stays fixed."
+    },
+    {
+      "id": "D1-P04",
+      "stage": "low_support",
+      "title": "Graph Reading",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          1.5,
+          30
+        ],
+        [
+          3.5,
+          60
+        ],
+        [
+          5.5,
+          70
+        ],
+        [
+          7,
+          70
+        ]
+      ],
+      "answer": "Slope represents speed; the horizontal segment means the vehicle is stopped.",
+      "scene": "assets/scenes/scene_05_d1_p04.png",
+      "initial": {},
+      "kind": "graph",
+      "predictionPrompt": "What does a horizontal distance-time segment mean?",
+      "predictions": [
+        "Vehicle stopped",
+        "Constant nonzero speed",
+        "Position returns to zero"
+      ],
+      "explanationPrompt": "Explain what graph slope represents, why it decreases during braking, and why the horizontal segment shows the vehicle is stopped.",
+      "keyIdea": "Distance-time slope is speed. Constant deceleration gives a curved braking trace followed by a horizontal stopped segment.",
+      "hints": [],
+      "deceleration": 5,
+      "speed": 20,
+      "reaction_time": 1.5,
+      "braking_distance": 40,
+      "braking_time": 4,
+      "gap": 80,
+      "total": 70,
+      "teacherReasoning": "Reaction slope is 20 m/s. During braking it decreases to zero; a horizontal distance-time segment means stopped."
+    },
+    {
+      "id": "D1-T01",
+      "stage": "transfer",
+      "title": "85 m Gap",
+      "speed": 25,
+      "reaction_time": 1.2,
+      "reaction_distance": 30,
+      "braking_distance": 62.5,
+      "gap": 85,
+      "total": 92.5,
+      "margin": -7.5,
+      "braking_time": 5,
+      "stop_time": 6.2,
+      "scene": "assets/scenes/scene_06_d1_t01.png",
+      "initial": {},
+      "kind": "stop",
+      "predictionPrompt": "Does shorter reaction time alone guarantee a shorter total stop across different speeds?",
+      "predictions": [
+        "Always",
+        "Only after considering speed and braking travel",
+        "Reaction distance is the whole stopping distance"
+      ],
+      "explanationPrompt": "Explain the separate reaction and braking contributions, using units and the stationary-obstacle model.",
+      "keyIdea": "Reaction travel is v \u00d7 t. Braking travel uses the supplied consistent model; slope shows speed.",
+      "hints": [
+        "Multiply speed by reaction time for reaction travel. Braking distance is supplied separately.",
+        "Add reaction and braking travel. Clearance = obstacle gap \u2212 total stop; zero means reaching its position."
+      ],
+      "deceleration": 5,
+      "teacherReasoning": "25\u00d71.2 = 30 m reaction; add 62.5 m braking for 92.5 m. Clearance is \u22127.5 m. A shorter reaction time alone does not determine total stop across different speeds."
+    }
+  ],
+  "title": "Safe Stop Challenge",
+  "unitTitle": "Safety in Transportation",
+  "nextPractice": "Separate reaction and braking travel in another supplied scenario and explain its distance-time slope.",
+  "instructions": [
+    "Read the worked stationary-obstacle model.",
+    "Predict before replay; no reflex clicking or driving skill is measured.",
+    "Calculate reaction travel, add the supplied braking distance, and find the clearance.",
+    "Use Pause or Step to compare the synchronized road, curve and data table.",
+    "Solve the fresh stopping-distance question without replay before submission."
+  ]
+}

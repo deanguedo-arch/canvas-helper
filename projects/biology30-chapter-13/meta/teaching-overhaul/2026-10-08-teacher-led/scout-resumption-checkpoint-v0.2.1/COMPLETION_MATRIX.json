@@ -1,0 +1,830 @@
+{
+  "generatedAt": "2026-10-08T16:16:14.090425+00:00",
+  "ownerRepo": "/Users/deanguedo/Documents/GitHub/canvas-helper",
+  "branch": "codex/math-engine-preflight",
+  "head": "ecc1b806630cb33b9942e64eb676a1f8568c007e",
+  "modelApproval": "GPT-6.1 Sol / High; Dean approved Oct08 12:20 UTC; unchanged",
+  "courseComplete": false,
+  "nextUnfinishedChapter": 13,
+  "nextUnfinishedLesson": "lesson-06",
+  "chapters": [
+    {
+      "chapter": 11,
+      "slug": "biology30-unit-a-pilot-3",
+      "canonicalEntry": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+      "entrySha256": "7500d72fe3f340ffb3de15248c09816ea542a50d791c0bf25b5d7e50464b3084",
+      "authoringStatus": "active",
+      "driverId": "direct-workspace-v1",
+      "studioEditing": true,
+      "canonicalSources": [
+        "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "projects/biology30-unit-a-pilot-3/workspace/styles.css",
+        "projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-catalog.js",
+        "projects/biology30-unit-a-pilot-3/workspace/assets/pilot3-practice-bank.js",
+        "scripts/lib/biology30-pilot3/practice-engine.ts",
+        "scripts/lib/biology30-pilot3/runtime.ts",
+        "scripts/lib/biology30-chapters/textbook-practice.js",
+        "scripts/lib/biology30-chapters/textbook-practice.css",
+        "scripts/render-biology30-textbook-practice.py",
+        "scripts/lib/biology30-chapters/textbook-topics.json",
+        "projects/biology30-unit-a-pilot-3/workspace/scorm-tracking.json",
+        "scripts/lib/biology30-chapters/brightspace-photo-store.js",
+        "scripts/align-biology30-ch11-instructions.mjs"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Nervous communication"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Neurons & myelin"
+        },
+        {
+          "id": "lesson-03",
+          "title": "Pathways & reflexes"
+        },
+        {
+          "id": "lesson-04",
+          "title": "The resting neuron"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Action potentials"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Synapses & summation"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Drugs at the synapse"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Peripheral control"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Central control"
+        },
+        {
+          "id": "lesson-10",
+          "title": "The brain"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Studying the brain"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Chapter review and final check"
+        },
+        {
+          "id": "lesson-13",
+          "title": "Stress, experience and addiction"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/assets/textbook/chapter-11.pdf",
+        "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+      },
+      "verifiedCurrentSha256": "7500d72fe3f340ffb3de15248c09816ea542a50d791c0bf25b5d7e50464b3084",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "previous integrated teaching; regression closure remains",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 12,
+      "slug": "biology30-chapter-12",
+      "canonicalEntry": "projects/biology30-chapter-12/workspace/index.html",
+      "entrySha256": "7c762bb9f006fa8f156ce60c6a058349264f945b537200d5cab64c69b3e34920",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-12/workspace/index.html",
+        "projects/biology30-chapter-12/workspace/styles.css",
+        "projects/biology30-chapter-12/workspace/main.js",
+        "projects/biology30-chapter-12/workspace/assets/textbook/chapter-12.pdf",
+        "scripts/lib/biology30-chapters/textbook-practice.js",
+        "scripts/lib/biology30-chapters/textbook-practice.css",
+        "scripts/render-biology30-textbook-practice.py",
+        "scripts/lib/biology30-chapters/textbook-topics.json",
+        "projects/biology30-chapter-12/workspace/scorm-tracking.json",
+        "scripts/lib/biology30-chapters/brightspace-photo-store.js",
+        "scripts/lib/biology30-chapters/revision-practice.js",
+        "scripts/lib/biology30-chapters/revision-activities.js",
+        "scripts/lib/biology30-chapters/component-reader.js",
+        "scripts/lib/biology30-chapters/audit-corrections.mjs",
+        "projects/biology30-chapter-12/workspace/assets/teaching-v101/extension-model-lock.js"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Sensory receptors, sensation and adaptation"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Eye structures and the path of light"
+        },
+        {
+          "id": "lesson-03",
+          "title": "Focusing, accommodation and vision problems"
+        },
+        {
+          "id": "lesson-04",
+          "title": "The retina, rods and cones"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Ear structures and sound transmission"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Pitch, loudness and hearing impairment"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Balance, body position and proprioception"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Taste, smell, touch and temperature"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-12/workspace/assets/textbook/chapter-12.pdf",
+        "sha256": "f6f2050fab98f05beb7ca3a589b1d95f1966b6a67ac0b7e1dfe263247205e10d"
+      },
+      "verifiedCurrentSha256": "7c762bb9f006fa8f156ce60c6a058349264f945b537200d5cab64c69b3e34920",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "previous integrated teaching; regression closure remains",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 13,
+      "slug": "biology30-chapter-13",
+      "canonicalEntry": "projects/biology30-chapter-13/workspace/index.html",
+      "entrySha256": "341c2f943c4178bc2abf3d56290f0d8f2cb31e6b78b2b89b187694385ebc62e6",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-13/workspace/index.html",
+        "projects/biology30-chapter-13/workspace/styles.css",
+        "projects/biology30-chapter-13/workspace/main.js",
+        "projects/biology30-chapter-13/workspace/assets/textbook/chapter-13.pdf",
+        "scripts/lib/biology30-chapters/textbook-practice.js",
+        "scripts/lib/biology30-chapters/textbook-practice.css",
+        "scripts/render-biology30-textbook-practice.py",
+        "scripts/lib/biology30-chapters/textbook-topics.json",
+        "projects/biology30-chapter-13/workspace/scorm-tracking.json",
+        "scripts/lib/biology30-chapters/brightspace-photo-store.js",
+        "scripts/lib/biology30-chapters/revision-practice.js",
+        "scripts/lib/biology30-chapters/revision-activities.js",
+        "scripts/lib/biology30-chapters/component-reader.js",
+        "scripts/lib/biology30-chapters/audit-corrections.mjs"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Homeostasis and endocrine communication"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Hormones and their target cells"
+        },
+        {
+          "id": "lesson-03",
+          "title": "Feedback and regulation"
+        },
+        {
+          "id": "lesson-04",
+          "title": "The hypothalamus and pituitary"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Growth regulation"
+        },
+        {
+          "id": "lesson-06",
+          "title": "ADH and water balance"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Thyroid hormones and metabolism"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Calcium regulation: PTH and calcitonin"
+        },
+        {
+          "id": "lesson-09",
+          "title": "The rapid stress response"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Cortisol and longer-lasting stress responses"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Aldosterone, sodium and water"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Insulin, glucagon and blood glucose"
+        },
+        {
+          "id": "lesson-13",
+          "title": "Integrated chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-13/workspace/assets/textbook/chapter-13.pdf",
+        "sha256": "e69ed45e05ab0cdc55490aada364ee415197e21aaf59445f8983a8c17d92a251"
+      },
+      "verifiedCurrentSha256": "341c2f943c4178bc2abf3d56290f0d8f2cb31e6b78b2b89b187694385ebc62e6",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "lessons 01–03 prior reviewed candidate; 04–05 locally authored candidate with source trace, desktop checks and blind review pending; 06–13 unclaimed for direct content worker",
+      "sourceCoverageThisPass": "textbook pp436–450 read/rendered; native teacher text/media04–31 reviewed; original PPTX14–43 extraction available; complete native01–08 and protected tasks; returned01–03 manuscripts; protocol and five image handoffs",
+      "browserCoverageThisPass": "prior01–03 checks; newL02 reading clarification route/scroll; L04–05 route/figure rendering; five companion figure dialogs desktop; further check lifecycle pending",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 14,
+      "slug": "biology30-chapter-14",
+      "canonicalEntry": "projects/biology30-chapter-14/workspace/index.html",
+      "entrySha256": "054b823d5758a702041f24fd06b15a77d69cdfff63323cd5ffd7e803bf8936b8",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-14/workspace/main.js",
+        "projects/biology30-chapter-14/workspace/assets",
+        "projects/biology30-chapter-14/workspace/styles.css",
+        "projects/biology30-chapter-14/meta/external-generation/authoring/course-config.json",
+        "projects/biology30-chapter-14/meta/external-generation/authoring/textbook-question-manifest.json",
+        "projects/biology30-chapter-14/meta/external-generation/scripts/content.py",
+        "projects/biology30-chapter-14/meta/external-generation/scripts/build_chapter.py",
+        "projects/biology30-chapter-14/workspace/index.html",
+        "projects/biology30-chapter-14/meta/external-generation/authoring/templates/overview-current.html",
+        "projects/biology30-chapter-14/workspace/scorm-tracking.json"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Reproductive systems and sex characteristics"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Male reproductive structures and the sperm pathway"
+        },
+        {
+          "id": "lesson-03",
+          "title": "Sperm production and sperm structure"
+        },
+        {
+          "id": "lesson-04",
+          "title": "Hormonal control of the male reproductive system"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Female reproductive structures and the egg pathway"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Oogenesis and ovarian follicles"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Coordinating the ovarian and uterine cycles"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Hormone changes across the menstrual cycle"
+        },
+        {
+          "id": "lesson-09",
+          "title": "When hormone patterns change"
+        },
+        {
+          "id": "lesson-10",
+          "title": "STIs and reproductive function"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-14/workspace/assets/textbook/chapter-14.pdf",
+        "sha256": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea"
+      },
+      "verifiedCurrentSha256": "054b823d5758a702041f24fd06b15a77d69cdfff63323cd5ffd7e803bf8936b8",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "not yet independently reviewed against teaching standard",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 15,
+      "slug": "biology30-chapter-15",
+      "canonicalEntry": "projects/biology30-chapter-15/workspace/index.html",
+      "entrySha256": "7ff098c0763a1eedbe8c7e562e13082aa7a832582f9c73fd1739eaa4c31f0109",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-15/workspace/main.js",
+        "projects/biology30-chapter-15/workspace/assets",
+        "projects/biology30-chapter-15/workspace/styles.css",
+        "projects/biology30-chapter-15/meta/external-generation/authoring/course-config.json",
+        "projects/biology30-chapter-15/meta/external-generation/authoring/textbook-question-manifest.json",
+        "projects/biology30-chapter-15/workspace/index.html",
+        "projects/biology30-chapter-15/workspace/scorm-tracking.json"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Fertilization and the zygote"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Cleavage, morula, blastocyst and implantation"
+        },
+        {
+          "id": "lesson-03",
+          "title": "hCG and maintaining early pregnancy"
+        },
+        {
+          "id": "lesson-04",
+          "title": "Gastrulation and the three germ layers"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Extraembryonic membranes and support structures"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Organogenesis and neurulation"
+        },
+        {
+          "id": "lesson-07",
+          "title": "The placenta and exchange"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Fetal development and developmental influences"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Labour and birth as positive feedback"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Lactation and hormonal control after birth"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Reproductive technologies and informed decisions"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-15/workspace/assets/textbook/chapter-15.pdf",
+        "sha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25"
+      },
+      "verifiedCurrentSha256": "7ff098c0763a1eedbe8c7e562e13082aa7a832582f9c73fd1739eaa4c31f0109",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "not yet independently reviewed against teaching standard",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 16,
+      "slug": "biology30-chapter-16",
+      "canonicalEntry": "projects/biology30-chapter-16/workspace/index.html",
+      "entrySha256": "6def7f770f78263613c52cc59d64ef40c82857cad39227ff2008afc8ba09872b",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-16/workspace/main.js",
+        "projects/biology30-chapter-16/workspace/assets",
+        "projects/biology30-chapter-16/workspace/styles.css",
+        "projects/biology30-chapter-16/meta/external-generation/authoring/course-config.json",
+        "projects/biology30-chapter-16/meta/external-generation/authoring/textbook-question-manifest.json",
+        "projects/biology30-chapter-16/workspace/index.html",
+        "projects/biology30-chapter-16/workspace/scorm-tracking.json"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Chromosomes, DNA and chromosome sets"
+        },
+        {
+          "id": "lesson-02",
+          "title": "The cell cycle and DNA replication"
+        },
+        {
+          "id": "lesson-03",
+          "title": "Reading chromosome number and DNA amount"
+        },
+        {
+          "id": "lesson-04",
+          "title": "Mitosis: chromosome movement through the stages"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Cytokinesis, growth and tissue maintenance"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Meiosis I and separation of homologous chromosomes"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Meiosis II and production of haploid cells"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Crossing over and independent assortment"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Comparing mitosis and meiosis"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Nondisjunction and chromosome abnormalities"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Sexual and asexual reproductive strategies"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Life cycles and alternation of generations"
+        },
+        {
+          "id": "lesson-13",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-16/workspace/assets/textbook/chapter-16.pdf",
+        "sha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526"
+      },
+      "verifiedCurrentSha256": "6def7f770f78263613c52cc59d64ef40c82857cad39227ff2008afc8ba09872b",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "not yet independently reviewed against teaching standard",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 17,
+      "slug": "biology30-chapter-17",
+      "canonicalEntry": "projects/biology30-chapter-17/workspace/index.html",
+      "entrySha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-17/workspace/main.js",
+        "projects/biology30-chapter-17/workspace/assets",
+        "projects/biology30-chapter-17/workspace/styles.css",
+        "projects/biology30-chapter-17/meta/external-generation/authoring/course-config.json",
+        "projects/biology30-chapter-17/meta/external-generation/authoring/textbook-question-manifest.json",
+        "projects/biology30-chapter-17/workspace/index.html",
+        "projects/biology30-chapter-17/workspace/scorm-tracking.json"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Genes, alleles, genotype and phenotype"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Mendel’s experiments and segregation"
+        },
+        {
+          "id": "lesson-03",
+          "title": "Single-trait crosses and probability"
+        },
+        {
+          "id": "lesson-04",
+          "title": "Test crosses and unknown genotypes"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Two-trait crosses and independent assortment"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Incomplete dominance and codominance"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Multiple alleles and ABO blood groups"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Sex-linked inheritance"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Polygenic traits and environmental influences"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Reading autosomal pedigrees"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Sex-linked pedigrees and testing a model"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Linked genes and recombinant offspring"
+        },
+        {
+          "id": "lesson-13",
+          "title": "Recombination frequency and chromosome maps"
+        },
+        {
+          "id": "lesson-14",
+          "title": "Genetic testing, counselling and decisions"
+        },
+        {
+          "id": "lesson-15",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-17/workspace/assets/textbook/chapter-17.pdf",
+        "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+      },
+      "verifiedCurrentSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "parent direct source correction: exact-copy acceptance only06–07;02/05 method references;01/03/04 and08–15+extension acceptance pending; earlier01–07 accepted summary superseded",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 18,
+      "slug": "biology30-chapter-18",
+      "canonicalEntry": "projects/biology30-chapter-18/workspace/index.html",
+      "entrySha256": "2ecc3406a9040e806d10c2973e2e31d908f856893a7928339d0744f9544388c4",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-18/workspace/main.js",
+        "projects/biology30-chapter-18/workspace/assets",
+        "projects/biology30-chapter-18/workspace/styles.css",
+        "projects/biology30-chapter-18/meta/external-generation/authoring/course-config.json",
+        "projects/biology30-chapter-18/meta/external-generation/authoring/textbook-question-manifest.json",
+        "projects/biology30-chapter-18/workspace/index.html",
+        "projects/biology30-chapter-18/workspace/scorm-tracking.json"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Evidence that DNA carries genetic information"
+        },
+        {
+          "id": "lesson-02",
+          "title": "DNA structure and complementary strands"
+        },
+        {
+          "id": "lesson-03",
+          "title": "DNA replication and its products"
+        },
+        {
+          "id": "lesson-04",
+          "title": "Genes, RNA and the flow of information"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Transcription and RNA processing"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Translation and the genetic code"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Solving DNA, RNA and protein problems"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Mutations and their effects on proteins"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Recombination and sources of variation"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Recombinant DNA and genetic engineering"
+        },
+        {
+          "id": "lesson-11",
+          "title": "PCR, gels and interpreting DNA profiles"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Genetic technologies and evidence-based decisions"
+        },
+        {
+          "id": "lesson-13",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-18/workspace/assets/textbook/chapter-18.pdf",
+        "sha256": "9dd4dd138b676f9fed9971e054ea6f24b6453143e2d05abcc81dbc04c27e6bae"
+      },
+      "verifiedCurrentSha256": "2ecc3406a9040e806d10c2973e2e31d908f856893a7928339d0744f9544388c4",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "not yet independently reviewed against teaching standard",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 19,
+      "slug": "biology30-chapter-19",
+      "canonicalEntry": "projects/biology30-chapter-19/workspace/index.html",
+      "entrySha256": "2f0dcc173b8fd605cccb9c547718aaedbb903dabfefd5dbdfd2cbc31c8ab343c",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-19/workspace/main.js",
+        "projects/biology30-chapter-19/workspace/assets",
+        "projects/biology30-chapter-19/workspace/styles.css",
+        "projects/biology30-chapter-19/meta/external-generation/authoring/course-config.json",
+        "projects/biology30-chapter-19/meta/external-generation/authoring/textbook-question-manifest.json",
+        "projects/biology30-chapter-19/workspace/index.html",
+        "projects/biology30-chapter-19/workspace/scorm-tracking.json"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Populations, gene pools and genetic variation"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Allele frequencies and genotype frequencies"
+        },
+        {
+          "id": "lesson-03",
+          "title": "The Hardy–Weinberg model and its assumptions"
+        },
+        {
+          "id": "lesson-04",
+          "title": "Calculating expected genotype frequencies"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Using population data to test a prediction"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Natural selection and non-random mating"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Genetic drift, bottlenecks and founder effects"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Gene flow and mutation"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Genetic diversity and conservation evidence"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-19/workspace/assets/textbook/chapter-19.pdf",
+        "sha256": "dd5def5a7467e0af426a0cfdb5ba79574d403ff9a031363e700c282cd1d8acf3"
+      },
+      "verifiedCurrentSha256": "2f0dcc173b8fd605cccb9c547718aaedbb903dabfefd5dbdfd2cbc31c8ab343c",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "not yet independently reviewed against teaching standard",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    },
+    {
+      "chapter": 20,
+      "slug": "biology30-chapter-20",
+      "canonicalEntry": "projects/biology30-chapter-20/workspace/index.html",
+      "entrySha256": "d372810ad82d047d60ef94e397a4f12a27cf1987241c9536ba7319a662f51a3e",
+      "authoringStatus": "blocked",
+      "driverId": "proposal-only-v1",
+      "studioEditing": false,
+      "canonicalSources": [
+        "projects/biology30-chapter-20/workspace/main.js",
+        "projects/biology30-chapter-20/workspace/assets",
+        "projects/biology30-chapter-20/workspace/styles.css",
+        "projects/biology30-chapter-20/meta/external-generation/authoring/course-config.json",
+        "projects/biology30-chapter-20/meta/external-generation/authoring/textbook-question-manifest.json",
+        "projects/biology30-chapter-20/workspace/index.html",
+        "projects/biology30-chapter-20/workspace/scorm-tracking.json"
+      ],
+      "lessonRoutes": [
+        {
+          "id": "lesson-01",
+          "title": "Populations, density and distribution"
+        },
+        {
+          "id": "lesson-02",
+          "title": "Births, deaths, immigration and emigration"
+        },
+        {
+          "id": "lesson-03",
+          "title": "Growth rate and per-capita growth"
+        },
+        {
+          "id": "lesson-04",
+          "title": "Exponential and logistic growth"
+        },
+        {
+          "id": "lesson-05",
+          "title": "Carrying capacity and limiting factors"
+        },
+        {
+          "id": "lesson-06",
+          "title": "Life-history strategies and biotic potential"
+        },
+        {
+          "id": "lesson-07",
+          "title": "Feeding relationships and predator–prey changes"
+        },
+        {
+          "id": "lesson-08",
+          "title": "Competition within and between species"
+        },
+        {
+          "id": "lesson-09",
+          "title": "Mutualism, commensalism and parasitism"
+        },
+        {
+          "id": "lesson-10",
+          "title": "Primary and secondary succession"
+        },
+        {
+          "id": "lesson-11",
+          "title": "Human populations and sharing the biosphere"
+        },
+        {
+          "id": "lesson-12",
+          "title": "Chapter review and final check"
+        }
+      ],
+      "textbookPdf": {
+        "path": "projects/biology30-chapter-20/workspace/assets/textbook/chapter-20.pdf",
+        "sha256": "ff1c9d76693130fabadc9d2bf468e0c5bf417ebe32def2eb3c3257a3523e8f8b"
+      },
+      "verifiedCurrentSha256": "d372810ad82d047d60ef94e397a4f12a27cf1987241c9536ba7319a662f51a3e",
+      "matchesPriorInventory": true,
+      "instructionalStatus": "not yet independently reviewed against teaching standard",
+      "sourceCoverageThisPass": "owner/source-presence and workflow status only",
+      "browserCoverageThisPass": "prior recorded checks only; no new browser checks",
+      "lmsOnlyChecks": "actual Brightspace learner persistence/photos/SCORM; not run",
+      "complete": false
+    }
+  ]
+}

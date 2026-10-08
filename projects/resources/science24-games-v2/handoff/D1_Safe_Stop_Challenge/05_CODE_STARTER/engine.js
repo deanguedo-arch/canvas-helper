@@ -1,0 +1,3 @@
+export function reactionDistance(speed,reactionTime){return Number(speed)*Number(reactionTime)}
+export function totalStop({speed,reactionTime,brakingDistance,gap}){const reaction=reactionDistance(speed,reactionTime);const total=reaction+Number(brakingDistance);return {reactionDistance:reaction,totalStoppingDistance:total,margin:Number(gap)-total,stopsBefore:total<=Number(gap)}}
+export function distanceTimePoints({speed,reactionTime,brakingTime}){const v=Number(speed),tr=Number(reactionTime),tb=Number(brakingTime);const reaction=v*tr;const braking=v*tb/2;return [[0,0],[tr,reaction],[tr+tb,reaction+braking]]}

@@ -1,0 +1,32 @@
+{
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "deviceScaleFactor": 1,
+    "fullPage": true
+  },
+  "wide": {
+    "viewport": {
+      "width": 1648,
+      "height": 920
+    },
+    "deviceScaleFactor": 1,
+    "fullPage": true
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "deviceScaleFactor": 1,
+    "fullPage": true
+  },
+  "visual_diff": {
+    "canonical_desktop": "1440x900",
+    "canonical_mobile": "390x844",
+    "max_pixel_difference_percent": 0.75,
+    "notes": "Use the supplied screenshots as regression baselines; do not accept layout redesigns that happen to use the same colours."
+  }
+}

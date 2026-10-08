@@ -1,0 +1,517 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "status": "proposal-only",
+  "source": "projects/calm10-2026-draft/workspace/index.html",
+  "sourceSha256": "7c16a7b2ba8325d502edf7e15afa6565f72f92e44df30814329c8e5488e7d2c2",
+  "auditMethod": "Read canonical lesson concepts, supplied documents, methods, worked examples and existing visual placements; assess proposed visual role. No new course visuals inserted.",
+  "limitations": [
+    "Original professional videos and handout PDFs were not independently re-reviewed in full.",
+    "Unused SVG labels were inspected; final render QA remains before insertion.",
+    "Instructional priorities are authoring judgments, not learner-tested effectiveness."
+  ],
+  "totalLessons": 40,
+  "priorityCounts": {
+    "Next": 21,
+    "First": 14,
+    "Keep": 2,
+    "Optional": 3
+  },
+  "totalEmbeddedImages": 33,
+  "lessonsWithImages": 11,
+  "totalVideoPlacements": 23,
+  "checks": {
+    "allCanonicalLessonsCovered": true,
+    "uniqueLessonBriefs": true,
+    "allSuggestedSectionAnchorsExistInTheirLessons": true
+  },
+  "lessons": [
+    {
+      "id": "ce1-01",
+      "title": "Find evidence about your strengths",
+      "priority": "Next",
+      "anchors": [
+        "ce1-01-stage-4"
+      ],
+      "embeddedImages": [
+        "assets/scenarios/ce1-01-context-v1.webp"
+      ],
+      "videoPlacements": 1,
+      "tableCount": 2
+    },
+    {
+      "id": "ce1-02",
+      "title": "Read an occupation profile like a researcher",
+      "priority": "Next",
+      "anchors": [
+        "ce1-02-stage-2"
+      ],
+      "embeddedImages": [
+        "assets/scenarios/ce1-02-context-v1.webp"
+      ],
+      "videoPlacements": 0,
+      "tableCount": 4
+    },
+    {
+      "id": "ce1-03",
+      "title": "Compare routes into a career",
+      "priority": "Next",
+      "anchors": [
+        "ce1-03-worked"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 2,
+      "tableCount": 1
+    },
+    {
+      "id": "ce1-04",
+      "title": "Question a labour-market claim",
+      "priority": "First",
+      "anchors": [
+        "ce1-04-stage-3"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 3
+    },
+    {
+      "id": "ce1-05",
+      "title": "Build a high-school route with checkpoints",
+      "priority": "First",
+      "anchors": [
+        "ce1-05-stage-4"
+      ],
+      "embeddedImages": [
+        "./assets/diagrams/simple-career-planning-guide.png"
+      ],
+      "videoPlacements": 0,
+      "tableCount": 4
+    },
+    {
+      "id": "ce1-06",
+      "title": "Explore employment and entrepreneurship routes",
+      "priority": "Next",
+      "anchors": [
+        "ce1-06-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 0
+    },
+    {
+      "id": "ce1-07",
+      "title": "Balance a plan when life changes",
+      "priority": "First",
+      "anchors": [
+        "ce1-07-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 2
+    },
+    {
+      "id": "co1-01",
+      "title": "Show what you can do at work",
+      "priority": "Next",
+      "anchors": [
+        "co1-01-example"
+      ],
+      "embeddedImages": [
+        "./assets/scenarios/co1-01-library-welcome-v1.webp"
+      ],
+      "videoPlacements": 1,
+      "tableCount": 1
+    },
+    {
+      "id": "co1-02",
+      "title": "Make decisions on a first shift",
+      "priority": "Keep",
+      "anchors": [
+        "co1-02-stage-2"
+      ],
+      "embeddedImages": [
+        "./assets/scenarios/co1-02-library-floor-plan-v2.png"
+      ],
+      "videoPlacements": 0,
+      "tableCount": 0
+    },
+    {
+      "id": "co1-03",
+      "title": "Practise a truthful interview",
+      "priority": "Optional",
+      "anchors": [
+        "co1-03-stage-4"
+      ],
+      "embeddedImages": [
+        "assets/scenarios/co1-03-context-v1.webp"
+      ],
+      "videoPlacements": 1,
+      "tableCount": 0
+    },
+    {
+      "id": "co1-04",
+      "title": "Work through a changing shift",
+      "priority": "Next",
+      "anchors": [
+        "co1-04-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 0
+    },
+    {
+      "id": "co1-05",
+      "title": "Use feedback to revise a career route",
+      "priority": "Next",
+      "anchors": [
+        "co1-05-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 1
+    },
+    {
+      "id": "co2-01",
+      "title": "Check the rules before a first shift",
+      "priority": "First",
+      "anchors": [
+        "co2-01-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 3
+    },
+    {
+      "id": "co2-02",
+      "title": "Stop, identify and control a hazard",
+      "priority": "Keep",
+      "anchors": [
+        "co2-02-stage-3"
+      ],
+      "embeddedImages": [
+        "./assets/diagrams/four-step-safe-response-sequence.png",
+        "assets/media/co2-02-workplace-hazard-demo-slide-1.png",
+        "assets/media/co2-02-workplace-hazard-demo-slide-2.png",
+        "assets/media/co2-02-workplace-hazard-demo-slide-3.png",
+        "assets/media/co2-02-workplace-hazard-demo-slide-4.png",
+        "assets/media/co2-02-workplace-hazard-demo-slide-5.png",
+        "assets/media/co2-02-workplace-hazard-demo-slide-6.png"
+      ],
+      "videoPlacements": 1,
+      "tableCount": 1
+    },
+    {
+      "id": "co2-03",
+      "title": "Act on responsibilities and concerns",
+      "priority": "Next",
+      "anchors": [
+        "co2-03-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 5
+    },
+    {
+      "id": "co2-04",
+      "title": "Recognize discrimination and seek help",
+      "priority": "Optional",
+      "anchors": [
+        "co2-04-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 2
+    },
+    {
+      "id": "fl1-01",
+      "title": "Read a pay stub",
+      "priority": "First",
+      "anchors": [
+        "fl1-01-stage-2",
+        "fl1-01-stage-4"
+      ],
+      "embeddedImages": [
+        "assets/scenarios/fl1-01-context-v1.webp",
+        "assets/media/fl1-01-paystub-demo-slide-1.png",
+        "assets/media/fl1-01-paystub-demo-slide-2.png",
+        "assets/media/fl1-01-paystub-demo-slide-3.png",
+        "assets/media/fl1-01-paystub-demo-slide-4.png",
+        "assets/media/fl1-01-paystub-demo-slide-5.png",
+        "assets/media/fl1-01-paystub-demo-slide-6.png"
+      ],
+      "videoPlacements": 2,
+      "tableCount": 2
+    },
+    {
+      "id": "fl1-02",
+      "title": "What shapes a money decision?",
+      "priority": "Next",
+      "anchors": [
+        "fl1-02-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 0
+    },
+    {
+      "id": "fl1-03",
+      "title": "Build a flexible budget",
+      "priority": "First",
+      "anchors": [
+        "fl1-03-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 3
+    },
+    {
+      "id": "fl1-04",
+      "title": "Compare a major purchase",
+      "priority": "Next",
+      "anchors": [
+        "fl1-04-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 0
+    },
+    {
+      "id": "fl1-05",
+      "title": "Compare phone contracts and subscriptions",
+      "priority": "First",
+      "anchors": [
+        "fl1-05-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 0
+    },
+    {
+      "id": "fl1-06",
+      "title": "What a major purchase really costs",
+      "priority": "Next",
+      "anchors": [
+        "fl1-06-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 0
+    },
+    {
+      "id": "fl2-01",
+      "title": "Read a borrowing offer",
+      "priority": "Next",
+      "anchors": [
+        "fl2-01-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 0
+    },
+    {
+      "id": "fl2-02",
+      "title": "Calculate interest with the right time unit",
+      "priority": "First",
+      "anchors": [
+        "fl2-02-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 0
+    },
+    {
+      "id": "fl2-03",
+      "title": "Read a loan payment schedule",
+      "priority": "First",
+      "anchors": [
+        "fl2-03-stage-3",
+        "fl2-03-stage-4"
+      ],
+      "embeddedImages": [
+        "assets/media/fl2-03-amortization-demo-slide-1.png",
+        "assets/media/fl2-03-amortization-demo-slide-2.png",
+        "assets/media/fl2-03-amortization-demo-slide-3.png",
+        "assets/media/fl2-03-amortization-demo-slide-4.png",
+        "assets/media/fl2-03-amortization-demo-slide-5.png",
+        "assets/media/fl2-03-amortization-demo-slide-6.png"
+      ],
+      "videoPlacements": 1,
+      "tableCount": 6
+    },
+    {
+      "id": "fl2-04",
+      "title": "Choose a repayment strategy you can sustain",
+      "priority": "Next",
+      "anchors": [
+        "fl2-04-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 2
+    },
+    {
+      "id": "fl2-05",
+      "title": "Decide whether borrowing solves the problem",
+      "priority": "First",
+      "anchors": [
+        "fl2-05-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 0
+    },
+    {
+      "id": "fl2-06",
+      "title": "Test a fixed or variable rate",
+      "priority": "Next",
+      "anchors": [
+        "fl2-06-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 6
+    },
+    {
+      "id": "fl2-07",
+      "title": "Read a mortgage beyond its monthly payment",
+      "priority": "First",
+      "anchors": [
+        "fl2-07-stage-3",
+        "fl2-07-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 5
+    },
+    {
+      "id": "fl3-01",
+      "title": "Give a savings goal a job",
+      "priority": "Next",
+      "anchors": [
+        "fl3-01-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 1
+    },
+    {
+      "id": "fl3-02",
+      "title": "Choose what the next dollar does",
+      "priority": "Optional",
+      "anchors": [
+        "fl3-02-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 0
+    },
+    {
+      "id": "fl3-03",
+      "title": "Separate an account from what it holds",
+      "priority": "First",
+      "anchors": [
+        "fl3-03-stage-3"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 2
+    },
+    {
+      "id": "fl3-04",
+      "title": "Check what your money will buy",
+      "priority": "First",
+      "anchors": [
+        "fl3-04-worked"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 2,
+      "tableCount": 0
+    },
+    {
+      "id": "fl3-05",
+      "title": "Build a plan for more than one goal",
+      "priority": "Next",
+      "anchors": [
+        "fl3-05-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 1,
+      "tableCount": 2
+    },
+    {
+      "id": "fl3-06",
+      "title": "Revise a plan when life changes",
+      "priority": "Next",
+      "anchors": [
+        "fl3-06-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 1
+    },
+    {
+      "id": "fl4-01",
+      "title": "Digital footprints and financial security",
+      "priority": "Next",
+      "anchors": [
+        "fl4-01-stage-2"
+      ],
+      "embeddedImages": [
+        "assets/scenarios/fl4-01-context-v1.webp"
+      ],
+      "videoPlacements": 1,
+      "tableCount": 3
+    },
+    {
+      "id": "fl4-02",
+      "title": "Recognize scams and verify independently",
+      "priority": "Next",
+      "anchors": [
+        "fl4-02-stage-3"
+      ],
+      "embeddedImages": [
+        "assets/media/fl4-02-scam-verification-demo-slide-1.png",
+        "assets/media/fl4-02-scam-verification-demo-slide-2.png",
+        "assets/media/fl4-02-scam-verification-demo-slide-3.png",
+        "assets/media/fl4-02-scam-verification-demo-slide-4.png",
+        "assets/media/fl4-02-scam-verification-demo-slide-5.png",
+        "assets/media/fl4-02-scam-verification-demo-slide-6.png"
+      ],
+      "videoPlacements": 2,
+      "tableCount": 3
+    },
+    {
+      "id": "fl4-03",
+      "title": "Respond when information may be exposed",
+      "priority": "First",
+      "anchors": [
+        "fl4-03-stage-3"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 2
+    },
+    {
+      "id": "fl4-04",
+      "title": "Compare the promise, the price and the terms",
+      "priority": "Next",
+      "anchors": [
+        "fl4-04-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 2
+    },
+    {
+      "id": "fl4-05",
+      "title": "Coordinate a recovery plan",
+      "priority": "Next",
+      "anchors": [
+        "fl4-05-stage-4"
+      ],
+      "embeddedImages": [],
+      "videoPlacements": 0,
+      "tableCount": 2
+    }
+  ]
+}

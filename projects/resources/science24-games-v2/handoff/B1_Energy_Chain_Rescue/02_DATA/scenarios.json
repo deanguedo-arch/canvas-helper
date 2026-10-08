@@ -1,0 +1,149 @@
+{
+  "game_id": "B1",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "B1-W01",
+      "stage": "worked",
+      "title": "Generator to Lamp",
+      "purpose": "produce visible light",
+      "input": 200,
+      "steps": [
+        {
+          "node": "generator",
+          "in": 200,
+          "outputs": {
+            "electrical": 150,
+            "thermal": 50
+          }
+        },
+        {
+          "node": "lamp",
+          "in": 150,
+          "outputs": {
+            "light": 45,
+            "thermal": 105
+          }
+        }
+      ],
+      "whole_system": {
+        "light": 45,
+        "thermal": 155
+      },
+      "extension": "useful fraction 22.5%"
+    },
+    {
+      "id": "B1-P01",
+      "stage": "supported",
+      "title": "Battery Toy",
+      "purpose": "move a toy",
+      "input": 500,
+      "steps": [
+        {
+          "node": "motor",
+          "in": 500,
+          "outputs": {
+            "motion": 180,
+            "thermal": 280,
+            "sound": 40
+          }
+        }
+      ],
+      "whole_system": {
+        "motion": 180,
+        "thermal": 280,
+        "sound": 40
+      }
+    },
+    {
+      "id": "B1-P02",
+      "stage": "practice",
+      "title": "Hydroelectric Station",
+      "purpose": "supply electrical energy",
+      "input": 1000,
+      "steps": [
+        {
+          "node": "turbine-generator",
+          "in": 1000,
+          "outputs": {
+            "electrical": 780,
+            "thermal": 180,
+            "sound": 40
+          }
+        }
+      ],
+      "whole_system": {
+        "electrical": 780,
+        "thermal": 180,
+        "sound": 40
+      }
+    },
+    {
+      "id": "B1-P03",
+      "stage": "practice",
+      "title": "Food to Movement",
+      "purpose": "produce muscle movement",
+      "input": 600,
+      "steps": [
+        {
+          "node": "respiration-muscle",
+          "in": 600,
+          "outputs": {
+            "motion": 150,
+            "thermal": 450
+          }
+        }
+      ],
+      "whole_system": {
+        "motion": 150,
+        "thermal": 450
+      },
+      "guardrail": "Food is matter containing chemical potential energy; atoms do not become energy."
+    },
+    {
+      "id": "B1-P04",
+      "stage": "low_support",
+      "title": "Plant Energy Storage",
+      "purpose": "store chemical potential energy",
+      "input": 400,
+      "steps": [
+        {
+          "node": "photosynthesis-model",
+          "in": 400,
+          "outputs": {
+            "stored_chemical": 320,
+            "thermal": 80
+          }
+        }
+      ],
+      "whole_system": {
+        "stored_chemical": 320,
+        "thermal": 80
+      },
+      "guardrail": "Illustrative energy values; matter inputs and products are represented separately."
+    },
+    {
+      "id": "B1-T01",
+      "stage": "transfer",
+      "title": "Motor Account",
+      "purpose": "produce motion",
+      "input": 1200,
+      "steps": [
+        {
+          "node": "motor",
+          "in": 1200,
+          "outputs": {
+            "motion": 450,
+            "thermal": 750
+          }
+        }
+      ],
+      "whole_system": {
+        "motion": 450,
+        "thermal": 750
+      },
+      "extension": "useful fraction 37.5%"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "ff02cb97-eb5b-42fe-af53-7d518e7980a5",
   "slug": "calm10-2026-draft",
   "title": "CALM 10: Career and Life Management",
-  "sourcePath": "projects/calm10-2026-draft/raw/original.html",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/calm10-2026-draft/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -15,7 +15,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-09-24T16:51:08.559Z",
   "createdAt": "2026-09-24T16:51:08.559Z",
-  "updatedAt": "2026-09-25T19:51:52.170Z",
+  "updatedAt": "2026-10-07T18:32:03.395Z",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
@@ -182,7 +182,10 @@
     "projects/calm10-2026-draft/workspace/assets/finlit/fl4-01.poster.jpg",
     "projects/calm10-2026-draft/workspace/assets/finlit/fl4-02.poster.jpg",
     "projects/calm10-2026-draft/workspace/finlit-integration.js",
-    "projects/calm10-2026-draft/workspace/finlit-integration.css"
+    "projects/calm10-2026-draft/workspace/finlit-integration.css",
+    "projects/calm10-2026-draft/workspace/learning-support.js",
+    "projects/calm10-2026-draft/workspace/stage-headings.css",
+    "projects/calm10-2026-draft/workspace/course-shell.css"
   ],
   "generatedOutputs": [],
   "authoring": {
@@ -494,8 +497,15 @@
     "projects/calm10-2026-draft/raw/styles.css",
     "projects/calm10-2026-draft/raw/course.js",
     "projects/calm10-2026-draft/raw/assets/course-cover.svg",
-    "projects/resources/calm10-2026-draft/audits/CALM_Instructional_Audit_2026-09-25.zip"
+    "projects/resources/calm10-2026-draft/audits/CALM_Instructional_Audit_2026-09-25.zip",
+    "projects/calm10-2026-draft/workspace/ce1-03-finlit-review.fragment.html",
+    "projects/calm10-2026-draft/workspace/ce1-03-finlit-review.html",
+    "projects/calm10-2026-draft/workspace/co1-01-comparison.html",
+    "projects/calm10-2026-draft/workspace/co1-01-review.html",
+    "projects/calm10-2026-draft/workspace/finlit-integration-comparison.html",
+    "projects/calm10-2026-draft/workspace/fl3-04-finlit-review.fragment.html",
+    "projects/calm10-2026-draft/workspace/fl3-04-finlit-review.html"
   ],
-  "sourceOfTruthNotes": "Canonical learner source is workspace/index.html with styles.css, course.js, activities.js, lesson-practice.js, vocabulary.js, case-reader.js, resource-reader.js, and declared local assets. Visible teaching, links, resource cards, and visuals are static Studio-editable HTML. The September 25 instructional repair adds a lesson-specific worked walkthrough to all 40 routes, reconciles the eleven correction-before-use tasks, versions changed prompts while retaining earlier answers, exposes complete learner A1-A7 briefs, and supplies Morgan\u2019s fallback budget. Selected FINLIT questions are adapted into lesson tasks; the original PDFs remain unchanged source references. State v3 stays separate from v2/v1 earlier drafts. Online work simulations do not fulfill CO1-SP04 supervised participation. All 23 videos remain review drafts requiring factual, caption, visual, accessibility, and teacher review.\n\n2026-09-28: Authored 40-lesson integration is static editable workspace HTML. meta/implementation scripts are one-time migration records, not a regeneration owner. Astra Markdown remains reference specification. Prior source-stop manifests and verifier are historical; meta/verify-instructional-repair.cjs now checks the optional-reference authored sequence. Browser completion is self-review, not assessment grading or SCORM proof.\n\n2026-09-28 FINLIT integration: Preserve all 23 video placements, including 17 professional FINLIT excerpts. The approved source-specific dispositions are implemented: relevant original questions are optional provenance, and mismatched PDF tasks are archived. FINLIT question state is practice only. Current contract is meta/prompt-pack.md; provenance is meta/implementation/finlit-integration.json. Preserve professional sources when lesson copy changes.\n\nApproved FINLIT integration, September 28: CE1-03/FL3-04 reviewed flows are canonical static HTML. Compounding now lives in optional FL3-04 learning; FL3-06 cases still assume no interest. Additional activities use course v3 saving; finlit-integration.js owns feedback only. Exact prior prompts are retained in the versioned historical registry, including removed questions. meta/implementation/finlit-integration-2026-09-28 is a one-time migration/review record, not a regeneration owner.",
+  "sourceOfTruthNotes": "Canonical learner source is workspace/index.html with styles.css, course.js, activities.js, lesson-practice.js, vocabulary.js, case-reader.js, resource-reader.js, and declared local assets. Visible teaching, links, resource cards, and visuals are static Studio-editable HTML. The September 25 instructional repair adds a lesson-specific worked walkthrough to all 40 routes, reconciles the eleven correction-before-use tasks, versions changed prompts while retaining earlier answers, exposes complete learner A1-A7 briefs, and supplies Morgan’s fallback budget. Selected FINLIT questions are adapted into lesson tasks; the original PDFs remain unchanged source references. State v3 stays separate from v2/v1 earlier drafts. Online work simulations do not fulfill CO1-SP04 supervised participation. All 23 videos remain review drafts requiring factual, caption, visual, accessibility, and teacher review.\n\n2026-09-28: Authored 40-lesson integration is static editable workspace HTML. meta/implementation scripts are one-time migration records, not a regeneration owner. Astra Markdown remains reference specification. Prior source-stop manifests and verifier are historical; meta/verify-instructional-repair.cjs now checks the optional-reference authored sequence. Browser completion is self-review, not assessment grading or SCORM proof.\n\n2026-09-28 FINLIT integration: Preserve all 23 video placements, including 17 professional FINLIT excerpts. The approved source-specific dispositions are implemented: relevant original questions are optional provenance, and mismatched PDF tasks are archived. FINLIT question state is practice only. Current contract is meta/prompt-pack.md; provenance is meta/implementation/finlit-integration.json. Preserve professional sources when lesson copy changes.\n\nApproved FINLIT integration, September 28: CE1-03/FL3-04 reviewed flows are canonical static HTML. Compounding now lives in optional FL3-04 learning; FL3-06 cases still assume no interest. Additional activities use course v3 saving; finlit-integration.js owns feedback only. Exact prior prompts are retained in the versioned historical registry, including removed questions. meta/implementation/finlit-integration-2026-09-28 is a one-time migration/review record, not a regeneration owner.\n2026-10-05: Dean approved course-wide Version B revision 4 as the sole active course. Canonical workspace HTML and styles own future edits; meta review assemblies and Before snapshots are historical, not regeneration owners. Existing course storage/runtime retained; changed CE1-05 responses retain canonical prior wording.",
   "workspaceApprovedAt": "2026-09-25T16:34:10.926Z"
 }

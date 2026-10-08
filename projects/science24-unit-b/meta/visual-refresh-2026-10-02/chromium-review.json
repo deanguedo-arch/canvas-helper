@@ -1,0 +1,6135 @@
+{
+  "schemaVersion": 1,
+  "scope": "Local Chromium A-D comparison candidate",
+  "studentData": "Isolated synthetic profile only",
+  "browserVersion": "145.0.7632.6",
+  "zoomMethod": "Real Chromium tabs.setZoom via temporary extension; confirmed innerWidth and devicePixelRatio",
+  "screenshots": "Complete changed-area captures use CDP coordinates scaled by actual tab zoom; fixed shell chrome hidden only during capture.",
+  "routes": [
+    {
+      "unit": "b",
+      "lesson": "01",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Energy forms in everyday life",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-forms.png",
+          "complete": true,
+          "natural": 1469,
+          "box": {
+            "x": 405,
+            "y": 216.421875,
+            "w": 900,
+            "h": 656.15625
+          },
+          "parent": {
+            "x": 360,
+            "y": 146.421875,
+            "w": 990,
+            "h": 1068.703125
+          },
+          "ratio": 1.3716153127917834,
+          "renderRatio": 1.3719512195121952
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": 1775.03125,
+            "w": 990,
+            "h": 793.78125
+          },
+          "card": {
+            "x": 388,
+            "y": 1896.75,
+            "w": 937,
+            "h": 631.0625
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": 1921.75,
+            "w": 401.390625,
+            "h": 261.3125
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": 1921.75,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationA raised object has gravitational potential energy; while it falls, energy transfers into motion and some disperses through air resistance. Naming only the final movement leaves out the start and other outputs.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 146.421875,
+            "w": 990,
+            "h": 1068.703125
+          },
+          "caption": "Chemical potentialA battery stores chemical energy.RadiantSunlight transfers energy by radiation.KineticThe moving cyclist has kinetic energy.Elastic potentialA drawn bow stores elastic energy.ThermalA fire transfers energy to its surroundings.A system can involve more than one energy form. Use the visible situation to identify a form and explain the evidence.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "02",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Trace energy conversion chains",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/energy-chain.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 361,
+            "y": 336.828125,
+            "w": 988,
+            "h": 416
+          },
+          "parent": {
+            "x": 360,
+            "y": 270.828125,
+            "w": 990,
+            "h": 536.234375
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.375
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Conservation and useful output",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-account.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 1021,
+            "y": 411.25,
+            "w": 328,
+            "h": 267.859375
+          },
+          "parent": {
+            "x": 1020,
+            "y": 333.65625,
+            "w": 330,
+            "h": 703.578125
+          },
+          "ratio": 1.2244897959183674,
+          "renderRatio": 1.2238805970149254
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": -3650.09375,
+            "w": 990,
+            "h": 765.5625
+          },
+          "card": {
+            "x": 388,
+            "y": -3528.375,
+            "w": 937,
+            "h": 602.84375
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": -3503.375,
+            "w": 401.390625,
+            "h": 261.3125
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": -3503.375,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationConservation concerns the total account. A lamp can deliver useful light and warm its surroundings; heat is another transfer rather than destroyed energy.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 360,
+            "y": 333.65625,
+            "w": 990,
+            "h": 1421.421875
+          },
+          "display": "grid",
+          "sticky": [
+            {
+              "position": "sticky",
+              "top": "84px",
+              "box": {
+                "x": 1020,
+                "y": 333.65625,
+                "w": 330,
+                "h": 703.578125
+              }
+            }
+          ]
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 1020,
+            "y": 333.65625,
+            "w": 330,
+            "h": 703.578125
+          },
+          "caption": "Input100 J enters the stated device boundary.Outputs35 J useful + 65 J other outputs = 100 J. Energy is conserved.For this stated boundary, 100 J in equals 35 J useful output plus 65 J in other outputs. “Wasted” energy is transferred, not destroyed.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "04",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Generators and turbines",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/source-generator-p101.png",
+          "complete": true,
+          "natural": 1000,
+          "box": {
+            "x": 361,
+            "y": -445.765625,
+            "w": 988,
+            "h": 247
+          },
+          "parent": {
+            "x": 360,
+            "y": -446.765625,
+            "w": 990,
+            "h": 302.234375
+          },
+          "ratio": 4,
+          "renderRatio": 4
+        },
+        {
+          "src": "assets/generator-model.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 361,
+            "y": 336.71875,
+            "w": 988,
+            "h": 416
+          },
+          "parent": {
+            "x": 360,
+            "y": 270.71875,
+            "w": 990,
+            "h": 536.234375
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.375
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 6996.234375,
+            "w": 1098,
+            "h": 794.84375
+          },
+          "card": {
+            "x": 360,
+            "y": 7125.953125,
+            "w": 990,
+            "h": 617.125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7150.953125,
+            "w": 426.03125,
+            "h": 275.59375
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7150.953125,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "05",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Generation systems and transmission",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/water-turbine-cutaway.png",
+          "complete": true,
+          "natural": 1288,
+          "box": {
+            "x": 645.6875,
+            "y": 244.546875,
+            "w": 418.625,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": 178.546875,
+            "w": 990,
+            "h": 768.375
+          },
+          "ratio": 0.6977248104008668,
+          "renderRatio": 0.6983333333333334
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 7318.34375,
+            "w": 1098,
+            "h": 794.84375
+          },
+          "card": {
+            "x": 360,
+            "y": 7448.0625,
+            "w": 990,
+            "h": 617.125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7473.0625,
+            "w": 426.03125,
+            "h": 275.59375
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7473.0625,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Power, energy and time",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-power.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 555,
+            "y": 317.015625,
+            "w": 600,
+            "h": 455
+          },
+          "parent": {
+            "x": 360,
+            "y": 247.015625,
+            "w": 990,
+            "h": 617.984375
+          },
+          "ratio": 1.3186813186813187,
+          "renderRatio": 1.3186813186813187
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 247.015625,
+            "w": 990,
+            "h": 617.984375
+          },
+          "caption": "Convert the timeHalf a minute = 30 s.Calculate the rate120 J ÷ 30 s = 4 W, or four joules each second.Convert half a minute to 30 seconds first. Then 120 J ÷ 30 s = 4 W: four joules transferred each second.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Electrical energy and electricity use",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-meter-p110.jpg",
+          "complete": true,
+          "natural": 296,
+          "box": {
+            "x": 1021,
+            "y": 708.421875,
+            "w": 328,
+            "h": 291.421875
+          },
+          "parent": {
+            "x": 1020,
+            "y": 638.421875,
+            "w": 330,
+            "h": 575.96875
+          },
+          "ratio": 1.1254752851711027,
+          "renderRatio": 1.127147766323024
+        }
+      ],
+      "videos": [],
+      "layouts": [
+        {
+          "box": {
+            "x": 360,
+            "y": 638.421875,
+            "w": 990,
+            "h": 575.96875
+          },
+          "display": "grid",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 1020,
+            "y": 638.421875,
+            "w": 330,
+            "h": 575.96875
+          },
+          "caption": "An electricity meter records energy use over time in kWh. kWh is an energy unit; kW is a power unit. This photograph is an original textbook example.Science 24 textbook, printed p. 110 · physical PDF p. 23 · Figure 6.11. Figure crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Efficiency and conservation choices",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/efficiency-flow.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 361,
+            "y": 336.609375,
+            "w": 988,
+            "h": 416
+          },
+          "parent": {
+            "x": 360,
+            "y": 270.609375,
+            "w": 990,
+            "h": 536.234375
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.375
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": 1275.921875,
+            "w": 990,
+            "h": 792.109375
+          },
+          "card": {
+            "x": 388,
+            "y": 1397.640625,
+            "w": 937,
+            "h": 629.390625
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": 1422.640625,
+            "w": 401.390625,
+            "h": 259.640625
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": 1422.640625,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationEfficiency is useful output divided by input, expressed as a percentage. If 30 J of 100 J is useful, efficiency is 30%; other outputs account for the remainder. Use the device’s intended job when deciding what is useful.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Photosynthesis stores energy",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": 1445.828125,
+            "w": 990,
+            "h": 793.78125
+          },
+          "card": {
+            "x": 388,
+            "y": 1567.546875,
+            "w": 937,
+            "h": 631.0625
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": 1592.546875,
+            "w": 401.390625,
+            "h": 261.3125
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": 1592.546875,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Cellular respiration releases usable energy",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-respiration.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 555,
+            "y": 304.515625,
+            "w": 600,
+            "h": 480
+          },
+          "parent": {
+            "x": 360,
+            "y": 234.515625,
+            "w": 990,
+            "h": 668.578125
+          },
+          "ratio": 1.25,
+          "renderRatio": 1.25
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 7373.171875,
+            "w": 1098,
+            "h": 794.84375
+          },
+          "card": {
+            "x": 360,
+            "y": 7502.890625,
+            "w": 990,
+            "h": 617.125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7527.890625,
+            "w": 426.03125,
+            "h": 275.59375
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7527.890625,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 234.515625,
+            "w": 990,
+            "h": 668.578125
+          },
+          "caption": "MatterGlucose + oxygen → carbon dioxide + water.EnergyChemical energy is transferred to cell processes and thermal energy.Glucose and oxygen become carbon dioxide and water in the simplified matter account. Chemical energy is transferred to cell processes and thermal energy.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Food chains and energy transfer",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": 1445.828125,
+            "w": 990,
+            "h": 792.109375
+          },
+          "card": {
+            "x": 388,
+            "y": 1567.546875,
+            "w": 937,
+            "h": 629.390625
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": 1592.546875,
+            "w": 401.390625,
+            "h": 259.640625
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": 1592.546875,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationA chain follows food energy from a producer to primary and later consumers. Organisms use energy for life processes, so less is available at higher levels. A web shows multiple connected feeding paths; the 10% rule is a teaching approximation.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Homeostasis and metabolism",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-temperature.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 555,
+            "y": 255.015625,
+            "w": 600,
+            "h": 580
+          },
+          "parent": {
+            "x": 360,
+            "y": 185.015625,
+            "w": 990,
+            "h": 768.578125
+          },
+          "ratio": 1.0344827586206897,
+          "renderRatio": 1.0344827586206897
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 185.015625,
+            "w": 990,
+            "h": 768.578125
+          },
+          "caption": "Detect and coordinateReceptors detect cooling; the brain coordinates a response.Oppose the changeShivering and heat conservation oppose cooling.Adjust the responseFeedback changes the response as temperature moves toward its usual range.Detection, coordination and a response oppose cooling. As temperature changes, feedback adjusts the response; a usual range is not a perfectly fixed number.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Nutrients and changing energy needs",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-needs.png",
+          "complete": true,
+          "natural": 1448,
+          "box": {
+            "x": 405,
+            "y": 207.921875,
+            "w": 900,
+            "h": 675
+          },
+          "parent": {
+            "x": 360,
+            "y": 137.921875,
+            "w": 990,
+            "h": 946.765625
+          },
+          "ratio": 1.3333333333333333,
+          "renderRatio": 1.3333333333333333
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 137.921875,
+            "w": 990,
+            "h": 946.765625
+          },
+          "caption": "Less-active dayBody processes still require energy.More-active game dayActivity usually adds to daily energy needs.For the same person, greater physical activity usually increases daily energy needs. Rest days still require energy for ongoing body processes.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "width": 1440,
+      "zoom": 1,
+      "title": "How fossil fuels form",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/source-coal-formation-p136.jpg",
+          "complete": true,
+          "natural": 640,
+          "box": {
+            "x": 361,
+            "y": 285.390625,
+            "w": 638,
+            "h": 518.375
+          },
+          "parent": {
+            "x": 360,
+            "y": 219.390625,
+            "w": 640,
+            "h": 685.078125
+          },
+          "ratio": 1.2307692307692308,
+          "renderRatio": 1.2316602316602316
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "15",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Finding, extracting and refining fuels",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/source-oil-reservoir-p140.png",
+          "complete": true,
+          "natural": 990,
+          "box": {
+            "x": 415,
+            "y": -534.265625,
+            "w": 880,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": -535.265625,
+            "w": 990,
+            "h": 655.234375
+          },
+          "ratio": 1.4666666666666666,
+          "renderRatio": 1.4666666666666666
+        },
+        {
+          "src": "assets/source-pumpjack-p141.jpg",
+          "complete": true,
+          "natural": 420,
+          "box": {
+            "x": 909.515625,
+            "y": 399.90625,
+            "w": 420,
+            "h": 290
+          },
+          "parent": {
+            "x": 889.03125,
+            "y": 333.90625,
+            "w": 460.96875,
+            "h": 456.703125
+          },
+          "ratio": 1.4482758620689655,
+          "renderRatio": 1.4482758620689655
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 6978.71875,
+            "w": 1098,
+            "h": 794.84375
+          },
+          "card": {
+            "x": 360,
+            "y": 7108.4375,
+            "w": 990,
+            "h": 617.125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7133.4375,
+            "w": 426.03125,
+            "h": 275.59375
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7133.4375,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationCrude oil is a mixture. Heating it and allowing vapours to condense at different temperatures separates fractions by boiling range. Exploration and pumping happen before this refinery step; fractions are not always pure single substances.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Combustion and environmental consequences",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-pollution-p147.jpg",
+          "complete": true,
+          "natural": 400,
+          "box": {
+            "x": 1021,
+            "y": 424.421875,
+            "w": 328,
+            "h": 241.078125
+          },
+          "parent": {
+            "x": 1020,
+            "y": 323.03125,
+            "w": 330,
+            "h": 582.609375
+          },
+          "ratio": 1.3605442176870748,
+          "renderRatio": 1.3609958506224067
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 5579.109375,
+            "w": 1098,
+            "h": 867
+          },
+          "card": {
+            "x": 360,
+            "y": 5708.828125,
+            "w": 990,
+            "h": 689.28125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 5733.828125,
+            "w": 426.03125,
+            "h": 319.53125
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 5733.828125,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationComplete hydrocarbon combustion forms carbon dioxide and water while transferring energy. Added CO₂ changes how outgoing infrared radiation moves through the atmosphere. The publisher corrected an old pre-industrial concentration figure in its description; use the mechanism here, not that figure.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 360,
+            "y": 323.03125,
+            "w": 990,
+            "h": 582.609375
+          },
+          "display": "grid",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 1020,
+            "y": 323.03125,
+            "w": 330,
+            "h": 582.609375
+          },
+          "caption": "The textbook photograph shows an urban air-pollution context in Vancouver. A photograph cannot measure carbon dioxide or establish the contribution of a particular gas.Science 24 textbook, printed p. 147 · physical PDF p. 50 · Figure 8.12. Photograph crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Bring the energy pathways together",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 555,
+            "y": 289.703125,
+            "w": 600,
+            "h": 710
+          },
+          "parent": {
+            "x": 360,
+            "y": 219.703125,
+            "w": 990,
+            "h": 898.578125
+          },
+          "ratio": 0.8450704225352113,
+          "renderRatio": 0.8450704225352113
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 219.703125,
+            "w": 990,
+            "h": 898.578125
+          },
+          "caption": "Store energyPhotosynthesis stores energy from sunlight in organic matter.Use foodCellular respiration transfers energy to cell processes and thermal energy.Follow ancient organic matterFossil-fuel formation takes geological time; combustion transfers stored chemical energy.Sunlight, organic matter, respiration, fossil-fuel formation and combustion connect through energy pathways. This summary simplifies processes discussed in the lessons.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "01",
+      "width": 820,
+      "zoom": 1,
+      "title": "Energy forms in everyday life",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-forms.png",
+          "complete": true,
+          "natural": 1469,
+          "box": {
+            "x": 324,
+            "y": 395.890625,
+            "w": 410,
+            "h": 298.90625
+          },
+          "parent": {
+            "x": 323,
+            "y": 318.296875,
+            "w": 412,
+            "h": 936.609375
+          },
+          "ratio": 1.3716153127917834,
+          "renderRatio": 1.37123745819398
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": 2046.84375,
+            "w": 412,
+            "h": 1267.90625
+          },
+          "card": {
+            "x": 351,
+            "y": 2237.5625,
+            "w": 359,
+            "h": 1036.1875
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": 2262.5625,
+            "w": 309,
+            "h": 291.3125
+          },
+          "stage": {
+            "x": 376,
+            "y": 2573.875,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationA raised object has gravitational potential energy; while it falls, energy transfers into motion and some disperses through air resistance. Naming only the final movement leaves out the start and other outputs.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 318.296875,
+            "w": 412,
+            "h": 936.609375
+          },
+          "caption": "Chemical potentialA battery stores chemical energy.RadiantSunlight transfers energy by radiation.KineticThe moving cyclist has kinetic energy.Elastic potentialA drawn bow stores elastic energy.ThermalA fire transfers energy to its surroundings.A system can involve more than one energy form. Use the visible situation to identify a form and explain the evidence.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "02",
+      "width": 820,
+      "zoom": 1,
+      "title": "Trace energy conversion chains",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/energy-chain.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 324,
+            "y": 459.015625,
+            "w": 409.984375,
+            "h": 172.625
+          },
+          "parent": {
+            "x": 323,
+            "y": 376.578125,
+            "w": 412,
+            "h": 355.765625
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.3699421965317917
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "width": 820,
+      "zoom": 1,
+      "title": "Conservation and useful output",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-account.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 377.265625,
+            "w": 410,
+            "h": 334.828125
+          },
+          "parent": {
+            "x": 323,
+            "y": 307.265625,
+            "w": 412,
+            "h": 714.96875
+          },
+          "ratio": 1.2244897959183674,
+          "renderRatio": 1.2238805970149254
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": -4729.09375,
+            "w": 412,
+            "h": 1181.46875
+          },
+          "card": {
+            "x": 351,
+            "y": -4538.375,
+            "w": 359,
+            "h": 949.75
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": -4513.375,
+            "w": 309,
+            "h": 261.3125
+          },
+          "stage": {
+            "x": 376,
+            "y": -4232.0625,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationConservation concerns the total account. A lamp can deliver useful light and warm its surroundings; heat is another transfer rather than destroyed energy.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 323,
+            "y": 307.265625,
+            "w": 412,
+            "h": 2282.046875
+          },
+          "display": "block",
+          "sticky": [
+            {
+              "position": "static",
+              "top": "auto",
+              "box": {
+                "x": 323,
+                "y": 307.265625,
+                "w": 412,
+                "h": 714.96875
+              }
+            }
+          ]
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 307.265625,
+            "w": 412,
+            "h": 714.96875
+          },
+          "caption": "Input100 J enters the stated device boundary.Outputs35 J useful + 65 J other outputs = 100 J. Energy is conserved.For this stated boundary, 100 J in equals 35 J useful output plus 65 J in other outputs. “Wasted” energy is transferred, not destroyed.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "04",
+      "width": 820,
+      "zoom": 1,
+      "title": "Generators and turbines",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/source-generator-p101.png",
+          "complete": true,
+          "natural": 1000,
+          "box": {
+            "x": 324,
+            "y": 493.75,
+            "w": 410,
+            "h": 102.5
+          },
+          "parent": {
+            "x": 323,
+            "y": 492.75,
+            "w": 412,
+            "h": 180.96875
+          },
+          "ratio": 4,
+          "renderRatio": 3.9805825242718447
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 8906.890625,
+            "w": 520,
+            "h": 1215.5
+          },
+          "card": {
+            "x": 323,
+            "y": 9036.609375,
+            "w": 412,
+            "h": 1037.78125
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 9061.609375,
+            "w": 362,
+            "h": 291.3125
+          },
+          "stage": {
+            "x": 348,
+            "y": 9372.921875,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "05",
+      "width": 820,
+      "zoom": 1,
+      "title": "Generation systems and transmission",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/water-turbine-cutaway.png",
+          "complete": true,
+          "natural": 1288,
+          "box": {
+            "x": 324,
+            "y": 251.015625,
+            "w": 409.984375,
+            "h": 587.609375
+          },
+          "parent": {
+            "x": 323,
+            "y": 185.015625,
+            "w": 412,
+            "h": 799.125
+          },
+          "ratio": 0.6977248104008668,
+          "renderRatio": 0.6972789115646258
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 8556.078125,
+            "w": 520,
+            "h": 1284.5
+          },
+          "card": {
+            "x": 323,
+            "y": 8754.796875,
+            "w": 412,
+            "h": 1037.78125
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 8779.796875,
+            "w": 362,
+            "h": 291.3125
+          },
+          "stage": {
+            "x": 348,
+            "y": 9091.109375,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "width": 820,
+      "zoom": 1,
+      "title": "Power, energy and time",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-power.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 389.53125,
+            "w": 410,
+            "h": 310.90625
+          },
+          "parent": {
+            "x": 323,
+            "y": 319.53125,
+            "w": 412,
+            "h": 639.859375
+          },
+          "ratio": 1.3186813186813187,
+          "renderRatio": 1.3183279742765273
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 319.53125,
+            "w": 412,
+            "h": 639.859375
+          },
+          "caption": "Convert the timeHalf a minute = 30 s.Calculate the rate120 J ÷ 30 s = 4 W, or four joules each second.Convert half a minute to 30 seconds first. Then 120 J ÷ 30 s = 4 W: four joules transferred each second.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "width": 820,
+      "zoom": 1,
+      "title": "Electrical energy and electricity use",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-meter-p110.jpg",
+          "complete": true,
+          "natural": 296,
+          "box": {
+            "x": 324,
+            "y": 362.796875,
+            "w": 410,
+            "h": 364.28125
+          },
+          "parent": {
+            "x": 323,
+            "y": 292.796875,
+            "w": 412,
+            "h": 600.84375
+          },
+          "ratio": 1.1254752851711027,
+          "renderRatio": 1.1263736263736264
+        }
+      ],
+      "videos": [],
+      "layouts": [
+        {
+          "box": {
+            "x": 323,
+            "y": 292.796875,
+            "w": 412,
+            "h": 808.15625
+          },
+          "display": "block",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 292.796875,
+            "w": 412,
+            "h": 600.84375
+          },
+          "caption": "An electricity meter records energy use over time in kWh. kWh is an energy unit; kW is a power unit. This photograph is an original textbook example.Science 24 textbook, printed p. 110 · physical PDF p. 23 · Figure 6.11. Figure crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "width": 820,
+      "zoom": 1,
+      "title": "Efficiency and conservation choices",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/efficiency-flow.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 324,
+            "y": 458.734375,
+            "w": 409.984375,
+            "h": 172.625
+          },
+          "parent": {
+            "x": 323,
+            "y": 376.296875,
+            "w": 412,
+            "h": 355.765625
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.3699421965317917
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": 1277.953125,
+            "w": 412,
+            "h": 1266.125
+          },
+          "card": {
+            "x": 351,
+            "y": 1468.671875,
+            "w": 359,
+            "h": 1034.40625
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": 1493.671875,
+            "w": 309,
+            "h": 289.53125
+          },
+          "stage": {
+            "x": 376,
+            "y": 1803.203125,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationEfficiency is useful output divided by input, expressed as a percentage. If 30 J of 100 J is useful, efficiency is 30%; other outputs account for the remainder. Use the device’s intended job when deciding what is useful.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "width": 820,
+      "zoom": 1,
+      "title": "Photosynthesis stores energy",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": 1859.578125,
+            "w": 412,
+            "h": 1261.625
+          },
+          "card": {
+            "x": 351,
+            "y": 2015.796875,
+            "w": 359,
+            "h": 1064.40625
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": 2040.796875,
+            "w": 309,
+            "h": 319.53125
+          },
+          "stage": {
+            "x": 376,
+            "y": 2380.328125,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "width": 820,
+      "zoom": 1,
+      "title": "Cellular respiration releases usable energy",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-respiration.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 380.703125,
+            "w": 410,
+            "h": 328
+          },
+          "parent": {
+            "x": 323,
+            "y": 303.109375,
+            "w": 412,
+            "h": 741.328125
+          },
+          "ratio": 1.25,
+          "renderRatio": 1.25
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 8915.75,
+            "w": 520,
+            "h": 1191.78125
+          },
+          "card": {
+            "x": 323,
+            "y": 9079.96875,
+            "w": 412,
+            "h": 979.5625
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 9104.96875,
+            "w": 362,
+            "h": 261.3125
+          },
+          "stage": {
+            "x": 348,
+            "y": 9386.28125,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 303.109375,
+            "w": 412,
+            "h": 741.328125
+          },
+          "caption": "MatterGlucose + oxygen → carbon dioxide + water.EnergyChemical energy is transferred to cell processes and thermal energy.Glucose and oxygen become carbon dioxide and water in the simplified matter account. Chemical energy is transferred to cell processes and thermal energy.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "width": 820,
+      "zoom": 1,
+      "title": "Food chains and energy transfer",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": 1853.296875,
+            "w": 412,
+            "h": 1296.125
+          },
+          "card": {
+            "x": 351,
+            "y": 2044.015625,
+            "w": 359,
+            "h": 1064.40625
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": 2069.015625,
+            "w": 309,
+            "h": 291.3125
+          },
+          "stage": {
+            "x": 376,
+            "y": 2380.328125,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationA chain follows food energy from a producer to primary and later consumers. Organisms use energy for life processes, so less is available at higher levels. A web shows multiple connected feeding paths; the 10% rule is a teaching approximation.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "width": 820,
+      "zoom": 1,
+      "title": "Homeostasis and metabolism",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-temperature.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 347.046875,
+            "w": 410,
+            "h": 396.328125
+          },
+          "parent": {
+            "x": 323,
+            "y": 277.046875,
+            "w": 412,
+            "h": 894.84375
+          },
+          "ratio": 1.0344827586206897,
+          "renderRatio": 1.0353535353535352
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 277.046875,
+            "w": 412,
+            "h": 894.84375
+          },
+          "caption": "Detect and coordinateReceptors detect cooling; the brain coordinates a response.Oppose the changeShivering and heat conservation oppose cooling.Adjust the responseFeedback changes the response as temperature moves toward its usual range.Detection, coordination and a response oppose cooling. As temperature changes, feedback adjusts the response; a usual range is not a perfectly fixed number.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "width": 820,
+      "zoom": 1,
+      "title": "Nutrients and changing energy needs",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-needs.png",
+          "complete": true,
+          "natural": 1448,
+          "box": {
+            "x": 324,
+            "y": 390.890625,
+            "w": 410,
+            "h": 307.5
+          },
+          "parent": {
+            "x": 323,
+            "y": 313.296875,
+            "w": 412,
+            "h": 695.640625
+          },
+          "ratio": 1.3333333333333333,
+          "renderRatio": 1.3311688311688312
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 313.296875,
+            "w": 412,
+            "h": 695.640625
+          },
+          "caption": "Less-active dayBody processes still require energy.More-active game dayActivity usually adds to daily energy needs.For the same person, greater physical activity usually increases daily energy needs. Rest days still require energy for ongoing body processes.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "width": 820,
+      "zoom": 1,
+      "title": "How fossil fuels form",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/source-coal-formation-p136.jpg",
+          "complete": true,
+          "natural": 640,
+          "box": {
+            "x": 324,
+            "y": 378.0625,
+            "w": 410,
+            "h": 333.125
+          },
+          "parent": {
+            "x": 323,
+            "y": 312.0625,
+            "w": 412,
+            "h": 523.0625
+          },
+          "ratio": 1.2307692307692308,
+          "renderRatio": 1.2312312312312312
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "15",
+      "width": 820,
+      "zoom": 1,
+      "title": "Finding, extracting and refining fuels",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/source-oil-reservoir-p140.png",
+          "complete": true,
+          "natural": 990,
+          "box": {
+            "x": 324.015625,
+            "y": 405.484375,
+            "w": 409.96875,
+            "h": 279.53125
+          },
+          "parent": {
+            "x": 323,
+            "y": 404.484375,
+            "w": 412,
+            "h": 358
+          },
+          "ratio": 1.4666666666666666,
+          "renderRatio": 1.4642857142857142
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 8940.25,
+            "w": 520,
+            "h": 1191.78125
+          },
+          "card": {
+            "x": 323,
+            "y": 9104.46875,
+            "w": 412,
+            "h": 979.5625
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 9129.46875,
+            "w": 362,
+            "h": 261.3125
+          },
+          "stage": {
+            "x": 348,
+            "y": 9410.78125,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationCrude oil is a mixture. Heating it and allowing vapours to condense at different temperatures separates fractions by boiling range. Exploration and pumping happen before this refinery step; fractions are not always pure single substances.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "width": 820,
+      "zoom": 1,
+      "title": "Combustion and environmental consequences",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-pollution-p147.jpg",
+          "complete": true,
+          "natural": 400,
+          "box": {
+            "x": 324,
+            "y": 394.09375,
+            "w": 410,
+            "h": 301.34375
+          },
+          "parent": {
+            "x": 323,
+            "y": 316.5,
+            "w": 412,
+            "h": 571.09375
+          },
+          "ratio": 1.3605442176870748,
+          "renderRatio": 1.3621262458471761
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 6798.578125,
+            "w": 520,
+            "h": 1340.9375
+          },
+          "card": {
+            "x": 323,
+            "y": 6997.296875,
+            "w": 412,
+            "h": 1094.21875
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 7022.296875,
+            "w": 362,
+            "h": 319.53125
+          },
+          "stage": {
+            "x": 348,
+            "y": 7361.828125,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationComplete hydrocarbon combustion forms carbon dioxide and water while transferring energy. Added CO₂ changes how outgoing infrared radiation moves through the atmosphere. The publisher corrected an old pre-industrial concentration figure in its description; use the mechanism here, not that figure.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 323,
+            "y": 316.5,
+            "w": 412,
+            "h": 919.5
+          },
+          "display": "block",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 316.5,
+            "w": 412,
+            "h": 571.09375
+          },
+          "caption": "The textbook photograph shows an urban air-pollution context in Vancouver. A photograph cannot measure carbon dioxide or establish the contribution of a particular gas.Science 24 textbook, printed p. 147 · physical PDF p. 50 · Figure 8.12. Photograph crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "width": 820,
+      "zoom": 1,
+      "title": "Bring the energy pathways together",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 514.890625,
+            "w": 410,
+            "h": 485.15625
+          },
+          "parent": {
+            "x": 323,
+            "y": 437.296875,
+            "w": 412,
+            "h": 1016.859375
+          },
+          "ratio": 0.8450704225352113,
+          "renderRatio": 0.845360824742268
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 437.296875,
+            "w": 412,
+            "h": 1016.859375
+          },
+          "caption": "Store energyPhotosynthesis stores energy from sunlight in organic matter.Use foodCellular respiration transfers energy to cell processes and thermal energy.Follow ancient organic matterFossil-fuel formation takes geological time; combustion transfers stored chemical energy.Sunlight, organic matter, respiration, fossil-fuel formation and combustion connect through energy pathways. This summary simplifies processes discussed in the lessons.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "01",
+      "width": 390,
+      "zoom": 1,
+      "title": "Energy forms in everyday life",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-forms.png",
+          "complete": true,
+          "natural": 1469,
+          "box": {
+            "x": 23,
+            "y": 341.328125,
+            "w": 344,
+            "h": 250.796875
+          },
+          "parent": {
+            "x": 22,
+            "y": 235.53125,
+            "w": 346,
+            "h": 931.09375
+          },
+          "ratio": 1.3716153127917834,
+          "renderRatio": 1.3705179282868525
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 1953.5625,
+            "w": 346,
+            "h": 1177.34375
+          },
+          "card": {
+            "x": 42,
+            "y": 2134.609375,
+            "w": 309,
+            "h": 963.296875
+          },
+          "columns": "275px",
+          "copy": {
+            "x": 59,
+            "y": 2151.609375,
+            "w": 275,
+            "h": 281.28125
+          },
+          "stage": {
+            "x": 59,
+            "y": 2450.890625,
+            "w": 275,
+            "h": 154.6875
+          },
+          "written": "Written explanationA raised object has gravitational potential energy; while it falls, energy transfers into motion and some disperses through air resistance. Naming only the final movement leaves out the start and other outputs.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 235.53125,
+            "w": 346,
+            "h": 931.09375
+          },
+          "caption": "Chemical potentialA battery stores chemical energy.RadiantSunlight transfers energy by radiation.KineticThe moving cyclist has kinetic energy.Elastic potentialA drawn bow stores elastic energy.ThermalA fire transfers energy to its surroundings.A system can involve more than one energy form. Use the visible situation to identify a form and explain the evidence.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "02",
+      "width": 390,
+      "zoom": 1,
+      "title": "Trace energy conversion chains",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/energy-chain.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 23.015625,
+            "y": 394.828125,
+            "w": 343.953125,
+            "h": 144.828125
+          },
+          "parent": {
+            "x": 22,
+            "y": 286.28125,
+            "w": 346,
+            "h": 354.078125
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.372413793103448
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "width": 390,
+      "zoom": 1,
+      "title": "Conservation and useful output",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-account.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 326.1875,
+            "w": 344,
+            "h": 280.921875
+          },
+          "parent": {
+            "x": 22,
+            "y": 220.390625,
+            "w": 346,
+            "h": 714.453125
+          },
+          "ratio": 1.2244897959183674,
+          "renderRatio": 1.2241992882562278
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": -4748.421875,
+            "w": 346,
+            "h": 1181.84375
+          },
+          "card": {
+            "x": 42,
+            "y": -4532.875,
+            "w": 309,
+            "h": 933.296875
+          },
+          "columns": "275px",
+          "copy": {
+            "x": 59,
+            "y": -4515.875,
+            "w": 275,
+            "h": 277.828125
+          },
+          "stage": {
+            "x": 59,
+            "y": -4220.046875,
+            "w": 275,
+            "h": 154.6875
+          },
+          "written": "Written explanationConservation concerns the total account. A lamp can deliver useful light and warm its surroundings; heat is another transfer rather than destroyed energy.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 22,
+            "y": 220.390625,
+            "w": 346,
+            "h": 2335.953125
+          },
+          "display": "block",
+          "sticky": [
+            {
+              "position": "static",
+              "top": "auto",
+              "box": {
+                "x": 22,
+                "y": 220.390625,
+                "w": 346,
+                "h": 714.453125
+              }
+            }
+          ]
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 220.390625,
+            "w": 346,
+            "h": 714.453125
+          },
+          "caption": "Input100 J enters the stated device boundary.Outputs35 J useful + 65 J other outputs = 100 J. Energy is conserved.For this stated boundary, 100 J in equals 35 J useful output plus 65 J in other outputs. “Wasted” energy is transferred, not destroyed.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "04",
+      "width": 390,
+      "zoom": 1,
+      "title": "Generators and turbines",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/source-generator-p101.png",
+          "complete": true,
+          "natural": 1000,
+          "box": {
+            "x": 23,
+            "y": 423.90625,
+            "w": 344,
+            "h": 86
+          },
+          "parent": {
+            "x": 22,
+            "y": 422.90625,
+            "w": 346,
+            "h": 187.703125
+          },
+          "ratio": 4,
+          "renderRatio": 4
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8943.421875,
+            "w": 390,
+            "h": 1144.15625
+          },
+          "card": {
+            "x": 22,
+            "y": 9063.46875,
+            "w": 346,
+            "h": 984.109375
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 9080.46875,
+            "w": 312,
+            "h": 281.28125
+          },
+          "stage": {
+            "x": 39,
+            "y": 9379.75,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "05",
+      "width": 390,
+      "zoom": 1,
+      "title": "Generation systems and transmission",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/water-turbine-cutaway.png",
+          "complete": true,
+          "natural": 1288,
+          "box": {
+            "x": 23,
+            "y": 220.46875,
+            "w": 343.984375,
+            "h": 493.015625
+          },
+          "parent": {
+            "x": 22,
+            "y": 111.921875,
+            "w": 346,
+            "h": 770.3125
+          },
+          "ratio": 0.6977248104008668,
+          "renderRatio": 0.6977687626774848
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8485.1875,
+            "w": 390,
+            "h": 1247.65625
+          },
+          "card": {
+            "x": 22,
+            "y": 8708.734375,
+            "w": 346,
+            "h": 984.109375
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 8725.734375,
+            "w": 312,
+            "h": 281.28125
+          },
+          "stage": {
+            "x": 39,
+            "y": 9025.015625,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "width": 390,
+      "zoom": 1,
+      "title": "Power, energy and time",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-power.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 336.15625,
+            "w": 344,
+            "h": 260.859375
+          },
+          "parent": {
+            "x": 22,
+            "y": 230.359375,
+            "w": 346,
+            "h": 668.796875
+          },
+          "ratio": 1.3186813186813187,
+          "renderRatio": 1.318007662835249
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 230.359375,
+            "w": 346,
+            "h": 668.796875
+          },
+          "caption": "Convert the timeHalf a minute = 30 s.Calculate the rate120 J ÷ 30 s = 4 W, or four joules each second.Convert half a minute to 30 seconds first. Then 120 J ÷ 30 s = 4 W: four joules transferred each second.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "width": 390,
+      "zoom": 1,
+      "title": "Electrical energy and electricity use",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-meter-p110.jpg",
+          "complete": true,
+          "natural": 296,
+          "box": {
+            "x": 23,
+            "y": 313.875,
+            "w": 344,
+            "h": 305.640625
+          },
+          "parent": {
+            "x": 22,
+            "y": 208.078125,
+            "w": 346,
+            "h": 617.984375
+          },
+          "ratio": 1.1254752851711027,
+          "renderRatio": 1.1241830065359477
+        }
+      ],
+      "videos": [],
+      "layouts": [
+        {
+          "box": {
+            "x": 22,
+            "y": 208.078125,
+            "w": 346,
+            "h": 841.8125
+          },
+          "display": "block",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 208.078125,
+            "w": 346,
+            "h": 617.984375
+          },
+          "caption": "An electricity meter records energy use over time in kWh. kWh is an energy unit; kW is a power unit. This photograph is an original textbook example.Science 24 textbook, printed p. 110 · physical PDF p. 23 · Figure 6.11. Figure crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "width": 390,
+      "zoom": 1,
+      "title": "Efficiency and conservation choices",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/efficiency-flow.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 23.015625,
+            "y": 394.96875,
+            "w": 343.953125,
+            "h": 144.828125
+          },
+          "parent": {
+            "x": 22,
+            "y": 286.421875,
+            "w": 346,
+            "h": 354.078125
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.372413793103448
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 1185.5625,
+            "w": 346,
+            "h": 1200.4375
+          },
+          "card": {
+            "x": 42,
+            "y": 1366.609375,
+            "w": 309,
+            "h": 986.390625
+          },
+          "columns": "275px",
+          "copy": {
+            "x": 59,
+            "y": 1383.609375,
+            "w": 275,
+            "h": 277.828125
+          },
+          "stage": {
+            "x": 59,
+            "y": 1679.4375,
+            "w": 275,
+            "h": 154.6875
+          },
+          "written": "Written explanationEfficiency is useful output divided by input, expressed as a percentage. If 30 J of 100 J is useful, efficiency is 30%; other outputs account for the remainder. Use the device’s intended job when deciding what is useful.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "width": 390,
+      "zoom": 1,
+      "title": "Photosynthesis stores energy",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 1953.921875,
+            "w": 346,
+            "h": 1325.03125
+          },
+          "card": {
+            "x": 50,
+            "y": 2177.46875,
+            "w": 293,
+            "h": 1060.484375
+          },
+          "columns": "259px",
+          "copy": {
+            "x": 67,
+            "y": 2194.46875,
+            "w": 259,
+            "h": 307.828125
+          },
+          "stage": {
+            "x": 67,
+            "y": 2520.296875,
+            "w": 259,
+            "h": 145.6875
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "width": 390,
+      "zoom": 1,
+      "title": "Cellular respiration releases usable energy",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-respiration.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 329.71875,
+            "w": 344,
+            "h": 275.1875
+          },
+          "parent": {
+            "x": 22,
+            "y": 200.125,
+            "w": 346,
+            "h": 758.109375
+          },
+          "ratio": 1.25,
+          "renderRatio": 1.250909090909091
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8847.25,
+            "w": 390,
+            "h": 1178.65625
+          },
+          "card": {
+            "x": 22,
+            "y": 9001.796875,
+            "w": 346,
+            "h": 984.109375
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 9018.796875,
+            "w": 312,
+            "h": 307.828125
+          },
+          "stage": {
+            "x": 39,
+            "y": 9344.625,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 200.125,
+            "w": 346,
+            "h": 758.109375
+          },
+          "caption": "MatterGlucose + oxygen → carbon dioxide + water.EnergyChemical energy is transferred to cell processes and thermal energy.Glucose and oxygen become carbon dioxide and water in the simplified matter account. Chemical energy is transferred to cell processes and thermal energy.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "width": 390,
+      "zoom": 1,
+      "title": "Food chains and energy transfer",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 1919.421875,
+            "w": 346,
+            "h": 1290.53125
+          },
+          "card": {
+            "x": 50,
+            "y": 2108.46875,
+            "w": 293,
+            "h": 1060.484375
+          },
+          "columns": "259px",
+          "copy": {
+            "x": 67,
+            "y": 2125.46875,
+            "w": 259,
+            "h": 307.828125
+          },
+          "stage": {
+            "x": 67,
+            "y": 2451.296875,
+            "w": 259,
+            "h": 145.6875
+          },
+          "written": "Written explanationA chain follows food energy from a producer to primary and later consumers. Organisms use energy for life processes, so less is available at higher levels. A web shows multiple connected feeding paths; the 10% rule is a teaching approximation.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "width": 390,
+      "zoom": 1,
+      "title": "Homeostasis and metabolism",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-temperature.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 300.25,
+            "w": 344,
+            "h": 332.53125
+          },
+          "parent": {
+            "x": 22,
+            "y": 194.453125,
+            "w": 346,
+            "h": 884.4375
+          },
+          "ratio": 1.0344827586206897,
+          "renderRatio": 1.033033033033033
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 194.453125,
+            "w": 346,
+            "h": 884.4375
+          },
+          "caption": "Detect and coordinateReceptors detect cooling; the brain coordinates a response.Oppose the changeShivering and heat conservation oppose cooling.Adjust the responseFeedback changes the response as temperature moves toward its usual range.Detection, coordination and a response oppose cooling. As temperature changes, feedback adjusts the response; a usual range is not a perfectly fixed number.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "width": 390,
+      "zoom": 1,
+      "title": "Nutrients and changing energy needs",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-needs.png",
+          "complete": true,
+          "natural": 1448,
+          "box": {
+            "x": 23,
+            "y": 337.546875,
+            "w": 344,
+            "h": 258
+          },
+          "parent": {
+            "x": 22,
+            "y": 231.75,
+            "w": 346,
+            "h": 714.328125
+          },
+          "ratio": 1.3333333333333333,
+          "renderRatio": 1.3333333333333333
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 231.75,
+            "w": 346,
+            "h": 714.328125
+          },
+          "caption": "Less-active dayBody processes still require energy.More-active game dayActivity usually adds to daily energy needs.For the same person, greater physical activity usually increases daily energy needs. Rest days still require energy for ongoing body processes.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "width": 390,
+      "zoom": 1,
+      "title": "How fossil fuels form",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "15",
+      "width": 390,
+      "zoom": 1,
+      "title": "Finding, extracting and refining fuels",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/source-oil-reservoir-p140.png",
+          "complete": true,
+          "natural": 990,
+          "box": {
+            "x": 23.015625,
+            "y": 350,
+            "w": 343.96875,
+            "h": 234.53125
+          },
+          "parent": {
+            "x": 22,
+            "y": 349,
+            "w": 346,
+            "h": 336.234375
+          },
+          "ratio": 1.4666666666666666,
+          "renderRatio": 1.4638297872340424
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8896.90625,
+            "w": 390,
+            "h": 1183.15625
+          },
+          "card": {
+            "x": 22,
+            "y": 9085.953125,
+            "w": 346,
+            "h": 954.109375
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 9102.953125,
+            "w": 312,
+            "h": 251.28125
+          },
+          "stage": {
+            "x": 39,
+            "y": 9372.234375,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationCrude oil is a mixture. Heating it and allowing vapours to condense at different temperatures separates fractions by boiling range. Exploration and pumping happen before this refinery step; fractions are not always pure single substances.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "width": 390,
+      "zoom": 1,
+      "title": "Combustion and environmental consequences",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-pollution-p147.jpg",
+          "complete": true,
+          "natural": 400,
+          "box": {
+            "x": 23,
+            "y": 340.390625,
+            "w": 344,
+            "h": 252.828125
+          },
+          "parent": {
+            "x": 22,
+            "y": 210.796875,
+            "w": 346,
+            "h": 614.5625
+          },
+          "ratio": 1.3605442176870748,
+          "renderRatio": 1.359683794466403
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 6708.796875,
+            "w": 390,
+            "h": 1353.84375
+          },
+          "card": {
+            "x": 22,
+            "y": 6932.34375,
+            "w": 346,
+            "h": 1090.296875
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 6949.34375,
+            "w": 312,
+            "h": 334.375
+          },
+          "stage": {
+            "x": 39,
+            "y": 7301.71875,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationComplete hydrocarbon combustion forms carbon dioxide and water while transferring energy. Added CO₂ changes how outgoing infrared radiation moves through the atmosphere. The publisher corrected an old pre-industrial concentration figure in its description; use the mechanism here, not that figure.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 22,
+            "y": 210.796875,
+            "w": 346,
+            "h": 944.578125
+          },
+          "display": "block",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 210.796875,
+            "w": 346,
+            "h": 614.5625
+          },
+          "caption": "The textbook photograph shows an urban air-pollution context in Vancouver. A photograph cannot measure carbon dioxide or establish the contribution of a particular gas.Science 24 textbook, printed p. 147 · physical PDF p. 50 · Figure 8.12. Photograph crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "width": 390,
+      "zoom": 1,
+      "title": "Bring the energy pathways together",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 437.140625,
+            "w": 344,
+            "h": 407.0625
+          },
+          "parent": {
+            "x": 22,
+            "y": 307.546875,
+            "w": 346,
+            "h": 1033.953125
+          },
+          "ratio": 0.8450704225352113,
+          "renderRatio": 0.8452088452088452
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 307.546875,
+            "w": 346,
+            "h": 1033.953125
+          },
+          "caption": "Store energyPhotosynthesis stores energy from sunlight in organic matter.Use foodCellular respiration transfers energy to cell processes and thermal energy.Follow ancient organic matterFossil-fuel formation takes geological time; combustion transfers stored chemical energy.Sunlight, organic matter, respiration, fossil-fuel formation and combustion connect through energy pathways. This summary simplifies processes discussed in the lessons.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "01",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Energy forms in everyday life",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-forms.png",
+          "complete": true,
+          "natural": 1469,
+          "box": {
+            "x": 55,
+            "y": 72.546875,
+            "w": 610,
+            "h": 444.7265625
+          },
+          "parent": {
+            "x": 54,
+            "y": 6.546875,
+            "w": 612,
+            "h": 1037.25
+          },
+          "ratio": 1.3716153127917834,
+          "renderRatio": 1.3707865168539326
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 1634.5078125,
+            "w": 676,
+            "h": 1086.1875
+          },
+          "card": {
+            "x": 42,
+            "y": 1781.0625,
+            "w": 639,
+            "h": 906.6328125
+          },
+          "columns": "605px",
+          "copy": {
+            "x": 59,
+            "y": 1798.0625,
+            "w": 605,
+            "h": 198.21875
+          },
+          "stage": {
+            "x": 59,
+            "y": 2014.28125,
+            "w": 605,
+            "h": 340.3125
+          },
+          "written": "Written explanationA raised object has gravitational potential energy; while it falls, energy transfers into motion and some disperses through air resistance. Naming only the final movement leaves out the start and other outputs.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": 6.546875,
+            "w": 612,
+            "h": 1037.25
+          },
+          "caption": "Chemical potentialA battery stores chemical energy.RadiantSunlight transfers energy by radiation.KineticThe moving cyclist has kinetic energy.Elastic potentialA drawn bow stores elastic energy.ThermalA fire transfers energy to its surroundings.A system can involve more than one energy form. Use the visible situation to identify a form and explain the evidence.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "02",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Trace energy conversion chains",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/energy-chain.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 55.0078125,
+            "y": 166.703125,
+            "w": 609.984375,
+            "h": 256.8359375
+          },
+          "parent": {
+            "x": 54,
+            "y": 100.703125,
+            "w": 612,
+            "h": 400.3046875
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.3735408560311284
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Conservation and useful output",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-account.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": 49.7578125,
+            "w": 600,
+            "h": 490
+          },
+          "parent": {
+            "x": 54,
+            "y": -16.2421875,
+            "w": 612,
+            "h": 666.5859375
+          },
+          "ratio": 1.2244897959183674,
+          "renderRatio": 1.2244897959183674
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": -4210.8203125,
+            "w": 676,
+            "h": 1059.6328125
+          },
+          "card": {
+            "x": 42,
+            "y": -4064.265625,
+            "w": 639,
+            "h": 880.078125
+          },
+          "columns": "605px",
+          "copy": {
+            "x": 59,
+            "y": -4047.265625,
+            "w": 605,
+            "h": 198.21875
+          },
+          "stage": {
+            "x": 59,
+            "y": -3831.046875,
+            "w": 605,
+            "h": 340.3125
+          },
+          "written": "Written explanationConservation concerns the total account. A lamp can deliver useful light and warm its surroundings; heat is another transfer rather than destroyed energy.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 54,
+            "y": -16.2421875,
+            "w": 612,
+            "h": 1990.8984375
+          },
+          "display": "block",
+          "sticky": [
+            {
+              "position": "static",
+              "top": "auto",
+              "box": {
+                "x": 54,
+                "y": -16.2421875,
+                "w": 612,
+                "h": 666.5859375
+              }
+            }
+          ]
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": -16.2421875,
+            "w": 612,
+            "h": 666.5859375
+          },
+          "caption": "Input100 J enters the stated device boundary.Outputs35 J useful + 65 J other outputs = 100 J. Energy is conserved.For this stated boundary, 100 J in equals 35 J useful output plus 65 J in other outputs. “Wasted” energy is transferred, not destroyed.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "04",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Generators and turbines",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/source-generator-p101.png",
+          "complete": true,
+          "natural": 1000,
+          "box": {
+            "x": 55,
+            "y": 218.875,
+            "w": 610,
+            "h": 152.5
+          },
+          "parent": {
+            "x": 54,
+            "y": 217.875,
+            "w": 612,
+            "h": 230.96875
+          },
+          "ratio": 4,
+          "renderRatio": 3.9869281045751634
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 7046.7421875,
+            "w": 720,
+            "h": 1120.609375
+          },
+          "card": {
+            "x": 54,
+            "y": 7174.796875,
+            "w": 612,
+            "h": 944.5546875
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 7191.796875,
+            "w": 578,
+            "h": 224.7734375
+          },
+          "stage": {
+            "x": 71,
+            "y": 7434.5703125,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "05",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Generation systems and transmission",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/water-turbine-cutaway.png",
+          "complete": true,
+          "natural": 1288,
+          "box": {
+            "x": 150.6796875,
+            "y": -4.796875,
+            "w": 418.6328125,
+            "h": 600
+          },
+          "parent": {
+            "x": 54,
+            "y": -70.796875,
+            "w": 612,
+            "h": 788.296875
+          },
+          "ratio": 0.6977248104008668,
+          "renderRatio": 0.6983333333333334
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 6921.8203125,
+            "w": 720,
+            "h": 1155.109375
+          },
+          "card": {
+            "x": 54,
+            "y": 7084.375,
+            "w": 612,
+            "h": 944.5546875
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 7101.375,
+            "w": 578,
+            "h": 224.7734375
+          },
+          "stage": {
+            "x": 71,
+            "y": 7344.1484375,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationDifferent primary sources can turn a turbine, which supplies mechanical input to a generator. Electrical energy then travels through the grid, with some resistive heating along the way. The source mix and impacts depend on place and time.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Power, energy and time",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-power.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": 67.3203125,
+            "w": 600,
+            "h": 455
+          },
+          "parent": {
+            "x": 54,
+            "y": 1.3203125,
+            "w": 612,
+            "h": 631.5859375
+          },
+          "ratio": 1.3186813186813187,
+          "renderRatio": 1.3186813186813187
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": 1.3203125,
+            "w": 612,
+            "h": 631.5859375
+          },
+          "caption": "Convert the timeHalf a minute = 30 s.Calculate the rate120 J ÷ 30 s = 4 W, or four joules each second.Convert half a minute to 30 seconds first. Then 120 J ÷ 30 s = 4 W: four joules transferred each second.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Electrical energy and electricity use",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-meter-p110.jpg",
+          "complete": true,
+          "natural": 296,
+          "box": {
+            "x": 55,
+            "y": 24.046875,
+            "w": 610,
+            "h": 541.9921875
+          },
+          "parent": {
+            "x": 54,
+            "y": -41.953125,
+            "w": 612,
+            "h": 740.9765625
+          },
+          "ratio": 1.1254752851711027,
+          "renderRatio": 1.1254612546125462
+        }
+      ],
+      "videos": [],
+      "layouts": [
+        {
+          "box": {
+            "x": 54,
+            "y": -41.953125,
+            "w": 612,
+            "h": 885.1953125
+          },
+          "display": "block",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": -41.953125,
+            "w": 612,
+            "h": 740.9765625
+          },
+          "caption": "An electricity meter records energy use over time in kWh. kWh is an energy unit; kW is a power unit. This photograph is an original textbook example.Science 24 textbook, printed p. 110 · physical PDF p. 23 · Figure 6.11. Figure crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Efficiency and conservation choices",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/efficiency-flow.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 55.0078125,
+            "y": 166.7578125,
+            "w": 609.984375,
+            "h": 256.8359375
+          },
+          "parent": {
+            "x": 54,
+            "y": 100.7578125,
+            "w": 612,
+            "h": 400.3046875
+          },
+          "ratio": 2.380952380952381,
+          "renderRatio": 2.3735408560311284
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 947.984375,
+            "w": 676,
+            "h": 1086.1875
+          },
+          "card": {
+            "x": 42,
+            "y": 1094.5390625,
+            "w": 639,
+            "h": 906.6328125
+          },
+          "columns": "605px",
+          "copy": {
+            "x": 59,
+            "y": 1111.5390625,
+            "w": 605,
+            "h": 198.21875
+          },
+          "stage": {
+            "x": 59,
+            "y": 1327.7578125,
+            "w": 605,
+            "h": 340.3125
+          },
+          "written": "Written explanationEfficiency is useful output divided by input, expressed as a percentage. If 30 J of 100 J is useful, efficiency is 30%; other outputs account for the remainder. Use the device’s intended job when deciding what is useful.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Photosynthesis stores energy",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 54,
+            "y": 1507.2578125,
+            "w": 612,
+            "h": 1110.296875
+          },
+          "card": {
+            "x": 82,
+            "y": 1661.8125,
+            "w": 559,
+            "h": 914.7421875
+          },
+          "columns": "525px",
+          "copy": {
+            "x": 99,
+            "y": 1678.8125,
+            "w": 525,
+            "h": 224.7734375
+          },
+          "stage": {
+            "x": 99,
+            "y": 1921.5859375,
+            "w": 525,
+            "h": 295.3125
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Cellular respiration releases usable energy",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-respiration.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": 54.875,
+            "w": 600,
+            "h": 480
+          },
+          "parent": {
+            "x": 54,
+            "y": -11.125,
+            "w": 612,
+            "h": 656.5859375
+          },
+          "ratio": 1.25,
+          "renderRatio": 1.25
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 6992.9453125,
+            "w": 720,
+            "h": 1094.0546875
+          },
+          "card": {
+            "x": 54,
+            "y": 7121,
+            "w": 612,
+            "h": 918
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 7138,
+            "w": 578,
+            "h": 224.7734375
+          },
+          "stage": {
+            "x": 71,
+            "y": 7380.7734375,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationPhotosynthesis uses light, carbon dioxide and water to build sugar and release oxygen. Cellular respiration uses fuel and oxygen to support cell work. Plants perform respiration too, including when there is no sunlight.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": -11.125,
+            "w": 612,
+            "h": 656.5859375
+          },
+          "caption": "MatterGlucose + oxygen → carbon dioxide + water.EnergyChemical energy is transferred to cell processes and thermal energy.Glucose and oxygen become carbon dioxide and water in the simplified matter account. Chemical energy is transferred to cell processes and thermal energy.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Food chains and energy transfer",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 54,
+            "y": 1507.2578125,
+            "w": 612,
+            "h": 1083.7421875
+          },
+          "card": {
+            "x": 82,
+            "y": 1661.8125,
+            "w": 559,
+            "h": 888.1875
+          },
+          "columns": "525px",
+          "copy": {
+            "x": 99,
+            "y": 1678.8125,
+            "w": 525,
+            "h": 198.21875
+          },
+          "stage": {
+            "x": 99,
+            "y": 1895.03125,
+            "w": 525,
+            "h": 295.3125
+          },
+          "written": "Written explanationA chain follows food energy from a producer to primary and later consumers. Organisms use energy for life processes, so less is available at higher levels. A web shows multiple connected feeding paths; the 10% rule is a teaching approximation.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Homeostasis and metabolism",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-temperature.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": 4.8203125,
+            "w": 600,
+            "h": 580
+          },
+          "parent": {
+            "x": 54,
+            "y": -61.1796875,
+            "w": 612,
+            "h": 756.5859375
+          },
+          "ratio": 1.0344827586206897,
+          "renderRatio": 1.0344827586206897
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": -61.1796875,
+            "w": 612,
+            "h": 756.5859375
+          },
+          "caption": "Detect and coordinateReceptors detect cooling; the brain coordinates a response.Oppose the changeShivering and heat conservation oppose cooling.Adjust the responseFeedback changes the response as temperature moves toward its usual range.Detection, coordination and a response oppose cooling. As temperature changes, feedback adjusts the response; a usual range is not a perfectly fixed number.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Nutrients and changing energy needs",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-energy-needs.png",
+          "complete": true,
+          "natural": 1448,
+          "box": {
+            "x": 55,
+            "y": 66.1015625,
+            "w": 610,
+            "h": 457.5
+          },
+          "parent": {
+            "x": 54,
+            "y": 0.1015625,
+            "w": 612,
+            "h": 800.4609375
+          },
+          "ratio": 1.3333333333333333,
+          "renderRatio": 1.331877729257642
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": 0.1015625,
+            "w": 612,
+            "h": 800.4609375
+          },
+          "caption": "Less-active dayBody processes still require energy.More-active game dayActivity usually adds to daily energy needs.For the same person, greater physical activity usually increases daily energy needs. Rest days still require energy for ongoing body processes.Original course illustration generated for Science 24.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "width": 1440,
+      "zoom": 2,
+      "title": "How fossil fuels form",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/coal-panel-a-p136.jpg",
+          "complete": true,
+          "natural": 320,
+          "box": {
+            "x": 69,
+            "y": -1732.203125,
+            "w": 610,
+            "h": 495.625
+          },
+          "parent": {
+            "x": 69,
+            "y": -1732.203125,
+            "w": 610,
+            "h": 496.625
+          },
+          "ratio": 1.2307692307692308,
+          "renderRatio": 1.2298387096774193
+        },
+        {
+          "src": "assets/visual-refresh/coal-panel-b-p136.jpg",
+          "complete": true,
+          "natural": 320,
+          "box": {
+            "x": 69,
+            "y": -1139.0859375,
+            "w": 610,
+            "h": 495.625
+          },
+          "parent": {
+            "x": 69,
+            "y": -1139.0859375,
+            "w": 610,
+            "h": 496.625
+          },
+          "ratio": 1.2307692307692308,
+          "renderRatio": 1.2298387096774193
+        },
+        {
+          "src": "assets/visual-refresh/coal-panel-c-p136.jpg",
+          "complete": true,
+          "natural": 320,
+          "box": {
+            "x": 69,
+            "y": -545.96875,
+            "w": 610,
+            "h": 495.625
+          },
+          "parent": {
+            "x": 69,
+            "y": -545.96875,
+            "w": 610,
+            "h": 496.625
+          },
+          "ratio": 1.2307692307692308,
+          "renderRatio": 1.2298387096774193
+        },
+        {
+          "src": "assets/visual-refresh/coal-panel-d-p136.jpg",
+          "complete": true,
+          "natural": 320,
+          "box": {
+            "x": 69,
+            "y": 47.1484375,
+            "w": 610,
+            "h": 495.625
+          },
+          "parent": {
+            "x": 69,
+            "y": 47.1484375,
+            "w": 610,
+            "h": 496.625
+          },
+          "ratio": 1.2307692307692308,
+          "renderRatio": 1.2298387096774193
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "15",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Finding, extracting and refining fuels",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/source-oil-reservoir-p140.png",
+          "complete": true,
+          "natural": 990,
+          "box": {
+            "x": 55,
+            "y": 86.9296875,
+            "w": 609.9921875,
+            "h": 415.90625
+          },
+          "parent": {
+            "x": 54,
+            "y": 85.9296875,
+            "w": 612,
+            "h": 494.375
+          },
+          "ratio": 1.4666666666666666,
+          "renderRatio": 1.4663461538461537
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 7213.8671875,
+            "w": 720,
+            "h": 1128.5546875
+          },
+          "card": {
+            "x": 54,
+            "y": 7376.421875,
+            "w": 612,
+            "h": 918
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 7393.421875,
+            "w": 578,
+            "h": 198.21875
+          },
+          "stage": {
+            "x": 71,
+            "y": 7609.640625,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationCrude oil is a mixture. Heating it and allowing vapours to condense at different temperatures separates fractions by boiling range. Exploration and pumping happen before this refinery step; fractions are not always pure single substances.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Combustion and environmental consequences",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-pollution-p147.jpg",
+          "complete": true,
+          "natural": 400,
+          "box": {
+            "x": 55,
+            "y": 70.84375,
+            "w": 610,
+            "h": 448.34375
+          },
+          "parent": {
+            "x": 54,
+            "y": 4.84375,
+            "w": 612,
+            "h": 672.921875
+          },
+          "ratio": 1.3605442176870748,
+          "renderRatio": 1.3616071428571428
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 5521.0703125,
+            "w": 720,
+            "h": 1181.6640625
+          },
+          "card": {
+            "x": 54,
+            "y": 5683.625,
+            "w": 612,
+            "h": 971.109375
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 5700.625,
+            "w": 578,
+            "h": 224.7734375
+          },
+          "stage": {
+            "x": 71,
+            "y": 5943.3984375,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationComplete hydrocarbon combustion forms carbon dioxide and water while transferring energy. Added CO₂ changes how outgoing infrared radiation moves through the atmosphere. The publisher corrected an old pre-industrial concentration figure in its description; use the mechanism here, not that figure.",
+          "focus": true
+        }
+      ],
+      "layouts": [
+        {
+          "box": {
+            "x": 54,
+            "y": 4.84375,
+            "w": 612,
+            "h": 896.8046875
+          },
+          "display": "block",
+          "sticky": []
+        }
+      ],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": 4.84375,
+            "w": 612,
+            "h": 672.921875
+          },
+          "caption": "The textbook photograph shows an urban air-pollution context in Vancouver. A photograph cannot measure carbon dioxide or establish the contribution of a particular gas.Science 24 textbook, printed p. 147 · physical PDF p. 50 · Figure 8.12. Photograph crop; source PDF unchanged.",
+          "font": "16px",
+          "narrowNotes": null
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Bring the energy pathways together",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/b-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": -60.109375,
+            "w": 600,
+            "h": 710
+          },
+          "parent": {
+            "x": 54,
+            "y": -126.109375,
+            "w": 612,
+            "h": 912.1796875
+          },
+          "ratio": 0.8450704225352113,
+          "renderRatio": 0.8450704225352113
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": -126.109375,
+            "w": 612,
+            "h": 912.1796875
+          },
+          "caption": "Store energyPhotosynthesis stores energy from sunlight in organic matter.Use foodCellular respiration transfers energy to cell processes and thermal energy.Follow ancient organic matterFossil-fuel formation takes geological time; combustion transfers stored chemical energy.Sunlight, organic matter, respiration, fossil-fuel formation and combustion connect through energy pathways. This summary simplifies processes discussed in the lessons.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    }
+  ],
+  "dialogs": [
+    {
+      "unit": "b",
+      "lesson": "01",
+      "id": "s24x-b-energy-forms",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "id": "s24x-b-energy-account",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "id": "s24x-b-power",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "id": "s24x-b-meter",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "id": "s24x-b-respiration",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "id": "s24x-b-temperature",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "id": "s24x-b-energy-needs",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "id": "s24x-b-pollution",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "id": "s24x-b-summary",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    }
+  ],
+  "media": [
+    {
+      "unit": "b",
+      "lesson": "01",
+      "id": "s24-b-video-energy",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "id": "s24-b-video-conservation",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "04",
+      "id": "s24-b-video-stations",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "05",
+      "id": "s24-b-video-stations",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "id": "s24-b-video-efficiency",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "id": "s24-b-video-photosynthesis",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "id": "s24-b-video-photosynthesis",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "id": "s24-b-video-food-chain",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "15",
+      "id": "s24-b-video-distillation",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "id": "s24-b-video-climate",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    }
+  ],
+  "saves": [
+    {
+      "unit": "b",
+      "profile": "isolated synthetic Chromium profile",
+      "baselineCompletedCheck": "s24-b-required-01",
+      "savedNoteId": "s24-b-l01-transfer",
+      "baselineToCandidate": "passed",
+      "candidateSaveReload": "passed",
+      "completedCheckAndWritingHistory": "passed",
+      "realLearnerData": "not accessed"
+    }
+  ],
+  "svgLabels": [
+    {
+      "id": "a-energy-levels",
+      "status": "passed",
+      "labels": 11,
+      "clipped": []
+    },
+    {
+      "id": "a-word-equation",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "a-summary",
+      "status": "passed",
+      "labels": 10,
+      "clipped": []
+    },
+    {
+      "id": "b-energy-account",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "b-power",
+      "status": "passed",
+      "labels": 4,
+      "clipped": []
+    },
+    {
+      "id": "b-respiration",
+      "status": "passed",
+      "labels": 5,
+      "clipped": []
+    },
+    {
+      "id": "b-temperature",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "b-summary",
+      "status": "passed",
+      "labels": 13,
+      "clipped": []
+    },
+    {
+      "id": "c-food-safety",
+      "status": "passed",
+      "labels": 8,
+      "clipped": []
+    },
+    {
+      "id": "c-methods",
+      "status": "passed",
+      "labels": 12,
+      "clipped": []
+    },
+    {
+      "id": "c-baseline",
+      "status": "passed",
+      "labels": 11,
+      "clipped": []
+    },
+    {
+      "id": "c-abo",
+      "status": "passed",
+      "labels": 27,
+      "clipped": []
+    },
+    {
+      "id": "c-resistance",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "c-mutations",
+      "status": "passed",
+      "labels": 29,
+      "clipped": []
+    },
+    {
+      "id": "d-distance",
+      "status": "passed",
+      "labels": 6,
+      "clipped": []
+    },
+    {
+      "id": "d-momentum",
+      "status": "passed",
+      "labels": 5,
+      "clipped": []
+    },
+    {
+      "id": "d-impulse",
+      "status": "passed",
+      "labels": 16,
+      "clipped": []
+    },
+    {
+      "id": "d-stopping-force",
+      "status": "passed",
+      "labels": 17,
+      "clipped": []
+    },
+    {
+      "id": "d-summary",
+      "status": "passed",
+      "labels": 9,
+      "clipped": []
+    }
+  ],
+  "assetResponses": [
+    {
+      "unit": "b",
+      "file": "asset-loader.js",
+      "status": 200,
+      "sha256": "c0e7bf1566b59cbbe9600cf569ff299be5b82c5119df9024130a22600076c662"
+    },
+    {
+      "unit": "b",
+      "file": "assets/efficiency-flow.svg",
+      "status": 200,
+      "sha256": "0c140455a223993019189c327795a57d3e771246917b4ae2a32312bb486070e6"
+    },
+    {
+      "unit": "b",
+      "file": "assets/energy-chain.svg",
+      "status": 200,
+      "sha256": "21495631fcd2b975d331ab79d58938f72315dc722480ae4f5cb5e16cdfaa5656"
+    },
+    {
+      "unit": "b",
+      "file": "assets/food-pyramid.svg",
+      "status": 200,
+      "sha256": "463da37dd99862fecd9ea5197ada115b4e42b7aae2c5be223c408895c87df77c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/generator-model.svg",
+      "status": 200,
+      "sha256": "fda5288c6f133f8266c8f644aced9475a3782a490a6da544f5ba2031c6eae4bb"
+    },
+    {
+      "unit": "b",
+      "file": "assets/guided-notes.pdf",
+      "status": 200,
+      "sha256": "e5f7d221decfe5dd64aab07c61879c1011b5981fa26665d3e16d2715a3f69f92"
+    },
+    {
+      "unit": "b",
+      "file": "assets/nextstep-logo.png",
+      "status": 200,
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "unit": "b",
+      "file": "assets/plant-energy.svg",
+      "status": 200,
+      "sha256": "a81e29b39238c18cedb98797ef5fd16cc3d10a5808652d3ea6c0f2eaecccdcc1"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-01.jpg",
+      "status": 200,
+      "sha256": "ec872d3f747f098cac7bb561b36d011652005b163a4ec34734702d5918c9c24b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-02.jpg",
+      "status": 200,
+      "sha256": "3b30ace86e54b2c973bd49d657a738f0b0db6225750dd70ad697e035ca1f2b94"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-03.jpg",
+      "status": 200,
+      "sha256": "a72d6822d23f2c1e1e5a0fe0a7868f6034480b730b81653d3cc7dd8662f86513"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-04.jpg",
+      "status": 200,
+      "sha256": "0f301cada4b4ce5f1ddbc2bab7d607e2a0267837ca7867068d9566f3a36d1292"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-05.jpg",
+      "status": 200,
+      "sha256": "49b928c5b1748da0f16f639b59feb289ac36333e578e2dda31fbfbd6829d6b1e"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-06.jpg",
+      "status": 200,
+      "sha256": "f4409092281b75865cbdccbf29f76e9e74fe7fcc4bab4afb8b7ee5fac8d87cfd"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-07.jpg",
+      "status": 200,
+      "sha256": "c9a994cd046f255a979660c50a7cccbe9cfc5a4feed6988c4bb8ab8f5aea4728"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-08.jpg",
+      "status": 200,
+      "sha256": "d28534679a09bbcd964a8028253534db4343ea0e8da8f911407fb86ed830903c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-09.jpg",
+      "status": 200,
+      "sha256": "942515a40b596b192f5370bfb4e3e8326f18bead2c69bde6db5ce0548c53740b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-10.jpg",
+      "status": 200,
+      "sha256": "363cf7c22a8bc2ad28f235fdcc21497e7b91080e52f0b9e4d1ca92df6f16c3b2"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-11.jpg",
+      "status": 200,
+      "sha256": "48f5d3848ad69ff019700d0a52c650a6eb6cad14382b2d70501a9fd5db1463fe"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-12.jpg",
+      "status": 200,
+      "sha256": "5dfef7d6a3e4f73f7d967d8a6a22ec76bfecef7a204d7056fadc51329e24b534"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-13.jpg",
+      "status": 200,
+      "sha256": "c40b887a446a5d71bfbe76aa422493f10cf75ed735db51b9ccf7864896eef162"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-14.jpg",
+      "status": 200,
+      "sha256": "5594d13ad6a5c40fa069e935ccb30ef940634d000fdce172f84cd0b0c6ddf08f"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-15.jpg",
+      "status": 200,
+      "sha256": "cac7a1e8833e142cc116d29900ec93c162ac9566b827c3ffdc9e17035261114c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-16.jpg",
+      "status": 200,
+      "sha256": "0bb4b735c7f470069a3e06605c271195d64d8fe192044c11a7274e221fc29386"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-17.jpg",
+      "status": 200,
+      "sha256": "a8664aed387cbca6c795556f9faf78b9eac6267b8e422d8bf23aee4f7566ee78"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-18.jpg",
+      "status": 200,
+      "sha256": "004d04c3bd12a02f1a470624aa6d8351414ce6dc9c50b9c357104b43bbf11814"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-19.jpg",
+      "status": 200,
+      "sha256": "6a7d444861c59e772edb35c58021800feb1c153bd44b0a636694709a83f9a26c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-20.jpg",
+      "status": 200,
+      "sha256": "379777731792ce15f91eb2c65ee7febfb1e387e603e17b4f6ac07f1d2c6ebfa3"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-21.jpg",
+      "status": 200,
+      "sha256": "e291e7c46341aa9f6ecb1adb0b215887a93ddec70b88b754133f6ee5357c834b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-22.jpg",
+      "status": 200,
+      "sha256": "c3e05af555198ee14ecb8576f36962a310717843f4339ce478eed028842733e4"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-23.jpg",
+      "status": 200,
+      "sha256": "d3c328c767dd3473df7e4e918a9d550337c0d851c654f1f0f7d9bc68a89968c1"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-24.jpg",
+      "status": 200,
+      "sha256": "f6f154ac24694ded1c2888fc840939083231b964b1a1cfbcc3e9f6f3820011e6"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-25.jpg",
+      "status": 200,
+      "sha256": "d09e83f03f7178c438f97c5190b5870d551ce5ad729231291a577e8487017c41"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-26.jpg",
+      "status": 200,
+      "sha256": "4d5c6342802e9617c473b2133970fa3d11b6753aa8ddad201ef8ac5838b960fe"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-27.jpg",
+      "status": 200,
+      "sha256": "68be01d165b410eeb0e1d4a8179966d297c25e99b4414dc60792a052fb76e82c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-28.jpg",
+      "status": 200,
+      "sha256": "450a84f6c0ff911cae76f19e4b260eb5eef765f9dbe2cc152752c5dc63d5ba50"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-29.jpg",
+      "status": 200,
+      "sha256": "7d6b81cfbff01a6bf014b47df6ee4a61429de57ac4d7be6e88fc70a406851cd5"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-30.jpg",
+      "status": 200,
+      "sha256": "4553249465803be3b8169dbd9321b6c37f55e2a1f7b4c5f003918bd8af4dbedc"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-31.jpg",
+      "status": 200,
+      "sha256": "ae8e0134eea1d9cd67257f6fa48ee04acac99c017416c5aade1c4142b75cac4a"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-32.jpg",
+      "status": 200,
+      "sha256": "733e3f9bf4f1ca9620e8cd586b9cac55fa30139860992537423877ef549292c9"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-33.jpg",
+      "status": 200,
+      "sha256": "80f240a07483d495c71cfa5a869d26b0b0fb1c6e24351f6e507e5281da991105"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-34.jpg",
+      "status": 200,
+      "sha256": "7272d560e4df19269e94f254358ace671e364fd2b47473ab30d7a20c8d8a7aa5"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-35.jpg",
+      "status": 200,
+      "sha256": "a904e16c1f56eb7fc12975ca576593982d4b97e3d109486e4e5be8d3b2f76fb4"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-36.jpg",
+      "status": 200,
+      "sha256": "6d78567aff5a157eec032cc8fb3ed3c796c106512ff2357b476f958db6903e39"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-37.jpg",
+      "status": 200,
+      "sha256": "cc086b4f587073fe9daaca1154d42d10e203fdfc34b48964e28d13fc07746f0f"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-38.jpg",
+      "status": 200,
+      "sha256": "f87ba579b0935aa753377c526658d6fa18e8c12332571d26354e695fa684a8ad"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-39.jpg",
+      "status": 200,
+      "sha256": "4269a27f45f16cf08332fad49908a5197c36b8eae2533b7b93323d45422d1312"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-40.jpg",
+      "status": 200,
+      "sha256": "e3b84bca63de04385fb6c338332c8018f7a4cae5789d99bfd7e46a2f15c6cd58"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-41.jpg",
+      "status": 200,
+      "sha256": "9a4bb5c0bae9a251543681af021f744ee14e04ee8e4e2bbac8ce366870c226de"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-42.jpg",
+      "status": 200,
+      "sha256": "c77b9f38ea07bf4f5e971ca6240c59eed34d041eeea1cbf633a3530de9826a94"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-43.jpg",
+      "status": 200,
+      "sha256": "89e6a59e9c362729a47e2f77cd32869a47a7cb00626c0be330b4b360fe400dad"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-44.jpg",
+      "status": 200,
+      "sha256": "534d91f87b55aa86e3b77083a84ccedbd567bd369610ebd18034707a2ccaaf0a"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-45.jpg",
+      "status": 200,
+      "sha256": "3928aec6a2ae69db1cd4b98a92f4c2c58417c814f524ef3d432bb7f8571086d8"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-46.jpg",
+      "status": 200,
+      "sha256": "546e1da67cd7e7f4c1617c4ac39fce596ae0b23b06db8aabf34fb2d607f72c51"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-47.jpg",
+      "status": 200,
+      "sha256": "92749caef6a48a3562ccb76e61b9c24633b1bb73704b993b46a7abe547679695"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-48.jpg",
+      "status": 200,
+      "sha256": "66d16bce56c0abab54fd0b8a8d8176c3dea8276f8b70aaab27251d82b86f48df"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-49.jpg",
+      "status": 200,
+      "sha256": "9181807ad82ebfcbe3231ab7f05418c3d92da00a6fde3e6ed7b0603d6ebc9965"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-50.jpg",
+      "status": 200,
+      "sha256": "229b2eb24b1e55b2ff694b048c9bec3c72b8e34157bff57051f8e13565cea166"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reader-pages/textbook-page-51.jpg",
+      "status": 200,
+      "sha256": "7362ce708d5607f57a1fd890377598f0a62af8f92f9f86a824dbcd72ad9a1482"
+    },
+    {
+      "unit": "b",
+      "file": "assets/reservoir-model.svg",
+      "status": 200,
+      "sha256": "73df32b24e50602054ea4e5c17c999484929b0530e2efb56989a4305bfd137d0"
+    },
+    {
+      "unit": "b",
+      "file": "assets/source-coal-formation-p136.jpg",
+      "status": 200,
+      "sha256": "7149aca0f04cdb6ff40676a798feff89efaba7bddf850b428e2385c3f1cda061"
+    },
+    {
+      "unit": "b",
+      "file": "assets/source-generator-p101.png",
+      "status": 200,
+      "sha256": "189e3a2b56cf3a1dbcf6baf3ac8be697676febf6b7402b112edbc0f13b5fbee7"
+    },
+    {
+      "unit": "b",
+      "file": "assets/source-oil-reservoir-p140.png",
+      "status": 200,
+      "sha256": "f628d63f5b997a407fc80e2d60ff3b196dd540d80481f86a9208aec1cceec45d"
+    },
+    {
+      "unit": "b",
+      "file": "assets/source-pumpjack-p141.jpg",
+      "status": 200,
+      "sha256": "c429183944a8dc7c369248b0a5f8ea34d8ef01fcacb5c3dc93e6a0598fa80615"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-01.jpg",
+      "status": 200,
+      "sha256": "ff2897a11887214a7d2ad6de08178663b278ea8fe94e8bb71903698729a5ea8f"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-02.jpg",
+      "status": 200,
+      "sha256": "685b2a1052643b08f22bce563e9ca78f01e49aeab5d20f915f21c078dbe4bade"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-03.jpg",
+      "status": 200,
+      "sha256": "9e347ad01ce72f803975f5f92662b3b3aebfc52785b9c3756bc94593f9728935"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-04.jpg",
+      "status": 200,
+      "sha256": "5d0e11f6f74c10e85001f26807a0827f3a2053abe29a44f3f8e2f3e546580879"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-05.jpg",
+      "status": 200,
+      "sha256": "40c2fb52b08c03e104f00353605f5d6361d4a00a4d351469d9ed32c8e96975ff"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-06.jpg",
+      "status": 200,
+      "sha256": "07394e2c66629c4bd487d9995ae700e429f67d71b8cbb44ae24a4199ccd3c0ed"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-07.jpg",
+      "status": 200,
+      "sha256": "e0b09170e30be8c7efc8153bff8a8d82b643a8db60a6c3db91fc6bdfb48b77ea"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-08.jpg",
+      "status": 200,
+      "sha256": "40ac8fbeb03a2eafb25a0bffa84dbafc146be26297d727fa92b80335577f7ebd"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-09.jpg",
+      "status": 200,
+      "sha256": "f8769a8d847d133ecab7a497e74a173a19d2ff10ef32e1cef9e2a712f977b01a"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-10.jpg",
+      "status": 200,
+      "sha256": "8f4cef33a8b057f3f0d1230935fc927152e43da53e66404ab9a3f2985715eed9"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-11.jpg",
+      "status": 200,
+      "sha256": "1f23d6e8d581903cd40a7d5bad93eeebcc04212978047504bc563dd384117eb6"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-12.jpg",
+      "status": 200,
+      "sha256": "9c7081ad49f01e20d53a013c6abef6a0c1266ad2867f8752193f487cbf6095a6"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-13.jpg",
+      "status": 200,
+      "sha256": "0249501e84ff31f77c2149c3e62a7c7ec071890e45c65985d778b33a7f88073b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-14.jpg",
+      "status": 200,
+      "sha256": "6dd0c268689115acac49d3e14e55035d328f790c8d490ddee0c262c03416917f"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-15.jpg",
+      "status": 200,
+      "sha256": "1f8c1d269769497d7255293b430151fb9d5c7796a3e69b9a72963833616f8fb2"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-16.jpg",
+      "status": 200,
+      "sha256": "8b245641438fded86864ce63189edd8f3f0fe1dd727ef23279a249946bdaa005"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-17.jpg",
+      "status": 200,
+      "sha256": "51d24818ca068ed8eb9749f1d493aa6231397f762838e5173be99f26e6e916a9"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-18.jpg",
+      "status": 200,
+      "sha256": "b2af96df0ceae9e183d27724807f090c66b210e110dda0ec024c4c682c95349b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-19.jpg",
+      "status": 200,
+      "sha256": "38abff0890cc25d1f95cbf0813c776bd09114e1f7df52ce09f2f7cdb30f37635"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-20.jpg",
+      "status": 200,
+      "sha256": "154d00e95ddb3f2d23eeba3b7d89f9e315e9ebe9f160c951f828d38df32a4cb1"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-21.jpg",
+      "status": 200,
+      "sha256": "013f68eb754529252a79e8947997a301d7603a87e68de11bc59a7775a25a73bf"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-22.jpg",
+      "status": 200,
+      "sha256": "c4668c2778ec7d19695c7c0cedf950a30c4f786e7cd66bc0d2434f554b4fd5db"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-23.jpg",
+      "status": 200,
+      "sha256": "c765f088464585a4b5a14ed5e097d8cb1826ba6d44eb465c8ba55d2bdf36ab27"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-24.jpg",
+      "status": 200,
+      "sha256": "a5d367d4aebcf3da8cfdeb3a641f0c204e5936fcb4efa5718f4e033e9cb599df"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-25.jpg",
+      "status": 200,
+      "sha256": "be1f31bf71109b1e4ad7c5b55a8d8b09a1756e5d6a1a42d0aef65bf9964a06b8"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-26.jpg",
+      "status": 200,
+      "sha256": "6a1fcb03eb7e9f3a8b37b7b9c380a14004cb48b3cfb99b287e87ccf5a0d8eec2"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-27.jpg",
+      "status": 200,
+      "sha256": "e7789488c3dd9054455f97e0fa8a5509429c8daae34cbea6d5d4d3b9eb473c8b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-28.jpg",
+      "status": 200,
+      "sha256": "c91b6a5507d9d0a752f78ca6c55a241de2c9a00980d6a1acc812787762914f6c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-29.jpg",
+      "status": 200,
+      "sha256": "6e42cc97cf9352c0eab8fd27fcba37ee3044c214ec8223c20ac0da97ee0647c0"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-30.jpg",
+      "status": 200,
+      "sha256": "9d988242136f0481aea6e0899db7190a17cde5dcfaa8f07541649a66c8e69456"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-31.jpg",
+      "status": 200,
+      "sha256": "9ac48de0cc6f98b1f387ccd3c13f5891b3c77e22d3abbb576976c9a29bfb878b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-32.jpg",
+      "status": 200,
+      "sha256": "7a7d6be87a3896625652d8952ff70466a2eaa63cdecbb43f5544e2bf4a8c691a"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-33.jpg",
+      "status": 200,
+      "sha256": "936ebe1c30930b500f2ac57c3868184955366c5cd10743043750ce76e2c140a8"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-34.jpg",
+      "status": 200,
+      "sha256": "214fa37e5c04daa20096c6e520fcf9818f9416ed1af54a26bccea546c04fc39d"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-35.jpg",
+      "status": 200,
+      "sha256": "803eb5af7fa909b288a96a7ed2aacfb3eb0595bc04816cee6a5f5181131d26e7"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-36.jpg",
+      "status": 200,
+      "sha256": "446208e685965239d65b665b580fce5f4f8541cc443ce9f67cae0b86f5acb7ab"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-37.jpg",
+      "status": 200,
+      "sha256": "bde835d81a983dde84a4755ccb8ba61b1b05590da9755a6be856a704a483c932"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-38.jpg",
+      "status": 200,
+      "sha256": "8292fdfcdc962bf6ff981afa3caf0b6e14fd2043ecd8c851d423ad4ed3f7b833"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-39.jpg",
+      "status": 200,
+      "sha256": "4f78121d536e0596ad43883c7813fb0c419dfd1cdf9cdef40229560c91e6b690"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-40.jpg",
+      "status": 200,
+      "sha256": "525335b798135241e55b41063f8e516deb75edb1d7bb39edb8b333ed621034cf"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-41.jpg",
+      "status": 200,
+      "sha256": "a216f697e5bb61c3dc54e70ef546fdb648921d2e997083a15225b6c09c273d42"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-42.jpg",
+      "status": 200,
+      "sha256": "2fea15f29760efc0735cf613c55b7051e8bf45dbe4a72b78908c97fb7b3b713f"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-43.jpg",
+      "status": 200,
+      "sha256": "e98d568caac670661e0e50fd3f7d82852820ee55a88d688848934f72e570a0a3"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-44.jpg",
+      "status": 200,
+      "sha256": "8f360cd8c0899d3b9a56e9567ccaa4a01caca121d7f819f9aa88e331621adc2b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-45.jpg",
+      "status": 200,
+      "sha256": "2bb6f416a3b0a53e4664a7dcd5966d0eb8cf013f325b9ce10ba9feedad236aec"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-46.jpg",
+      "status": 200,
+      "sha256": "090e2e6ea5aa00976b60e95b0fa64079b8e2ad3a843664b35c02c15b0f999881"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-47.jpg",
+      "status": 200,
+      "sha256": "817c3c7e9c4918359d2438b39c41d3fb9def79d9a695249a629e110e3742bb99"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-48.jpg",
+      "status": 200,
+      "sha256": "2ba189d4bf530cf53b76d953c0a1c2cb1f9a498404fb076204746851a8498454"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-49.jpg",
+      "status": 200,
+      "sha256": "cf60ccc1daf8976e36236e0cfd6e8586b894ab5ea02fb38240cc3f98846bf06d"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-50.jpg",
+      "status": 200,
+      "sha256": "d0c77b0a6bc23de1e96ade6a2269e3d88ea4256c62f96c6e2451071cb68cf0e8"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-page-51.jpg",
+      "status": 200,
+      "sha256": "96965bf74c2defe893607fe4aade5d99ccb7e24a3556b520605d8dbe885060b1"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p100-what-did-you-find-out-q1.png",
+      "status": 200,
+      "sha256": "74e7d06d43a9cc4faac36765901d512741d5e9074a3319deee10b078ac0a5475"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p100-what-did-you-find-out-q2.png",
+      "status": 200,
+      "sha256": "ea65e575e61d3eeb8de385283ec805a94a3e26cfb473fb4580260e7dcd82bdde"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p100-what-did-you-find-out-q3.png",
+      "status": 200,
+      "sha256": "d47de15d907f3b8501e9acf7148db136f244cab489270a03a6f0973ac6fef7de"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p101-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "e7795e439c02073efaf4cc55c960e247abfd174fc04ba1a7c56e15934dfcc284"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p101-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "6faf1210ba47552ea30e3be06007819c8a76dc01aa8e0ca3e7143c7c5473effe"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p110-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "e2256d834ccd69ee2a9f9ce69eb3e482dc9a4333c53caa0b4c587ec09a1db094"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p110-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "d5c8e8548e36cc55bbfb64058fb74a88f65cd7b6887f4d7f1fe31353d1bd61c1"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p110-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "8db54ecb8dda5a595610ffea00333ae9c53de09eaf6c1111753cf197c52b9380"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p110-solve-these-q1.png",
+      "status": 200,
+      "sha256": "2eba83be019a2356722bdde27ea052448e78589b49838c08831a56deecde9493"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p110-solve-these-q2.png",
+      "status": 200,
+      "sha256": "e54d7ec9923923456e4f2d2b798c19db3a9a96f4021cd1ed07ff3803b6cee81c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p113-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "62f03422e0ecd5f2f973da4c1a60e34f0d0b95b2b1f6c78a3192e785fd08fe72"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p113-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "2d73e1418ee47a69263fd95e7c763990820ec84598659cd6d9a6046ce8fd171d"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p122-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "df82ed52b7e7bf1f751f1172eaa208bef4fdd1936d19838815cdcf684e37d466"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p122-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "79ba07273890f728dc6a1e4b34a2f734f7dc64db6fe35e4c828185b45386c4b5"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p122-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "ff73e0058c78dc551f5d1a6107e6bab7fa6fe82c4f15b009001218ffaabda952"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p124-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "1f86df819b9f8d9047fd3bd49cebef8d11d93daa4aa3ec795a4734b47dd9ea5a"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p124-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "ec3c5429b5a0404d10527dd70fd36aa0ef424f603881a85d5d36d8a6ce09387f"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p124-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "759fc87566547145209c050b87dd5b728a30e5a40eacf89d96fb54089f16446f"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p131-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "6a85f29fab2f6cd5d1b9e2fc712ef082822177df4237e4673a62f3bd6f8cb1ce"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p131-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "691945179b5ee5cecd0302f9877455386f806cc55ed50d30dffed93509f53497"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p131-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "323c2c77c57ed4f0a1178488325f664d4078f96299ecee2a9f1be39ea54b7392"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p131-check-your-understanding-q4.png",
+      "status": 200,
+      "sha256": "ad745603662ed06e0f27486efaf2b94efee391fc91baf8d6b0b23b5d626acdfa"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p138-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "7a7c2b65120bcb359aaea190050c9048069cd57051c98d16ecff1ccc5665e241"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p138-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "672fa843440b8d46f45b0c9b09691e56221ac44347517640bf3d1614e5d9d8c4"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p143-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "cc92d5d778a551dcb18c84d24d90d98b03aa8bb451a8b2fcdac251289c42840c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p143-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "2e697f68b64e8039bdc33318eedf82578d3c105a5c49ebc5306857c86aa75b52"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p143-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "0c1991dd0ba9b3b570b82d66d85821a83412f364d782850710c3f61f792c899c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p143-check-your-understanding-q4.png",
+      "status": 200,
+      "sha256": "532ae2b435c9c1ede803487818a774a813ab64437b39c8f547791beccfb0743d"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p143-check-your-understanding-q5.png",
+      "status": 200,
+      "sha256": "a83a280672c5e3b844291775786ce3a3cc06de7750950e0d115fd1695a0414e9"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p146-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "0ba65fbd977669603563122f9c593526b0373f726c874499ab21f02df4224c85"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p146-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "f065ca85a8ca5c75b0aa5aace49259311b7e659bb8ed500981cefbb83d902381"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p149-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "1a3195f1c81f9c10b6ca3f0db1b7e8bc1c4ce65c4012fbcc27b85ff0ee3358be"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p85-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "061fb22191fe40d3fe2d04578160f0fcaaf3404c3e3c6989890877afea5c2891"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p85-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "7015c5806c29ba027f0094c5793cc9a4b5819d64f7a108839c7601342e63b745"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice/s24-b-p85-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "be4361960d3a8b01dc0690630ef02713136c650f9f52f940708dddea3a8ce48a"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook-practice.css",
+      "status": 200,
+      "sha256": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12"
+    },
+    {
+      "unit": "b",
+      "file": "assets/textbook.pdf",
+      "status": 200,
+      "sha256": "894c4e55ce025ca33bbac3f196355889b615add7290e989ada62635469c4532b"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-energy-account.svg",
+      "status": 200,
+      "sha256": "e1692c953600db028f38e52a6553dbc16388a7d5798f99e94e0add6fd12e4cf5"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-energy-forms.png",
+      "status": 200,
+      "sha256": "852efe20fe26ec243c177d2ebbd3e769ae3c7e41221d063778af2aed7c8a0502"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-energy-needs.png",
+      "status": 200,
+      "sha256": "a64738c7b4829fb23b7d05066e6ed9ba24be2384e053806fb8d2268fbfad449c"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-meter-p110.jpg",
+      "status": 200,
+      "sha256": "7ed0ccb38d892262d01232824804552a97345565c1715f67e49d34f26d047b5e"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-pollution-p147.jpg",
+      "status": 200,
+      "sha256": "7f27d1fa21561415c71c791dce6a21664e42bee341b83b9a802d7c07f6d26643"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-power.svg",
+      "status": 200,
+      "sha256": "b6bbd09121cb1bbaf2f01778568a003efea0deb0d2c603b0c75dd6ba95d2b6e3"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-respiration.svg",
+      "status": 200,
+      "sha256": "407e41375b3a2e0c8b7ef31b0a4fac0140be6bd60acea8267e535bb1f7d1f26e"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-summary.svg",
+      "status": 200,
+      "sha256": "110d45e7b523273de13d2763100458b3fa0e0d6c28bd319bc14d75791feede24"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/b-temperature.svg",
+      "status": 200,
+      "sha256": "f27ba0285b0828544357c084ff6ae0eca1b07439ba8d8d9980f45778df1bfe39"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/coal-panel-a-p136.jpg",
+      "status": 200,
+      "sha256": "d3b28abecd6232bda79b0aac67efe5caf4a92f68d6d0639271b4a39bdf86f5ed"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/coal-panel-b-p136.jpg",
+      "status": 200,
+      "sha256": "a0270a750a2eef9fc536ca7eca35f3f9263468604c68cab7c18fe62943f10fba"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/coal-panel-c-p136.jpg",
+      "status": 200,
+      "sha256": "32155e4b9d9511ac017c152e7f108e0d8a2197e0e43796ece432a4ef6d8318be"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh/coal-panel-d-p136.jpg",
+      "status": 200,
+      "sha256": "433bcbcc9c46350bc8204f80c09b50af6ee3fbc4a5f33a9dda346f4e5e5284b5"
+    },
+    {
+      "unit": "b",
+      "file": "assets/visual-refresh.css",
+      "status": 200,
+      "sha256": "edfa12817795fc550b66bffb2eca3c93fb8c10d7c89e527ddb47315743ab4659"
+    },
+    {
+      "unit": "b",
+      "file": "assets/water-turbine-cutaway.png",
+      "status": 200,
+      "sha256": "b7ca560fb7be763943d92dcaf81472750f70ed0defeca6de742471692e2369cf"
+    },
+    {
+      "unit": "b",
+      "file": "assets/workbook-key.pdf",
+      "status": 200,
+      "sha256": "93a3be7bd4183b369792aa10a963203ea74144439e7109befbf9cc359b653728"
+    },
+    {
+      "unit": "b",
+      "file": "assets/workbook.pdf",
+      "status": 200,
+      "sha256": "d26cc4baf1bd0cb4f2f7edea82f43b1e7402df65ec565bef013fd1ef5536d0e9"
+    },
+    {
+      "unit": "b",
+      "file": "course-data.js",
+      "status": 200,
+      "sha256": "779ace1b5c08390fff5ebe5a57dd795a97167cf22e5dec2cadba04d8e0ddd732"
+    },
+    {
+      "unit": "b",
+      "file": "course-data.json",
+      "status": 200,
+      "sha256": "9984fa1406220a4f9b34ba7042f4e8f69fd879b6200c1e3309157ba779f8aa28"
+    },
+    {
+      "unit": "b",
+      "file": "index.html",
+      "status": 200,
+      "sha256": "b2029dcd19495e5f5789c70d451c082ebb52526e0adba8cbdb7f934e51b49234"
+    },
+    {
+      "unit": "b",
+      "file": "legacy-v1-data.js",
+      "status": 200,
+      "sha256": "73e9e1a962408ad91f59f873f8ae9129668465ad4bac7b1113370ac79c92a2d3"
+    },
+    {
+      "unit": "b",
+      "file": "main.js",
+      "status": 200,
+      "sha256": "401a536f898786763a4ea8585b43145149ce2f1f33b1056480e55e2088133b61"
+    },
+    {
+      "unit": "b",
+      "file": "state-store.js",
+      "status": 200,
+      "sha256": "dcb523cd4915f4af8a06b15730a14f1ed2e3c6aef4c1d4c76b6888f394464b64"
+    },
+    {
+      "unit": "b",
+      "file": "styles.css",
+      "status": 200,
+      "sha256": "f0bce32fcd6d4243cbcde101c1e916b247de55cc45696a3fc624c54bd0b6a85a"
+    },
+    {
+      "unit": "b",
+      "file": "textbook-practice-data.js",
+      "status": 200,
+      "sha256": "a67b69568e723d4211eed9a4c86575d654b17eb2217c6f60b62af31b96c3a9ce"
+    },
+    {
+      "unit": "b",
+      "file": "textbook-practice.css",
+      "status": 200,
+      "sha256": "ae788103fac4f01d09387892aba6de115ee0ba84a0a0e258c48a4f2bee762222"
+    },
+    {
+      "unit": "b",
+      "file": "unit-b.css",
+      "status": 200,
+      "sha256": "05d98da0a07c757ecb5355f7ed9842a17f84e203ade98165fbb4ead50fb19006"
+    }
+  ],
+  "captures": [
+    {
+      "unit": "b",
+      "lesson": "01",
+      "label": "desktop",
+      "path": "screenshots/B01-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "label": "desktop",
+      "path": "screenshots/B03-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "label": "desktop",
+      "path": "screenshots/B06-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "label": "desktop",
+      "path": "screenshots/B07-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "label": "desktop",
+      "path": "screenshots/B08-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "label": "desktop",
+      "path": "screenshots/B09-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "label": "desktop",
+      "path": "screenshots/B10-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "label": "desktop",
+      "path": "screenshots/B11-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "label": "desktop",
+      "path": "screenshots/B12-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "label": "desktop",
+      "path": "screenshots/B13-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "label": "desktop",
+      "path": "screenshots/B14-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "label": "desktop",
+      "path": "screenshots/B16-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "label": "desktop",
+      "path": "screenshots/B17-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "01",
+      "label": "tablet",
+      "path": "screenshots/B01-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "label": "tablet",
+      "path": "screenshots/B03-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "label": "tablet",
+      "path": "screenshots/B06-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "label": "tablet",
+      "path": "screenshots/B07-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "label": "tablet",
+      "path": "screenshots/B08-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "label": "tablet",
+      "path": "screenshots/B09-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "label": "tablet",
+      "path": "screenshots/B10-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "label": "tablet",
+      "path": "screenshots/B11-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "label": "tablet",
+      "path": "screenshots/B12-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "label": "tablet",
+      "path": "screenshots/B13-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "label": "tablet",
+      "path": "screenshots/B14-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "label": "tablet",
+      "path": "screenshots/B16-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "label": "tablet",
+      "path": "screenshots/B17-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "01",
+      "label": "phone",
+      "path": "screenshots/B01-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "label": "phone",
+      "path": "screenshots/B03-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "label": "phone",
+      "path": "screenshots/B06-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "label": "phone",
+      "path": "screenshots/B07-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "label": "phone",
+      "path": "screenshots/B08-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "label": "phone",
+      "path": "screenshots/B09-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "label": "phone",
+      "path": "screenshots/B10-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "label": "phone",
+      "path": "screenshots/B11-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "label": "phone",
+      "path": "screenshots/B12-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "label": "phone",
+      "path": "screenshots/B13-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "label": "phone",
+      "path": "screenshots/B14-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "label": "phone",
+      "path": "screenshots/B16-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "label": "phone",
+      "path": "screenshots/B17-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "01",
+      "label": "zoom200",
+      "path": "screenshots/B01-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "label": "zoom200",
+      "path": "screenshots/B03-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "label": "zoom200",
+      "path": "screenshots/B06-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "label": "zoom200",
+      "path": "screenshots/B07-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "label": "zoom200",
+      "path": "screenshots/B08-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "label": "zoom200",
+      "path": "screenshots/B09-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "label": "zoom200",
+      "path": "screenshots/B10-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "label": "zoom200",
+      "path": "screenshots/B11-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "label": "zoom200",
+      "path": "screenshots/B12-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "label": "zoom200",
+      "path": "screenshots/B13-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "label": "zoom200",
+      "path": "screenshots/B14-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "label": "zoom200",
+      "path": "screenshots/B16-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "label": "zoom200",
+      "path": "screenshots/B17-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "01",
+      "label": "before",
+      "path": "screenshots/B01-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "03",
+      "label": "before",
+      "path": "screenshots/B03-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "06",
+      "label": "before",
+      "path": "screenshots/B06-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "07",
+      "label": "before",
+      "path": "screenshots/B07-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "08",
+      "label": "before",
+      "path": "screenshots/B08-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "09",
+      "label": "before",
+      "path": "screenshots/B09-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "10",
+      "label": "before",
+      "path": "screenshots/B10-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "11",
+      "label": "before",
+      "path": "screenshots/B11-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "12",
+      "label": "before",
+      "path": "screenshots/B12-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "13",
+      "label": "before",
+      "path": "screenshots/B13-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "14",
+      "label": "before",
+      "path": "screenshots/B14-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "16",
+      "label": "before",
+      "path": "screenshots/B16-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "b",
+      "lesson": "17",
+      "label": "before",
+      "path": "screenshots/B17-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    }
+  ],
+  "failures": [],
+  "status": "passed",
+  "publisherAvailability": "Not certified by stubbed player control checks",
+  "teacherAcceptance": "pending"
+}

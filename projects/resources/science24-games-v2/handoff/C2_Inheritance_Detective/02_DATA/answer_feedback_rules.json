@@ -1,0 +1,80 @@
+{
+  "game_id": "C2",
+  "version": "2.0.0-design",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "C2-W01",
+      "accepted_result": {
+        "AA": 25,
+        "Aa": 50,
+        "aa": 25
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P01",
+      "accepted_result": {
+        "Aa": 50,
+        "aa": 50
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P02",
+      "accepted_result": "Both parents must be Aa under the stated model.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P03",
+      "accepted_result": "A single percentage is not justified until the dominant parent's genotype is known.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P04",
+      "accepted_result": "The next outcome is not due; the same 25/50/25 probabilities apply to each pregnancy in this simplified model.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-T01",
+      "accepted_result": "Return both possible crosses, their probabilities, and a statement of uncertainty.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    }
+  ]
+}

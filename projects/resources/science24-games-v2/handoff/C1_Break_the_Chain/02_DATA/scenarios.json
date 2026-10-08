@@ -1,0 +1,151 @@
+{
+  "game_id": "C1",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "C1-W01",
+      "stage": "worked",
+      "title": "Food Preparation",
+      "routes": [
+        [
+          "raw-food residue",
+          "shared board",
+          "ready-to-eat salad"
+        ],
+        [
+          "contaminated hands",
+          "ready-to-eat salad"
+        ]
+      ],
+      "measures": {
+        "separate clean equipment": [
+          0
+        ],
+        "hand hygiene": [
+          1
+        ]
+      },
+      "answer": "Use one measure on each stated route; addressing only the board leaves the hand route open."
+    },
+    {
+      "id": "C1-P01",
+      "stage": "supported",
+      "title": "Shared Water Station",
+      "routes": [
+        [
+          "contaminated source",
+          "water container",
+          "drink"
+        ],
+        [
+          "contaminated hands",
+          "cup rim",
+          "drink"
+        ]
+      ],
+      "measures": {
+        "safe supplied water": [
+          0
+        ],
+        "hand hygiene": [
+          1
+        ],
+        "clean container": [
+          0
+        ]
+      },
+      "answer": "Choose route-specific measures; multiple supported combinations may be valid."
+    },
+    {
+      "id": "C1-P02",
+      "stage": "practice",
+      "title": "Indoor Respiratory Case",
+      "routes": [
+        [
+          "symptomatic source",
+          "shared air",
+          "host"
+        ],
+        [
+          "respiratory droplets",
+          "close contact",
+          "host"
+        ]
+      ],
+      "measures": {
+        "improved ventilation": [
+          0
+        ],
+        "source-reducing behaviour": [
+          0,
+          1
+        ],
+        "clean one table": []
+      },
+      "answer": "Ventilation and source reduction address the supplied routes; table cleaning alone does not."
+    },
+    {
+      "id": "C1-P03",
+      "stage": "practice",
+      "title": "Layered Community Centre",
+      "routes": [
+        [
+          "shared air",
+          "room",
+          "host"
+        ],
+        [
+          "contaminated hands",
+          "eyes/nose/mouth",
+          "host"
+        ]
+      ],
+      "budget": 2,
+      "measures": {
+        "ventilation": [
+          0
+        ],
+        "hand hygiene": [
+          1
+        ],
+        "surface cleaning": [
+          1
+        ],
+        "antibiotics": []
+      },
+      "answer": "Use evidence-supported prevention; antibiotics are treatment for some bacterial infections, not a universal route blocker."
+    },
+    {
+      "id": "C1-P04",
+      "stage": "low_support",
+      "title": "Body Defence Sequence",
+      "sequence": [
+        "barrier",
+        "innate response",
+        "adaptive response",
+        "immune memory"
+      ],
+      "answer": "Immune memory belongs to adaptive immunity; vaccination prepares a response and is not an instant cure."
+    },
+    {
+      "id": "C1-T01",
+      "stage": "transfer",
+      "title": "Two-Route Transfer",
+      "routes": [
+        [
+          "infectious source",
+          "shared air",
+          "host"
+        ],
+        [
+          "contaminated hands",
+          "entry point",
+          "host"
+        ]
+      ],
+      "budget": 2,
+      "answer": "Choose two route-matched measures and explain any remaining route. The model does not predict real infection probability."
+    }
+  ]
+}

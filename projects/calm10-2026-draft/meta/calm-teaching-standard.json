@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "standardId": "calm-native-teacher-narrative-v1",
+  "scope": "course:calm10-2026-draft",
+  "status": "adopted-canonical-course-standard",
+  "authorization": "Dean: yeah lets do it, 2026-10-05; establish CALM standard, audit remaining lessons, prepare six career manuscripts for review",
+  "exemplar": {
+    "lesson": "ce1-03",
+    "path": "projects/calm10-2026-draft/meta/teaching-overhaul/ce1-03-teacher-narrative-v1/lesson-b.html",
+    "sha256": "27e65122aad063591b25bcc6903d95e6085563e9a2fae5e3ce00413572d73f22"
+  },
+  "canonicalOwner": "projects/calm10-2026-draft/workspace/index.html",
+  "profile": "calm-native-course-shell",
+  "universalPromotion": false,
+  "remainingLessonsAutomaticallyAccepted": false,
+  "requiredReading": [
+    "meta/calm-teaching-standard.json",
+    "meta/teaching-overhaul/calm-standard-v1/authoring-rules.json",
+    "meta/teaching-overhaul/calm-standard-v1/review-rules.json"
+  ],
+  "genericScaffoldCompatibility": "The generic standard-lesson renderer/checker is not a CALM shell adapter. This contract is project-local, explicitly linked in prompt-pack; no global queue or default changed.",
+  "rules": {
+    "authoring": {
+      "path": "projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/authoring-rules.json",
+      "sha256": "a9fec49cd683efe16706c01ef1449509d8e2c0b9550d7edb630f965cb731213f"
+    },
+    "review": {
+      "path": "projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/review-rules.json",
+      "sha256": "2cf572de80741c97f40dc35bc57294c4355ee7c04ea7f848b57de979dd03eda3"
+    }
+  },
+  "revisionNote": "2026-10-05: Dean identified missing visible orientation in the six career proposals. Opening sequence is now required before examples; CE1-05 review uses real Alberta courses with separately labelled case assumptions.",
+  "currentReviewManifest": "projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/course-wide/MANIFEST.json",
+  "reviewContinuation": {
+    "authorization": "Dean: OK SO CAN WE CARRY THIS THROUGHTOU NOW?, 2026-10-05",
+    "scope": "Remaining 33 lesson proposals in native review B; retain seven career lessons and canonical/A/Before snapshots",
+    "status": "approved-and-integrated",
+    "canonicalIntegrationPerformed": true
+  },
+  "adoption": {
+    "authorization": "Dean: alright can we just make version be the only version?",
+    "date": "2026-10-05",
+    "scope": "All 40 Version B revision-4 lessons in CALM 10 only",
+    "record": "projects/calm10-2026-draft/meta/implementation/version-b-adoption-2026-10-05/ADOPTION.json",
+    "activeEntry": "projects/calm10-2026-draft/workspace/index.html",
+    "preview": "http://127.0.0.1:4195/",
+    "historicalReviews": true
+  }
+}

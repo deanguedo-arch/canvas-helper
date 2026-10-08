@@ -1,0 +1,142 @@
+{
+  "game_id": "B2",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "B2-W01",
+      "stage": "worked",
+      "title": "Evening Room",
+      "cap_kwh": 0.5,
+      "services": [
+        "four lamps for five hours",
+        "fan for four hours"
+      ],
+      "devices": [
+        {
+          "name": "lamp",
+          "count": 4,
+          "watts": 10,
+          "hours": 5,
+          "kwh": 0.2
+        },
+        {
+          "name": "fan",
+          "count": 1,
+          "watts": 60,
+          "hours": 4,
+          "kwh": 0.24
+        }
+      ],
+      "total_kwh": 0.44,
+      "comparison": "Four 40 W lamps providing the same stated service raise the total to 1.04 kWh."
+    },
+    {
+      "id": "B2-P01",
+      "stage": "supported",
+      "title": "Lighting Choice",
+      "cap_kwh": 0.75,
+      "services": [
+        "six lamps for six hours",
+        "same stated lighting service"
+      ],
+      "options": [
+        {
+          "name": "10 W lamps",
+          "kwh": 0.36
+        },
+        {
+          "name": "40 W lamps",
+          "kwh": 1.44
+        }
+      ],
+      "answer": "10 W lamps meet the cap; equal-service assumption is supplied."
+    },
+    {
+      "id": "B2-P02",
+      "stage": "practice",
+      "title": "Computer Room",
+      "cap_kwh": 1.65,
+      "devices": [
+        {
+          "name": "computers",
+          "count": 8,
+          "watts": 80,
+          "hours": 2,
+          "kwh": 1.28
+        },
+        {
+          "name": "lamps",
+          "count": 6,
+          "watts": 12,
+          "hours": 3,
+          "kwh": 0.216
+        },
+        {
+          "name": "fan",
+          "count": 1,
+          "watts": 60,
+          "hours": 2,
+          "kwh": 0.12
+        }
+      ],
+      "total_kwh": 1.616
+    },
+    {
+      "id": "B2-P03",
+      "stage": "practice",
+      "title": "Projector Repair",
+      "cap_kwh": 0.4,
+      "services": [
+        "three lamps for four hours",
+        "projector for 1.5 hours"
+      ],
+      "devices": [
+        {
+          "name": "lamps",
+          "count": 3,
+          "watts": 12,
+          "hours": 4,
+          "kwh": 0.144
+        },
+        {
+          "name": "projector A",
+          "count": 1,
+          "watts": 180,
+          "hours": 1.5,
+          "kwh": 0.27
+        },
+        {
+          "name": "projector B",
+          "count": 1,
+          "watts": 150,
+          "hours": 1.5,
+          "kwh": 0.225
+        }
+      ],
+      "answer": "Use projector B: 0.369 kWh. Do not shorten the compulsory session."
+    },
+    {
+      "id": "B2-P04",
+      "stage": "low_support",
+      "title": "Efficiency Check",
+      "input_j": 1500,
+      "useful_j": 900,
+      "efficiency": 60,
+      "answer": "900 ÷ 1500 × 100 = 60%"
+    },
+    {
+      "id": "B2-T01",
+      "stage": "transfer",
+      "title": "New Equipment Table",
+      "cap_kwh": 0.4,
+      "services": [
+        "three 12 W lamps for four hours",
+        "projector for 1.5 hours"
+      ],
+      "initial_total": 0.414,
+      "valid_total": 0.369,
+      "answer": "Choose the equal-service 150 W projector and justify with kWh calculations."
+    }
+  ]
+}

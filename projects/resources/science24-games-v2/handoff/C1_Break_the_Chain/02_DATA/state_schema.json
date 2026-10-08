@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "C1 learner-session state",
+  "type": "object",
+  "required": [
+    "scenarioId",
+    "scenarioVersion",
+    "stage",
+    "attempts",
+    "submittedValid"
+  ],
+  "properties": {
+    "scenarioId": {
+      "type": "string"
+    },
+    "scenarioVersion": {
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "brief",
+        "worked",
+        "attempt",
+        "feedback",
+        "transfer",
+        "review"
+      ]
+    },
+    "prediction": {},
+    "modelInputs": {
+      "type": "object"
+    },
+    "openedEvidence": {
+      "type": "array"
+    },
+    "selectedEvidence": {
+      "type": "array"
+    },
+    "claim": {},
+    "explanation": {
+      "type": "string"
+    },
+    "hintsUsed": {
+      "type": "array"
+    },
+    "attempts": {
+      "type": "array"
+    },
+    "feedback": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "submittedValid": {
+      "type": "boolean"
+    },
+    "transferResponse": {},
+    "selfReview": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

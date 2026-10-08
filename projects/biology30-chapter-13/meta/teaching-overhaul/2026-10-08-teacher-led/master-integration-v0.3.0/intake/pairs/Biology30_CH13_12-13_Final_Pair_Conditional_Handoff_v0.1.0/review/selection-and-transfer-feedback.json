@@ -1,0 +1,305 @@
+{
+  "requiredChecks": [
+    {
+      "id": "ch13-check-12",
+      "route": "lesson-12",
+      "title": "Insulin, glucagon and blood glucose",
+      "mc": [
+        {
+          "prompt": "Which pairing correctly matches pancreatic cells to hormones?",
+          "options": [
+            "Alpha cells \u2014 ADH; beta cells \u2014 cortisol",
+            "Both cell types \u2014 thyroxine only",
+            "Beta cells \u2014 glucagon; alpha cells \u2014 insulin",
+            "Beta cells \u2014 insulin; alpha cells \u2014 glucagon"
+          ],
+          "answer": "Beta cells \u2014 insulin; alpha cells \u2014 glucagon",
+          "explanation": "Cell identity and hormone role must stay linked.",
+          "cue": "Remember each cell\u2019s regulated-glucose direction.",
+          "difficulty": "foundation",
+          "id": "ch13-l12-check-mc-1"
+        },
+        {
+          "prompt": "Between meals, glucagon helps maintain blood glucose mainly by\u2026",
+          "options": [
+            "Blocking every form of liver glucose release",
+            "Turning the thyroid into a pancreas",
+            "Promoting liver glycogen breakdown and glucose production",
+            "Moving glucose into the lens as the main storage site"
+          ],
+          "answer": "Promoting liver glycogen breakdown and glucose production",
+          "explanation": "The liver supplies glucose to circulation.",
+          "cue": "Distinguish glycogen, glucose and glucagon.",
+          "difficulty": "application",
+          "id": "ch13-l12-check-mc-2"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare the response after a meal with the response between meals. Include alpha/beta cells, insulin/glucagon, liver action and feedback.",
+          "model": "After a meal, higher glucose stimulates beta-cell insulin, supporting uptake and storage and reducing glucose output. Between meals, falling glucose supports alpha-cell glucagon, promoting liver glycogen breakdown and glucose production. Each response opposes the initiating change.",
+          "criteria": [
+            "Correct cells and hormones",
+            "Meal response",
+            "Between-meal liver response",
+            "Negative feedback in both"
+          ],
+          "id": "ch13-l12-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Compare diabetes mellitus with diabetes insipidus using their hormone mechanism rather than their shared symptoms.",
+          "model": "Diabetes mellitus involves inadequate insulin production/action and elevated glucose; glucose in the urine can increase water loss. Diabetes insipidus involves impaired water conservation, often from ADH deficiency or resistance, producing excessive dilute urine without requiring high glucose.",
+          "criteria": [
+            "Insulin/glucose mechanism",
+            "ADH/water mechanism",
+            "Shared symptoms do not imply same cause"
+          ],
+          "id": "ch13-l12-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch13-check-13",
+      "route": "lesson-13",
+      "title": "Integrated chapter review and final check",
+      "mc": [
+        {
+          "prompt": "Which production/release pair is correct?",
+          "options": [
+            "TSH: thyroid / adrenal medulla",
+            "Insulin: liver / posterior pituitary",
+            "Cortisol: hypothalamus / pancreas",
+            "ADH: hypothalamus / posterior pituitary"
+          ],
+          "answer": "ADH: hypothalamus / posterior pituitary",
+          "explanation": "Production and release are separate parts of the ADH pathway.",
+          "cue": "Read both verbs.",
+          "difficulty": "foundation",
+          "id": "ch13-l13-check-mc-1"
+        },
+        {
+          "prompt": "Which observation best fits primary thyroid underproduction with intact control?",
+          "options": [
+            "Low T4 with elevated TSH",
+            "High T4 with low TSH proves pituitary failure",
+            "Only insulin changes",
+            "Low T4 always requires low TSH"
+          ],
+          "answer": "Low T4 with elevated TSH",
+          "explanation": "Low thyroid output reduces feedback inhibition of TSH secretion.",
+          "cue": "Use the stated location of failure.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-2"
+        },
+        {
+          "prompt": "Which response directly follows sympathetic stimulation of the adrenal medulla?",
+          "options": [
+            "Cortisol production in the cochlea",
+            "Insulin through ACTH",
+            "Aldosterone through TSH",
+            "Epinephrine and norepinephrine release"
+          ],
+          "answer": "Epinephrine and norepinephrine release",
+          "explanation": "The medulla links sympathetic neural signals with catecholamine hormone release.",
+          "cue": "Separate medulla from cortex.",
+          "difficulty": "foundation",
+          "id": "ch13-l13-check-mc-3"
+        },
+        {
+          "prompt": "A normally responsive kidney receives more ADH. Which urine change is expected?",
+          "options": [
+            "No possible change in water handling",
+            "Higher glucose production in the lens",
+            "Lower volume and higher concentration",
+            "Higher volume and lower concentration"
+          ],
+          "answer": "Lower volume and higher concentration",
+          "explanation": "More water is reabsorbed from the tubule.",
+          "cue": "Follow water back to blood.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-4"
+        },
+        {
+          "prompt": "Which explanation of low blood calcium is appropriate?",
+          "options": [
+            "Insulin is always the main correction",
+            "Calcitonin is the only response that raises calcium",
+            "The pituitary must convert glucose into calcium",
+            "Increased PTH helps conserve and mobilize calcium"
+          ],
+          "answer": "Increased PTH helps conserve and mobilize calcium",
+          "explanation": "PTH supports bone mobilization, kidney conservation and indirect intestinal absorption.",
+          "cue": "Identify the controlled ion.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-5"
+        },
+        {
+          "prompt": "Which statement about diabetes is most defensible?",
+          "options": [
+            "Type 1 occurs only in children",
+            "Diabetes insipidus always requires high glucose",
+            "Type 2 means no insulin is ever present",
+            "Insulin deficiency and insulin resistance can both impair glucose regulation"
+          ],
+          "answer": "Insulin deficiency and insulin resistance can both impair glucose regulation",
+          "explanation": "Mechanism is more informative than a rigid age or symptom rule.",
+          "cue": "Distinguish signal supply and response.",
+          "difficulty": "application",
+          "id": "ch13-l13-check-mc-6"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare three responses: water loss, a carbohydrate-containing meal and an immediate threat. For each, name a relevant trigger, hormone source, target, effect and control relationship.",
+          "model": "Water loss/concentration change can increase posterior-pituitary ADH, changing kidney water permeability and conserving water. A meal can increase pancreatic beta-cell insulin, supporting tissue uptake and liver storage to lower glucose. Immediate threat can activate sympathetic neurons and adrenal-medulla catecholamines, supporting rapid fuel and cardiovascular responses.",
+          "criteria": [
+            "Three appropriate pathways",
+            "Accurate hormone sources and targets",
+            "Mechanisms, not just names",
+            "Control relationships distinguished"
+          ],
+          "id": "ch13-l13-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Correct this explanation: \u201cACTH controls every adrenal hormone; all hormones act on every cell; and low thyroxine always means high TSH.\u201d Include the conditions that make your corrections necessary.",
+          "model": "ACTH chiefly supports cortisol secretion; aldosterone is mainly controlled by angiotensin II and potassium, while the medulla receives sympathetic input. Targets require suitable receptors. Low thyroxine produces high TSH in primary thyroid failure only when the pituitary can respond; upstream failure can produce a different pattern.",
+          "criteria": [
+            "Adrenal pathways separated",
+            "Receptor specificity",
+            "Primary versus upstream failure",
+            "Assumptions stated"
+          ],
+          "id": "ch13-l13-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "guided": [
+    {
+      "chapter": 13,
+      "lesson": 12,
+      "route": "lesson-12",
+      "placement": {
+        "afterTeachingKey": "ch13-l12-teaching-04",
+        "order": [
+          "worked-example",
+          "guided-practice"
+        ],
+        "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+      },
+      "worked": {
+        "id": "ch13-l12-worked",
+        "label": "Worked example",
+        "title": "Compare after a meal with between meals",
+        "scenario": "Compare a rise in blood glucose after eating with a fall between meals.",
+        "steps": [
+          "After a meal, beta cells release more insulin. Glucose uptake and storage help lower blood glucose.",
+          "Between meals, alpha cells release more glucagon. The liver releases glucose, helping raise blood glucose.",
+          "Both responses oppose their starting changes, so both use negative feedback."
+        ]
+      },
+      "guided": {
+        "id": "ch13-l12-guided-01",
+        "label": "Practise with support",
+        "title": "Complete the two loops",
+        "instruction": "Choose the response that opposes the stated starting change.",
+        "items": [
+          {
+            "id": "ch13-l12-guided-q1",
+            "kind": "select",
+            "prompt": "Blood glucose rises \u2192 ____ \u2192 increased uptake and storage.",
+            "answer": "Beta cells release insulin",
+            "options": [
+              "The posterior pituitary releases ADH",
+              "Beta cells release insulin",
+              "Alpha cells release glucagon"
+            ],
+            "hint": "High blood glucose is the trigger.",
+            "explanation": "Insulin from beta cells promotes processes that lower the elevated blood glucose."
+          },
+          {
+            "id": "ch13-l12-guided-q2",
+            "kind": "select",
+            "prompt": "Blood glucose falls \u2192 glucagon \u2192 ____.",
+            "answer": "Liver glycogen breakdown and glucose release",
+            "options": [
+              "Glucose is removed from blood only to make more glycogen",
+              "All glucose is trapped inside beta cells",
+              "Liver glycogen breakdown and glucose release"
+            ],
+            "hint": "The response needs to raise blood glucose.",
+            "explanation": "Glucagon promotes liver glucose release, opposing the original fall."
+          }
+        ],
+        "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+      }
+    }
+  ],
+  "transfer": [
+    {
+      "chapter": 13,
+      "id": "ch13-transfer-01",
+      "route": "lesson-13",
+      "placement": "After ch13-l13-teaching-03 and before the existing required final-check interface.",
+      "title": "Try a new case",
+      "instruction": "Try these questions without opening notes or model answers first. Submit the whole set before viewing feedback. This is an optional independent practice check, not an exam or a new completion requirement.",
+      "kind": "transfer",
+      "mc": [
+        {
+          "id": "ch13-transfer-mc-1",
+          "prompt": "A case states that the anterior pituitary cannot release enough TSH, while the thyroid could respond to stimulation. Which prediction follows?",
+          "answer": "Thyroxine can be low because the stimulating signal is insufficient",
+          "options": [
+            "Thyroxine stays normal because reduced TRH directly stimulates the thyroid",
+            "Thyroxine rises because low TSH directly stimulates thyroid cells",
+            "Thyroxine rises because weak feedback guarantees increased TSH",
+            "Thyroxine can be low because the stimulating signal is insufficient"
+          ],
+          "explanation": "Reduced TSH can limit thyroid output. The defect is in the stimulating signal, not necessarily the thyroid\u2019s ability to respond."
+        },
+        {
+          "id": "ch13-transfer-mc-2",
+          "prompt": "Which observation most directly distinguishes aldosterone action from ADH action?",
+          "answer": "Increased kidney sodium reabsorption rather than a direct increase in water permeability",
+          "options": [
+            "Increased kidney sodium reabsorption rather than a direct increase in water permeability",
+            "Reduced collecting-duct water permeability despite unchanged sodium handling",
+            "Reduced kidney sodium reabsorption while potassium reabsorption increases",
+            "A direct increase in collecting-duct water permeability rather than sodium reabsorption"
+          ],
+          "explanation": "The immediate kidney action differs: aldosterone affects sodium/potassium handling, while ADH directly affects water permeability."
+        },
+        {
+          "id": "ch13-transfer-mc-3",
+          "prompt": "A case describes high blood glucose because target tissues respond poorly to insulin, even though insulin is still present. What is the key mechanism?",
+          "answer": "Reduced target response to the hormone",
+          "options": [
+            "Excessive insulin-driven glucose uptake by target tissues",
+            "Insufficient insulin release from pancreatic beta cells",
+            "Reduced target response to the hormone",
+            "Increased target sensitivity to insulin"
+          ],
+          "explanation": "The stated problem is insulin resistance. Hormone presence alone does not guarantee a normal target response."
+        }
+      ],
+      "writing": {
+        "id": "ch13-transfer-writing-1",
+        "prompt": "A case states that cortisol is low because the adrenal cortex cannot respond normally, while the hypothalamus and anterior pituitary are functioning. Predict ACTH and explain the feedback. Then explain why the rapid adrenal-medulla pathway is a different route.",
+        "model": "Low cortisol reduces feedback inhibition of the functioning hypothalamus and pituitary, so ACTH tends to rise. The cortex defect can still prevent adequate cortisol output. The rapid pathway uses sympathetic neurons to stimulate the adrenal medulla, which releases epinephrine and norepinephrine; it does not use ACTH as its main incoming signal.",
+        "criteria": [
+          "Intact control glands stated",
+          "Reduced cortisol inhibition",
+          "ACTH tends to rise despite low cortical output",
+          "Sympathetic neurons \u2192 medulla \u2192 epinephrine/norepinephrine distinguished"
+        ],
+        "limit": 3200
+      },
+      "feedbackPolicy": "No per-item hints, correctness or model answers before whole-set submission. Do not disable normal navigation or accessibility features. Record whether the learner reports using help; do not claim secure closed-book conditions.",
+      "scoringPolicy": "MC first submission only; writing saved for review, not auto-graded. Later attempts labelled practice after feedback. No contribution to C.checks, required completion, passed status or existing gradebook score."
+    }
+  ]
+}

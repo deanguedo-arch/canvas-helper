@@ -1,0 +1,21 @@
+# Release Acceptance Checklist
+
+- [ ] Visual identity matches `Science24_Games_Visual_Standard_v0.1.md`.
+- [ ] Five authored cases + one fresh transfer are implemented.
+- [ ] Worked round is clearly non-independent.
+- [ ] Prediction occurs before extra evidence on supported cases.
+- [ ] Investigation tokens constrain optional evidence in practice cases.
+- [ ] “Not enough evidence” can be a valid response.
+- [ ] Bubbles/temperature/colour/odour are not treated as automatic proof.
+- [ ] Open explanation is not keyword-auto-graded.
+- [ ] Retry preserves current-session attempt.
+- [ ] Speed is not scored.
+- [ ] No economy, leaderboard or reflex mechanic.
+- [ ] Keyboard and touch both work.
+- [ ] Responsive stack order is Case → Evidence → Reasoning.
+- [ ] Reduced motion works.
+- [ ] No external analytics/data collection.
+- [ ] Transfer is completed without hints before first submit.
+- [ ] Review distinguishes completion from mastery.
+- [ ] Science and content review completed.
+- [ ] Runtime/browser testing completed or marked Not tested.

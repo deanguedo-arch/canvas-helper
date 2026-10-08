@@ -2,7 +2,7 @@
   "id": "science24-unit-b",
   "slug": "science24-unit-b",
   "title": "SCI 24 Unit B: Energy Transformations",
-  "sourcePath": "projects/resources/science24-unit-b/resource-manifest.json",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/science24-unit-b/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -90,7 +90,21 @@
     "projects/science24-unit-b/workspace/styles.css",
     "projects/science24-unit-b/workspace/unit-b.css",
     "projects/science24-unit-b/workspace/assets/source-coal-formation-p136.jpg",
-    "projects/science24-unit-b/workspace/assets/source-pumpjack-p141.jpg"
+    "projects/science24-unit-b/workspace/assets/source-pumpjack-p141.jpg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-energy-account.svg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-energy-forms.png",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-energy-needs.png",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-meter-p110.jpg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-pollution-p147.jpg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-power.svg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-respiration.svg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-summary.svg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/b-temperature.svg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/coal-panel-a-p136.jpg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/coal-panel-b-p136.jpg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/coal-panel-c-p136.jpg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh/coal-panel-d-p136.jpg",
+    "projects/science24-unit-b/workspace/assets/visual-refresh.css"
   ],
   "generatedOutputs": [
     "projects/science24-unit-b/workspace/course-data.js",
@@ -346,5 +360,71 @@
   "sourceOfTruthNotes": "Canonical learner content is workspace/index.html, course-data.json, main.js, state-store.js, CSS and assets. course-data.js is compiled from canonical course-data.json with the declared command. Routine lesson text is static HTML with Studio edit keys; generated practice, textbook controls and saved-work panels are Annotation only. The frozen previous-draft catalog and original archives are reference evidence. Blocked review candidate; Edit/export disabled. The original textbook-page JPGs remain canonical source scans; assets/reader-pages/ are deterministic margin-trimmed display copies regenerated with readerPageRegenerateCommand. Question-level Textbook Practice crops, its browser overlay and its review manifest regenerate from the canonical textbook/page catalog with scripts/build-science24-textbook-practice.py. The overlay freezes the earlier page catalog as legacyBookQuestions so original saved page records remain visible and are never counted as replacement question work. Printed/PDF page mapping and accessible text remain unchanged.",
   "regenerateCommand": "node scripts/compile-science24-bcd-data.cjs --project science24-unit-b && node scripts/prepare-science24-reader-pages.cjs --project science24-unit-b && python3 scripts/build-science24-textbook-practice.py --project science24-unit-b",
   "readerPageRegenerateCommand": "node scripts/prepare-science24-reader-pages.cjs --project science24-unit-b",
-  "textbookPracticeRegenerateCommand": "python3 scripts/build-science24-textbook-practice.py --project science24-unit-b"
+  "textbookPracticeRegenerateCommand": "python3 scripts/build-science24-textbook-practice.py --project science24-unit-b",
+  "visualRefreshReview": {
+    "date": "2026-10-02",
+    "role": "local comparison candidate; teacher acceptance pending",
+    "record": "projects/science24-unit-b/meta/visual-refresh-2026-10-02/lesson-matrix.json",
+    "hashes": "projects/science24-unit-b/meta/visual-refresh-2026-10-02/candidate-hashes.json",
+    "publication": "separate checkpoint"
+  },
+  "injectedComponents": [
+    {
+      "id": "s24-b1-energy-chain-rescue",
+      "source": "projects/resources/science24-games-v2/handoff/B1_Energy_Chain_Rescue",
+      "target": "projects/science24-unit-b/workspace/games/energy-chain-rescue/index.html",
+      "canonicalEntry": "projects/science24-unit-b/workspace/games/energy-chain-rescue/index.html",
+      "canonicalSources": [
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/index.html",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/css/shell.css",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/css/game.css",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/js/app.js",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/js/state.js",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/js/engine.js",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/js/renderer.js",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/js/ui.js",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/js/screens.js",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/data/scenarios.json",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/js/premium.js",
+        "projects/science24-unit-b/workspace/games/energy-chain-rescue/assets/premium/**"
+      ],
+      "status": "planned",
+      "version": "2.0.1-rc1",
+      "reviewRecord": "projects/science24-unit-a/meta/science24-games-v2/suite.json",
+      "notes": "Standalone supplemental practice candidate. Teacher decision pending; course placement, activation and LMS release are separate."
+    },
+    {
+      "id": "s24-b2-power-budget-challenge",
+      "source": "projects/resources/science24-games-v2/handoff/B2_Power_Budget_Challenge",
+      "target": "projects/science24-unit-b/workspace/games/power-budget-challenge/index.html",
+      "canonicalEntry": "projects/science24-unit-b/workspace/games/power-budget-challenge/index.html",
+      "canonicalSources": [
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/index.html",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/css/shell.css",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/css/game.css",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/app.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/state.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/engine.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/renderer.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/ui.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/screens.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/data/scenarios.json",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/premium.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/assets/premium/**",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/css/gameplay.css",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/gameplay.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/gameplay-model.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/js/gameplay-state.js",
+        "projects/science24-unit-b/workspace/games/power-budget-challenge/data/gameplay.json"
+      ],
+      "status": "planned",
+      "version": "2.1.0-pilot1",
+      "reviewRecord": "projects/science24-unit-a/meta/science24-games-v2/suite.json",
+      "notes": "B2 gameplay pilot awaits actual play review. Canonical gameplay modules and versioned overlay own this candidate; retained earlier rendering modules are reference only. Teacher decision pending; course placement, activation and LMS release are separate."
+    }
+  ],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-10-07T18:32:05.163Z",
+  "updatedAt": "2026-10-07T18:32:05.163Z"
 }

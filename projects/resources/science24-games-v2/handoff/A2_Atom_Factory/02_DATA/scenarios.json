@@ -1,0 +1,130 @@
+{
+  "game_id": "A2",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "A2-W01",
+      "stage": "worked",
+      "title": "Water Order: Four Molecules",
+      "equation": [
+        [
+          "H2",
+          4
+        ],
+        [
+          "O2",
+          2
+        ]
+      ],
+      "products": [
+        [
+          "H2O",
+          4
+        ]
+      ],
+      "simplest": [
+        2,
+        1,
+        2
+      ],
+      "explain": "Eight H atoms and four O atoms appear on each side. Changing H2O to H2O2 changes the substance."
+    },
+    {
+      "id": "A2-P01",
+      "stage": "supported",
+      "title": "Peroxide Breakdown",
+      "reactants": [
+        "H2O2"
+      ],
+      "products_list": [
+        "H2O",
+        "O2"
+      ],
+      "solution": [
+        2,
+        2,
+        1
+      ],
+      "focus": "repair oxygen while formulas remain fixed"
+    },
+    {
+      "id": "A2-P02",
+      "stage": "practice",
+      "title": "Methane Combustion",
+      "reactants": [
+        "CH4",
+        "O2"
+      ],
+      "products_list": [
+        "CO2",
+        "H2O"
+      ],
+      "solution": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "focus": "balance carbon, hydrogen, then oxygen"
+    },
+    {
+      "id": "A2-P03",
+      "stage": "practice",
+      "title": "Iron Oxide Batch",
+      "reactants": [
+        "Fe",
+        "O2"
+      ],
+      "products_list": [
+        "Fe2O3"
+      ],
+      "solution": [
+        4,
+        3,
+        2
+      ],
+      "focus": "find a shared oxygen multiple"
+    },
+    {
+      "id": "A2-P04",
+      "stage": "low_support",
+      "title": "Calcium Carbonate and Acid",
+      "reactants": [
+        "CaCO3",
+        "HCl"
+      ],
+      "products_list": [
+        "CaCl2",
+        "H2O",
+        "CO2"
+      ],
+      "solution": [
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "focus": "typed coefficients with optional ledger"
+    },
+    {
+      "id": "A2-T01",
+      "stage": "transfer",
+      "title": "Ammonia Equation",
+      "reactants": [
+        "N2",
+        "H2"
+      ],
+      "products_list": [
+        "NH3"
+      ],
+      "solution": [
+        1,
+        3,
+        2
+      ],
+      "focus": "plain-text equation; explain the H accounting"
+    }
+  ]
+}

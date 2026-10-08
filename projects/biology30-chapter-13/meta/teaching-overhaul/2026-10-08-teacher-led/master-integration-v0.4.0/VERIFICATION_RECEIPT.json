@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-08",
+  "candidate": "Chapter 13 master integration v0.4.0",
+  "candidateHtmlSha256": "6e924f678510a86295f28a3b7a8bf4380e5ee8ddb956ce4f7bff65b2c4670f54",
+  "baselineHtmlSha256": "74088c927f8a2d4660e5c781e3ed6f5494bead160e94fb79fecc2f045cfde2af",
+  "canonicalHtmlSha256Unchanged": "341c2f943c4178bc2abf3d56290f0d8f2cb31e6b78b2b89b187694385ebc62e6",
+  "scope": "Separate comparison candidate only. Synthetic disposable QA records; no canonical integration, activation, packaging, publishing or LMS claim.",
+  "staticEvidence": "ASSEMBLY_RECEIPT.json and BOUNDED_DIFF.patch. 28 new reviewed blocks; 10 already installed blocks retained. Protected contract parity and exact outside-replacement recovery passed. Inline vocabulary controls preserved per lesson with reviewed relocation recorded.",
+  "physicalSnapshotFreeze": {"receipt": "ASSET_FREEZE_RECEIPT.json", "discovered": "Nine mutable canonical-backed symlinks remained in each snapshot despite the intended freeze. Original assembly claim of independent bytes was premature.", "resolution": "18 exact links moved to reference-only-original-links and replaced with materialized verified bytes. Every old/new inventory hash unchanged; zero symlinks remain in either active snapshot. Future builder asserts no symlinks.", "canonicalChanged": false},
+  "runtime": {
+    "controls": "Actual CUA browser interactions; no injected state or direct storage mutation",
+    "iabQaOrigin": "http://127.0.0.1:57562",
+    "chromeQaOrigin": "http://127.0.0.1:57562",
+    "browserStoresSeparate": true,
+    "requiredChecks": {
+      "lessons": [6, 7, 8, 9, 10, 11, 12, 13],
+      "completed": true,
+      "firstTrySelections": {"06": "2/2", "07": "2/2", "08": "2/2", "09": "2/2", "10": "2/2", "11": "2/2", "12": "2/2", "13": "6/6"},
+      "progress": "8 of 13 checks; 62%",
+      "syntheticWritingNotGraded": true
+    },
+    "lesson07Draft": {"retainedAfterReload": true, "finishRejectedBeforeSaving": true, "editRequiresResave": true, "optionalNoteCollectedWithoutProgressChange": true},
+    "guidedPractice": {"lesson07FirstCorrect": "TSH", "lesson08FirstWrong": "Absorption from food", "lesson08SecondCorrect": "Reabsorption", "explanatoryFeedback": true, "bothAttemptsRetainedAfterReloadAndInCollection": true},
+    "independentTransfer": {"wholeSetGuard": true, "firstSubmission": "3/3; no help", "laterSubmission": "3/3; help reported", "distinctFirstAndLaterWritingRetained": true, "reloadRetained": true, "optionalProgressUnchanged": true},
+    "allMyWork": {"eightRequiredRunsVisible": true, "optionalNoteVisible": true, "guidedFirstWrongAndLaterCorrectVisible": true, "independentAndHelpedSubmissionsDistinct": true},
+    "vocabulary": {"lesson": 8, "term": "parathyroid hormone", "nativeDefinitionAndDropdownVisible": true, "focusRestoredOnClose": true, "computedFontWeight": "800"},
+    "reader": {"lesson": 11, "printedPage": 454, "physicalPdfPage": 21, "totalPages": 38, "chromeActualPdfRendered": true, "closeRestoresFocusTo454Link": true, "iabPdfPaint": "blank in inspected screenshot; Chrome provides actual native render evidence"},
+    "figures": {"lessons": [6, 7, 8, 9, 10, 11, 12], "allTwelveEnlargementsLoaded": true, "lazyImages": "Some inline images were not yet loaded before scrolling. Native View larger loaded all twelve; this is not an all-inline-at-once assertion."},
+    "mobile": {"lesson05": {"actualCssViewport": "390 x 843", "documentNoOverflow": true, "enlargedImageFits": true, "escapeAndClose": true}, "lesson12Chrome": {"actualCssViewport": "390 x 844", "documentScrollWidth": 390, "dialogWidth": 352, "imageWidth": 318, "actualScreenshotInspected": true}, "viewportOverridesReset": true},
+    "lesson12DataTable": {"nineRowsAndEighteenMeasurementsVisible": true, "units": "mmol/L", "maria": [4.0, 7.0, 4.5, 6.0, 4.5, 4.0, 4.5, 6.5, 4.5], "tamika": [10.0, 14.0, 10.0, 15.0, 10.0, 4.0, 9.0, 18.0, 12.0]},
+    "nativePrint": {"artifact": "CH13_v0.4.0_disposable_QA_print.pdf", "sha256": "e6d98b57a0bf97d46a05b5ff701ff97703d9d335e5e15f6b039e0c65397cea91", "pages": 2, "savedThroughChromePrintAndSaveDialog": true, "testTextExtracted": true, "bothPagesRenderedAndInspected": true, "scope": "One saved optional response; completed-check and transfer print pagination not tested. Second page contains continued empty section headings, not a new integration change."},
+    "oldToNewCompatibility": {"origin": "http://127.0.0.1:57564", "baselineRoute": "/baseline.html", "newRoute": "/index.html", "baselineSource": "evaluation/old/index.html", "assets": "Frozen candidate assets, byte-identical to the late baseline", "baselineCreatedViaControls": ["lesson08 completed required check, 2/2, two saved writing responses", "lesson07 saved optional note", "lesson09 correct selections and unfinished unsaved writing draft"], "afterCandidateLoad": ["1 of 13 checks retained", "lesson08 completed run visible", "lesson07 note exact text retained", "lesson09 unfinished writing exact text retained", "1 unfinished required check reported"], "limit": "Synthetic late-v0.3.2-to-v0.4.0 records only; older canonical, SCORM and LMS saves not tested."}
+  },
+  "failuresAndLimits": [
+    "Original Library transfer and one refreshed transfer returned HTTP 403 for all four requested files. No bytes materialized, no further retries, no URL guessing or bypass.",
+    "Course Production Standards v0.3 was not consumed. Package-frozen source standards remain the reviewed provenance; newer-standard reconciliation pending.",
+    "IAB PDF frame paint was blank; Chrome actual native rendering passed.",
+    "First Chrome print click timed out because native print opened; native app then showed finished two-page preview, Save as PDF succeeded.",
+    "Baseline navigation helper/disclosure and writing-lock test setup required fresh DOM inspection and direct known-route navigation; native writing remained locked until correct selections as designed.",
+    "Full-course E2E, Studio lifecycle/editability, failure injection, all optional activities, every keyboard interaction, actual devices, Safari/Firefox, SCORM and Brightspace not tested.",
+    "Science manuscript/source review is separate from these runtime checks. Teacher acceptance and explanation quality remain pending."
+  ],
+  "queuedCanonicalHashes": {
+    "chapter14": "054b823d5758a702041f24fd06b15a77d69cdfff63323cd5ffd7e803bf8936b8",
+    "chapter15": "7ff098c0763a1eedbe8c7e562e13082aa7a832582f9c73fd1739eaa4c31f0109",
+    "unchangedFromCoordinationRecord": true,
+    "newIntegration": false,
+    "blocker": "Local handoff bytes unavailable after supported Library transfers returned HTTP 403. No protected assessment proposals approved."
+  },
+  "teacherAccepted": false,
+  "canonicalIntegrated": false,
+  "lmsVerified": false,
+  "published": false
+}

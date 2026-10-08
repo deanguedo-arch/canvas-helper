@@ -1,0 +1,36 @@
+// Focused synthetic prior-state check on the existing After preview.
+const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),assert=require('assert/strict'),c=require('cheerio');
+const root=__dirname,out=path.join(root,'canonical-integration'),url='http://127.0.0.1:4193/after/index.html#ce1-03';
+(async()=>{
+ const browser=await chromium.launch({headless:true}),oldContext=await browser.newContext(),old=await oldContext.newPage();
+ await old.goto('http://127.0.0.1:4194/review/a/index.html#ce1-03',{waitUntil:'networkidle'});
+ await old.locator('#ce-b-travel').fill('800');await old.locator('#ce-b-total').fill('2650');
+ await old.locator('#ce-final-c').fill('1410');await old.locator('#ce-final-d').fill('2700');
+ const response='Synthetic existing answer: investigate C within Owen’s preparation, timing and budget. D is a conditional backup requiring its extra course, more money and more time.';
+ await old.locator('#ce-final-response').fill(response);
+ for(const box of await old.locator('#ce1-03-apply .finlit-signoff input').all())await box.check();
+ await old.locator('#ce1-03 [data-complete-lesson]').click();
+ const saved=await old.evaluate(()=>JSON.parse(localStorage.getItem('calm10-2026-draft:ce1-03-teacher-v1:a:learning:v3')));
+ assert.ok(saved.completions['ce1-03']);
+ const history=[{version:'synthetic-earlier-version',value:'Earlier synthetic response',prompt:'Earlier synthetic task wording',label:'Earlier recommendation',retainedAt:'2026-10-04T12:00:00.000Z'}];
+ saved.responseHistory['ce1-03']=history;saved.responses['synthetic:retained-unknown']='Preserve unknown prior work';
+ const originalCompleted=saved.completions['ce1-03'],context=await browser.newContext({viewport:{width:1280,height:1000}}),page=await context.newPage(),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ await context.addInitScript(({saved})=>{if(!localStorage.getItem('calm10-2026-draft:review-after:learning:v3'))localStorage.setItem('calm10-2026-draft:review-after:learning:v3',JSON.stringify(saved))},{saved});
+ const network=await page.goto(url,{waitUntil:'networkidle'});assert.equal(network.status(),200);
+ const html=await network.text(),dom=c.load(html,{sourceCodeLocationInfo:true}),loc=dom('#ce1-03')[0].sourceCodeLocation;
+ assert.equal(html.slice(loc.startOffset,loc.endOffset),fs.readFileSync(path.join(root,'lesson-b.html'),'utf8'));
+ assert.equal(await page.locator('#ce-final-response').inputValue(),response);assert.equal(await page.locator('#ce-b-total').inputValue(),'2650');
+ assert.equal(await page.locator('a.nav-link[data-page-target="ce1-03"]').evaluate(e=>e.classList.contains('lesson-complete')),true);
+ assert.equal(await page.locator('#ce1-03 [data-reopen-lesson]').isVisible(),true);
+ await page.reload({waitUntil:'networkidle'});
+ assert.equal(await page.locator('#ce-final-c').inputValue(),'1410');
+ const restored=await page.evaluate(()=>JSON.parse(localStorage.getItem('calm10-2026-draft:review-after:learning:v3')));
+ assert.deepEqual(restored.completions['ce1-03'],originalCompleted);assert.deepEqual(restored.responseHistory['ce1-03'],history);assert.equal(restored.responses['synthetic:retained-unknown'],'Preserve unknown prior work');
+ const word=page.locator('#ce1-03-foundations .vocab-term').first();await word.focus();await page.keyboard.press('Enter');await page.locator('.vocab-dialog').waitFor({state:'visible'});await page.keyboard.press('Escape');assert.equal(await word.evaluate(e=>document.activeElement===e),true);
+ await page.locator('#ce1-03-foundations').evaluate(e=>window.scrollTo({top:e.getBoundingClientRect().top+scrollY-76,behavior:'instant'}));await page.screenshot({path:path.join(out,'integrated-opening-desktop.png')});
+ await page.setViewportSize({width:390,height:900});await page.waitForFunction(()=>document.getElementById('course-sidebar').getBoundingClientRect().right<=1);await page.locator('#ce1-03-foundations').evaluate(e=>window.scrollTo({top:e.getBoundingClientRect().top+scrollY-86,behavior:'instant'}));assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.screenshot({path:path.join(out,'integrated-opening-mobile.png')});
+ assert.deepEqual(errors,[]);
+ const report={status:'pass',servedExactApprovedArticle:true,existingFinalAndPracticeAnswersRestored:true,existingCompletionAndSignoffsRetained:true,earlierHistoryAndUnknownResponsesRetained:true,taskVersionMigrationNotTriggered:true,vocabularyKeyboardAndFocus:true,changedOpeningDesktopMobileCaptured:true,noMobileHorizontalOverflow:true,pageErrors:errors,syntheticContextsOnly:true,noActualLearnerStorageAccess:true,canonicalRuntimeUnchanged:true};
+ fs.writeFileSync(path.join(out,'render-checks.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

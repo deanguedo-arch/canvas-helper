@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "status": "passed for the scoped local visual refresh",
+  "teacherAcceptance": "pending",
+  "inspection": {
+    "contactSheets": 20,
+    "changedLessons": 45,
+    "settings": [
+      "1440px",
+      "820px",
+      "390px",
+      "Real Chromium 200% zoom at 1440px physical width"
+    ],
+    "method": "Lead inspected all changed-lesson contact sheets across the four settings, with selected full-size captures and original/source images for precision and ambiguous details. This is scoped visual acceptance, not a whole-course accessibility certification."
+  },
+  "focusedFullSizeExamples": [
+    "A05",
+    "A06",
+    "B03",
+    "B06",
+    "B07",
+    "B10",
+    "B12",
+    "B14 phone",
+    "C04",
+    "C05",
+    "C06",
+    "C08",
+    "C11",
+    "C16",
+    "C18 phone",
+    "D01 corrected illustration",
+    "D08 phone",
+    "D09",
+    "D11"
+  ],
+  "correctionsReviewed": [
+    "Native image width specificity corrected to prevent clipping in supporting layouts.",
+    "A05 energy labels moved clear of the transfer arrows.",
+    "D09 uses mean-force rectangles with equal impulse area.",
+    "Video cards use the full explanation width and remain outside prose/reference wrapping.",
+    "C09 inflammation picture and guide stay together; D07/D10/D11/D12 figure-and-explanation pairs stay together.",
+    "B14 phone views use four different focused source crops.",
+    "Phone and 200% captures include complete lazy images; capture coordinates scaled by the actual Chromium tab zoom. Fixed shell chrome is hidden only during capture.",
+    "Comparison-index sign-off line wraps on phones."
+  ],
+  "remainingReviews": [
+    "Teacher instructional acceptance",
+    "Publisher video playback and captions online"
+  ],
+  "releaseBoundaries": [
+    "Studio activation",
+    "SCORM export",
+    "Brightspace certification",
+    "Firebase publication"
+  ],
+  "unit": "d"
+}

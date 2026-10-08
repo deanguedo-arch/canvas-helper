@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-chapter-15",
+  "date": "2026-10-08",
+  "role": "Pending review-export contract; not a completed export or coverage receipt",
+  "currentCanonicalHTMLSha256": "7ff098c0763a1eedbe8c7e562e13082aa7a832582f9c73fd1739eaa4c31f0109",
+  "assembledCandidate": {
+    "entry": null,
+    "sha256": null,
+    "runtimeSha256": null,
+    "configurationSha256": null,
+    "assetManifestSha256": null,
+    "status": "Not assembled by this writer"
+  },
+  "separateStatuses": {
+    "suppliedManuscriptReview": "Pair-specific bounded evidence only; no retrospective expansion",
+    "sourceCopyParity": "Current canonical base identified; assembled candidate parity not verified",
+    "fullBankFreshLearnerReview": "Not verified",
+    "actualRuntimeGates": "Not verified",
+    "teacherAcceptance": "Pending",
+    "release": "Not authorized"
+  },
+  "consumedStandards": {
+    "lessons01_04": "v0.3 as recorded in supplied manuscripts",
+    "laterPairs": "v0.4 as recorded in supplied manuscripts",
+    "integrationReconciliation": "v0.4; not a retrospective authorship or review claim"
+  },
+  "coverageRequiredBeforeChapterAcceptance": [
+    "Required selection and written-response tasks",
+    "Independent transfer and helped-transfer forms",
+    "Guided tasks and stop-and-think prompts",
+    "Optional saved-source tasks and new unsaved applications",
+    "Cumulative final review including actual CH14 prerequisite dependencies",
+    "All actual practice modes, authored/generated forms and reachable variants",
+    "Labeling variants and their actual source images",
+    "Runtime-derived vocabulary and Frayer forms with term-specific instantiated prompts/givens"
+  ],
+  "packetProcedure": [
+    "Freeze the actual assembled candidate and record its entry/runtime/configuration/asset hashes before exporting; do not substitute historical manuscripts or task-export lists.",
+    "Inventory learner-visible DOM plus native runtime task generation paths. Map every actual task/form/variant to stable native identity, route, renderer/template, instantiated prompt/givens/options, source and support locator. Report inventories per category and unresolved variants explicitly.",
+    "Traverse nested wrappers recursively to collect complete prompts, shared instructions, diagrams, data tables and prerequisite material. Do not drop a details wrapper merely because it also contains feedback.",
+    "Export source-grounded CH14 prerequisite passages and actual figures for cumulative demands. Assert prerequisite exports are nonempty, source-located and hash-bound to the specific CH14 source/candidate used; source presence is not teacher acceptance.",
+    "Attach every referenced figure and required context asset. Record attachment paths, bytes, SHA256, counts and original locators; assert all references resolve and nonempty assets are actually attached. Generated visual variants require an explicit instance mapping.",
+    "Run packet integrity before masking: reconcile every inventoried task with exactly its exported form, preserve complete prompts/givens/options/order, verify prerequisite and figure counts/hashes, and flag missing/ambiguous context rather than fabricate it.",
+    "After integrity passes, mask only feedback, solution/model-answer material and keys in the fresh-attempt copy. Compare prompt/given/option/figure signatures before and after masking to prove no task was removed or altered.",
+    "Keep keys/feedback and source-support mappings in a separate reviewer packet. Fresh attempts must be recorded before that material is opened, against the exact stable packet hash.",
+    "Record independent learner/source findings, unresolved protected decisions, actual runtime checks and Dean acceptance separately. Any candidate edit invalidates affected packet/review evidence and requires a new hash-bound version."
+  ],
+  "requiredExportReceipts": {
+    "inventoryTaskCount": null,
+    "inventoryVariantCount": null,
+    "exportedTaskCount": null,
+    "prerequisitePassageCount": null,
+    "referencedFigureCount": null,
+    "attachedFigureCount": null,
+    "unmaskedPacketSha256": null,
+    "maskedFreshAttemptPacketSha256": null,
+    "separateFeedbackPacketSha256": null,
+    "supportMapSha256": null,
+    "integrityPassed": false,
+    "note": "Nulls are pending evidence, not zero tasks or missing requirements. Populate only from an actual export."
+  },
+  "remainingCoverageGaps": [
+    "No actual assembled CH15 candidate hash exists yet in this writer's checkpoints.",
+    "Early01–08 manuscript reviews used original task exports; runtime-derived vocabulary/Frayer coverage must not be inferred from them.",
+    "Later09–12 expanded vocabulary/Frayer attempts are supplied author evidence, not an exhaustive assembled-course bank gate.",
+    "Actual generated forms/variants, complete cumulative prerequisite exports, attachment counts and fresh masked packet remain unverified.",
+    "Protected context/wording/model/label issues remain as supplied; receipt of a proposed repair is not approval to apply it."
+  ],
+  "preservationBoundary": {
+    "protectedQuestionsModelsKeysLabelsIdentitiesMayChange": false,
+    "newWriterAuthorized": false,
+    "canonicalPromotionAuthorized": false,
+    "publicationAuthorized": false,
+    "currentCH14BoundedWorkMustContinue": true
+  },
+  "independentReviewHandoff": "Scout may review the exact stable exported packet after assembly under existing coordination authority; this manifest does not send a message or authorize another writer."
+}

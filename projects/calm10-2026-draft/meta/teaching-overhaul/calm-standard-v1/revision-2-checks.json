@@ -1,0 +1,76 @@
+{
+  "status": "pass",
+  "revision": 2,
+  "canonicalAndASentinelsUntouched": true,
+  "oldReviewValuesRetained": 5,
+  "oldExactPromptRetained": true,
+  "priorHistoryRetained": true,
+  "changedTaskStartsBlank": true,
+  "oldCompletionReopened": true,
+  "newAnswerRestores": true,
+  "openings": {
+    "ce1-01": {
+      "visiblePurposeBeforeTechnicalTeaching": true,
+      "desktopAndMobileOpeningCaptured": true,
+      "noPageOverflow": true
+    },
+    "ce1-02": {
+      "visiblePurposeBeforeTechnicalTeaching": true,
+      "desktopAndMobileOpeningCaptured": true,
+      "noPageOverflow": true
+    },
+    "ce1-04": {
+      "visiblePurposeBeforeTechnicalTeaching": true,
+      "desktopAndMobileOpeningCaptured": true,
+      "noPageOverflow": true
+    },
+    "ce1-05": {
+      "visiblePurposeBeforeTechnicalTeaching": true,
+      "desktopAndMobileOpeningCaptured": true,
+      "noPageOverflow": true
+    },
+    "ce1-06": {
+      "visiblePurposeBeforeTechnicalTeaching": true,
+      "desktopAndMobileOpeningCaptured": true,
+      "noPageOverflow": true
+    },
+    "ce1-07": {
+      "visiblePurposeBeforeTechnicalTeaching": true,
+      "desktopAndMobileOpeningCaptured": true,
+      "noPageOverflow": true
+    }
+  },
+  "limits": [
+    "Synthetic browser storage only",
+    "No real student storage read",
+    "Not canonical integration, full course E2E, Studio, SCORM or release proof"
+  ],
+  "pageErrors": [],
+  "testedHashes": {
+    "ce1-01": {
+      "article": "1535e6c722b9310011de49938edd3c13da6dbb3c2408a9209f9d943c16610d50",
+      "manuscript": "20f2cf4e44b611b9cb3d5e8c1cdfad5c253555619482ad7a258fe2da1043b5d2"
+    },
+    "ce1-02": {
+      "article": "f76345f1d15183af035edd1faf55d93dec606821a93d93d1e004f50a13f659fd",
+      "manuscript": "eb10a53c2354d1e29d75b49ddf61eafb287f5ef2be54e16cf5d2c2438753daf6"
+    },
+    "ce1-04": {
+      "article": "95e091194f99e9c1acd2fd41fd43f89c3af34b9e47610de9a976533c5dc08baa",
+      "manuscript": "2f395ce2e23fb46159fd24d5e40ac7aa5061cd1b5fece4ac735e791fff604eca"
+    },
+    "ce1-05": {
+      "article": "fe91fba07d92225dfcc6fcfa1d11a44e5acc3603d89eceff3e9abfe7d3045e67",
+      "manuscript": "0a1a8c856e204f23a5de69133a66da256a8413f5c1befc680390629d7a2fac78"
+    },
+    "ce1-06": {
+      "article": "1479307ff86cd687f35bf3fde736f6c6c2156b1cbfd8a68a04fb90737942f500",
+      "manuscript": "8b25b6b8cbbcaeec28775dae24425296143304f7cdb86037b5fcbe3bd546cadc"
+    },
+    "ce1-07": {
+      "article": "eeebac7e3811b66b789aa118306364679cfb104483833b0cbf2be5ef51fe44b8",
+      "manuscript": "81af6d5e2541cef0047915d5e42c597a05af5a27966df2d2d1656c633a2489f9"
+    }
+  },
+  "subsequentCopyOnlyChange": "CE1-04 duplicate linked roadmap paragraph replaced by a short Next transition; desktop/mobile recaptured and current source guard passed. Save/runtime unchanged."
+}

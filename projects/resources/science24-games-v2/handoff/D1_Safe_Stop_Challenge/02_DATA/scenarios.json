@@ -1,0 +1,105 @@
+{
+  "game_id": "D1",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "D1-W01",
+      "stage": "worked",
+      "title": "80 m Gap",
+      "speed": 20,
+      "reaction_time": 1.5,
+      "reaction_distance": 30,
+      "braking_distance": 40,
+      "gap": 80,
+      "total": 70,
+      "margin": 10,
+      "braking_time": 4,
+      "stop_time": 5.5
+    },
+    {
+      "id": "D1-P01",
+      "stage": "supported",
+      "title": "45 m Gap",
+      "speed": 15,
+      "reaction_time": 1,
+      "reaction_distance": 15,
+      "braking_distance": 22.5,
+      "gap": 45,
+      "total": 37.5,
+      "margin": 7.5,
+      "braking_time": 3,
+      "stop_time": 4
+    },
+    {
+      "id": "D1-P02",
+      "stage": "practice",
+      "title": "Longer Reaction",
+      "speed": 20,
+      "reaction_time": 2,
+      "reaction_distance": 40,
+      "braking_distance": 40,
+      "gap": 75,
+      "total": 80,
+      "margin": -5,
+      "braking_time": 4,
+      "stop_time": 6
+    },
+    {
+      "id": "D1-P03",
+      "stage": "practice",
+      "title": "Same Speed, Different Reaction Time",
+      "speed": 20,
+      "reaction_times": [
+        1,
+        1.5,
+        2
+      ],
+      "reaction_distances": [
+        20,
+        30,
+        40
+      ],
+      "braking_distance": 40,
+      "answer": "Reaction travel changes linearly; braking distance stays supplied and unchanged."
+    },
+    {
+      "id": "D1-P04",
+      "stage": "low_support",
+      "title": "Graph Reading",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          1.5,
+          30
+        ],
+        [
+          5.5,
+          70
+        ],
+        [
+          7,
+          70
+        ]
+      ],
+      "answer": "Slope represents speed; the horizontal segment means the vehicle is stopped."
+    },
+    {
+      "id": "D1-T01",
+      "stage": "transfer",
+      "title": "85 m Gap",
+      "speed": 25,
+      "reaction_time": 1.2,
+      "reaction_distance": 30,
+      "braking_distance": 62.5,
+      "gap": 85,
+      "total": 92.5,
+      "margin": -7.5,
+      "braking_time": 5,
+      "stop_time": 6.2
+    }
+  ]
+}

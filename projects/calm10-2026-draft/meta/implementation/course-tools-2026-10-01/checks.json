@@ -1,0 +1,44 @@
+{
+  "scope": "Tools chooser for the existing eleven CALM tools, using the floating window and original saved fields",
+  "mode": "Build",
+  "checks": {
+    "source_compatibility": "40 lesson bodies, 11 original tool panels, historical registry and every saved-field attribute unchanged",
+    "desktop_tools": {
+      "width": 1280,
+      "assertions": 90,
+      "result": "passed"
+    },
+    "phone_tools": {
+      "width": 390,
+      "assertions": 90,
+      "result": "passed"
+    },
+    "floating_debt_load_cancel": {
+      "widths": [
+        1280,
+        390
+      ],
+      "assertions": 16,
+      "result": "passed"
+    },
+    "script_syntax": "passed",
+    "visual_review": [
+      "tools-1280.png",
+      "tools-390.png",
+      "loan-1280.png",
+      "loan-390.png"
+    ],
+    "before": "Original Before page does not include the new chooser; preserved snapshot files were not edited"
+  },
+  "files_sha256": {
+    "index.html": "af2c48a2776af322e64392b6255ad6dba72d2e01881828ab60e744c3c06a6370",
+    "floating-loan-calculator.js": "8b9e1fdba332e8e8f1d55632ae7780fde8310b0b805aa3481fba927286187a2c",
+    "floating-loan-calculator.css": "57228de771e324f2b00f5f01f1fad6c3d8f99c40215d508259f218ee07e8b15c"
+  },
+  "limitations": [
+    "isolated Chromium browser tests, not physical phone/VoiceOver",
+    "full course E2E, Studio, accessibility and SCORM/Brightspace rollout deferred"
+  ],
+  "routing": "Lead retained dirty calculator/state boundary; deterministic inspection and focused local checks; no worker; savings unmeasured",
+  "context_command": "context:project failed existing context-cap: 14642 bytes exceeds 5000; project metadata not changed"
+}

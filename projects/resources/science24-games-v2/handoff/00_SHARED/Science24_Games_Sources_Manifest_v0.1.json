@@ -1,0 +1,132 @@
+{
+  "project": "Science 24 Learning Games",
+  "version": "0.1",
+  "prepared_for": "Dean",
+  "checked_date": "2026-10-06",
+  "status": "Planning proposal; no game implementation or current-course audit",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Alberta Education Science 14 and 24 Program of Studies",
+      "url": "https://education.alberta.ca/media/159714/sc1424.pdf",
+      "locator": "Science 24: printed/PDF pp. 31–32, 36–37, 42–43 and 48–49",
+      "use": "Curriculum alignment. Game designs and sample scenarios are new proposals, not prescribed activities."
+    },
+    {
+      "id": "S2",
+      "title": "OpenStax Chemistry 2e Writing and Balancing Chemical Equations",
+      "url": "https://openstax.org/books/chemistry-2e/pages/4-1-writing-and-balancing-chemical-equations",
+      "locator": "Section 4.1, Balancing Equations",
+      "use": "Atom conservation, coefficients and fixed substance formulas."
+    },
+    {
+      "id": "S3",
+      "title": "US Energy Information Administration Measuring electricity",
+      "url": "https://www.eia.gov/energyexplained/electricity/measuring-electricity.php",
+      "locator": "Electricity use over time is measured in Watthours",
+      "use": "Power and energy units; kW multiplied by hours gives kWh."
+    },
+    {
+      "id": "S4",
+      "title": "Public Health Agency of Canada Break the chain of infection",
+      "url": "https://www.canada.ca/en/public-health/services/publications/diseases-conditions/break-chain-infection-respiratory-infectious-diseases.html",
+      "locator": "How germs travel; How germs enter; Break the chain",
+      "use": "Transmission pathways and layered respiratory precautions, not numerical effectiveness estimates."
+    },
+    {
+      "id": "S5",
+      "title": "CDC Pink Book Principles of Vaccination",
+      "url": "https://www.cdc.gov/pinkbook/hcp/table-of-contents/chapter-1-principles-of-vaccination.html",
+      "locator": "Immunity; Active immunity",
+      "use": "Active/passive immunity and immune memory; no vaccination schedule or treatment recommendations."
+    },
+    {
+      "id": "S6",
+      "title": "MedlinePlus Genetics Inheritance risk assessment",
+      "url": "https://medlineplus.gov/genetics/understanding/inheritance/riskassessment/",
+      "locator": "Autosomal recessive inheritance; probability for each pregnancy",
+      "use": "Simple inheritance probabilities and the independence of successive outcomes."
+    },
+    {
+      "id": "S7",
+      "title": "OpenStax Physics Linear Momentum Force and Impulse",
+      "url": "https://openstax.org/books/physics/pages/8-1-linear-momentum-force-and-impulse",
+      "locator": "Momentum; Impulse; Force and momentum",
+      "use": "Momentum change, impulse and average force."
+    },
+    {
+      "id": "S8",
+      "title": "OpenStax Physics Elastic and Inelastic Collisions",
+      "url": "https://openstax.org/books/physics/pages/8-3-elastic-and-inelastic-collisions",
+      "locator": "Inelastic collisions",
+      "use": "One-dimensional momentum accounting when objects stick together."
+    },
+    {
+      "id": "S9",
+      "title": "Science24 ABCD Independent Comparative Review",
+      "date": "25 September 2026",
+      "library_file_id": "libfile_48e5e92f4d0481919fb3016e17b21e2a",
+      "filename": "Science24_ABCD_Independent_Comparative_Review_2026-09-25.md",
+      "locator": "Overall judgment; chapter-by-chapter instructional register",
+      "use": "Dated course context: requests for learner-produced work and cautions about the reviewed genetics example. Does not establish the state of current builds."
+    },
+    {
+      "id": "S10",
+      "title": "Science24 Proposed Course Standard v0.1",
+      "date": "1 October 2026",
+      "library_file_id": "libfile_ca30e11f24cc8191bf3ee19f260134a4",
+      "filename": "Science24 Proposed Course Standard v0.1.docx",
+      "locator": "Requirements every lesson must meet; teaching choices; observable acceptance tests; energy blueprint",
+      "use": "Proposed teaching, feedback, accessibility and evidence principles. Its approval status is not inferred."
+    }
+  ],
+  "curriculum_mapping": [
+    {
+      "game_id": "A1",
+      "game": "Reaction Detective",
+      "target": "A general outcomes 1, 2 and 4; S1 pp. 31–32. Everyday reactions, evidence, classification and consequences."
+    },
+    {
+      "game_id": "A2",
+      "game": "Atom Factory",
+      "target": "A general outcomes 2 and 3; S1 pp. 31–32. Formulas, equations and element-by-element atom conservation. Scientific reference: S2."
+    },
+    {
+      "game_id": "B1",
+      "game": "Energy Chain Rescue",
+      "target": "B general outcomes 1–3; S1 pp. 36–37. Energy pathways, converters, useful output and biological energy change; selected generation contexts from outcome 2."
+    },
+    {
+      "game_id": "B2",
+      "game": "Power Budget Challenge",
+      "target": "B general outcome 2; S1 p. 37. Energy use, power, efficiency and household decisions. Unit reference: S3."
+    },
+    {
+      "game_id": "C1",
+      "game": "Break the Chain",
+      "target": "C general outcomes 1–3 and 5; S1 pp. 42–43. Transmission, prevention, body defences and community health. Scientific references: S4–S5."
+    },
+    {
+      "game_id": "C2",
+      "game": "Inheritance Detective",
+      "target": "C general outcome 4; S1 p. 43. Simple autosomal inheritance, Punnett squares and pedigrees. Probability reference: S6."
+    },
+    {
+      "game_id": "D1",
+      "game": "Safe Stop Challenge",
+      "target": "D general outcomes 1 and 2; S1 p. 48. Reaction travel, speed, distance, time and graphs."
+    },
+    {
+      "game_id": "D2",
+      "game": "Crash-Test Studio",
+      "target": "D general outcomes 3 and 4; S1 p. 49. Momentum, impulse, collision duration and protection. Scientific references: S7–S8."
+    }
+  ],
+  "model_data": "All scenario numbers and case narratives are invented teaching examples unless explicitly identified otherwise. They are not product measurements, epidemiological rates, injury thresholds or real student data.",
+  "source_gaps": [
+    "Current course build and lesson IDs not re-audited",
+    "Current textbook editions and source-example placement need confirmation",
+    "Earlier course review findings may have been repaired since the review",
+    "No game effectiveness or runtime/accessibility claim is made"
+  ]
+}

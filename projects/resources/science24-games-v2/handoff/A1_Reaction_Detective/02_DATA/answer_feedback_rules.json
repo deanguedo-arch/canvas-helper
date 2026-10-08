@@ -1,0 +1,73 @@
+{
+  "game_id": "A1",
+  "version": "2.0.0-design",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "A1-W01",
+      "accepted_result": "Chemical change; decomposition",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Bubbles are an observation; identify evidence of a new substance.",
+        "Temperature change alone is not conclusive.",
+        "Use evidence to support the category and response."
+      ]
+    },
+    {
+      "id": "A1-P01",
+      "accepted_result": "Physical change after identity comparison",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Bubbles are an observation; identify evidence of a new substance.",
+        "Temperature change alone is not conclusive.",
+        "Use evidence to support the category and response."
+      ]
+    },
+    {
+      "id": "A1-P02",
+      "accepted_result": "Chemical change; corrosion/rusting",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Bubbles are an observation; identify evidence of a new substance.",
+        "Temperature change alone is not conclusive.",
+        "Use evidence to support the category and response."
+      ]
+    },
+    {
+      "id": "A1-P03",
+      "accepted_result": "Acid–carbonate reaction within the unit's neutralization context",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Bubbles are an observation; identify evidence of a new substance.",
+        "Temperature change alone is not conclusive.",
+        "Use evidence to support the category and response."
+      ]
+    },
+    {
+      "id": "A1-P04",
+      "accepted_result": "Combustion",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Bubbles are an observation; identify evidence of a new substance.",
+        "Temperature change alone is not conclusive.",
+        "Use evidence to support the category and response."
+      ]
+    },
+    {
+      "id": "A1-T01",
+      "accepted_result": "Physical change; change of state",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Bubbles are an observation; identify evidence of a new substance.",
+        "Temperature change alone is not conclusive.",
+        "Use evidence to support the category and response."
+      ]
+    }
+  ]
+}

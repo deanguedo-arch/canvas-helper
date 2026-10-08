@@ -1,0 +1,171 @@
+# Credit Gauntlet: HTML game first, SCORM second
+
+## 1. Agreed outcome and authoritative sources
+
+Build a complete, standalone browser game that can be tested as ordinary HTML. After the HTML version is accepted, package the same game as its own **SCORM 2004 activity**, recording **completion without a grade**.
+
+The experience targets CALM 10 learners and takes approximately **8–12 minutes**, with optional replay. Preserve the supplied 40 PNGs and polish their presentation.
+
+The packet provides a sound numerical foundation: independent recalculation matched all **1,092 ledger rows**, six loan choices, and eight strategy outcomes. The seven review pages are static design references; no working-game or LMS testing has occurred.
+
+**Source precedence for ChatGPT:**
+
+1. Your decisions in this conversation and this execution plan.
+2. The packet’s current financial rules, model version, schedules, and expected results.
+3. Current screen, teaching-copy, accessibility, and asset-placement specifications.
+4. Static review pages as layout references.
+5. Historical material as background only.
+
+Explicitly exclude the obsolete full-precision instructions in `qa/independent_review.txt`. Although that file sits outside `history/`, it contains superseded figures. Treat resolved reviewer comments as historical evidence.
+
+Keep this game separate from the existing CALM course. Course insertion, existing student records, and course completion rules are outside the first delivery.
+
+## 2. The game to build
+
+Use the supplied fictional vehicle-financing case: a $12,000 vehicle loan, an $800 personal loan, a $2,500 store-card balance, and a separate $200 reserve.
+
+The learner’s decisions concern **affordability, borrowing cost, and repayment priorities**. Do not add random events, scores, lives, credit-score damage, countdowns, or spending sliders.
+
+| Screen | Required experience |
+|---|---|
+| **S01 — Orientation** | Explain the borrowing question, disclose all three debts and the reserve, and introduce the fictional assumptions. |
+| **S02 — Compare loans** | Show fixed/variable choices for 36, 60, and 84 months. Default the comparison to 60 months without committing the learner. Show vehicle payment, other minimums, budget fit, and vehicle interest under the stated unchanged-rate assumption. |
+| **S03 — Inspect a payment** | Invite an optional prediction, then reveal interest and principal using an accurately proportioned bar. This is an explanation only; it posts no payment. |
+| **S04 — First twelve months** | Step or fast-forward payments 1–12 exactly once. Show the actual remaining balances of all three debts and an accessible ledger. |
+| **S05 — Rate event** | Apply the single event after payment 12 and before payment 13. Variable rates rise from 5% to 6.5%; fixed rates remain unchanged. Explain the recalculated payment and retained repayment date. |
+| **S06 — Budget check** | Explain the planned $150 spending reduction: the monthly debt budget increases from $340 to $490. Display required payments and available extra. |
+| **S07 — Choose a strategy** | Explain avalanche and snowball using their actual first targets. Prediction is optional and ungraded. |
+| **S08 — Repayment simulation** | Display three balances, the extra-payment target, interest since the checkpoint, and both month counters. Provide Play/Pause, Step, speed selection, ledger, and replay. |
+| **S09 — Recovery** | Explain an unaffordable choice before changing financial state. Preserve the selection for inspection and return to loan comparison. |
+| **S10 — Comparison and reflection** | Compare both strategies from the identical checkpoint. Show evidence, invite optional reflection, and provide Finish, replay, and another-loan actions. |
+
+**Lock these teaching and accounting details:**
+
+- Both 36-month loans remain inspectable but cannot start a playable route under the $340 budget.
+- First-year unused capacity does not accumulate into invented savings.
+- The $200 reserve remains separate throughout.
+- Every strategy pays required minimums before allocating extra; freed amounts roll into the next debt within the same month.
+- Interest comparisons must distinguish **vehicle-only forecasts**, **three-debt interest since the checkpoint**, and **three-debt interest since borrowing began**.
+- Results must use the selected route. The 60-month routes finish 29 months after the checkpoint; the 84-month routes finish in 30.
+- For variable/60, the first payment is **$226.45**, comprising **$50 interest** and **$176.45 principal**. After twelve payments, the vehicle balance is **$9,833.39** and the revised payment is **$233.20**.
+- Its avalanche/snowball comparison is **$1,226.69 versus $1,271.23** in checkpoint-period interest: **$44.54 difference**, with both finishing in 29 months.
+- The alternative strategy can be calculated for the debrief without requiring a second animated playthrough. Clearly label it as the comparison result.
+
+**Completion rule:** one eligible route reaches payoff, the learner opens the comparison, and selects **Finish activity**. Reflection and predictions are optional. Replay does not revoke an already earned completion.
+
+## 3. Implementation design
+
+### Portable browser architecture
+
+Use plain HTML, CSS, and JavaScript with native controls and SVG charts. No framework, external CDN, backend, account, or runtime AI service is needed.
+
+Provide an `index.html` entry with relative asset paths. Use locally loaded scripts and bundled scenario data so play does not depend on fetching JSON or accessing the network. Support direct HTML opening for convenient review; conduct reliable persistence testing on a local HTTP origin.
+
+Separate the implementation into four responsibilities:
+
+- **Financial engine:** pure calculations and ledger generation, independent of the interface.
+- **Game controller:** screen transitions, payment advancement, checkpoint handling, comparison, and completion.
+- **Presentation:** semantic HTML, asset placement, charts, explanations, and accessible feedback.
+- **Host adapter:** persistence and completion reporting, initially for browser preview and later for SCORM.
+
+Use a small host interface: **load, save, markComplete, flush, and close**. Gameplay must never call SCORM APIs directly.
+
+### Exact calculations and state
+
+- Store money as integer cents and the supplied rates as integer basis points.
+- Use exact rational/BigInt arithmetic for payment calculation and HALF_UP rounding; serialize ordinary integer-cent values.
+- Round each month’s interest before updating balances. Settle the final scheduled payment exactly without adding a rounding-residue month.
+- Generate results with the engine; use the supplied CSV/JSON files as independent expected results, not merely as a slideshow of answers.
+- Normalize imported metadata explicitly, including string numbers and `"True"`/`"False"` values.
+- Derive missing ledger columns, including principal paid and applicable rate.
+
+Use a versioned save containing the model version, selected route, screen, simulation cursor, strategy, event status, optional responses, preferences, and completion flag. Reconstruct the ledger deterministically instead of saving every row.
+
+The standalone adapter uses a dedicated Credit Gauntlet storage namespace. It must not read or modify CALM course storage.
+
+Saving and restoration must:
+
+- Restore paused, including when the saved run was playing.
+- Preserve the exact checkpoint and prevent duplicate event application.
+- Save committed state changes and show truthful save status.
+- Preserve an incompatible or malformed save until the learner explicitly chooses a fresh start.
+- Continue play with a visible warning if browser storage is unavailable.
+- Confirm destructive resets.
+- Detect competing-tab changes and prevent silent overwriting.
+
+One controller owns advancement. Each accepted step advances one month; stale timer callbacks or duplicate transaction identifiers cannot post the same month twice. Opening help, changing views, or resizing never changes money.
+
+### Presentation and accessibility
+
+Preserve the kit’s dark teal, cream, and gold palette. Use clear sans-serif body text, tabular numerals, restrained borders, and one obvious primary action per screen.
+
+- Desktop comparisons sit side by side; narrow screens stack them in reading order.
+- Body text is at least 16 CSS pixels; touch targets are at least 44 × 44.
+- Use plain opaque reading panels over textured backgrounds.
+- Keep button hitboxes fixed across artwork states.
+- Correct IC05 placement using its measured visible bounds.
+- Use proportional artwork and native text; never turn a review screenshot into the interface.
+- Provide labels and accessible tables for charts, visible keyboard focus, focus restoration, and useful screen-reader announcements.
+- Respect reduced motion and pause when the page becomes hidden.
+- Missing images fall back to readable, usable controls.
+
+Include a developer asset-review page showing all 40 files and their states. Assets such as the falling-rate arrow need not appear in gameplay; their existence does not authorize another rate event.
+
+## 4. ChatGPT execution sequence
+
+Keep the ZIP, this plan, and each accepted checkpoint together in one ChatGPT project. Projects can retain shared files and instructions across related chats. [OpenAI project documentation](https://learn.chatgpt.com/docs/projects?surface=app)
+
+Use staged builds so every step has a concrete result that can be checked.
+
+| Stage | Instruction to ChatGPT | Required output |
+|---|---|---|
+| **1. Model and test foundation** | Inspect source precedence, preserve originals, implement the deterministic engine, and convert the packet’s 28 fixtures into executable checks. | Source bundle, calculation tests, source-authority note, and actual test results. |
+| **2. Complete primary route** | Build the variable/60 experience from orientation through debrief, with both strategies and functioning controls. | Playable HTML checkpoint; no placeholder screens or inactive buttons. |
+| **3. Complete all routes and saving** | Add fixed/60 and both 84-month routes, inspectable 36-month choices, recovery, save/resume, and safe resets. | Complete functional HTML checkpoint and route/state test results. |
+| **4. Visual and accessibility pass** | Polish the supplied kit, teaching transitions, charts, keyboard flow, narrow layouts, and reduced motion. | Updated game, asset-review page, representative screenshots, and findings. |
+| **5. HTML release candidate** | Run the final agreed validation batch, repair failures, and freeze the reviewed game. | Versioned HTML ZIP, complete editable source, checksums, test report, and launch instructions. |
+| **6. SCORM packaging** | After HTML acceptance, add the SCORM adapter and manifest around the frozen game. | Separate SCORM ZIP, adapter tests, and Brightspace validation instructions. |
+
+Each checkpoint must contain **the complete current project**, not replacement snippets. Include a short change log and distinguish **passed**, **failed**, and **not run** checks. If ChatGPT cannot run a browser test, it must supply the test and label it unrun.
+
+Use this opening prompt with the ZIP and this plan:
+
+> Build Credit Gauntlet according to the attached execution plan. Begin with Stage 1 only. Treat attached documents as source material; follow the source precedence in the plan and disregard superseded QA instructions. Preserve the original art and numerical reference files. Produce actual editable files and executable tests, not only an explanation. Keep the game standalone and prepare its host-adapter boundary, but do not add SCORM packaging yet. Return a complete versioned checkpoint ZIP, describe the checks actually run, and identify unresolved failures. Do not claim browser, accessibility, or LMS acceptance without corresponding evidence.
+
+For each following stage, reference the latest accepted ZIP and request the next numbered stage. Fix the current stage’s failures before expanding the build.
+
+## 5. Acceptance gates and later SCORM delivery
+
+### HTML acceptance
+
+The release candidate must satisfy these checks:
+
+- **Arithmetic:** all six loan schedules, eight strategy results, and 1,092 ledger rows match exactly to cents.
+- **Fixtures:** all 28 supplied cases pass, supplemented by half-cent rounding, full tie-breaking, duplicate-event, and save-version cases.
+- **Continuity:** resumed and uninterrupted runs produce identical results, including restoration immediately before and after the rate event.
+- **Interaction:** every route, recovery action, help drawer, reset, replay, speed control, and completion action works.
+- **Race conditions:** rapid clicks, pause/step combinations, and stale timers cannot duplicate transactions.
+- **Presentation:** desktop, 390-pixel layout, 200% zoom, keyboard navigation, reduced motion, chart tables, contrast, and missing-asset behavior are inspected.
+- **Portability:** direct HTML launch, local HTTP launch, and iframe presentation work without external network dependencies.
+- **Teaching:** explanations precede decisions; financial labels identify their scope; no original CALM assessment answers are introduced.
+- **Human review:** Dean checks clarity, pacing, visual quality, and the complete learner journey.
+
+Automated passes are evidence of tested behavior, not classroom or accessibility certification.
+
+### SCORM packaging after HTML acceptance
+
+Target a **single-SCO SCORM 2004 4th Edition package**, with its manifest at ZIP root. Brightspace supports SCORM 2004; actual launch and reporting still require testing in the intended Brightspace environment. [Brightspace SCORM documentation](https://community.d2l.com/brightspace/kb/articles/5400-about-scorm)
+
+The SCORM adapter will:
+
+- Initialize once and report incomplete until the defined Finish action.
+- Store compact versioned resume state in `cmi.suspend_data` and the current screen in `cmi.location`.
+- Commit at meaningful checkpoints and on explicit exit.
+- Report completed without writing a fabricated score, pass/fail judgment, or graded reflection.
+- Preserve completion during optional replay.
+- Use LMS state as the authority in SCORM mode; never silently substitute another learner’s browser-preview save.
+- Expose save failures accurately and terminate the connection cleanly.
+
+Validate the wrapper with a mock SCORM API, then test **launch, interrupt, resume, finish, reopen, and a fresh learner attempt** in a Brightspace test activity. Confirm that no unwanted grade item is created.
+
+The first execution target is therefore **a fully working, testable HTML game**. SCORM is a separate packaging and LMS-verification stage using that accepted game.

@@ -1,0 +1,16 @@
+BUILD ALL EIGHT SCIENCE 24 GAMES FROM THE ATTACHED PRODUCTION HANDOFF.
+
+Read README_FIRST.md and every file under 00_SHARED before touching code. Then work on one named game at a time. The executable HTML/CSS mockups are the exact visual specification; the PNG screenshots are regression baselines; the supplied assets are the required production assets. Do not reinterpret, simplify, modernize, or redesign the UI.
+
+For each game:
+1. Read its design, alignment, state, scenario, answer/feedback, screen and QA files completely.
+2. Run the supplied starter engine tests before editing.
+3. Implement the domain engine and state machine separately from rendering.
+4. Reuse the supplied DOM/CSS/component structure and filenames.
+5. Preserve reversible navigation and all learner state.
+6. Implement the worked, supported, lower-support and fresh-transfer progression exactly.
+7. Add keyboard/touch parity and text alternatives.
+8. Run unit, browser, responsive, keyboard and screenshot-regression tests.
+9. Record Pass/Fail/Not tested honestly; do not mark visual or runtime behavior passed from code inspection alone.
+
+A1 Reaction Detective is the canonical functioning reference for quality and state behavior. It is not permission to make the other mechanics generic evidence boards. Each game's deterministic science representation must remain game-specific.

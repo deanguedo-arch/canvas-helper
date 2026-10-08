@@ -1,0 +1,187 @@
+{
+  "gameId": "A1",
+  "title": "Reaction Detective",
+  "version": "1.0.0",
+  "designStatus": "build-ready handoff; teacher/science QA still required before course release",
+  "rules": {
+    "practiceInvestigationTokens": 2,
+    "maxEvidenceSelections": 2,
+    "speedScored": false,
+    "retryPenalty": false,
+    "openExplanationAutoGraded": false,
+    "statePersistence": "memory-only",
+    "transferHintsBeforeFirstSubmit": false
+  },
+  "conclusionOptions": [
+    {"id": "physical", "label": "Physical change"},
+    {"id": "chemical", "label": "Chemical change"},
+    {"id": "insufficient", "label": "Not enough evidence"}
+  ],
+  "reactionTypeOptions": [
+    {"id": "decomposition", "label": "Decomposition"},
+    {"id": "neutralization", "label": "Neutralization / acid–base"},
+    {"id": "combustion", "label": "Combustion"},
+    {"id": "corrosion", "label": "Rusting / corrosion"},
+    {"id": "composition", "label": "Composition"},
+    {"id": "none", "label": "No reaction type required"}
+  ],
+  "scenarios": [
+    {
+      "id": "W01",
+      "stage": "worked",
+      "title": "Peroxide Record",
+      "image": "../../03_ASSETS/scenes/scene_01_peroxide.png",
+      "caseText": "A supplied virtual laboratory record identifies hydrogen peroxide before a change. After the change, water and oxygen are identified. The mixture warms while no external heating is applied. A catalyst is unchanged after the reaction.",
+      "baseObservations": [
+        "Gas bubbles are observed.",
+        "The mixture warms in the stated setup."
+      ],
+      "optionalEvidence": [
+        {"id": "w01_e1", "label": "Product identity record", "detail": "Water and oxygen are identified after the change.", "quality": "strong"},
+        {"id": "w01_e2", "label": "Starting substance record", "detail": "Hydrogen peroxide is identified before the change.", "quality": "strong"},
+        {"id": "w01_e3", "label": "Temperature record", "detail": "The mixture warms while no external heating is applied.", "quality": "supporting"},
+        {"id": "w01_e4", "label": "Catalyst record", "detail": "The catalyst is still present after the reaction.", "quality": "supporting"}
+      ],
+      "acceptedConclusion": ["chemical"],
+      "acceptedReactionTypes": ["decomposition"],
+      "requiredStrongEvidenceAny": ["w01_e1"],
+      "modelExplanation": "The substance identity changes from hydrogen peroxide to water and oxygen. That directly supports a chemical change. One compound forming simpler products is a decomposition reaction. The warming is consistent with energy being released to the surroundings in this supplied record.",
+      "hints": [],
+      "worked": true
+    },
+    {
+      "id": "P01",
+      "stage": "practice",
+      "title": "Cooling Solution",
+      "image": "../../03_ASSETS/scenes/scene_02_cooling_solution.png",
+      "caseText": "A white crystalline solid disappears into water. The container cools from 22 °C to 18 °C and a clear solution remains.",
+      "baseObservations": [
+        "The solid is no longer visible in the water.",
+        "The temperature falls from 22 °C to 18 °C."
+      ],
+      "optionalEvidence": [
+        {"id": "p01_e1", "label": "Recovery record", "detail": "After the water is removed in the supplied record, a solid is recovered.", "quality": "strong"},
+        {"id": "p01_e2", "label": "Identity comparison", "detail": "The recovered solid is identified as the same substance as the starting solid.", "quality": "strong"},
+        {"id": "p01_e3", "label": "pH record", "detail": "A pH reading is supplied, but it does not by itself establish whether a new substance formed.", "quality": "weak_or_irrelevant"},
+        {"id": "p01_e4", "label": "Warm-water comparison", "detail": "The solid dissolves at a different rate in warmer water. This does not by itself establish a new substance.", "quality": "weak_or_irrelevant"}
+      ],
+      "acceptedPredictionBeforeReveal": ["insufficient"],
+      "acceptedConclusion": ["physical"],
+      "acceptedReactionTypes": ["none"],
+      "requiredStrongEvidenceAny": ["p01_e2"],
+      "misconceptions": ["temperature_change_proves_chemical", "disappearing_solid_proves_chemical"],
+      "hints": [
+        "A temperature change does not automatically tell you whether a new substance formed.",
+        "What evidence could tell you whether the original substance can still be recovered?",
+        "Compare the identity of the recovered solid with the starting solid."
+      ]
+    },
+    {
+      "id": "P02",
+      "stage": "practice",
+      "title": "Rusting Tool",
+      "image": "../../03_ASSETS/scenes/scene_03_rusting_tool.png",
+      "caseText": "An iron-containing tool is exposed to air and moisture over time. A reddish-brown corrosion coating develops and the final mass is slightly greater than the initial mass.",
+      "baseObservations": [
+        "A reddish-brown coating develops over time.",
+        "The final mass is slightly greater than the initial mass."
+      ],
+      "optionalEvidence": [
+        {"id": "p02_e1", "label": "Corrosion product analysis", "detail": "The coating contains iron and oxygen and has different properties from the original metallic iron.", "quality": "strong"},
+        {"id": "p02_e2", "label": "Atmosphere record", "detail": "The tool was exposed to air containing oxygen and to moisture.", "quality": "supporting"},
+        {"id": "p02_e3", "label": "Surface colour", "detail": "The coating is reddish-brown.", "quality": "supporting"},
+        {"id": "p02_e4", "label": "Location record", "detail": "The tool was stored in a garage.", "quality": "weak_or_irrelevant"}
+      ],
+      "acceptedConclusion": ["chemical"],
+      "acceptedReactionTypes": ["corrosion", "composition"],
+      "preferredReactionType": "corrosion",
+      "requiredStrongEvidenceAny": ["p02_e1"],
+      "acceptedResponse": ["barrier_coating"],
+      "responseOptions": [
+        {"id": "barrier_coating", "label": "Use a suitable barrier coating to reduce contact with air/moisture."},
+        {"id": "polish_only", "label": "Polish the surface and leave it unprotected."},
+        {"id": "no_action", "label": "No protection is needed because rust is only a colour change."}
+      ],
+      "scienceNote": "Do not give rust a single exact formula in production copy. Rust can contain mixtures of iron oxides/hydroxides.",
+      "hints": [
+        "A colour change is useful, but look for evidence that the material itself changed identity.",
+        "Which record compares the corrosion product with the original metal?",
+        "The product analysis is the strongest evidence of a new substance."
+      ]
+    },
+    {
+      "id": "P03",
+      "stage": "practice",
+      "title": "Antacid Record",
+      "image": "../../03_ASSETS/scenes/scene_04_antacid_model.png",
+      "caseText": "In a virtual model, a calcium-carbonate antacid is placed in a model acidic solution. The pH moves toward neutral and gas is produced.",
+      "baseObservations": [
+        "Bubbles are produced.",
+        "The pH moves toward neutral."
+      ],
+      "optionalEvidence": [
+        {"id": "p03_e1", "label": "Product record", "detail": "Carbon dioxide, water and a dissolved calcium salt are identified after the change.", "quality": "strong"},
+        {"id": "p03_e2", "label": "Reactant record", "detail": "The starting substances include an acidic solution and calcium carbonate.", "quality": "strong"},
+        {"id": "p03_e3", "label": "Bubble observation", "detail": "Gas bubbles are visible.", "quality": "supporting"},
+        {"id": "p03_e4", "label": "Tablet appearance", "detail": "The tablet becomes smaller during the virtual record.", "quality": "supporting"}
+      ],
+      "acceptedConclusion": ["chemical"],
+      "acceptedReactionTypes": ["neutralization"],
+      "requiredStrongEvidenceAny": ["p03_e1"],
+      "misconceptions": ["bubbles_prove_neutralization", "ph_change_alone_proves_reaction_type"],
+      "hints": [
+        "Bubbles and pH change are useful observations, but they do not identify the reaction by themselves.",
+        "Look for a record that identifies what substances are present before and after.",
+        "Use the supplied reactant and product identities to classify the reaction."
+      ],
+      "safetyNote": "Virtual record only; not health, dosing or laboratory-procedure advice."
+    },
+    {
+      "id": "P04",
+      "stage": "practice",
+      "title": "Furnace Combustion",
+      "image": "../../03_ASSETS/scenes/scene_05_combustion_furnace.png",
+      "caseText": "A fictional natural-gas furnace model supplies methane and oxygen to a controlled burner. The exhaust record identifies carbon dioxide and water. Heat and visible light are released.",
+      "baseObservations": [
+        "Heat is released.",
+        "Visible light is produced."
+      ],
+      "optionalEvidence": [
+        {"id": "p04_e1", "label": "Reactant record", "detail": "Methane and oxygen are supplied to the burner in the model.", "quality": "strong"},
+        {"id": "p04_e2", "label": "Exhaust product record", "detail": "Carbon dioxide and water are identified in the supplied exhaust record.", "quality": "strong"},
+        {"id": "p04_e3", "label": "Energy record", "detail": "Heat and visible light are released.", "quality": "supporting"},
+        {"id": "p04_e4", "label": "Hot casing", "detail": "A metal surface becomes hot during operation.", "quality": "weak_or_irrelevant"}
+      ],
+      "acceptedConclusion": ["chemical"],
+      "acceptedReactionTypes": ["combustion"],
+      "requiredStrongEvidenceAny": ["p04_e2", "p04_e1"],
+      "environmentPrompt": "Which identified product is a greenhouse gas?",
+      "environmentAccepted": ["carbon dioxide", "CO2", "CO₂"],
+      "hints": [
+        "Energy release supports the idea, but reaction type depends strongly on the reactants and products.",
+        "Compare the supplied fuel and oxygen with the identified exhaust products.",
+        "Methane reacting with oxygen to form carbon dioxide and water is a combustion pattern."
+      ],
+      "safetyNote": "No real-furnace or ignition instructions are part of the game."
+    },
+    {
+      "id": "T01",
+      "stage": "transfer",
+      "title": "Boiling Water",
+      "image": "../../03_ASSETS/scenes/scene_06_boiling_transfer.png",
+      "caseText": "Water is heated until bubbles form and water vapour is produced. The vapour is cooled and condenses back to liquid water. The supplied record identifies the substance before heating and after condensation as water (H₂O).",
+      "baseObservations": [
+        "Bubbles form during boiling.",
+        "Water vapour condenses back to liquid water.",
+        "The supplied identity record says the substance remains H₂O."
+      ],
+      "optionalEvidence": [],
+      "acceptedConclusion": ["physical"],
+      "acceptedReactionTypes": ["none"],
+      "requiredStrongEvidenceAny": [],
+      "modelExplanation": "The bubbles do not prove a chemical reaction. The supplied record shows a change of state and the substance remains water before and after, so no new substance identity is established.",
+      "hints": [],
+      "independent": true
+    }
+  ]
+}

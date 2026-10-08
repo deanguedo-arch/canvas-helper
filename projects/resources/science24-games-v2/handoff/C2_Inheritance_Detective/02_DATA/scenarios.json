@@ -1,0 +1,92 @@
+{
+  "game_id": "C2",
+  "version": "2.0.0",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "C2-W01",
+      "stage": "worked",
+      "title": "Carrier Parents",
+      "parents": [
+        "Aa",
+        "Aa"
+      ],
+      "offspring": {
+        "AA": 25,
+        "Aa": 50,
+        "aa": 25
+      },
+      "phenotype": {
+        "dominant": 75,
+        "recessive": 25
+      },
+      "evidence": "Two dominant-phenotype parents have an aa child, so both must supply a and therefore are Aa."
+    },
+    {
+      "id": "C2-P01",
+      "stage": "supported",
+      "title": "Recessive × Carrier",
+      "parents": [
+        "aa",
+        "Aa"
+      ],
+      "offspring": {
+        "Aa": 50,
+        "aa": 50
+      },
+      "evidence": "Each offspring has a 50% probability of the recessive phenotype; this does not guarantee one of every two children."
+    },
+    {
+      "id": "C2-P02",
+      "stage": "practice",
+      "title": "Pedigree Constraint",
+      "known": [
+        "child=aa",
+        "parent1=dominant phenotype",
+        "parent2=dominant phenotype"
+      ],
+      "answer": "Both parents must be Aa under the stated model."
+    },
+    {
+      "id": "C2-P03",
+      "stage": "practice",
+      "title": "Possible Dominant Parent",
+      "parents": [
+        "aa",
+        "AA_or_Aa"
+      ],
+      "range": {
+        "recessive_probability": [
+          0,
+          50
+        ]
+      },
+      "answer": "A single percentage is not justified until the dominant parent's genotype is known."
+    },
+    {
+      "id": "C2-P04",
+      "stage": "low_support",
+      "title": "Independent Outcomes",
+      "parents": [
+        "Aa",
+        "Aa"
+      ],
+      "history": [
+        "aa",
+        "AA",
+        "Aa"
+      ],
+      "answer": "The next outcome is not due; the same 25/50/25 probabilities apply to each pregnancy in this simplified model."
+    },
+    {
+      "id": "C2-T01",
+      "stage": "transfer",
+      "title": "Underdetermined Pedigree",
+      "parents": [
+        "aa",
+        "dominant_unknown"
+      ],
+      "answer": "Return both possible crosses, their probabilities, and a statement of uncertainty."
+    }
+  ]
+}

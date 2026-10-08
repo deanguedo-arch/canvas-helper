@@ -1,0 +1,94 @@
+{
+  "non_A1_total_pass_lines": 24,
+  "non_A1_total_fail_lines": 0,
+  "games": {
+    "A1": {
+      "source": "A1 v1.2 tested reference",
+      "reported": {
+        "version": "1.2.0",
+        "created_at_utc": "2026-10-07T16:08:34.582827+00:00",
+        "input_archive_sha256": "6dbd288c0ee1297a1960e91e4ad9d121dc95a6f74fffa300b4410b5da50d18d5",
+        "tested_play_sha256": "ebd9f60548887206e144fbbc3fece4d90877fbe47c01422d5aac943341c0fc70",
+        "engine_sha256": "de42406619c364531cab412662f6325fdb7224cb87edc7da84a392a48a35df75",
+        "scenarios_sha256": "176948d8b0849a865beedaae5b10544b77029f0a5a0890ca8ca19cd6696b7ec2",
+        "engine_tests": {
+          "passed": 842,
+          "failed": 0
+        },
+        "browser_assertions": {
+          "passed": 404,
+          "failed": 0
+        },
+        "total_test_assertions": 1246,
+        "widths_css_px": [
+          360,
+          390,
+          430,
+          768,
+          1024,
+          1440,
+          1648
+        ],
+        "environment": {
+          "chromium": "144.0.7559.96 Linux headless",
+          "node": "22.16.0",
+          "python": "3.13.5",
+          "playwright": "1.57.0"
+        },
+        "method": "Exact embedded PLAY.html via Chromium set_content; direct file/localhost navigation blocked by managed browser policy; no policy changes. DOM runtime and controls are real. v1.2 adds reversible navigation and state-restoration browser checks.",
+        "not_tested": [
+          "Direct local-file/HTTP-host routing in this environment",
+          "Actual Safari or Firefox",
+          "Actual screen reader / assistive technology",
+          "Physical mobile device",
+          "Native browser zoom (CSS zoom stress and responsive layout were tested)",
+          "Live course/LMS integration",
+          "Independent teacher/learner validation of explanation quality and effectiveness"
+        ]
+      }
+    },
+    "A2": {
+      "command": "node --test tests/engine.test.js",
+      "exit_code": 0,
+      "passed_lines": 4,
+      "failed_lines": 0
+    },
+    "B1": {
+      "command": "node --test tests/engine.test.js",
+      "exit_code": 0,
+      "passed_lines": 3,
+      "failed_lines": 0
+    },
+    "B2": {
+      "command": "node --test tests/engine.test.js",
+      "exit_code": 0,
+      "passed_lines": 4,
+      "failed_lines": 0
+    },
+    "C1": {
+      "command": "node --test tests/engine.test.js",
+      "exit_code": 0,
+      "passed_lines": 2,
+      "failed_lines": 0
+    },
+    "C2": {
+      "command": "node --test tests/engine.test.js",
+      "exit_code": 0,
+      "passed_lines": 3,
+      "failed_lines": 0
+    },
+    "D1": {
+      "command": "node --test tests/engine.test.js",
+      "exit_code": 0,
+      "passed_lines": 4,
+      "failed_lines": 0
+    },
+    "D2": {
+      "command": "node --test tests/engine.test.js",
+      "exit_code": 0,
+      "passed_lines": 4,
+      "failed_lines": 0
+    }
+  },
+  "boundary": "These are pure domain-engine baseline tests. Production browser/accessibility tests remain required."
+}

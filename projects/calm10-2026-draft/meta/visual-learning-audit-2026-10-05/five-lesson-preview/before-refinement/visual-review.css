@@ -1,0 +1,20 @@
+.visual-review-bar { padding: 18px 32px; border-bottom: 1px solid var(--border); background: #fff; font-size: 14px; }
+.visual-review-bar p { margin: 4px 0 10px; color: var(--muted); }
+.visual-review-bar nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.visual-review-figure { margin: 24px 0 30px; padding: 0; }
+.visual-reading-intro { margin: 0 0 18px; }
+.visual-desktop { max-width: 640px; margin: 0 auto; }
+.visual-review-figure img { display: block; width: 100%; height: auto; }
+.visual-review-figure a:focus-visible { display: block; outline: 3px solid var(--focus); outline-offset: 4px; }
+.visual-mobile { display: none; }
+.visual-review-figure figcaption { margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.visual-open-note { display: block; margin-top: 6px; }
+.visual-text-equivalent { margin-top: 12px; }
+.visual-text-equivalent summary { color: var(--teal); cursor: pointer; padding: 8px 0; }
+.visual-text-equivalent p { margin: 8px 0; }
+@media (max-width: 760px) {
+ .visual-review-bar { padding: 16px 22px; }
+ .visual-desktop.has-mobile { display: none; }
+ .visual-mobile { display: block; }
+ .visual-mobile-panel { margin: 0 auto 18px; max-width: 440px; }
+}

@@ -1,0 +1,572 @@
+--- codex-first-pass/index.html
++++ repaired-v1.1/index.html
+@@ -1,18 +1,29 @@
+ <!doctype html>
+-<html lang="en">
++<html lang="en-CA">
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+-  <title>Science 24 — A1 Reaction Detective</title>
++  <meta name="color-scheme" content="light">
++  <meta name="description" content="Science 24 — practise evidence-based reasoning with six fictional chemistry records.">
++  <title>Reaction Detective · Science 24 · Next Step</title>
++  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231a4026'/%3E%3Cpath d='M25 12h14m-11 0v18L16 50q-1 3 3 3h26q4 0 3-3L36 30V12' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E">
+   <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+-  <header class="topbar">
+-    <div class="brand"><strong>Science <span>24</span></strong><small>Real Science. Brighter Futures.</small></div>
+-    <div class="nextstep">Next Step <small>LEARN · PRACTISE · PROGRESS</small></div>
++  <a class="skip-link" href="#main">Skip to activity</a>
++  <header class="course-header">
++    <div class="header-inner">
++      <div class="course-brand">Science <span>24</span><small>Real science. Clear thinking.</small></div>
++      <div class="school-brand"><svg viewBox="0 0 44 32" aria-hidden="true"><path d="M1 2h10l11 14-11 14H1l11-14ZM20 2h10l11 14-11 14H20l11-14Z"/></svg><strong>Next Step</strong><span>CONTINUING EDUCATION</span></div>
++    </div>
+   </header>
+-  <main id="app" class="app" aria-live="polite"></main>
++  <main id="main" tabindex="-1"></main>
++  <footer class="course-footer"><span>SCIENCE 24 <b> / </b> UNIT A</span><span>Practice only · No time limit · Nothing is submitted</span><span>Reaction Detective <b>1.1</b></span></footer>
++  <div id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
++  <dialog id="dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
++  <noscript><p class="noscript">This activity needs JavaScript enabled. It uses only local files and does not send your work anywhere.</p></noscript>
+   <script src="scenarios.js"></script>
++  <script src="engine.js"></script>
+   <script src="game.js"></script>
+ </body>
+ </html>
+--- codex-first-pass/styles.css
++++ repaired-v1.1/styles.css
+@@ -1,22 +1,93 @@
+-:root{
+-  --charcoal:#131A16;--forest:#174E2A;--green:#2FB65D;--pale:#E9F5EC;
+-  --paper:#FBFCFA;--gray:#EEF1EE;--ink:#111714;--muted:#59645D;--border:#CCD6CF;
+-  --warn:#9C4B2E;--focus:#0A6B3C;--radius:12px;--shadow:0 3px 12px rgba(17,23,20,.08)
++/* Next Step / Science 24 — approved visual system v0.1; runtime revision 1.1.0. */
++:root {
++  --charcoal:#161b18;--forest:#1d4027;--forest-dark:#14331c;--green:#23b75a;
++  --active:#20783c;--pale:#edf5ee;--paper:#f5f7f3;--white:#fff;--ink:#171d19;
++  --muted:#536158;--border:#cbd7cc;--soft:#e6ece6;--warning:#814312;--warning-bg:#fff6e9;
++  --radius:6px;--focus:#125d30;--font:Arial,Helvetica,ui-sans-serif,system-ui,sans-serif;
+ }
+-*{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f4f6f3;color:var(--ink);line-height:1.45}
+-button,input,textarea{font:inherit}.topbar{background:var(--charcoal);color:white;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(18px,4vw,56px);gap:20px}.brand strong{font-size:clamp(24px,3vw,38px)}.brand span{color:var(--green)}.brand small,.nextstep small{display:block;opacity:.78;letter-spacing:.08em}.nextstep{font-size:24px;font-weight:800;text-align:right}
+-.app{max-width:1480px;margin:auto;padding:24px}.hero,.panel,.strip{background:white;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}.hero{padding:24px;margin-bottom:18px}.hero h1{font-size:clamp(34px,5vw,64px);margin:.15em 0}.eyebrow{color:var(--forest);font-weight:800;letter-spacing:.12em;text-transform:uppercase}.progress{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.step{padding:7px 12px;border-radius:999px;background:var(--gray);color:var(--muted);font-size:.9rem}.step.active{background:var(--forest);color:white}.step.done{background:var(--pale);color:var(--forest)}
+-.grid{display:grid;grid-template-columns:1fr 1.05fr 1.05fr;gap:16px}.panel{overflow:hidden}.panel h2{margin:0;background:var(--forest);color:white;padding:14px 18px;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase}.content{padding:18px}.scene{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:9px;border:1px solid var(--border);background:var(--gray)}.muted{color:var(--muted)}.evidence-list,.choice-list{display:grid;gap:10px}.card,.choice{border:1px solid var(--border);border-radius:10px;padding:12px;background:white}.card strong{display:block}.card.selected,.choice.selected{border:2px solid var(--green);background:var(--pale)}.card.locked{background:var(--gray)}
+-.btn{border:0;border-radius:9px;padding:12px 17px;font-weight:800;cursor:pointer}.btn-primary{background:var(--forest);color:white}.btn-secondary{background:white;color:var(--forest);border:1px solid var(--forest)}.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #9be4b6;outline-offset:3px}.btn[disabled]{opacity:.5;cursor:not-allowed}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.radio-row,.check-row{display:flex;align-items:flex-start;gap:10px}.radio-row input,.check-row input{margin-top:4px;transform:scale(1.2)} textarea{width:100%;min-height:120px;border:1px solid var(--border);border-radius:9px;padding:12px;resize:vertical}.feedback{margin-top:12px;padding:14px;border-radius:9px;background:var(--pale);border-left:5px solid var(--forest)}.feedback.revise{background:#fff4ef;border-left-color:var(--warn)}.strip{margin-top:16px;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px}.token{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--forest)}.rubric{display:grid;gap:8px}.rubric li{margin-bottom:5px}
+-.intro-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:16px}.intro-card{padding:20px}.intro-card h2{color:var(--forest)}.big-action{font-size:1.1rem;padding:15px 22px}.case-status{display:grid;gap:8px}.status-row{display:flex;justify-content:space-between;gap:12px;padding:10px;border-bottom:1px solid var(--gray)}
+-@media(max-width:900px){.grid,.intro-grid{grid-template-columns:1fr}.nextstep small{display:none}.app{padding:14px}.topbar{padding:12px 16px}.strip{align-items:flex-start;flex-direction:column}}
+-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
++*{box-sizing:border-box}
++html{scroll-padding-top:20px}
++body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.48 var(--font)}
++button,input,select,textarea{font:inherit}button,summary,label.option,label.checkline{cursor:pointer}
++button,select,textarea,input{color:inherit}
++button{touch-action:manipulation}input[type=checkbox],input[type=radio]{accent-color:var(--forest);width:18px;height:18px;margin:2px 0 0;flex:0 0 18px}
++button:disabled,select:disabled,textarea:disabled{cursor:default}
++button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
++:where(h1,h2,h3,article,main)[tabindex="-1"]:focus{outline:none}
++[hidden]{display:none!important}
++h1,h2,h3,p,figure{margin:0}h1,h2,h3{line-height:1.15;letter-spacing:-.025em}h1{font-size:44px;font-weight:800}h2{font-size:23px}h3{font-size:19px}
++p+p{margin-top:12px}p,li,td,th,span{overflow-wrap:break-word}ul,ol{padding-left:22px;margin:10px 0}a{color:var(--forest)}
++.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
++.skip-link{position:fixed;top:10px;left:12px;padding:12px 18px;background:white;z-index:20}.skip-link:not(:focus){clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap;padding:0}
++.course-header{background:var(--charcoal);color:#fff;border-bottom:1px solid #35483a}
++.header-inner{max-width:1648px;margin:auto;min-height:76px;padding:15px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
++.course-brand{display:flex;align-items:center;gap:7px;font-size:32px;font-weight:800;letter-spacing:-1px;white-space:nowrap}
++.course-brand>span{color:var(--green)}.course-brand small{font-size:13px;font-weight:400;letter-spacing:.035em;padding-left:24px;margin-left:16px;border-left:1px solid #657168}
++.school-brand{display:grid;grid-template-columns:42px auto;column-gap:10px;align-items:center}.school-brand svg{width:40px;height:30px;fill:var(--green);grid-row:1/3}
++.school-brand strong{font-size:26px;line-height:1.1;letter-spacing:-.5px}.school-brand>span{font-size:8px;letter-spacing:.15em;margin-top:4px}
++main{max-width:1648px;margin:0 auto;padding:24px 32px 26px;min-height:calc(100vh - 125px)}
++.masthead{display:flex;align-items:center;gap:18px;margin:0 0 20px}
++.emblem{width:66px;height:74px;flex:0 0 66px;clip-path:polygon(50% 0,95% 24%,95% 76%,50% 100%,5% 76%,5% 24%);display:grid;place-items:center;background:var(--forest);color:white}.emblem .icon{width:32px;height:32px}
++.overline{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--forest);margin-bottom:6px}.mast-copy{flex:1;min-width:0}
++.mast-copy .subtitle{color:var(--muted);font-size:15px;margin-top:5px}
++.mast-tools{display:flex;align-items:center;gap:12px}.motto{font-size:10px;line-height:1.8;letter-spacing:.15em;color:var(--muted);border-left:1px solid var(--border);padding:0 24px}
++.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:44px;padding:10px 16px;border:1px solid var(--forest);border-radius:5px;background:var(--forest);color:white;font-weight:700;text-decoration:none;line-height:1.25;transition:background .15s,border-color .15s}
++.btn .icon{width:19px;height:19px}.btn.secondary{background:white;color:var(--forest);border-color:#6f8775}.btn.quiet{border-color:transparent;color:var(--forest);background:transparent}.btn.full{width:100%}
++.btn:disabled{background:#edf0eb;color:#6b766d;border-color:#d4ddd3;cursor:not-allowed}.btn.quiet:disabled{background:transparent}
++@media(hover:hover){.btn:not(:disabled):hover{background:var(--forest-dark)}.btn.secondary:not(:disabled):hover,.btn.quiet:not(:disabled):hover{background:var(--pale)}.option:hover:not(:has(:disabled)){border-color:var(--active)}}
++.icon{width:24px;height:24px;display:inline-block;flex:0 0 auto;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
++.stagebar{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);border-bottom:1px solid var(--border);gap:16px;padding:11px 0;margin-bottom:22px}
++.stages{display:flex;flex-wrap:wrap;gap:17px;list-style:none;margin:0;padding:0;font-size:12px;color:var(--muted)}.stages li{display:flex;align-items:center;gap:7px}.stage-number{width:23px;height:23px;border:1px solid #9eb1a2;border-radius:50%;display:inline-grid;place-items:center;font-size:11px}
++.stages [aria-current]{color:var(--forest);font-weight:700}.stages [aria-current] .stage-number{background:var(--forest);color:#fff;border-color:var(--forest)}.stages .done .stage-number{background:#e1efe3;color:var(--forest);border-color:#aac6af}
++.session-note{color:var(--muted);font-size:12px;white-space:nowrap}.session-note b{color:var(--forest)}
++.workspace{display:grid;grid-template-columns:.96fr 1.04fr 1.06fr;gap:16px;align-items:stretch}
++.panel{min-width:0;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
++.panel-head{display:flex;align-items:center;justify-content:space-between;background:var(--forest);color:white;min-height:45px;padding-left:18px}
++.panel-head h2{font-size:19px;letter-spacing:0}.panel-index{align-self:stretch;display:grid;place-items:center;min-width:48px;margin-left:8px;color:#486d50;background:var(--pale);font-size:17px;font-weight:600}
++.panel-content{padding:17px}.panel-content>*+*{margin-top:14px}.case-kicker{font-size:11px;font-weight:700;letter-spacing:.11em;color:var(--muted);text-transform:uppercase}.case-heading{font-size:23px;margin-top:5px}
++.scene-frame{border:1px solid var(--soft);border-radius:4px;overflow:hidden;background:#e9eeea;position:relative}.scene-frame img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center}
++.scene-frame figcaption{font-size:10px;line-height:1.4;padding:6px 9px;color:var(--muted);background:#f7f9f5}.scene-frame .image-fallback{padding:36px 16px;text-align:center;color:var(--muted);min-height:180px;display:none}.scene-frame.unavailable img{display:none}.scene-frame.unavailable .image-fallback{display:block}
++.case-copy{font-size:14px;line-height:1.5}.record-table{border-collapse:collapse;width:100%;font-size:13px}.record-table th,.record-table td{padding:7px 9px;border:1px solid var(--soft);text-align:left;vertical-align:top}.record-table th{font-weight:700;width:32%;background:#f6f8f5}
++fieldset{border:0;padding:0;margin:0;min-width:0}legend{display:block;font-weight:700;font-size:14px;width:100%;margin-bottom:9px}.helper{font-size:12px;color:var(--muted);line-height:1.5}.helper+.options{margin-top:10px}
++.options{display:grid;gap:7px}.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--border);border-radius:5px;padding:11px 12px;min-height:45px;font-size:14px;line-height:1.4;background:white}
++.option.selected{background:var(--pale);border-color:var(--active);box-shadow:inset 3px 0 0 var(--active)}.option :disabled{opacity:.75}.option:has(:disabled){cursor:default}
++.predictions{background:#f5f8f3;padding:13px;border-left:3px solid #72937c;border-radius:0 4px 4px 0}.predictions legend{font-size:13px}.predictions .options{gap:2px}.predictions .option{border:0;background:transparent;padding:8px 2px;min-height:38px;font-size:13px;box-shadow:none}.predictions .option.selected{font-weight:700;color:var(--forest)}
++.evidence-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}.tokens{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--forest);font-weight:700}.token-dot{width:10px;height:10px;border:1px solid #55775a;border-radius:50%;background:var(--forest);display:inline-block}.token-dot.used{background:#fff;border-color:#9bad9e}.evidence-status{font-size:11px;color:var(--muted)}
++.evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.evidence-card{padding:13px;border:1px solid var(--border);border-radius:5px;display:flex;flex-direction:column;min-height:210px;background:#fff;min-width:0;position:relative}
++.evidence-card.locked{background:#f8faf7}.evidence-card.selected{border-color:var(--active);background:var(--pale);box-shadow:inset 0 3px 0 var(--active)}
++.evidence-heading{display:flex;gap:8px;align-items:flex-start}.evidence-letter{background:var(--forest);color:#fff;font-size:11px;display:grid;place-items:center;width:23px;height:23px;flex:0 0 23px;border-radius:3px}.evidence-heading h3{font-size:14px;line-height:1.3;letter-spacing:0;margin-top:3px}
++.record-symbol{display:grid;place-items:center;height:51px;margin:12px 0 10px;background:linear-gradient(0deg,rgba(238,244,235,.8),rgba(246,248,245,.2));color:var(--forest)}.record-symbol .icon{height:31px;width:31px}
++.evidence-card p{font-size:13px;line-height:1.45;margin:9px 0 12px}.evidence-card .btn{padding:9px 7px;font-size:12px;margin-top:auto}.evidence-card .checkline{margin-top:auto;font-size:12px;padding:9px 0 0;min-height:44px;border-top:1px solid #d6e1d6}.evidence-card .seen{font-size:10px;color:var(--muted);margin:0 0 6px}.evidence-card:focus{box-shadow:0 0 0 3px #d3e6d5}
++.checkline{display:flex;gap:9px;align-items:flex-start;min-height:44px;padding:10px 0;line-height:1.35;font-size:14px}
++.evidence-help{margin-top:14px;padding:12px;background:#f4f7f2;border-left:2px solid #90aa92;font-size:12px;color:var(--muted)}
++.disclosure{border-top:1px solid var(--soft);font-size:12px;margin-top:15px}.disclosure summary{display:flex;align-items:center;min-height:44px;padding:8px 0;color:var(--forest);font-weight:700}.disclosure summary:before{content:'+';margin-right:8px;font-size:16px}.disclosure[open] summary:before{content:'−'}.disclosure ul{margin-top:0}.disclosure p{margin-bottom:9px}
++.field{display:block;margin:0 0 13px}.field-title{display:block;font-size:14px;font-weight:700;margin-bottom:7px}.field textarea,.field select{width:100%;border:1px solid #6f8775;border-radius:4px;background:#fff;padding:10px 11px;min-height:44px;font-size:14px}.field textarea{min-height:100px;resize:vertical;line-height:1.45}.field select{padding-right:27px}.field select:disabled,.field textarea:disabled{opacity:1;color:#324437;background:#f4f7f3}.field .helper{display:block;margin-top:5px}
++.reasoning-fields>*+*{margin-top:14px}.reasoning-fields .options{gap:6px}.reasoning-fields .field{margin-bottom:0}.field [aria-invalid=true]{border:2px solid var(--warning)}
++.field-actions{display:flex;gap:8px;align-items:center;margin-top:15px}.field-actions>.btn:first-child{flex:1}
++.mode-label{display:inline-flex;align-items:center;gap:6px;font-size:11px;padding:5px 8px;border-radius:3px;border:1px solid #b3cbb8;background:#f0f6ef;color:var(--forest);font-weight:700}.locked-answer{font-size:12px;padding:10px;border-left:3px solid var(--active);background:var(--pale);margin-bottom:12px}
++.feedback-zone{margin-top:16px;border:1px solid var(--border);border-radius:var(--radius);background:#fff;overflow:hidden}.feedback-strip{display:grid;grid-template-columns:1.15fr .95fr;gap:24px;padding:17px 20px;align-items:start}.feedback-cell{display:flex;gap:13px;align-items:flex-start}.feedback-mark{display:grid;place-items:center;background:#e9f2e8;color:var(--forest);border-radius:50%;width:42px;height:42px;flex:0 0 42px}.feedback-strip h2{font-size:16px;letter-spacing:0;margin:1px 0 5px}.feedback-strip p{font-size:13px;color:var(--muted);line-height:1.5}.feedback-key{padding-left:24px;border-left:1px solid var(--border)}
++.feedback-zone.revise .feedback-strip{background:var(--warning-bg)}.feedback-zone.revise .feedback-mark{color:var(--warning);background:#fbe9cc}.feedback-zone.correct .feedback-strip{background:var(--pale)}
++.review-explanation{padding:18px 20px;border-top:1px solid var(--border);display:grid;grid-template-columns:1.1fr 1fr;gap:26px}.review-explanation h3{font-size:17px;margin-bottom:8px}.review-explanation blockquote{font-size:14px;line-height:1.55;margin:0 0 10px;padding-left:13px;border-left:3px solid #84a28b}.review-explanation .model-copy{font-size:13px;line-height:1.5;color:var(--muted)}
++.rubric-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}.rubric-grid .checkline{font-size:12px;padding:8px;border:1px solid var(--soft);border-radius:4px;background:#f7f9f5}.rubric-grid strong{display:block;font-size:13px;margin-bottom:3px}
++.review-explanation .review-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-top:14px}.review-note{font-size:11px;color:var(--muted);margin-top:8px}.uncertainty-followup{padding:0 20px 18px}
++.hint-box{margin:0 20px 16px;padding:13px;background:#f0f4ee;border-left:3px solid #66876c;font-size:13px}.hint-box strong{display:block;margin-bottom:4px}.attempts-box{margin:0 20px 8px}.attempts-box .attempt{padding:12px 0;border-top:1px solid var(--soft);font-size:12px}.attempt blockquote{margin:8px 0 0;border-left:2px solid #b3c6b6;padding-left:10px;white-space:pre-wrap}.attempt .result-label{font-weight:700;color:var(--forest)}
++.workspace-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px}.workspace-tools>.helper{max-width:620px}.workspace-tools .btn{font-size:12px}
++.course-footer{background:var(--charcoal);color:#dce4dd;padding:12px 32px;display:flex;justify-content:space-between;gap:16px;font-size:10px;letter-spacing:.035em}.course-footer b{color:#79b189;margin:0 6px}
++/* Entry: editorial science context; production interaction begins on the following screen. */
++.intro-hero{display:grid;grid-template-columns:1.02fr 1fr;min-height:392px;border:1px solid var(--border);border-radius:6px;background:#fff;overflow:hidden}.intro-copy{padding:35px 35px 30px;display:flex;flex-direction:column;justify-content:center}.intro-copy h2{font-size:40px;max-width:550px;line-height:1.1;margin:12px 0 16px}.intro-copy p{max-width:520px;color:var(--muted);font-size:16px;line-height:1.6}.intro-copy .actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}.intro-art{position:relative;background:#ebeeea}.intro-art img{display:block;width:100%;height:100%;max-height:460px;object-fit:cover;object-position:center 60%}.intro-art figcaption{position:absolute;left:18px;bottom:16px;background:rgba(22,27,24,.94);color:#fff;border-radius:4px;padding:10px 13px;font-size:11px;letter-spacing:.06em}
++.learning-route{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.route-card{padding:18px;border:1px solid var(--border);background:white;border-radius:5px;display:flex;gap:14px}.route-card .route-num{font-size:22px;color:#6a8c72;font-weight:700}.route-card h3{font-size:17px;margin-bottom:7px}.route-card p{font-size:13px;color:var(--muted)}.case-line{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:16px 0 0;font-size:12px;color:var(--muted)}
++.callout{border-left:3px solid var(--active);background:var(--pale);padding:14px;font-size:14px}.worked-list{counter-reset:reason;list-style:none;margin:0;padding:0;display:grid;gap:14px}.worked-list li{display:grid;grid-template-columns:27px auto;gap:10px;font-size:14px}.worked-list li:before{counter-increment:reason;content:counter(reason);background:var(--pale);border:1px solid #bacdbe;border-radius:50%;width:27px;height:27px;display:grid;place-items:center;font-size:12px;color:var(--forest);font-weight:700}.worked-list strong{display:block;margin-bottom:4px}.worked-list span{color:var(--muted)}.worked-evidence .evidence-card{min-height:192px}.worked-evidence .evidence-card .record-symbol{margin:9px 0 3px;height:32px}.worked-evidence .evidence-card p{margin-bottom:0}.word-equation{font-size:14px;font-weight:700;padding:14px;background:var(--pale);border:1px solid #c1d7c5;text-align:center;line-height:1.6}.worked-note{margin-top:14px;font-size:12px;color:var(--muted)}
++/* Conventional transfer deliberately sheds decorative scaffolding. */
++.exam-paper{max-width:920px;margin:0 auto;border:1px solid var(--border);border-top:5px solid var(--forest);padding:28px 32px;background:white;border-radius:4px}.exam-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:20px;align-items:center}.exam-meta .mode-label{font-size:12px}.exam-paper h2{font-size:27px;margin-bottom:13px}.exam-passage{font-size:16px;line-height:1.65;padding:18px;background:#f7f9f5;border-left:3px solid #a8beac;margin:18px 0}.exam-paper .record-table{font-size:14px;margin-bottom:22px}.exam-question{margin-bottom:18px;font-weight:700}.exam-paper .options{grid-template-columns:repeat(3,1fr);margin-bottom:20px}.exam-paper textarea{min-height:142px}.exam-paper .field-actions{justify-content:flex-end}.exam-paper .field-actions>.btn:first-child{flex:0 1 auto}.transfer-feedback{max-width:920px;margin:16px auto 0}
++.summary-heading{background:white;border:1px solid var(--border);border-radius:6px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.summary-heading h2{font-size:28px}.summary-heading p{font-size:14px;color:var(--muted);margin-top:9px}.summary-badge{padding:13px 18px;border-radius:5px;background:var(--pale);color:var(--forest);font-size:14px;font-weight:700;white-space:nowrap}.results-list{display:grid;gap:12px}.result-card{border:1px solid var(--border);border-radius:5px;background:white;padding:18px 20px}.result-main{display:grid;grid-template-columns:32px 1fr auto;gap:12px;align-items:center}.result-main>.icon{color:var(--forest)}.result-card h3{font-size:19px}.result-meta{font-size:12px;color:var(--muted);margin-top:6px}.result-main .btn{font-size:12px}.result-card .disclosure{margin-top:10px}.result-card blockquote{white-space:pre-wrap;line-height:1.6;margin:8px 0;padding:12px;border-left:3px solid #b3c8b8;background:#f6f8f4;font-size:14px}.summary-bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.summary-bottom section{border:1px solid var(--border);background:white;padding:20px;border-radius:5px}.summary-bottom h3{font-size:18px;margin-bottom:10px}.summary-bottom p{font-size:14px;color:var(--muted)}
++dialog{max-width:550px;width:calc(100% - 32px);border:1px solid var(--border);border-radius:8px;padding:0;color:var(--ink);background:#fff;box-shadow:0 12px 55px #0004}dialog::backdrop{background:#101a15a3}#dialog-content{padding:26px}dialog h2{font-size:23px;margin-bottom:14px}dialog p,dialog li{font-size:14px;line-height:1.6}dialog .actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:24px}.noscript{padding:30px}
++@media(min-width:1500px){.panel-content{padding:19px}.case-copy{font-size:15px}.evidence-card p{font-size:14px}.evidence-card{min-height:225px}.evidence-heading h3{font-size:15px}.option{font-size:15px}.field-title{font-size:15px}.field textarea,.field select{font-size:15px}}
++@media(max-width:1200px){main{padding:20px}.header-inner{padding:14px 22px}.motto{display:none}.stages{gap:11px}.session-note{white-space:normal}.evidence-grid{gap:8px}.evidence-card{padding:10px}.workspace{gap:12px}.panel-content{padding:14px}.panel-head{padding-left:14px}.panel-head h2{font-size:17px}.stagebar{gap:10px}.course-brand small{display:none}}
++@media(max-width:1049px){.workspace{grid-template-columns:1fr}.case-body{display:grid;grid-template-columns:1fr 1fr;gap:14px}.case-body .scene-frame{margin:0}.case-body .case-copy{margin:0}.case-body .record-table{margin:0}.case-body .predictions{margin:0}.case-body>.case-labels{grid-column:1/-1}.case-body>.case-copy{grid-column:2;grid-row:2}.case-body>.scene-frame{grid-row:2/4}.case-body>.record-table{grid-column:2;grid-row:3}.case-body>.predictions{grid-column:1/-1}.predictions .options{grid-template-columns:repeat(3,1fr)}.panel-head{min-height:46px}.panel-head h2{font-size:20px}.panel-content{padding:20px}.evidence-card{min-height:190px;padding:16px}.evidence-heading h3{font-size:16px}.evidence-card p{font-size:15px}.evidence-card .btn,.evidence-card .checkline{font-size:14px}.record-symbol{height:38px;margin:8px 0}.reasoning-fields .options{grid-template-columns:repeat(3,1fr)}.session-note{display:none}.feedback-strip{grid-template-columns:1fr 1fr}.intro-copy{padding:26px}.intro-copy h2{font-size:34px}.intro-art img{max-height:none;min-height:100%;object-fit:cover}.intro-hero{min-height:360px}.learning-route{gap:10px}.route-card{padding:16px}.route-card .route-num{display:none}.review-explanation{grid-template-columns:1fr}.exam-paper{padding:25px}.course-footer{flex-wrap:wrap}}
++@media(max-width:640px){body{font-size:16px}.header-inner{min-height:67px;padding:14px 16px;gap:12px}.course-brand{font-size:25px;letter-spacing:-.8px}.school-brand{grid-template-columns:22px auto;column-gap:6px}.school-brand svg{width:22px;height:25px}.school-brand strong{font-size:18px}.school-brand>span{font-size:5px;letter-spacing:.08em}.masthead{gap:11px;flex-wrap:wrap;margin-bottom:16px}.emblem{width:44px;height:51px;flex-basis:44px}.emblem .icon{width:23px;height:23px}.mast-copy h1{font-size:29px}.mast-copy .subtitle{font-size:12px}.mast-copy .overline{font-size:10px}.mast-tools{width:100%;justify-content:flex-end;margin-top:-4px}.mast-tools .btn{font-size:12px;min-height:44px;padding:9px 11px}main{padding:18px 14px 24px}.stages{display:grid;grid-template-columns:repeat(3,1fr);width:100%;gap:11px 6px;font-size:11px}.stagebar{padding:12px 0;margin-bottom:16px}.stage-number{width:20px;height:20px;font-size:10px}.stages li{gap:5px}.intro-hero{grid-template-columns:1fr;min-height:0}.intro-copy{padding:26px 22px}.intro-copy h2{font-size:34px;line-height:1.1}.intro-copy p{font-size:15px}.intro-copy .actions .btn{width:100%}.intro-art img{max-height:240px;min-height:0;height:240px}.learning-route{grid-template-columns:1fr;gap:10px}.route-card{padding:17px}.route-card .route-num{display:block}.case-line{flex-direction:column;align-items:flex-start;gap:7px}.panel-content{padding:16px}.case-body{display:block}.case-body>*+*{margin-top:14px!important}.case-body>.scene-frame img{aspect-ratio:16/9}.case-copy{font-size:15px}.predictions .options,.reasoning-fields .options{grid-template-columns:1fr}.predictions .option{min-height:44px;padding:10px 0;font-size:14px}.panel-head h2{font-size:19px}.record-table{font-size:13px}.case-heading{font-size:25px}.evidence-grid{grid-template-columns:1fr}.evidence-card{min-height:0;padding:15px;display:grid;grid-template-columns:1fr 47px;gap:0 12px}.evidence-card .evidence-heading{grid-column:1}.evidence-card .record-symbol{grid-column:2;grid-row:1/3;margin:0;height:48px;align-self:center}.evidence-card p,.evidence-card .seen{grid-column:1/-1;margin-top:10px}.evidence-card .btn,.evidence-card .checkline{grid-column:1/-1;margin-top:8px;min-height:44px}.evidence-card .checkline{padding-top:13px}.evidence-help{font-size:13px}.evidence-status{font-size:12px}.evidence-toolbar{align-items:flex-start}.feedback-strip{grid-template-columns:1fr;gap:17px;padding:17px}.feedback-key{border-left:0;border-top:1px solid var(--border);padding:15px 0 0}.feedback-strip p{font-size:14px}.feedback-mark{width:36px;height:36px;flex-basis:36px}.review-explanation{padding:17px;gap:18px}.rubric-grid{grid-template-columns:1fr}.rubric-grid .checkline{font-size:13px}.review-explanation .review-actions{justify-content:stretch}.review-actions>.btn{flex:1}.workspace-tools{flex-direction:column;align-items:stretch}.workspace-tools>.btn{width:100%}.workspace-tools .helper{font-size:12px}.course-footer{padding:15px 17px;font-size:10px;gap:8px}.course-footer span:last-child{display:none}.exam-paper{padding:19px 17px}.exam-meta{flex-wrap:wrap;margin-bottom:17px}.exam-paper h2{font-size:25px}.exam-passage{padding:14px;font-size:15px}.exam-paper .options{grid-template-columns:1fr}.exam-paper .field-actions>.btn{flex:1}.exam-paper .record-table th{width:40%}.summary-heading{padding:20px;align-items:flex-start;flex-direction:column}.summary-heading h2{font-size:27px}.summary-badge{font-size:12px;white-space:normal}.result-card{padding:16px}.result-main{grid-template-columns:24px 1fr;align-items:start}.result-main .btn{grid-column:2;justify-self:start}.result-card h3{font-size:20px}.summary-bottom{grid-template-columns:1fr}.field-actions{flex-wrap:wrap}.field-actions .btn{font-size:14px}.field select,.field textarea{font-size:16px}.hint-box{margin:0 16px 16px}.attempts-box{margin:0 16px 8px}}
++@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
++@media print{.course-header,.course-footer,.stagebar,.mast-tools,.btn,.workspace-tools,.skip-link,dialog{display:none!important}body{background:white;font-size:12px}main{padding:0;max-width:none;min-height:0}.masthead{margin-bottom:12px}.emblem{display:none}h1{font-size:25px}.summary-heading,.result-card,.summary-bottom section{break-inside:avoid;box-shadow:none}.result-card .disclosure>summary{display:none}.result-card .disclosure>*:not(summary){display:block}.result-card .disclosure:not([open])>*{display:block}.summary-bottom{display:block}.summary-bottom section{margin-top:12px}.result-main{grid-template-columns:25px 1fr}.result-card{margin-bottom:10px}.summary-heading{padding:14px}.summary-heading h2{font-size:21px}.result-card blockquote{font-size:12px}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+ 
+-/* First-run readability and native-control improvements. */
+-.intro-card h2{background:transparent;padding:0;letter-spacing:normal;text-transform:none}
+-select{font:inherit;max-width:100%;width:100%;padding:10px;border:1px solid var(--border);background:white;color:var(--ink);margin:8px 0 16px}
+-select:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+-fieldset{border:0;padding:0;margin:0 0 18px}label{cursor:pointer}.radio-row{margin:8px 0}.check-row{margin-top:12px}
+-.hero h1{font-size:clamp(28px,4vw,42px)}.step{border-radius:4px}.card,.choice,.btn{border-radius:6px}
+-.topbar>*,.grid>*,.intro-grid>*{min-width:0}.status-row{align-items:flex-start}.status-row>div{text-align:right}
+-@media(max-width:480px){.nextstep{font-size:16px}.brand strong{font-size:22px}.hero{padding:16px}.topbar{gap:12px}.content{padding:14px}}
++.predictions select{width:100%;min-height:44px;padding:9px;border:1px solid #6f8775;border-radius:4px;background:#fff;font-size:14px}.predictions select+.helper{margin-top:8px}.predictions .helper+.helper{margin-top:5px}
++/* Student prose is content, not layout: preserve line breaks and wrap unbroken strings. */
++.review-explanation blockquote,.attempt blockquote,.result-card blockquote{white-space:pre-wrap;overflow-wrap:anywhere}
+--- codex-first-pass/scenarios.js
++++ repaired-v1.1/scenarios.js
+@@ -1,68 +1,113 @@
+-window.RD_SCENARIOS = [
+-  {
+-    id:'W01',stage:'worked',title:'Peroxide Record',image:'assets/scenes/scene_01_peroxide.png',
+-    caseText:'A supplied virtual laboratory record identifies hydrogen peroxide before a change. After the change, water and oxygen are identified. The mixture warms while no external heating is applied. A catalyst is unchanged after the reaction.',
+-    base:['Gas bubbles are observed.','The mixture warms in the stated setup.'],
+-    evidence:[
+-      {id:'w01_e1',label:'Product identity record',detail:'Water and oxygen are identified after the change.',q:'strong'},
+-      {id:'w01_e2',label:'Starting substance record',detail:'Hydrogen peroxide is identified before the change.',q:'strong'},
+-      {id:'w01_e3',label:'Temperature record',detail:'The mixture warms while no external heating is applied.',q:'supporting'},
+-      {id:'w01_e4',label:'Catalyst record',detail:'The catalyst is still present after the reaction.',q:'supporting'}
+-    ], conclusion:'chemical',reaction:'decomposition',strong:['w01_e1'],
+-    model:'The substance identity changes from hydrogen peroxide to water and oxygen. That supports a chemical change. One compound forming simpler products is a decomposition reaction.'
+-  },
+-  {
+-    id:'P01',stage:'practice',title:'Cooling Solution',image:'assets/scenes/scene_02_cooling_solution.png',
+-    caseText:'A white crystalline solid disappears into water. The container cools from 22 °C to 18 °C and a clear solution remains.',
+-    base:['The solid is no longer visible.','The temperature falls from 22 °C to 18 °C.'],
+-    evidence:[
+-      {id:'p01_e1',label:'Recovery record',detail:'After the water is removed in the supplied record, a solid is recovered.',q:'strong'},
+-      {id:'p01_e2',label:'Identity comparison',detail:'The recovered solid is identified as the same substance as the starting solid.',q:'strong'},
+-      {id:'p01_e3',label:'pH record',detail:'A pH reading is supplied, but it does not by itself establish whether a new substance formed.',q:'weak'},
+-      {id:'p01_e4',label:'Warm-water comparison',detail:'The solid dissolves at a different rate in warmer water.',q:'weak'}
+-    ], conclusion:'physical',reaction:'none',strong:['p01_e2'],prediction:'insufficient',
+-    hints:['A temperature change does not automatically mean a new substance formed.','What evidence would tell you whether the original substance can be recovered?','Compare the recovered solid with the starting solid.']
+-  },
+-  {
+-    id:'P02',stage:'practice',title:'Rusting Tool',image:'assets/scenes/scene_03_rusting_tool.png',
+-    caseText:'An iron-containing tool is exposed to air and moisture over time. A reddish-brown corrosion coating develops and the final mass is slightly greater than the initial mass.',
+-    base:['A reddish-brown coating develops.','The final mass is slightly greater.'],
+-    evidence:[
+-      {id:'p02_e1',label:'Corrosion product analysis',detail:'The coating contains iron and oxygen and has different properties from the original metallic iron.',q:'strong'},
+-      {id:'p02_e2',label:'Atmosphere record',detail:'The tool was exposed to air containing oxygen and to moisture.',q:'supporting'},
+-      {id:'p02_e3',label:'Surface colour',detail:'The coating is reddish-brown.',q:'supporting'},
+-      {id:'p02_e4',label:'Location record',detail:'The tool was stored in a garage.',q:'weak'}
+-    ], conclusion:'chemical',reaction:'corrosion',acceptedReaction:['corrosion','composition'],strong:['p02_e1'],
+-    hints:['A colour change helps, but look for evidence the material changed identity.','Which record compares the corrosion product with the original metal?','The product analysis is the strongest evidence.']
+-  },
+-  {
+-    id:'P03',stage:'practice',title:'Antacid Record',image:'assets/scenes/scene_04_antacid_model.png',
+-    caseText:'In a virtual model, a calcium-carbonate antacid is placed in a model acidic solution. The pH moves toward neutral and gas is produced.',
+-    base:['Bubbles are produced.','The pH moves toward neutral.'],
+-    evidence:[
+-      {id:'p03_e1',label:'Product record',detail:'Carbon dioxide, water and a dissolved calcium salt are identified after the change.',q:'strong'},
+-      {id:'p03_e2',label:'Reactant record',detail:'The starting substances include an acidic solution and calcium carbonate.',q:'strong'},
+-      {id:'p03_e3',label:'Bubble observation',detail:'Gas bubbles are visible.',q:'supporting'},
+-      {id:'p03_e4',label:'Tablet appearance',detail:'The tablet becomes smaller during the virtual record.',q:'supporting'}
+-    ], conclusion:'chemical',reaction:'neutralization',strong:['p03_e1'],
+-    hints:['Bubbles and pH change do not identify the reaction by themselves.','Look for the record that identifies substances before and after.','Use the reactant and product identities to classify the reaction.']
+-  },
+-  {
+-    id:'P04',stage:'practice',title:'Furnace Combustion',image:'assets/scenes/scene_05_combustion_furnace.png',
+-    caseText:'A fictional natural-gas furnace model supplies methane and oxygen to a controlled burner. The exhaust record identifies carbon dioxide and water. Heat and visible light are released.',
+-    base:['Heat is released.','Visible light is produced.'],
+-    evidence:[
+-      {id:'p04_e1',label:'Reactant record',detail:'Methane and oxygen are supplied to the burner in the model.',q:'strong'},
+-      {id:'p04_e2',label:'Exhaust product record',detail:'Carbon dioxide and water are identified in the supplied exhaust record.',q:'strong'},
+-      {id:'p04_e3',label:'Energy record',detail:'Heat and visible light are released.',q:'supporting'},
+-      {id:'p04_e4',label:'Hot casing',detail:'A metal surface becomes hot during operation.',q:'weak'}
+-    ], conclusion:'chemical',reaction:'combustion',strong:['p04_e1','p04_e2'],
+-    hints:['Energy release supports the idea, but reaction type depends strongly on reactants and products.','Compare the supplied fuel and oxygen with the exhaust products.','Methane + oxygen forming carbon dioxide + water is combustion.']
+-  },
+-  {
+-    id:'T01',stage:'transfer',title:'Boiling Water',image:'assets/scenes/scene_06_boiling_transfer.png',
+-    caseText:'Water is heated until bubbles form and water vapour is produced. The vapour is cooled and condenses back to liquid water. The supplied record identifies the substance before heating and after condensation as water (H₂O).',
+-    base:['Bubbles form during boiling.','Water vapour condenses back to liquid water.','The substance remains H₂O.'],evidence:[],
+-    conclusion:'physical',reaction:'none',strong:[],model:'The bubbles do not prove a chemical reaction. The supplied record shows a change of state and the substance remains water before and after.'
+-  }
+-];
++/* Authored virtual records, not measurements or laboratory instructions.
++ * Stable case/evidence IDs retained from the Codex first pass. See docs/SCIENCE_AND_SCOPE.md.
++ * This is formative practice: answers are client-side and are not secure exam items.
++ */
++(function (root) {
++  'use strict';
++  const scenarios = [
++    {
++      id: 'W01', version: '1.1.0', stage: 'worked', title: 'Peroxide Record', displayTitle: 'The peroxide record',
++      image: 'assets/scenes/scene_01_peroxide.webp', icon: 'flask',
++      caseText: 'A virtual laboratory record identifies hydrogen peroxide before a change. Afterwards, water and oxygen are identified. The mixture warms with no external heating.',
++      base: [['Observation', 'Gas bubbles appear.'], ['Energy', 'The mixture warms; no external heat is supplied.']],
++      evidence: [
++        {id:'w01_e1',label:'Product identity',detail:'Water and oxygen are identified after the change.',icon:'flask',role:'strong'},
++        {id:'w01_e2',label:'Starting substance',detail:'Hydrogen peroxide is identified before the change.',icon:'record',role:'strong'},
++        {id:'w01_e3',label:'Temperature record',detail:'The mixture warms while no external heating is applied.',icon:'temperature',role:'supporting'},
++        {id:'w01_e4',label:'Catalyst record',detail:'The catalyst is unchanged after the reaction; it is not consumed in the overall change.',icon:'observe',role:'supporting'}
++      ],
++      conclusion:'chemical', reaction:'decomposition', hints:[],
++      model:'The identified substances change from hydrogen peroxide to water and oxygen. New substances support a chemical change. One compound forms simpler products, so the reaction is decomposition.',
++      keyIdea:'Identify what the substances were before and after. Bubbles describe an observation, not a substance identity.',
++      scienceNote:'In this stated setup, warming without external heating is consistent with an exothermic reaction: energy is released to the surroundings.'
++    },
++    {
++      id:'P01', version:'1.1.0', stage:'practice', title:'Cooling Solution', displayTitle:'The cooling solution', scaffold:'Guided investigation',
++      image:'assets/scenes/scene_02_cooling_solution.webp', icon:'temperature',
++      caseText:'A white crystalline solid disappears into water. The container cools from 22 °C to 18 °C and a clear solution remains. What does that establish?',
++      base:[['Appearance','The solid is no longer visible.'],['Temperature','22 °C → 18 °C']],
++      evidence:[
++        {id:'p01_e1',label:'Recovery record',detail:'After the water is removed in the supplied record, a solid is recovered.',icon:'solid',role:'supporting',why:'Recovery matters, but a solid appearing again does not by itself identify it.'},
++        {id:'p01_e2',label:'Identity comparison',detail:'The supplied identity analysis reports no new substances in this model. The recovered solid matches the starting solid.',icon:'record',role:'strong',why:'This record addresses whether the substance changed identity.'},
++        {id:'p01_e3',label:'pH record',detail:'The record reports that the pH stayed the same.',icon:'flask',role:'weak',why:'An unchanged pH does not establish whether all substance identities stayed the same.'},
++        {id:'p01_e4',label:'Warm-water comparison',detail:'The solid dissolves at a different rate in warmer water.',icon:'temperature',role:'weak',why:'A rate difference does not answer whether a new substance formed.'}
++      ],
++      conclusion:'physical',reaction:'none',requiredEvidence:['p01_e2'],allowedPairs:[['p01_e1','p01_e2']],uncertaintyRecord:'p01_e2',
++      hints:['Separate the temperature observation from the question of substance identity.','Recovery is useful, but the recovered material must also be identified.','Pair the recovery record with the identity comparison.'],
++      starter:'The evidence in records ___ and ___ supports ___ because ___.',
++      keyIdea:'A physical change can involve an energy transfer. Temperature change alone does not prove that a new substance formed.',
++      model:'The recovery and identity records support a physical change in this supplied model. The original substance is recovered and no new substances are reported. Cooling alone was not enough to decide.',
++      misconception:'The cooling and disappearance are observations. Neither alone establishes a new substance. Compare the recovery and identity records.'
++    },
++    {
++      id:'P02',version:'1.1.0',stage:'practice',title:'Rusting Tool',displayTitle:'The workshop tool',scaffold:'Build the evidence',
++      image:'assets/scenes/scene_03_rusting_tool.webp',icon:'tool',
++      caseText:'An iron-containing tool is left in moist air. A reddish-brown coating develops. In this record, the tool and all attached coating are weighed together; none has flaked away.',
++      base:[['Surface','A reddish-brown coating develops.'],['Mass','The tool with its coating has gained mass.']],
++      evidence:[
++        {id:'p02_e1',label:'Coating analysis',detail:'The coating contains iron and oxygen and has different properties from the starting metallic iron.',icon:'record',role:'strong',why:'This compares the new material with the starting metal.'},
++        {id:'p02_e2',label:'Atmosphere record',detail:'The tool was exposed to air containing oxygen and to moisture.',icon:'vapour',role:'supporting',why:'This supplies the conditions and a source of matter from the surroundings.'},
++        {id:'p02_e3',label:'Surface observation',detail:'The coating is reddish-brown.',icon:'observe',role:'supporting',why:'The appearance is consistent with corrosion but does not identify the substance alone.'},
++        {id:'p02_e4',label:'Location record',detail:'The tool was stored in a garage.',icon:'location',role:'weak',why:'A location alone does not establish a chemical change.'}
++      ],conclusion:'chemical',reaction:'corrosion',requiredEvidence:['p02_e1'],allowedPairs:[['p02_e1','p02_e2'],['p02_e1','p02_e3']],
++      application:{prompt:'Which response best limits further corrosion?',answer:'barrier_coating',options:[
++        ['barrier_coating','Use a suitable barrier coating to limit air and moisture contact.'],
++        ['polish_only','Polish it, then leave the metal unprotected.'],
++        ['no_action','Do nothing; only the colour has changed.']
++      ],feedback:'A suitable barrier reduces contact with oxygen and moisture. Polishing alone leaves fresh metal exposed.'},
++      hints:['Colour is suggestive. Which record compares the coating with the original metal?','Use the coating analysis, then connect it to the exposure conditions or surface observation.'],
++      keyIdea:'Matter from the surroundings becomes part of corrosion products. A barrier can slow further corrosion.',
++      model:'The coating has a different composition and properties from the starting iron, supporting a chemical change: corrosion. Oxygen from the surroundings contributes to the retained coating and the measured mass gain. A suitable barrier limits further contact with oxygen and moisture.',
++      misconception:'Do not explain the coating as a colour change alone. Compare the coating analysis with the original metal.'
++    },
++    {
++      id:'P03',version:'1.1.0',stage:'practice',title:'Antacid Record',displayTitle:'The antacid model',scaffold:'Reduced guidance',
++      image:'assets/scenes/scene_04_antacid_model.webp',icon:'flask',
++      caseText:'In a virtual model, a calcium-carbonate antacid encounters an acidic solution. Review the supplied records to classify the change. This is not a dosing or laboratory activity.',
++      base:[['Observation','Bubbles appear.'],['Acidity','The pH moves towards neutral.']],
++      evidence:[
++        {id:'p03_e1',label:'Product record',detail:'Carbon dioxide, water and a dissolved calcium salt are identified as products of the change.',icon:'record',role:'strong',why:'Product identities establish the new substances, not just visible bubbles.'},
++        {id:'p03_e2',label:'Reactant record',detail:'The starting reactants are the acidic solution and calcium carbonate.',icon:'flask',role:'supporting',why:'The reactant identities identify the acid–carbonate reaction pattern.'},
++        {id:'p03_e3',label:'Bubble observation',detail:'Gas bubbles are visible during the change.',icon:'bubbles',role:'supporting',why:'Visible bubbles support the record but do not identify the gas.'},
++        {id:'p03_e4',label:'Tablet appearance',detail:'The tablet becomes smaller during the supplied record.',icon:'solid',role:'supporting',why:'Disappearance alone could have another explanation; connect it to product identity.'}
++      ],conclusion:'chemical',reaction:'neutralization',requiredEvidence:['p03_e1'],allowedPairs:[['p03_e1','p03_e2'],['p03_e1','p03_e3'],['p03_e1','p03_e4']],
++      hints:['Classify using the identities of reactants and products, not the bubbles alone.','The product record and the reactant record together identify the acid–carbonate pattern.'],
++      keyIdea:'This acid–carbonate reaction neutralizes acid and produces a salt, water and carbon dioxide. Not every acid–base reaction produces a gas.',
++      model:'The identified products differ from the starting reactants, so the change is chemical. Acid reacting with calcium carbonate is an acid–carbonate neutralization, producing a calcium salt, water and carbon dioxide. The pH trend supports reduced acidity; bubbles alone do not identify the reaction.',
++      misconception:'Use the product record to determine whether new substances formed. Bubbles and a pH trend do not identify the reaction by themselves.'
++    },
++    {
++      id:'P04',version:'1.1.0',stage:'practice',title:'Furnace Combustion',displayTitle:'The furnace record',scaffold:'Independent practice',
++      image:'assets/scenes/scene_05_combustion_furnace.webp',icon:'flame',
++      caseText:'A fictional natural-gas furnace supplies heat. Use its inlet and exhaust records to classify the reaction and connect a product to an environmental consequence.',
++      base:[['Energy','Heat is released.'],['Observation','Light is produced in the burner.']],
++      evidence:[
++        {id:'p04_e1',label:'Inlet record',detail:'Methane and oxygen are supplied to the model burner.',icon:'record',role:'strong',why:'This identifies the reactants; compare them with the exhaust products.'},
++        {id:'p04_e2',label:'Exhaust record',detail:'Carbon dioxide and water are identified as products in this complete-combustion model.',icon:'flask',role:'strong',why:'This identifies products to compare with the inlet record.'},
++        {id:'p04_e3',label:'Energy record',detail:'The burner releases heat and visible light.',icon:'flame',role:'supporting',why:'Energy release is consistent with combustion, but does not identify its reactants and products.'},
++        {id:'p04_e4',label:'Casing record',detail:'A metal surface becomes hot during operation.',icon:'temperature',role:'weak',why:'A hot casing is an effect of energy transfer, not evidence identifying the reaction products.'}
++      ],conclusion:'chemical',reaction:'combustion',requiredEvidence:['p04_e1','p04_e2'],allowedPairs:[['p04_e1','p04_e2']],
++      application:{prompt:'Which carbon-containing product links this model to greenhouse-gas emissions?',answer:'carbon_dioxide',options:[
++        ['water','Water vapour'],['carbon_dioxide','Carbon dioxide'],['methane','Methane'],['oxygen','Oxygen']
++      ],feedback:'Carbon dioxide is the carbon-containing product. Water vapour is also a greenhouse gas, but it contains no carbon. Methane is an input in this model, not an identified exhaust product.'},
++      hints:['Use the inlet and exhaust identities together. Decide which substance is a product, not an input.'],
++      keyIdea:'Complete methane combustion forms carbon dioxide and water and releases energy. This model does not claim that every real furnace burns completely.',
++      model:'Methane and oxygen react to form carbon dioxide and water. These new products support a chemical change classified as combustion. Energy is released. Carbon dioxide is the carbon-containing greenhouse-gas product identified in this model.',
++      misconception:'Compare the inlet and exhaust identities. Heat or light alone does not identify a reaction.'
++    },
++    {
++      id:'T01',version:'1.1.0',stage:'transfer',title:'Boiling Water',displayTitle:'A new situation',scaffold:'Independent transfer',
++      image:'assets/scenes/scene_06_boiling_transfer.webp',icon:'record',
++      caseText:'Water is heated until bubbles form and water vapour is produced. The vapour is cooled and condenses back to liquid water. The supplied record identifies the substance before heating and after condensation as water (H₂O).',
++      base:[['Before heating','Liquid water (H₂O)'],['During heating','Bubbles and water vapour'],['After cooling','Liquid water (H₂O)']],
++      evidence:[],conclusion:'physical',reaction:'none',hints:[],
++      prompt:'Classify the change. Explain why the bubbles do or do not establish a chemical reaction, using the identity record.',
++      keyIdea:'A change of state does not change water into a different substance. Bubbles alone do not establish chemical change.',
++      model:'This is a physical change. The record identifies water before heating and after condensation; the substance remains H₂O. The bubbles are associated with the change of state, not proof of a new substance.',
++      misconception:'Separate an observation from a conclusion. Ask what the before-and-after identity record establishes.'
++    }
++  ];
++  const data = {version:'1.1.0',scenarios,conclusions:[['physical','Physical change'],['chemical','Chemical change'],['insufficient','Not enough evidence']],reactions:[['decomposition','Decomposition'],['corrosion','Rusting / corrosion'],['neutralization','Acid–carbonate / neutralization'],['combustion','Combustion']]};
++  root.RD_DATA = data;
++  if (typeof module !== 'undefined' && module.exports) module.exports = data;
++})(typeof window !== 'undefined' ? window : globalThis);
+--- codex-first-pass/game.js
++++ repaired-v1.1/game.js
+@@ -1,33 +1,121 @@
++/* Reaction Detective 1.1 — DOM presentation and explicit navigation.
++ * All scientific checking lives in engine.js. Local-only, dependency-free, file:// compatible.
++ */
+ (() => {
+-  const app = document.getElementById('app');
+-  const scenarios = window.RD_SCENARIOS;
+-  const state = {screen:'intro',index:0,tokens:2,revealed:[],selected:[],conclusion:null,reaction:null,explanation:'',attempts:[],hints:0,results:{},prediction:null};
+-  const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+-  function resetCase(){state.prediction=null;state.tokens=2;state.revealed=[];state.selected=[];state.conclusion=null;state.reaction=null;state.explanation='';state.attempts=[];state.hints=0;}
+-  function steps(active){const names=['Brief','Worked example','Your turn','Feedback','Transfer','Review'];return `<div class="progress">${names.map((n,i)=>`<span class="step ${i<active?'done':''} ${i===active?'active':''}">${i+1}. ${n}</span>`).join('')}</div>`}
+-  function intro(){app.innerHTML=`<section class="hero"><div class="eyebrow">Game A1</div><h1>Reaction Detective</h1><p class="muted">Use evidence to explain a change.</p>${steps(0)}</section><section class="intro-grid"><article class="panel intro-card"><h2>Your mission</h2><p>Investigate supplied science records, decide what the evidence supports, and explain what happened.</p><img class="scene" src="assets/scenes/scene_01_peroxide.png" alt="Contextual laboratory glassware image"></article><article class="panel intro-card"><h2>What you’ll practise</h2><ul><li>Evidence of chemical change</li><li>Physical vs chemical change</li><li>Reaction classification</li><li>Evidence-based explanations</li></ul></article><article class="panel intro-card"><h2>How it works</h2><ol><li>Inspect the situation.</li><li>Build a claim from evidence.</li><li>Explain your reasoning and use feedback.</li></ol><p><strong>Speed is not scored.</strong></p></article></section><div class="strip"><span>1 worked example + 4 practice cases + 1 independent transfer</span><button class="btn btn-primary big-action" id="start">Start investigation →</button></div>`;document.getElementById('start').onclick=()=>{state.screen='worked';state.index=0;render()}}
+-  function worked(){const s=scenarios[0];app.innerHTML=`<section class="hero"><div class="eyebrow">Worked example</div><h1>${esc(s.title)}</h1><p>This round demonstrates the full reasoning process. It does not count as independent evidence.</p>${steps(1)}</section><section class="grid"><article class="panel"><h2>The Case</h2><div class="content"><img class="scene" src="${s.image}" alt="Contextual lab reaction image"><p>${esc(s.caseText)}</p></div></article><article class="panel"><h2>The Evidence</h2><div class="content evidence-list">${s.evidence.map(e=>`<div class="card"><strong>${esc(e.label)}</strong><span>${esc(e.detail)}</span></div>`).join('')}</div></article><article class="panel"><h2>Watch the reasoning</h2><div class="content"><ol><li><strong>Claim:</strong> Chemical change.</li><li><strong>Strong evidence:</strong> Water and oxygen are identified as products.</li><li><strong>Classification:</strong> Decomposition.</li><li><strong>Explanation:</strong> ${esc(s.model)}</li></ol><div class="feedback"><strong>Key idea:</strong> new substance identities are stronger evidence than bubbles alone.</div></div></article></section><div class="strip"><span>Worked example complete.</span><button class="btn btn-primary" id="next">Next: Your Turn →</button></div>`;document.getElementById('next').onclick=()=>{state.screen='practice';state.index=1;resetCase();render()}}
+-  function practice(){const s=scenarios[state.index];const isTransfer=s.stage==='transfer';const active=isTransfer?4:2;app.innerHTML=`<section class="hero"><div class="eyebrow">${isTransfer?'Independent transfer — no hints':'Case '+state.index+' of 4'}</div><h1>${esc(s.title)}</h1><p>${esc(s.caseText)}</p>${steps(active)}</section><section class="grid"><article class="panel"><h2>The Case</h2><div class="content"><img class="scene" src="${s.image}" alt="Context image for ${esc(s.title)}"><h3>Base observations</h3><ul>${s.base.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${!isTransfer?`<fieldset><legend>Predict from the base observations</legend>${[['physical','Physical change'],['chemical','Chemical change'],['insufficient','Not enough evidence yet']].map(([v,l])=>`<label class="radio-row"><input type="radio" name="prediction" value="${v}" ${state.prediction===v?'checked':''}> ${l}</label>`).join('')}</fieldset><p>Your prediction is provisional. Reveal records to reconsider it.</p><p class="token">Investigation tokens: ${state.tokens}</p>`:''}</div></article><article class="panel"><h2>${isTransfer?'Recorded Evidence':'Investigate'}</h2><div class="content evidence-list">${isTransfer?`<div class="card"><strong>Supplied record</strong><span>The substance before and after is water (H₂O).</span></div>`:s.evidence.map(e=>{const rev=state.revealed.includes(e.id);return `<div class="card ${rev?'':'locked'}"><strong>${esc(e.label)}</strong><span>${rev?esc(e.detail):'Not revealed yet.'}</span>${rev?`<label class="check-row"><input type="checkbox" data-evidence="${e.id}" ${state.selected.includes(e.id)?'checked':''}> Use as support</label>`:`<button class="btn btn-secondary reveal" data-id="${e.id}" ${state.tokens<=0||!state.prediction?'disabled':''}>Reveal record</button>`}</div>`}).join('')}</div></article><article class="panel"><h2>Your Reasoning</h2><div class="content"><fieldset><legend><strong>What does the evidence support?</strong></legend>${[['physical','Physical change'],['chemical','Chemical change'],['insufficient','Not enough evidence']].map(([v,l])=>`<label class="choice radio-row"><input type="radio" name="conclusion" value="${v}" ${state.conclusion===v?'checked':''}> <span>${l}</span></label>`).join('')}</fieldset>${s.reaction!=='none'?`<label><strong>Reaction type</strong><select id="reaction"><option value="">Choose…</option>${[['decomposition','Decomposition'],['corrosion','Rusting / corrosion'],['composition','Composition'],['neutralization','Neutralization / acid–base'],['combustion','Combustion']].map(([v,l])=>`<option value="${v}" ${state.reaction===v?'selected':''}>${l}</option>`).join('')}</select></label>`:''}<label><strong>Explain your reasoning</strong><textarea id="explanation" placeholder="Use specific evidence from the supplied record.">${esc(state.explanation)}</textarea></label><div class="actions"><button class="btn btn-primary" id="submit">${isTransfer?'Submit transfer':'Check claim'}</button>${!isTransfer?`<button class="btn btn-secondary" id="hint" ${!state.attempts.length||state.hints>=3?'disabled':''}>Hint ${Math.min(state.hints+1,3)} of 3</button>`:''}</div><div id="feedbackBox" role="status" aria-live="polite"></div><div id="attemptHistory"></div></div></article></section><div class="strip"><span>${isTransfer?'Speed is not scored. Take the time to think.':'Select evidence because it is relevant, not because it looks dramatic.'}</span><button class="btn btn-secondary" id="reset">Reset case</button></div>`;
+-    document.querySelectorAll('input[name=prediction]').forEach(r=>r.onchange=()=>{state.prediction=r.value;document.querySelectorAll('.reveal').forEach(b=>b.disabled=state.tokens<=0)});
+-    document.querySelectorAll('.reveal').forEach(b=>b.onclick=()=>{if(state.tokens>0&&!state.revealed.includes(b.dataset.id)){state.revealed.push(b.dataset.id);state.tokens--;render()}});
+-    document.querySelectorAll('[data-evidence]').forEach(c=>c.onchange=()=>{if(c.checked){if(state.selected.length>=2){c.checked=false;return}state.selected.push(c.dataset.evidence)}else state.selected=state.selected.filter(x=>x!==c.dataset.evidence)});
+-    document.querySelectorAll('input[name=conclusion]').forEach(r=>r.onchange=()=>state.conclusion=r.value);
+-    const reaction=document.getElementById('reaction');if(reaction)reaction.onchange=()=>state.reaction=reaction.value;
+-    document.getElementById('explanation').oninput=e=>state.explanation=e.target.value;
+-    document.getElementById('reset').onclick=()=>{resetCase();render()};
+-    const hint=document.getElementById('hint');if(hint)hint.onclick=()=>showHint(s);
+-    document.getElementById('submit').onclick=()=>submit(s,isTransfer);
++  'use strict';
++  const app=document.getElementById('main'),dialog=document.getElementById('dialog');
++  const D=window.RD_DATA,E=window.RD_ENGINE;
++  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
++  const paths={
++    flask:'<path d="M9 3h6M10 3v7L4.5 19a1.3 1.3 0 0 0 1.1 2h12.8a1.3 1.3 0 0 0 1.1-2L14 10V3M7.5 15h9"/>',
++    record:'<path d="M7 3h9l3 3v15H5V3h2M14 3v5h5M8 12h8M8 16h8"/>',
++    temperature:'<path d="M10 14.5V5a2 2 0 0 1 4 0v9.5a4 4 0 1 1-4 0ZM12 9v8M17 6h2M17 10h2"/><circle cx="12" cy="18" r="1"/>',
++    observe:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
++    bubbles:'<circle cx="8" cy="16" r="5"/><circle cx="17" cy="8" r="3"/><circle cx="6" cy="4" r="2"/><circle cx="18" cy="19" r="2"/>',
++    solid:'<path d="m12 3 9 5v9l-9 5-9-5V8ZM3 8l9 5 9-5M12 13v9"/>',
++    flame:'<path d="M12 2c1 6-5 7-5 12 0 1 1 2 2 3-1-4 4-4 4-7 4 3 7 5 6 9-1 3-4 4-7 4-5 0-9-4-8-8 1-4 5-5 8-13Z"/>',
++    tool:'<path d="M14 4a6 6 0 0 0-7 8L3 17a2.8 2.8 0 1 0 4 4l5-5a6 6 0 0 0 8-7l-4 4-5-1-1-5Z"/>',
++    vapour:'<path d="M6 21c-5-6 5-8 0-14M12 21c-5-7 5-10 0-18M18 21c-5-6 5-8 0-14"/>',
++    location:'<path d="M19 10c0 5-7 12-7 12S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="9" r="2"/>',
++    check:'<circle cx="12" cy="12" r="9"/><path d="m7.5 12 3 3 6-6"/>',
++    hint:'<path d="M9 18h6M9 21h6M8 14a7 7 0 1 1 8 0l-1 3H9ZM12 7v3"/>',
++    warn:'<path d="m12 3 10 18H2ZM12 9v5M12 17v.5"/>',
++    arrow:'<path d="M3 12h17m-6-6 6 6-6 6"/>',
++    retry:'<path d="M3 11a9 9 0 1 1 2 7M3 4v7h7"/>',
++    lock:'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4M12 14v3"/>',
++    magnifier:'<circle cx="10" cy="10" r="7"/><path d="m15 15 7 7M7 10a3 3 0 0 1 3-3"/>',
++    print:'<path d="M7 8V3h10v5M7 17H3V8h18v9h-4M7 14h10v8H7Z"/>',
++    message:'<path d="M4 3h16v14H9l-5 4ZM8 8h8M8 12h6"/>'
++  };
++  const icon=n=>`<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${paths[n]||paths.record}</svg>`;
++  const btn=(action,text,kind='',extra='')=>`<button type="button" class="btn ${kind}" data-action="${action}" ${extra}>${text}</button>`;
++  let S,modalAction=null,lastModalTrigger=null;
++  const fresh=()=>({screen:'intro',index:0,memories:{},results:{},round:null,replay:false,hintText:null});
++  S=fresh();
++  const scenario=()=>D.scenarios[S.index];
++  const mem=()=>S.memories[scenario().id];
++  function announce(text){const a=document.getElementById('announcer');a.textContent='';setTimeout(()=>{a.textContent=text;},20);}
++  function focus(id,scroll=false){const n=document.getElementById(id);if(n){n.focus({preventScroll:!scroll});if(scroll)n.scrollIntoView({block:'nearest',behavior:'auto'});}}
++  function navigate(screen,index=S.index,replay=false){S.screen=screen;S.index=index;S.replay=replay;S.hintText=null;if(screen==='case'){const s=scenario();S.memories[s.id]??=E.memory();S.round=E.round(S.memories[s.id]);}render({focus:screen==='case'?'case-heading':'activity-heading',top:true});}
++  function steps(active){const names=['Brief','Worked example','Your turn','Feedback','Transfer','Review'];return `<div class="stagebar"><ol class="stages" aria-label="Learning stages">${names.map((name,i)=>`<li ${i===active?'aria-current="step"':''} class="${i<active?'done':''}"><span class="stage-number" aria-hidden="true">${i<active?'✓':i+1}</span>${name}</li>`).join('')}</ol><span class="session-note">${S.screen==='case'&&scenario().stage==='practice'?`<b>Case ${S.index} of 4</b> · ${esc(scenario().scaffold)}`:'1 worked example · 4 cases · 1 transfer'}</span></div>`;}
++  function masthead(active,subtitle='Use evidence to explain a change.'){
++    const transfer=S.screen==='case'&&scenario().stage==='transfer';
++    return `<section class="masthead"><div class="emblem">${icon('flask')}</div><div class="mast-copy"><p class="overline">Unit A · Matter and chemical change · Game A1</p><h1 id="activity-heading" tabindex="-1">Reaction Detective</h1><p class="subtitle">${esc(subtitle)}</p></div><div class="mast-tools"><div class="motto">OBSERVE.<br>ANALYSE.<br>EXPLAIN.</div>${!transfer?btn('help',`${icon('hint')} How to play`,'secondary'):''}</div></section>${steps(active)}`;
+   }
+-  function submit(s,isTransfer){const feedback=document.getElementById('feedbackBox');const acceptedReaction=s.acceptedReaction||[s.reaction];const limitedRecord=s.id==='P01'&&!state.revealed.includes('p01_e2');const conclusionOK=state.conclusion===s.conclusion||(limitedRecord&&state.conclusion==='insufficient');const reactionOK=s.reaction==='none'||acceptedReaction.includes(state.reaction);const strongOK=isTransfer||state.selected.length===2&&(limitedRecord&&state.conclusion==='insufficient'||s.strong.length===0||state.selected.some(id=>s.strong.includes(id)));const explanationPresent=state.explanation.trim().length>=15;const structuredOK=conclusionOK&&reactionOK&&strongOK;state.attempts.push({prediction:state.prediction,conclusion:state.conclusion,reaction:state.reaction,evidence:[...state.selected],explanation:state.explanation,structuredOK});
+-    let msg;if(!state.conclusion)msg='Choose a conclusion before submitting.';else if(!conclusionOK)msg=state.conclusion==='chemical'?'What evidence establishes a new substance? Bubbles or temperature change alone are not enough.':'Re-check what the identity/product records establish.';else if(!reactionOK)msg='Your change classification is on track. Compare the stated reactants and products with the reaction-type definitions.';else if(!strongOK&&state.selected.length!==2)msg='Select two revealed records to support your conclusion.';else if(!strongOK)msg='Your conclusion may be defensible, but select evidence that most directly establishes substance identity.';else if(!explanationPresent)msg='Your structured choices are on track. Add a short explanation that names the evidence and connects it to the claim.';else if(limitedRecord&&state.conclusion==='insufficient')msg='Not enough evidence is justified by your current records: recovering a solid alone does not establish its identity. Your explanation should state this limit.';else msg='Structured choices are correct. Now use the explanation rubric to judge whether your written reasoning fully supports the claim.';
+-    const hint=document.getElementById('hint');if(hint)hint.disabled=state.hints>=3;
+-    document.getElementById('attemptHistory').innerHTML=`<details><summary>Previous attempts (${state.attempts.length})</summary>${state.attempts.map((a,i)=>`<p><strong>Attempt ${i+1}:</strong> ${esc(a.conclusion||'No conclusion')} · ${esc(a.reaction||'No reaction type')}<br>Evidence: ${a.evidence.map(id=>esc(s.evidence.find(e=>e.id===id)?.label||id)).join(', ')||'None'}<br>${esc(a.explanation)}</p>`).join('')}</details>`;
+-    feedback.className='feedback '+(structuredOK?'':'revise');feedback.innerHTML=`<strong>${structuredOK?'Structured answer checks out':'Revise this attempt'}</strong><p>${esc(msg)}</p>${structuredOK?`<ul class="rubric"><li>Claim: clear?</li><li>Evidence: specific?</li><li>Reasoning: connection explained?</li><li>Limits: no overclaim?</li></ul>`:''}`;
+-    if(structuredOK&&explanationPresent){state.results[s.id]={completed:true,hints:state.hints,retries:state.attempts.length-1,explanation:'submitted',claim:state.conclusion,attempts:state.attempts.map(a=>({...a,evidence:[...a.evidence]}))};const btn=document.createElement('button');btn.className='btn btn-primary';btn.textContent=isTransfer?'Review results →':'Next case →';btn.onclick=()=>advance(isTransfer);feedback.appendChild(btn)}
++  function panel(title,index,content,classes=''){return `<section class="panel ${classes}" aria-label="${esc(title)}"><header class="panel-head"><h2>${title}</h2><span class="panel-index" aria-hidden="true">${index}</span></header>${content}</section>`;}
++  function image(s,cls=''){return `<figure class="scene-frame ${cls}"><img src="${esc(s.image)}" alt="" decoding="async" ${s.id==='P03'?'style="object-fit:contain"':''}><p class="image-fallback">Context image unavailable. All evidence remains available in the written records.</p><figcaption>Context illustration · Use the written record, not image markings.</figcaption></figure>`;}
++  function table(rows){return `<table class="record-table"><caption class="sr-only">Supplied observations</caption><tbody>${rows.map(([a,b])=>`<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join('')}</tbody></table>`;}
++  function choices(name,selected,disabled=false){return `<div class="options">${D.conclusions.map(([value,label],i)=>`<label class="option ${selected===value?'selected':''}"><input id="${name}-${value}" type="radio" name="${name}" value="${value}" ${selected===value?'checked':''} ${disabled?'disabled':''}><span>${esc(label)}</span></label>`).join('')}</div>`;}
++  function intro(){return `${masthead(0,'Learn the explanation—not just the answer.')}<section class="intro-hero" aria-label="Your mission"><div class="intro-copy"><div class="overline">Science in practice</div><h2>Look beyond<br>the obvious.</h2><p>Bubbles. A colour change. A warmer container. What actually happened? Investigate the records, choose useful evidence and build a defensible explanation.</p><div class="actions">${btn('start',`Start investigation ${icon('arrow')}`)}${btn('help','How it works','secondary')}</div><p class="helper" style="margin-top:15px">No timer. No points for guessing. Your work stays in this session only.</p></div><figure class="intro-art"> <img src="assets/scenes/scene_01_peroxide.webp" alt="" decoding="async"><figcaption>FICTIONAL RECORDS. REAL SCIENTIFIC REASONING.</figcaption></figure></section><section class="learning-route" aria-label="How you will learn">${[['01','Inspect the evidence','Start with a worked example, then decide which two records would help.'],['02','Make a supported claim','Classify the change and connect it to evidence—not appearance alone.'],['03','Take it beyond the game','Finish with a new, exam-style record without hints or investigation tokens.']].map(([n,t,p])=>`<article class="route-card"><span class="route-num">${n}</span><div><h3>${t}</h3><p>${p}</p></div></article>`).join('')}</section><div class="case-line"><span><strong>Your casebook:</strong> peroxide · cooling solution · workshop tool · antacid · furnace · transfer</span><span>Virtual records only · Not instructions for real experiments</span></div>`;}
++  function worked(){const s=D.scenarios[0];return `${masthead(1,'Worked example · Follow the reasoning before trying it yourself.')}<div class="workspace">${panel('The Case','01',`<div class="panel-content case-body"><div class="case-labels"><p class="case-kicker">W01 · Worked example</p><h3 class="case-heading" id="case-heading" tabindex="-1">${esc(s.displayTitle)}</h3></div>${image(s)}<p class="case-copy">${esc(s.caseText)}</p>${table(s.base)}</div>`)}${panel('The Evidence','02',`<div class="panel-content worked-evidence"><p class="helper">Compare substance identities first. Then consider the supporting observations.</p><div class="evidence-grid">${s.evidence.map((e,i)=>`<article class="evidence-card ${i<2?'selected':''}"><div class="evidence-heading"><span class="evidence-letter">${String.fromCharCode(65+i)}</span><h3>${esc(e.label)}</h3></div><div class="record-symbol">${icon(e.icon)}</div><p>${esc(e.detail)}</p>${i<2?'<span class="helper"><strong>Identity evidence</strong></span>':''}</article>`).join('')}</div><div class="word-equation">Hydrogen peroxide → water + oxygen</div></div>`)}${panel('The Reasoning','03',`<div class="panel-content"><ol class="worked-list"><li><div><strong>Make the claim</strong><span>A chemical change is supported.</span></div></li><li><div><strong>Use records A and B</strong><span>Water and oxygen are different substances from hydrogen peroxide. The identities—not just the bubbles—support the claim.</span></div></li><li><div><strong>Classify the pattern</strong><span>One compound forms simpler products: decomposition. A catalyst is not consumed in the overall change.</span></div></li><li><div><strong>Explain the energy observation</strong><span>${esc(s.scienceNote)}</span></div></li></ol><div class="callout"><strong>Why not just “there were bubbles”?</strong><p>Bubbles can also appear in physical processes. The identity records are the stronger evidence.</p></div><p class="worked-note">This is a demonstrated solution, not independent evidence of your understanding.</p></div>`)}</div><section class="feedback-zone"><div class="feedback-strip"><div class="feedback-cell"><span class="feedback-mark">${icon('hint')}</span><div><h2>Key idea</h2><p>${esc(s.keyIdea)}</p></div></div><div class="feedback-key">${btn('practice',`Your turn: investigate ${icon('arrow')}`,'full')}<p class="helper" style="margin-top:7px">Choose evidence, then make your own explanation.</p></div></div></section>`;}
++  function casePanel(s,r){const locked=r.phase!=='draft';return panel('The Case','01',`<div class="panel-content case-body"><div class="case-labels"><p class="case-kicker">${esc(s.id)} · ${esc(s.scaffold)}</p><h3 class="case-heading" id="case-heading" tabindex="-1">${esc(s.displayTitle)}</h3></div>${image(s)}<p class="case-copy">${esc(s.caseText)}</p>${table(s.base)}<div class="predictions" id="prediction-group">${r.predictionLocked?`<p class="helper"><strong>Initial prediction:</strong> ${esc(D.conclusions.find(([v])=>v===r.prediction)?.[1])}</p><p class="helper">Keep the prediction; revise your final claim as the evidence changes.</p>`:`<label for="prediction" class="field-title">Before investigating: your prediction</label><select id="prediction" name="prediction"><option value="">Choose a provisional claim…</option>${D.conclusions.map(([v,l])=>`<option value="${v}" ${r.prediction===v?'selected':''}>${esc(l)}</option>`).join('')}</select><p class="helper">Not scored. Choose before opening records.</p>`}</div></div>`);}
++  function evidencePanel(s,r,m){const locked=r.phase!=='draft';return panel('The Evidence','02',`<div class="panel-content"><div class="evidence-toolbar"><div class="tokens"><span class="token-dot ${r.tokens<2?'used':''}" aria-hidden="true"></span><span class="token-dot ${r.tokens<1?'used':''}" aria-hidden="true"></span><span>${r.tokens} ${r.tokens===1?'record':'records'} left</span></div><span class="evidence-status" id="selected-count">${r.selected.length} of 2 selected</span></div><p class="helper" id="evidence-instruction" style="margin-bottom:13px">${r.prediction?'Open up to two records. Select two that support your claim.':'Make a prediction first to unlock the records.'}</p><div class="evidence-grid" id="evidence-group" tabindex="-1">${s.evidence.map((e,i)=>{const revealed=r.revealed.includes(e.id),selected=r.selected.includes(e.id);return `<article id="evidence-${e.id}" tabindex="-1" class="evidence-card ${revealed?'':'locked'} ${selected?'selected':''}"><div class="evidence-heading"><span class="evidence-letter">${String.fromCharCode(65+i)}</span><h3>${esc(e.label)}</h3></div><div class="record-symbol">${icon(e.icon)}</div><p>${revealed?esc(e.detail):'Open this supplied record to examine the evidence.'}</p>${!revealed&&m.seen.includes(e.id)?'<span class="seen">Read earlier in this session</span>':''}${revealed?`<label class="checkline"><input id="select-${e.id}" type="checkbox" data-evidence="${e.id}" aria-label="Use record ${String.fromCharCode(65+i)}: ${esc(e.label)}" ${selected?'checked':''} ${locked?'disabled':''}><span>Use as evidence</span></label>`:btn('reveal',`Open record ${String.fromCharCode(65+i)}`,'secondary',`data-id="${e.id}" ${locked||!r.prediction||r.tokens<=0?'disabled':''}`)}</article>`;}).join('')}</div>${s.id==='P01'?'<div class="evidence-help">Choose records that tell you whether substance identity changed. A dramatic observation is not always the useful one.</div>':''}${m.reopens>0?`<details class="disclosure"><summary>Records you read earlier</summary><ul>${s.evidence.filter(e=>m.seen.includes(e.id)).map(e=>`<li><strong>${esc(e.label)}:</strong> ${esc(e.detail)}</li>`).join('')}</ul><p>Earlier records stay available here. A new investigation does not make you forget them.</p></details>`:''}</div>`);}
++  function reactionSelect(s,r,locked){return `<div class="field" id="reaction-wrap" ${r.conclusion!=='chemical'?'hidden':''}><label for="reaction" class="field-title">Reaction type</label><select id="reaction" name="reaction" ${locked?'disabled':''}><option value="">Choose a reaction type…</option>${D.reactions.map(([value,label])=>`<option value="${value}" ${r.reaction===value?'selected':''}>${esc(label)}</option>`).join('')}</select></div>`;}
++  function explanation(r,locked,transfer=false){return `<div class="field"><label for="explanation" class="field-title">${transfer?'Explain using the record':'Explain your reasoning'}</label><textarea id="explanation" name="explanation" maxlength="3000" rows="4" aria-describedby="explanation-note" ${locked?'disabled':''} placeholder="${transfer?'Write your explanation here.':'Connect specific evidence to your claim.'}">${esc(r.explanation)}</textarea><span id="explanation-note" class="helper">Required · Not automatically graded · Up to 3,000 characters</span></div>`;}
++  function reasoningPanel(s,r,m){const locked=r.phase!=='draft';return panel('Your Reasoning','03',`<div class="panel-content"><div class="reasoning-fields">${locked?'<p class="locked-answer"><strong>Submitted answer locked.</strong> Choose “Revise answer” to make changes.</p>':''}<fieldset id="conclusion-group"><legend>What does the evidence support?</legend>${choices('conclusion',r.conclusion,locked)}</fieldset>${reactionSelect(s,r,locked)}${s.application?`<div class="field"><label class="field-title" for="response">${esc(s.application.prompt)}</label><select id="response" name="response" ${locked?'disabled':''}><option value="">Choose a response…</option>${s.application.options.map(([value,label])=>`<option value="${value}" ${r.response===value?'selected':''}>${esc(label)}</option>`).join('')}</select></div>`:''}${explanation(r,locked)}${s.starter&&!locked?`<p class="helper">Sentence starter: ${esc(s.starter)}</p>`:''}${s.id==='P02'&&!locked?'<p class="helper">Name the evidence, explain its connection, and avoid claiming more than the record shows.</p>':''}</div><div class="field-actions">${locked?btn('revise',`${icon('retry')} Revise answer`,'secondary full'):btn('submit',`Check claim ${icon('arrow')}`,'',`id="check-claim"`)}</div>${!locked?`<div class="field-actions">${btn('hint',`${icon('hint')} ${m.hints>=s.hints.length?'All hints used':`Hint ${m.hints+1} of ${s.hints.length}`}`,'quiet',`id="hint-button" ${!m.attempts.some(a=>!a.structuredOK)||m.hints>=s.hints.length?'disabled':''}`)}<span class="helper">After an attempt</span></div>`:''}</div>`);}
++  const rubric=[['Claim','I state the change or reaction clearly.'],['Evidence','I name the relevant records.'],['Reasoning','I explain how the evidence supports my claim.'],['Limits','I avoid claiming more than the record shows.']];
++  function attempts(s,m){return m.attempts.length?`<details class="disclosure attempts-box"><summary>Your attempt record (${m.attempts.length})</summary>${m.attempts.map(a=>`<article class="attempt"><strong>Attempt ${a.number}</strong> · <span class="result-label">${a.structuredOK?'Structured choices supported':a.uncertaintyJustified?'Uncertainty justified':'Needs revision'}</span><p>Claim: ${esc(D.conclusions.find(([v])=>v===a.conclusion)?.[1]||a.conclusion)}${a.reaction?` · Type: ${esc(D.reactions.find(([v])=>v===a.reaction)?.[1]||a.reaction)}`:''}</p>${a.evidence.length?`<p>Evidence: ${a.evidence.map(id=>esc(s.evidence.find(e=>e.id===id)?.label||id)).join('; ')}</p>`:''}<blockquote>${esc(a.explanation)}</blockquote><p class="helper">${a.hints} hints read · ${a.reopens} investigation restarts · Explanation submitted, not automatically graded.</p></article>`).join('')}</details>`:'';}
++  function feedbackMarkup(s,r,m){const f=r.feedback,isTransfer=s.stage==='transfer',good=r.phase==='submitted',uncertain=r.phase==='uncertain';
++    const title=good?'Structured choices supported':uncertain?'Uncertainty is justified':f?(f.complete?'Revise this attempt':'Finish this attempt'):'Your investigation';
++    const message=f?.message||(isTransfer?'Use the supplied record. No hints or model answer are available before submission.':'Your choices have not been checked yet. Open relevant records, select evidence and explain your claim.');
++    const key=good?s.keyIdea:isTransfer?'This is a new task. Your first complete structured response is kept separately from any later corrections.':'Use the records rather than the illustration. Your explanation must connect the evidence to the claim.';
++    return `<div class="feedback-strip"><div class="feedback-cell"><span class="feedback-mark">${icon(good?'check':uncertain?'observe':f?'warn':'message')}</span><div><h2 id="feedback-title" tabindex="-1">${title}</h2><p>${esc(message)}</p></div></div><div class="feedback-cell feedback-key"><span class="feedback-mark">${icon(good?'hint':'record')}</span><div><h2>${good?'Key idea':isTransfer?'Independent record':'Keep in mind'}</h2><p>${esc(key)}</p></div></div></div>${uncertain?`<div class="uncertainty-followup">${btn('followup',`Read the identity follow-up ${icon('arrow')}`)}<p class="helper" style="margin-top:8px">Your justified uncertainty is recorded. This supported follow-up lets you finish the classification without erasing that attempt.</p></div>`:''}${good?`<div class="review-explanation"><div><h3>Your submitted explanation</h3><blockquote>${esc(r.explanation)}</blockquote><details class="disclosure"><summary>Compare with a model explanation</summary><p class="model-copy">${esc(s.model)}</p></details><p class="review-note">The model is a comparison tool. It is not a grade for your writing.</p></div><div><h3>Review your explanation</h3><div class="rubric-grid">${rubric.map(([a,b],i)=>`<label class="checkline"><input type="checkbox" data-rubric="${i}" ${r.rubric[i]?'checked':''}><span><strong>${a}</strong>${b}</span></label>`).join('')}</div><p class="review-note">Check each item after reviewing it. Revise your answer when a connection is missing.</p><div class="review-actions">${btn('revise','Revise answer','secondary')}${btn('advance',`${S.replay||isTransfer?'Review results':'Next case'} ${icon('arrow')}`,'',`id="next-case" ${!E.canAdvance(r)?'disabled':''}`)}</div></div></div>`:''}${S.hintText?`<div class="hint-box" id="hint-text" tabindex="-1"><strong>Hint ${m.hints} of ${s.hints.length}</strong>${esc(S.hintText)}</div>`:''}${attempts(s,m)}`;
+   }
+-  function showHint(s){if(!s.hints||!s.hints.length||state.hints>=3)return;const i=Math.min(state.hints,s.hints.length-1);state.hints++;const hint=document.getElementById('hint');hint.textContent=state.hints>=3?'All hints used':`Hint ${state.hints+1} of 3`;hint.disabled=state.hints>=3;const box=document.getElementById('feedbackBox');box.className='feedback';box.innerHTML=`<strong>Hint ${state.hints}</strong><p>${esc(s.hints[i])}</p>`}
+-  function advance(isTransfer){if(isTransfer){state.screen='review';render();return}if(state.index<4){state.index++;resetCase();render()}else{state.index=5;resetCase();render()}}
+-  function review(){const rows=scenarios.filter(s=>s.stage!=='worked').map(s=>{const r=state.results[s.id];return `<div class="status-row"><span>${esc(s.title)}</span><div><strong>${r?'Completed':'Not completed'}</strong>${r?`<br>${r.hints} hints · ${r.retries} retries<br>Explanation: submitted<br>Claim: ${esc(r.claim)}`:''}</div></div>`}).join('');app.innerHTML=`<section class="hero"><div class="eyebrow">Review</div><h1>Reaction Detective — Review</h1><p>You investigated, selected evidence and built explanations.</p>${steps(5)}</section><section class="intro-grid"><article class="panel intro-card"><h2>What you practised</h2><ul><li>Evidence of chemical change</li><li>Physical vs chemical change</li><li>Reaction classification</li><li>Using evidence to justify a claim</li></ul></article><article class="panel intro-card"><h2>Your case record</h2><div class="case-status">${rows}</div></article><article class="panel intro-card"><h2>Important</h2><p><strong>Completion is not the same as mastery.</strong></p><p>Written explanations were submitted but were not auto-graded by keywords.</p><p>Replay a case if you needed hints or want more practice.</p></article></section><div class="strip"><button class="btn btn-secondary" id="again">Replay from first practice</button><span>Next useful step: return to Unit A or practise a case again.</span></div>`;document.getElementById('again').onclick=()=>{state.screen='practice';state.index=1;state.results={};resetCase();render()}}
+-  function render(){if(state.screen==='intro')intro();else if(state.screen==='worked')worked();else if(state.screen==='practice')practice();else review();const heading=app.querySelector('h1');heading.tabIndex=-1;heading.focus({preventScroll:true});window.scrollTo({top:0,behavior:'auto'})}
++  function feedbackClass(r){return r.phase==='submitted'?'correct':r.phase==='uncertain'?'correct':r.feedback?'revise':'';}
++  function feedback(s,r,m){return `<section id="feedback-zone" class="feedback-zone ${feedbackClass(r)} ${s.stage==='transfer'?'transfer-feedback':''}" aria-label="Feedback and next steps">${feedbackMarkup(s,r,m)}</section>`;}
++  function tools(s,r){return `<div class="workspace-tools"><p class="helper">${s.stage==='transfer'?'This is practice, not a secure or official exam. Written explanations are not automatically graded.':'Virtual records only. No real mixing, tasting, ignition or chemical-handling steps are part of this activity.'} Reloading clears this session.</p>${s.stage==='practice'?btn('reopen',`${icon('retry')} Choose different records`,'secondary',`${r.revealed.length===0?'disabled':''}`):''}${S.replay?btn('back-review','Back to review','secondary'):''}</div>`;}
++  function practice(){const s=scenario(),r=S.round,m=mem();return `${masthead(r.phase==='submitted'?3:2,`${s.scaffold} · ${S.replay?'Revisiting a completed case':'Case '+S.index+' of 4'}`)}<div class="workspace">${casePanel(s,r)}${evidencePanel(s,r,m)}${reasoningPanel(s,r,m)}</div>${feedback(s,r,m)}${tools(s,r)}`;}
++  function transfer(){const s=scenario(),r=S.round,m=mem(),locked=r.phase!=='draft';return `${masthead(4,'Independent transfer · Apply the idea without the investigation board.')}<article class="exam-paper"><div class="exam-meta"><span class="mode-label">T01 · No hints · No tokens</span><span class="helper">${m.firstAttempt?'A first response is already on record. Further attempts are practice.':'Your first complete response will be kept.'}</span></div><h2 id="case-heading" tabindex="-1">A new situation</h2><p class="exam-passage">${esc(s.caseText)}</p>${table(s.base)}<p class="exam-question">${esc(s.prompt)}</p>${locked?'<p class="locked-answer">Submitted answer locked. Choose “Revise answer” to change it.</p>':''}<fieldset id="conclusion-group"><legend>What type of change is supported?</legend>${choices('conclusion',r.conclusion,locked)}</fieldset>${explanation(r,locked,true)}<div class="field-actions">${locked?btn('revise','Revise answer','secondary'):btn('submit',`Submit transfer ${icon('arrow')}`,'',`id="check-claim"`)}</div></article>${feedback(s,r,m)}${tools(s,r)}`;}
++  function review(){const results=Object.values(S.results),t=S.results.T01;const first=t?.firstAttempt?.structuredOK;return `${masthead(5,'Your record · Separate supported choices from explanation quality.')}<section class="summary-heading"><div><p class="overline">Investigation complete</p><h2>Evidence. Explanation. Next steps.</h2><p>You completed ${results.length} of 5 learner tasks, following the worked example. Completion is not the same as mastery.</p></div><div class="summary-badge">${t?first?'Transfer: first structured answer supported':'Transfer: corrected after feedback':'Transfer not yet completed'}</div></section><section class="results-list" aria-label="Your case record">${D.scenarios.filter(s=>s.stage!=='worked').map(s=>{const r=S.results[s.id];return `<article class="result-card"><div class="result-main">${icon(r?'check':'record')}<div><p class="case-kicker">${esc(s.id)} · ${s.stage==='transfer'?'Independent transfer':'Practice'}</p><h3>${esc(s.title)}</h3><p class="result-meta">${r?`${r.attempts.length} complete ${r.attempts.length===1?'attempt':'attempts'} · ${r.hints} hints · ${r.reopens} investigation restarts${r.followup?' · Identity follow-up used':''}${r.visits>1?' · Practised again':''}`:'Not completed'}</p><p class="result-meta"><strong>${r?'Structured choices: supported. Explanation: submitted, not automatically graded.':'No completed response.'}</strong></p></div>${r?btn('replay',`${icon('retry')} Practise again`,'secondary',`data-id="${s.id}"`):''}</div>${r?`<details class="disclosure"><summary>Read your explanation and first-response record</summary><p><strong>Most recent submitted explanation</strong></p><blockquote>${esc(r.submission.explanation)}</blockquote><p><strong>First complete response:</strong> ${r.firstAttempt.structuredOK?'structured choices supported':r.firstAttempt.uncertaintyJustified?'uncertainty justified; identity follow-up needed':'structured choices needed revision'}.</p><blockquote>${esc(r.firstAttempt.explanation)}</blockquote><p>Self-check: reviewed. Written reasoning still needs your own careful comparison or teacher review.</p></details>`:''}</article>`;}).join('')}</section><div class="summary-bottom"><section><h3>Your next useful practice</h3><p>${!first?'Revisit the before-and-after identity record in Boiling Water. A corrected answer is progress, but not evidence of first-attempt independent success.':results.some(r=>r.hints||r.reopens||r.attempts.length>1)?'Return to a case where you used support. Explain the evidence in your own words before reopening a model answer.':'Explain one case aloud without the game, then solve a fresh question from your Unit A course.'}</p></section><section><h3>What this does—and does not—show</h3><p>You practised evidence selection, reaction classification and selected applications. This is not full Unit A coverage, a course grade or a guarantee of exam performance. No work is sent to a teacher or LMS.</p></section></div><div class="workspace-tools">${btn('print',`${icon('print')} Print your review`,'secondary')}<span class="helper">Print only when you want a personal copy. The game does not save or upload it.</span>${btn('restart','Start a new session','secondary')}</div>`;}
++  function render(options={}){
++    const scrollY=window.scrollY;
++    app.innerHTML=S.screen==='intro'?intro():S.screen==='worked'?worked():S.screen==='review'?review():scenario().stage==='transfer'?transfer():practice();
++    if(options.top)window.scrollTo({top:0,behavior:'auto'});else window.scrollTo({top:scrollY,behavior:'auto'});
++    if(options.focus)focus(options.focus,!!options.scroll);
++  }
++  function updateFeedback(){if(S.screen!=='case')return;const box=document.getElementById('feedback-zone');if(box){box.className=`feedback-zone ${feedbackClass(S.round)} ${scenario().stage==='transfer'?'transfer-feedback':''}`;box.innerHTML=feedbackMarkup(scenario(),S.round,mem());}}
++  function sync(){const r=S.round;app.querySelectorAll('.option').forEach(label=>label.classList.toggle('selected',!!label.querySelector('input')?.checked));const wrap=document.getElementById('reaction-wrap');if(wrap){wrap.hidden=r.conclusion!=='chemical';document.getElementById('reaction').value=r.reaction;}app.querySelectorAll('[data-action=reveal]').forEach(b=>b.disabled=r.phase!=='draft'||!r.prediction||r.tokens<=0);const inst=document.getElementById('evidence-instruction');if(inst&&r.prediction)inst.textContent='Open up to two records. Select two that support your claim.';const count=document.getElementById('selected-count');if(count)count.textContent=`${r.selected.length} of 2 selected`;app.querySelectorAll('[data-evidence]').forEach(c=>c.closest('.evidence-card').classList.toggle('selected',c.checked));updateFeedback();}
++  function openModal(title,content,callback=null,confirmText='Continue'){
++    lastModalTrigger=document.activeElement;modalAction=callback;document.getElementById('dialog-content').innerHTML=`<h2 id="dialog-title">${esc(title)}</h2>${content}<div class="actions">${btn('modal-close',callback?'Keep working':'Close','secondary',`autofocus`)}${callback?btn('modal-confirm',esc(confirmText)):''}</div>`;dialog.showModal();
++  }
++  function closeModal(run=false){const fn=modalAction;modalAction=null;dialog.close();if(run&&fn)fn();else if(lastModalTrigger?.isConnected)lastModalTrigger.focus();}
++  function errorFocus(f){const fields={prediction:'prediction',conclusion:'conclusion-physical',evidence:'evidence-group',reaction:'reaction',response:'response',explanation:'explanation'};const id=fields[f.field];const n=document.getElementById(id);if(n){n.setAttribute('aria-invalid','true');focus(id,true);}else focus('feedback-title',true);}
++  function handleAction(button){const a=button.dataset.action;if(button.disabled)return;
++    if(a==='modal-close')return closeModal();if(a==='modal-confirm')return closeModal(true);
++    if(a==='help')return openModal('How the investigation works',`<ol><li>Read the base observations and make a provisional prediction.</li><li>Open up to two records. Choose two relevant records as evidence.</li><li>Make your final claim and write the connection between evidence and claim.</li><li>Use feedback to revise. Review your explanation before moving on.</li></ol><p>Keyboard: Tab moves between controls; arrow keys select radio choices; Space selects a checkbox. No dragging, timing or sound is required.</p><p>All examples are fictional records, not real-world experiment instructions. Work stays in memory and is lost on reload.</p>`);
++    if(a==='start')return navigate('worked',0);
++    if(a==='practice')return navigate('case',1);
++    if(a==='restart')return openModal('Start a new session?',`<p>This clears all answers, attempts and results in this session. Nothing has been saved or sent anywhere. Print the review first to keep a personal copy.</p>`,()=>{S=fresh();render({focus:'activity-heading',top:true});},'Clear and restart');
++    if(a==='print'){const details=[...app.querySelectorAll('details')],was=details.map(d=>d.open);details.forEach(d=>d.open=true);window.addEventListener('afterprint',()=>details.forEach((d,i)=>d.open=was[i]),{once:true});window.print();return;}
++    if(a==='replay'){const index=D.scenarios.findIndex(s=>s.id===button.dataset.id);if(index>0&&S.results[button.dataset.id])navigate('case',index,true);return;}
++    if(S.screen!=='case')return;
++    const s=scenario(),r=S.round,m=mem();
++    if(a==='reveal'){if(E.reveal(s,r,m,button.dataset.id)){render({focus:'evidence-'+button.dataset.id});announce(`Record opened. ${r.tokens} records left to open.`);}return;}
++    if(a==='submit'){
++      const f=E.submit(s,r,m);render({focus:'feedback-title',scroll:true});
++      if(!f.complete)errorFocus(f);announce(f.message);return;
++    }
++    if(a==='revise'){if(E.revise(r)){S.hintText=null;render({focus:'conclusion-physical',scroll:true});announce('Revision opened. The previous submission is kept; check the revised answer again before continuing.');}return;}
++    if(a==='hint'){const text=E.hint(s,r,m);if(text){S.hintText=text;render({focus:'hint-text',scroll:true});announce(`Hint ${m.hints}: ${text}`);}return;}
++    if(a==='followup'){if(E.followup(s,r,m)){S.hintText=null;render({focus:'evidence-'+s.uncertaintyRecord,scroll:true});announce('Identity follow-up opened. Revise your claim using this record.');}return;}
++    if(a==='reopen')return openModal('Choose different records?',`<p>You will have two record openings again. Your prediction, explanation, earlier attempts and hints stay in this session. Earlier evidence remains available in the history.</p><p>Your current submission, evidence selection and explanation self-check will be cleared. Check the revised answer before continuing.</p>`,()=>{E.reopen(s,r,m);S.hintText=null;render({focus:'evidence-group',scroll:true});announce('Investigation reopened. Two record openings are available. Previous attempts were kept.');},'Reopen investigation');
++    if(a==='advance'){
++      const result=E.finalize(s,r,m);if(!result){announce('Review each explanation item and check your latest answer before continuing.');return;}
++      S.results[s.id]=result;if(S.replay||s.stage==='transfer')navigate('review');else navigate('case',S.index+1);return;
++    }
++    if(a==='back-review')return openModal('Return to your review?',`<p>The current uncompleted draft will not replace your earlier case result. Submitted attempts remain in this session.</p>`,()=>navigate('review'),'Return to review');
++  }
++  app.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(b)handleAction(b);});
++  document.getElementById('dialog-content').addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(b)handleAction(b);});
++  dialog.addEventListener('cancel',e=>{e.preventDefault();closeModal();});
++  app.addEventListener('change',e=>{
++    if(S.screen!=='case')return;const el=e.target,r=S.round;
++    if(el.matches('[data-rubric]')){r.rubric[Number(el.dataset.rubric)]=el.checked;const next=document.getElementById('next-case');if(next)next.disabled=!E.canAdvance(r);return;}
++    if(el.matches('[data-evidence]')){if(!E.select(r,el.dataset.evidence,el.checked)){el.checked=r.selected.includes(el.dataset.evidence);announce('Select at most two evidence records. Unselect one before choosing another.');}sync();return;}
++    if(['prediction','conclusion','reaction','response'].includes(el.name)){E.edit(r,el.name,el.value);el.removeAttribute('aria-invalid');sync();}
++  });
++  app.addEventListener('input',e=>{if(S.screen==='case'&&e.target.id==='explanation'){E.edit(S.round,'explanation',e.target.value);e.target.removeAttribute('aria-invalid');updateFeedback();}});
++  // Decorative art failures must never remove evidence or block a task.
++  document.addEventListener('error',e=>{if(e.target instanceof HTMLImageElement){const frame=e.target.closest('.scene-frame');if(frame)frame.classList.add('unavailable');else e.target.style.display='none';}},true);
+   render();
+ })();
+--- /dev/null
++++ repaired-v1.1/engine.js
+@@ -0,0 +1,79 @@
++/* Pure, DOM-free learning-state engine. No persistence, timers, network, or keyword grading. */
++(function (root) {
++  'use strict';
++  const clone = value => JSON.parse(JSON.stringify(value));
++  function freeze(value) { if (value && typeof value === 'object') {Object.values(value).forEach(freeze);Object.freeze(value);}return value; }
++  const memory = () => ({attempts:[],seen:[],hints:0,reopens:0,visits:0,followup:false,firstAttempt:null});
++  function round(m) { m.visits++; return {phase:'draft',prediction:null,predictionLocked:false,tokens:2,revealed:[],selected:[],conclusion:null,reaction:'',response:'',explanation:'',rubric:[false,false,false,false],feedback:null,submission:null}; }
++  function fingerprint(r) { return JSON.stringify([r.prediction,[...r.revealed].sort(),[...r.selected].sort(),r.conclusion,r.reaction,r.response,r.explanation]); }
++  function edit(r,key,value) {
++    if(r.phase!=='draft'||!['prediction','conclusion','reaction','response','explanation'].includes(key))return false;
++    if(key==='prediction'&&r.predictionLocked)return false;
++    r[key]=value;
++    if(key==='conclusion'&&value!=='chemical')r.reaction='';
++    r.feedback=null;return true;
++  }
++  function reveal(s,r,m,id) {
++    if(r.phase!=='draft'||s.stage!=='practice'||!r.prediction||r.tokens<=0||r.revealed.includes(id)||!s.evidence.some(e=>e.id===id))return false;
++    r.revealed.push(id);r.predictionLocked=true;r.tokens--;if(!m.seen.includes(id))m.seen.push(id);r.feedback=null;return true;
++  }
++  function select(r,id,checked) {
++    if(r.phase!=='draft'||!r.revealed.includes(id))return false;
++    if(checked&&!r.selected.includes(id)){if(r.selected.length>=2)return false;r.selected.push(id);}
++    if(!checked)r.selected=r.selected.filter(x=>x!==id);
++    r.feedback=null;return true;
++  }
++  function validate(s,r,m) {
++    const fail=(code,message,field='conclusion',complete=true)=>({ok:false,uncertain:false,complete,code,message,field});
++    if(s.stage==='practice'&&!r.prediction)return fail('prediction','Make a provisional prediction before investigating. It is not scored.','prediction',false);
++    if(!['physical','chemical','insufficient'].includes(r.conclusion))return fail('missing-conclusion','Choose what the evidence supports.','conclusion',false);
++    if(s.stage==='practice'&&(r.selected.length!==2||new Set(r.selected).size!==2||!r.selected.every(id=>r.revealed.includes(id)&&s.evidence.some(e=>e.id===id))))return fail('missing-evidence','Select two revealed records as evidence. Reopen the investigation to choose different records.','evidence',false);
++    if(s.stage!=='transfer'&&r.conclusion==='chemical'&&!r.reaction)return fail('missing-reaction','Choose the reaction type for your chemical-change claim.','reaction',false);
++    if(s.application&&!r.response)return fail('missing-response','Make the practical or environmental decision.','response',false);
++    if(r.explanation.trim().length<15)return fail('missing-explanation','Add an explanation of at least 15 characters. This is only an input check, not a grade for your reasoning.','explanation',false);
++    const uncertain=s.id==='P01'&&!m.seen.includes(s.uncertaintyRecord)&&r.conclusion==='insufficient';
++    if(uncertain)return {ok:false,uncertain:true,complete:true,code:'uncertainty',message:'Your caution is justified: these records do not establish substance identity. Read the identity follow-up, then finish the case with a supported classification.',field:'feedback'};
++    if(r.conclusion!==s.conclusion){
++      if(r.conclusion==='insufficient'&&s.stage==='practice'&&!s.requiredEvidence.every(id=>m.seen.includes(id)))return fail('evidence-gap','Your caution is reasonable with the records you have opened. Reopen the investigation and look for identity evidence to finish this case.','evidence');
++      return fail('conclusion',s.misconception,'conclusion');
++    }
++    if(s.stage==='practice'){
++      const pair=[...r.selected].sort().join('|');
++      if(!s.allowedPairs.some(p=>[...p].sort().join('|')===pair)){
++        const weak=s.evidence.find(e=>r.selected.includes(e.id)&&e.role==='weak');
++        return fail('evidence',weak?`${weak.why} Choose a pair that directly supports the claim.`:'Your pair needs the substance-identity evidence. Compare the relevant before-and-after records.','evidence');
++      }
++      if(s.reaction!=='none'&&r.reaction!==s.reaction)return fail('reaction','The chemical-change claim is supported. Now compare the reactants and products with the reaction-type descriptions.','reaction');
++    }
++    if(s.application&&r.response!==s.application.answer)return fail('response',s.application.feedback,'response');
++    return {ok:true,uncertain:false,complete:true,code:'correct',message:'The structured choices are supported by the record. Your written explanation is submitted, not automatically graded. Review it below before continuing.',field:'feedback'};
++  }
++  function submit(s,r,m) {
++    if(r.phase!=='draft')return r.feedback;
++    const result=validate(s,r,m);r.feedback=result;
++    if(!result.complete)return result;
++    const attempt=freeze({number:m.attempts.length+1,caseId:s.id,version:s.version,prediction:r.prediction,conclusion:r.conclusion,reaction:r.reaction,evidence:[...r.selected],revealed:[...r.revealed],response:r.response,explanation:r.explanation,structuredOK:result.ok,uncertaintyJustified:result.uncertain,hints:m.hints,reopens:m.reopens,followup:m.followup});
++    m.attempts.push(attempt);if(!m.firstAttempt)m.firstAttempt=attempt;
++    if(result.ok||result.uncertain){r.phase=result.ok?'submitted':'uncertain';r.submission=freeze({attempt,fingerprint:fingerprint(r),ok:result.ok});r.rubric=[false,false,false,false];}
++    return result;
++  }
++  function revise(r) {if(r.phase==='draft')return false;r.phase='draft';r.submission=null;r.feedback=null;r.rubric=[false,false,false,false];return true;}
++  function hint(s,r,m) {if(r.phase!=='draft'||!m.attempts.some(a=>!a.structuredOK)||m.hints>=s.hints.length||s.stage==='transfer')return null;return s.hints[m.hints++];}
++  function reopen(s,r,m) {
++    if(s.stage!=='practice')return false;
++    m.reopens++;r.phase='draft';r.submission=null;r.feedback=null;r.tokens=2;r.revealed=[];r.selected=[];r.rubric=[false,false,false,false];return true;
++  }
++  function followup(s,r,m) {
++    if(s.id!=='P01'||r.phase!=='uncertain')return false;
++    const id=s.uncertaintyRecord;m.followup=true;
++    if(!m.seen.includes(id))m.seen.push(id);if(!r.revealed.includes(id))r.revealed.push(id);
++    revise(r);return true;
++  }
++  function canAdvance(r) {return r.phase==='submitted'&&!!r.submission?.ok&&r.submission.fingerprint===fingerprint(r)&&r.rubric.length===4&&r.rubric.every(x=>x===true);}
++  function finalize(s,r,m) {
++    if(!canAdvance(r))return null;
++    return freeze({caseId:s.id,version:s.version,completed:true,structuredOK:true,explanationStatus:'submitted — not automatically graded',rubricReviewed:true,submission:clone(r.submission.attempt),firstAttempt:clone(m.firstAttempt),hints:m.hints,reopens:m.reopens,followup:m.followup,visits:m.visits,attempts:clone(m.attempts)});
++  }
++  const engine={memory,round,edit,reveal,select,validate,submit,revise,hint,reopen,followup,canAdvance,finalize,fingerprint};
++  root.RD_ENGINE=engine;if(typeof module!=='undefined'&&module.exports)module.exports=engine;
++})(typeof window!=='undefined'?window:globalThis);

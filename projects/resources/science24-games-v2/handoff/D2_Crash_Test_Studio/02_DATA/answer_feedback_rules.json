@@ -1,0 +1,73 @@
+{
+  "game_id": "D2",
+  "version": "2.0.0-design",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "D2-W01",
+      "accepted_result": "Same impulse; longer supplied stopping time lowers average-force magnitude.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P01",
+      "accepted_result": "See scenario data",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P02",
+      "accepted_result": "See scenario data",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P03",
+      "accepted_result": "Use the occupant mass for the occupant ledger. Do not insert the whole vehicle mass.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P04",
+      "accepted_result": "Combined momentum is conserved in the supplied low-friction system; kinetic energy is not claimed conserved.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-T01",
+      "accepted_result": "Explain the inverse relationship for the same Δp and identify direction.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "game_id": "D1",
+  "version": "2.0.0-design",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "D1-W01",
+      "accepted_result": 70,
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance–time graph represents speed.",
+        "A horizontal distance–time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P01",
+      "accepted_result": 37.5,
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance–time graph represents speed.",
+        "A horizontal distance–time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P02",
+      "accepted_result": 80,
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance–time graph represents speed.",
+        "A horizontal distance–time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P03",
+      "accepted_result": "Reaction travel changes linearly; braking distance stays supplied and unchanged.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance–time graph represents speed.",
+        "A horizontal distance–time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P04",
+      "accepted_result": "Slope represents speed; the horizontal segment means the vehicle is stopped.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance–time graph represents speed.",
+        "A horizontal distance–time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-T01",
+      "accepted_result": 92.5,
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance–time graph represents speed.",
+        "A horizontal distance–time segment means stopped."
+      ]
+    }
+  ]
+}

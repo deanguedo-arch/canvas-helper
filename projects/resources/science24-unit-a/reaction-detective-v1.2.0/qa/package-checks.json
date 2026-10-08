@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "test": "Multi-file entry local references exist",
+      "status": "PASS",
+      "detail": "['styles.css', 'scenarios.js', 'engine.js', 'game.js']"
+    },
+    {
+      "test": "Script dependency order",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Standalone has no external script/style references",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Standalone preserves current JS after declared image embedding",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Standalone embeds current CSS verbatim",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "All recorded asset hashes match",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Every active scene path embedded",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "No external runtime http URLs",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "No persistence/network API calls",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "No bundled font files",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Canonical references match recorded input hashes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Browser test receipts bound to current PLAY bytes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "All browser receipts report zero failures",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Engine receipt has 842 tests and zero failures",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Actual preview screenshots present",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Manifest payload hashes match",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "passed": 16,
+  "failed": 0,
+  "play_sha256": "ebd9f60548887206e144fbbc3fece4d90877fbe47c01422d5aac943341c0fc70"
+}

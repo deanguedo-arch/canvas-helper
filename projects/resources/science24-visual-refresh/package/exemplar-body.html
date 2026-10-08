@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Science 24 — Visual Patterns Exemplar (for Codex)</title>
+<style>/*__CSS_INLINE__*/</style>
+<style>
+/* ============ S24X PATTERN LIBRARY — ADDITIVE STYLES FOR CODEX ============
+   These classes are NEW. They do not modify any existing course class.
+   Copy the CSS block below into the unit stylesheet, then use the markup
+   patterns in this file. Delete all .s24x-pattern-note blocks in production. */
+
+.s24x-pattern-note{background:#fff8e1;border:2px dashed #b58900;border-radius:8px;
+  padding:14px 18px;margin:30px 0;font-size:15px;line-height:1.55;color:#3d3405}
+.s24x-pattern-note>strong{display:block;font-size:12.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:#7a5c00;margin-bottom:6px}
+.s24x-pattern-note code{background:#f3e9c8;padding:1px 6px;border-radius:4px;font-size:13.5px}
+.s24x-pattern-note pre{background:#f7f1dc;border:1px solid #e2d49a;border-radius:6px;
+  padding:10px 12px;overflow:auto;font-size:13px;line-height:1.5}
+
+/* ---- Pattern 1: full-bleed lesson opener ----
+   Breaks out of the .main 30px side padding to span the full content width.
+   Verify the -30px against real nesting if .course-page/.p2-topic gain padding. */
+.s24x-opener{margin:0 -30px 10px;background:linear-gradient(135deg,#0c3527 0%,#14532d 55%,#1c6b3a 100%);
+  color:#fff;padding:54px 30px 46px;text-align:center;overflow:hidden}
+.s24x-opener .s24x-opener-kicker{display:inline-block;font-size:13px;letter-spacing:.14em;
+  text-transform:uppercase;color:#bfe6c8;border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;padding:6px 16px;margin-bottom:18px}
+.s24x-opener h2{color:#fff;font-size:clamp(26px,4vw,40px);line-height:1.2;margin:0 0 10px;max-width:22ch;margin-inline:auto}
+.s24x-opener p{color:#dcefe1;font-size:17px;max-width:58ch;margin:0 auto}
+.s24x-opener svg{display:block;margin:26px auto 0;max-width:min(560px,90%)}
+
+/* ---- Pattern 2: in-flow video beat ----
+   Same data-video-card div the JS already hydrates — ONLY the placement and
+   wrapper change. Put this at the point of need, mid-lesson, not at the end. */
+.s24x-video-beat{border-left:5px solid #2e7d32;background:#f2f9f3;border-radius:0 10px 10px 0;
+  padding:20px 22px;margin:26px 0}
+.s24x-video-beat .section-label{color:#2e7d32}
+.s24x-video-beat h2{margin-top:2px}
+.s24x-video-beat .s24x-watch-for{background:#fff;border:1px solid #d7e8d9;border-radius:8px;
+  padding:10px 14px;margin:12px 0;font-size:15.5px}
+
+/* ---- Pattern 3: margin-anchored figure ----
+   Desktop (>=1150px): figure docks sticky in the dead right rail while the
+   learner works the adjacent practice. Below that: normal full-width figure. */
+@media(min-width:1150px){
+  .s24x-with-margin{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:30px;align-items:start}
+  .s24x-with-margin .s24x-margin-figure{position:sticky;top:22px;margin:0}
+}
+@media(max-width:1149px){
+  .s24x-with-margin .s24x-margin-figure{margin:24px 0}
+}
+.s24x-margin-note{font-size:13.5px;color:#5c665c}
+
+/* ---- Pattern 4: sticker callout ----
+   Mid-lesson decision-point callout. Keep to one per lesson section max;
+   never use for core instruction, only for the decision/choice moment. */
+.s24x-sticker{display:block;max-width:360px;background:#fffbe8;border:2px solid #d9a400;
+  border-radius:14px;padding:14px 18px;margin:20px 0;transform:rotate(-1.1deg);
+  box-shadow:0 5px 14px rgba(0,0,0,.13);position:relative}
+.s24x-sticker::before{content:"";position:absolute;top:-11px;left:50%;width:22px;height:22px;
+  border-radius:50%;background:#d9a400;transform:translateX(-50%);
+  box-shadow:inset 0 -3px 5px rgba(0,0,0,.25)}
+.s24x-sticker strong{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  color:#8a6d00;margin-bottom:6px}
+.s24x-sticker p{margin:6px 0;font-size:15.5px}
+
+/* Demo-only: mock video player box (production is hydrated by JS) */
+.s24x-video-mock{background:#101d16;border-radius:10px;color:#d9efe0;text-align:center;
+  padding:54px 20px;margin:14px 0;position:relative}
+.s24x-video-mock .s24x-play{display:inline-block;width:64px;height:64px;border-radius:50%;
+  background:#2e7d32;color:#fff;font-size:24px;line-height:64px;margin-bottom:10px}
+@media(max-width:760px){
+  .s24x-opener{margin:0 -18px 10px;padding:40px 18px 34px}
+  .s24x-sticker{transform:rotate(0)}
+}
+</style>
+</head>
+<body>
+<aside class="sidebar" id="course-sidebar" aria-label="Course navigation">
+  <div style="padding:22px 18px;color:#eef3eb">
+    <p style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#9fb3a4;margin:0 0 8px">Exemplar</p>
+    <p style="margin:0;font-size:15px;line-height:1.5">Pattern library for Codex.<br>Not a real lesson.</p>
+  </div>
+</aside>
+
+<main class="main" id="course-main" tabindex="-1">
+<section class="course-page" id="exemplar">
+<div class="p2-topic">
+
+<div class="s24x-pattern-note">
+<strong>How to use this file (Codex — read first)</strong>
+This page demonstrates <strong>four new visual patterns</strong> approved for Science 24 Units A–D.
+Each pattern has a <strong>working demo</strong> inside a condensed demo lesson
+(“Efficiency and conservation choices,” modelled on Unit B Lesson 8) plus a note like this one
+explaining <strong>what changed, when to use it, and what not to do</strong>.
+Rules: (1) Copy the <code>s24x-*</code> CSS block from the <code>&lt;style&gt;</code> tag into the unit stylesheet —
+do not rename the classes. (2) Copy the demo markup for each pattern into the lessons named in the
+change plan. (3) <strong>Delete every <code>.s24x-pattern-note</code> block</strong> in production — they are
+builder annotations, not learner content. (4) Never alter existing classes, IDs, or JS hooks.
+The <code>data-video-card</code> div is hydrated by existing JS — include it verbatim, never hand-write the card markup.
+</div>
+
+<!-- ================= PATTERN 1 ================= -->
+<div class="s24x-pattern-note">
+<strong>Pattern 1 — Full-bleed lesson opener</strong>
+<strong>What changed:</strong> replaces the small intro card at the top of a lesson with one full-width
+key visual that states the lesson's central phenomenon. The lesson question moves directly underneath.
+<strong>When to use:</strong> once per lesson, at the very top, for the lesson's <em>key</em> phenomenon only.
+<strong>Do not:</strong> use stock-photo decoration, use more than one opener per lesson, or cover text the learner must read — the visual carries the <em>idea</em>, the words carry the <em>detail</em>.
+Markup: <code>&lt;div class="s24x-opener"&gt;</code> as the first child of <code>.p2-topic</code>.
+The <code>margin:0 -30px</code> cancels <code>.main</code>'s side padding — verify against real nesting if wrappers gain padding.
+</div>
+
+<div class="s24x-opener">
+  <span class="s24x-opener-kicker">Unit B · Lesson 8 · Demo</span>
+  <h2>100&nbsp;J in. Only 30&nbsp;J of light out.</h2>
+  <p>Where did the other 70 joules go? Every device answers that question — and the answer is the whole lesson.</p>
+  <svg viewBox="0 0 560 150" role="img" aria-label="100 joules of electrical energy enter a bulb; 30 joules leave as useful light and 70 joules leave as wasted heat and sound.">
+    <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="none" stroke="#fff" stroke-width="1.6"/></marker></defs>
+    <rect x="8" y="55" width="110" height="40" rx="8" fill="rgba(255,255,255,.14)" stroke="#fff" stroke-width="1.5"/>
+    <text x="63" y="80" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">100 J in</text>
+    <line x1="122" y1="75" x2="200" y2="75" stroke="#fff" stroke-width="2.5" marker-end="url(#arr)"/>
+    <rect x="205" y="40" width="150" height="70" rx="10" fill="#fff"/>
+    <text x="280" y="70" text-anchor="middle" fill="#0c3527" font-size="15" font-weight="700">Device</text>
+    <text x="280" y="92" text-anchor="middle" fill="#0c3527" font-size="13">(a light bulb)</text>
+    <line x1="360" y1="60" x2="440" y2="60" stroke="#ffe082" stroke-width="2.5" marker-end="url(#arr)"/>
+    <rect x="445" y="38" width="107" height="44" rx="8" fill="#ffe082"/>
+    <text x="498" y="65" text-anchor="middle" fill="#5d4300" font-size="15" font-weight="700">30 J light</text>
+    <line x1="360" y1="90" x2="440" y2="90" stroke="#ef9a9a" stroke-width="2.5" marker-end="url(#arr)"/>
+    <rect x="445" y="100" width="107" height="44" rx="8" fill="#ef9a9a"/>
+    <text x="498" y="127" text-anchor="middle" fill="#5f1a1a" font-size="15" font-weight="700">70 J waste</text>
+  </svg>
+</div>
+
+<header class="page-header">
+  <p class="eyebrow">Learn · Science 24 · Unit B · Lesson 8</p>
+  <h1 tabindex="-1">Efficiency and conservation choices</h1>
+  <p class="lesson-question">How do you judge whether a device uses energy well?</p>
+  <div class="goal-strip"><div><p class="section-label">Learning goal</p><p>Compare devices by efficiency and choose actions that reduce wasted energy.</p></div>
+  <div><p class="section-label">Before you begin</p><p>Energy is conserved: output energy equals input energy, split into useful and wasted.</p></div></div>
+</header>
+
+<section class="content-section">
+  <h2>Useful out, divided by total in</h2>
+  <p>Efficiency is a comparison: <strong>useful energy output ÷ total energy input</strong>, usually as a percent.
+  A bulb that turns 100&nbsp;J of electrical energy into 30&nbsp;J of light is 30% efficient. The other 70&nbsp;J is not
+  “lost” — it left as heat and sound you did not want.</p>
+  <p>That one idea reorganizes every device you own. The question is never “does it use energy?”
+  It is “how much of what I paid for became what I wanted?”</p>
+</section>
+
+<!-- ================= PATTERN 4 ================= -->
+<div class="s24x-pattern-note">
+<strong>Pattern 4 — Sticker callout (decision point)</strong>
+<strong>What changed:</strong> the “which would you pick?” decision moment is pulled out of the paragraph flow
+into a sticker-style callout placed <em>at the decision point</em>, mid-lesson — not stacked with the guide cards at the top.
+<strong>When to use:</strong> max one per lesson section, only for genuine decision/choice moments
+(“which device wastes less?”, “what would you measure first?”).
+<strong>Do not:</strong> use for core instruction, definitions, or warnings — those keep their existing treatments.
+Markup: <code>&lt;aside class="s24x-sticker"&gt;</code> with a <code>&lt;strong&gt;</code> label line.
+</div>
+
+<section class="content-section">
+  <aside class="s24x-sticker">
+    <strong>Your call</strong>
+    <p>Two bulbs give the same brightness. One draws 60&nbsp;W, the other 9&nbsp;W. Which one wastes less — and what numbers prove it?</p>
+  </aside>
+  <p>Answer with the efficiency comparison, not a feeling: useful output over total input, for each bulb.
+  The practice set below uses the same move three times before the required check asks you to make it alone.</p>
+</section>
+
+<!-- ================= PATTERN 2 ================= -->
+<div class="s24x-pattern-note">
+<strong>Pattern 2 — In-flow video beat</strong>
+<strong>What changed:</strong> the video moves from the end-of-lesson “Optional video support” expander to the
+<em>point of need</em>, mid-lesson, framed as a narrative beat: a “watch-for” prompt tells the learner what to notice,
+then the video plays, then the lesson continues. The “watching does not affect progress” guarantee is preserved.
+<strong>When to use:</strong> only for videos that illustrate the lesson's <em>core</em> phenomenon
+(see the change plan's video list — not every video moves; supplementary ones stay optional at the end).
+<strong>Do not:</strong> hand-write the video card markup. Include the <code>data-video-card</code> div <em>verbatim</em> —
+existing JS hydrates it (title, publisher, viewing focus, player, publisher link, written explanation).
+The grey mock player below stands in for the hydrated player in this static demo.
+</div>
+
+<section class="content-section s24x-video-beat">
+  <p class="section-label">Watch: the idea in motion</p>
+  <h2>Where does the wasted energy go?</h2>
+  <p class="s24x-watch-for"><strong>Watch for:</strong> the moment the video splits one input bar into useful and wasted outputs — that split <em>is</em> the efficiency calculation.</p>
+  <!-- Production markup (JS hydrates this div — copy verbatim, do not hand-write the card): -->
+  <!-- <div data-canvas-helper-studio-edit="annotation-only" data-video-card="s24-b-video-efficiency"></div> -->
+  <div class="s24x-video-mock" aria-hidden="true">
+    <span class="s24x-play">▶</span>
+    <p style="margin:0;color:#d9efe0"><strong style="color:#fff">FuseSchool — Energy efficiency</strong><br><span style="font-size:14px">Mock player — hydrated by JS in production</span></p>
+  </div>
+  <p class="small">Watching is optional and does not affect your progress. The written explanation with the video covers the same idea.</p>
+</section>
+
+<!-- ================= PATTERN 3 ================= -->
+<div class="s24x-pattern-note">
+<strong>Pattern 3 — Margin-anchored figure</strong>
+<strong>What changed:</strong> on wide screens (≥1150px) the key figure docks <em>sticky in the dead right rail</em>
+while the learner works the adjacent practice — the diagram stays visible during the questions that use it.
+Below 1150px it becomes the normal full-width <code>.science-figure</code> (unchanged).
+<strong>When to use:</strong> for the <em>one</em> figure a practice set refers back to (worked-example diagrams,
+multi-step processes). Max one sticky figure per lesson.
+<strong>Do not:</strong> restyle the figure itself — it keeps every existing class
+(<code>science-figure</code>, <code>figure-toolbar</code>, <code>figcaption</code>, credit line, “View larger”).
+Only the wrapper changes. Keep essential labels ≥14px at the default phone width.
+Markup: wrap the practice section and the figure in <code>&lt;div class="s24x-with-margin"&gt;</code>;
+add <code>s24x-margin-figure</code> to the figure's class list.
+</div>
+
+<div class="s24x-with-margin">
+<section class="content-section">
+  <h2>Try it: read the split</h2>
+  <p>Use the diagram on the right for all three questions. For each device: (1) name the useful output,
+  (2) name the wasted outputs, (3) compute the efficiency.</p>
+  <p><strong>1.</strong> The bulb in the diagram takes in 100&nbsp;J electrical. Useful light out: 30&nbsp;J.
+  Efficiency = <span class="s24x-margin-note">(work it out before peeking)</span></p>
+  <p><strong>2.</strong> A motor takes in 200&nbsp;J and delivers 140&nbsp;J of motion. The rest becomes heat and sound. Efficiency?</p>
+  <p><strong>3.</strong> Which device wastes a larger <em>share</em> of its input — and does the larger share mean larger waste in joules?</p>
+  <p class="small">Answers: 1) 30%. 2) 70%. 3) The bulb wastes the larger share (70% vs 30%), but compare joules before judging total waste.</p>
+</section>
+<figure class="science-figure media-rich-figure s24x-margin-figure">
+  <div class="figure-toolbar"><strong>Account for useful and other outputs</strong><span class="s24x-margin-note" style="margin-left:auto">View larger</span></div>
+  <svg viewBox="0 0 320 240" role="img" aria-label="Flow diagram: 100 joules electrical into a device; 30 joules out as useful light, 70 joules out as wasted heat and sound." style="display:block;width:100%;height:auto;background:#fff">
+    <rect x="110" y="10" width="100" height="34" rx="6" fill="#e8f0e9" stroke="#9db3a1"/>
+    <text x="160" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#1d2b20">100 J in</text>
+    <line x1="160" y1="46" x2="160" y2="72" stroke="#5c665c" stroke-width="2"/>
+    <polygon points="154,72 166,72 160,82" fill="#5c665c"/>
+    <rect x="90" y="84" width="140" height="52" rx="8" fill="#14532d"/>
+    <text x="160" y="106" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Device</text>
+    <text x="160" y="126" text-anchor="middle" font-size="12.5" fill="#dcefe1">light bulb</text>
+    <line x1="120" y1="138" x2="70" y2="168" stroke="#8a6d00" stroke-width="2"/>
+    <polygon points="70,160 62,170 76,174" fill="#8a6d00"/>
+    <rect x="14" y="176" width="112" height="52" rx="8" fill="#ffe082"/>
+    <text x="70" y="198" text-anchor="middle" font-size="14" font-weight="700" fill="#5d4300">30 J</text>
+    <text x="70" y="216" text-anchor="middle" font-size="12.5" fill="#5d4300">useful light</text>
+    <line x1="200" y1="138" x2="250" y2="168" stroke="#a33" stroke-width="2"/>
+    <polygon points="250,160 244,170 258,174" fill="#a33"/>
+    <rect x="194" y="176" width="112" height="52" rx="8" fill="#f6dada"/>
+    <text x="250" y="198" text-anchor="middle" font-size="14" font-weight="700" fill="#5f1a1a">70 J</text>
+    <text x="250" y="216" text-anchor="middle" font-size="12.5" fill="#5f1a1a">wasted heat + sound</text>
+  </svg>
+  <figcaption>Every joule is accounted for: useful output plus wasted output equals input.
+  <small class="figure-credit">Demo figure drawn for the exemplar — Codex: replace with the lesson's real figure, keeping all classes.</small></figcaption>
+</figure>
+</div>
+
+<section class="content-section">
+  <h2>What stays the same</h2>
+  <p>The required check, the practice items, the save behavior, the vocabulary buttons, the “How to complete this lesson”
+  guide and the textbook band are <strong>untouched</strong>. These four patterns only change <em>how</em> visuals and
+  video meet the learner — never <em>what</em> is assessed or <em>how</em> progress is recorded.</p>
+</section>
+
+<div class="s24x-pattern-note">
+<strong>Pattern checklist for Codex (self-verify per lesson)</strong>
+1) Opener: one key visual, lesson question directly under it. 2) Video (if moved): at point of need with a
+“watch-for” prompt; <code>data-video-card</code> verbatim; progress guarantee kept. 3) Sticky figure: max one per lesson,
+only beside the practice set that references it; figure markup unchanged; labels ≥14px at phone width.
+4) Sticker: max one per section, decision moments only. 5) Every figure keeps caption + credit + alt text + “View larger”.
+6) No IDs, save keys, check structure, or assessment boundaries changed. 7) Phone width (390px): no horizontal scroll,
+opener/sticker/figure stack cleanly. 8) 200% zoom: no clipped text. 9) Keyboard: all new controls focusable with visible focus.
+</div>
+
+</div>
+</section>
+</main>
+</body>
+</html>

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "Codex lead; source decisions retained with lead",
+  "status": "passed for this scoped visual candidate",
+  "teacherAcceptance": "pending",
+  "visuals": [
+    {
+      "lesson": "01",
+      "id": "d-reaction-zones",
+      "sha256": "fea9fc5efda99176294acf2ffab2d21e9b3d1f379e1d62762437e56746ed7892",
+      "review": "Corrected rear-facing view of the vehicle, red tail lamps and forward arrow inspected. Thinking interval precedes braking interval; hazard ahead; stopping distance equals their sum. Not to scale.",
+      "source": {
+        "kind": "corrected-generated-illustration",
+        "credit": "Original course illustration generated for Science 24; corrected for this review.",
+        "url": null,
+        "suppliedFile": "sources/supplied-package/assets/gen-d-l01-reaction-zones.png",
+        "suppliedSha256": "46a489f5feef41e41c63b1409ac15da641008b416d8c8ddbc4cc2c79fadefa79",
+        "disposition": "Original preserved; corrected illustration used.",
+        "generationRecord": "projects/science24-unit-d/meta/visual-refresh-2026-10-02/imagegen-record.json"
+      }
+    },
+    {
+      "lesson": "02",
+      "id": "d-distraction",
+      "sha256": "aecc2e96a295239fdc13e41a1f72ddfa6fd5ee17363f6d7167641fae0977a069",
+      "review": "Illustrative ~1 s versus ~2–3 s examples retained and qualified in image and native text. These are not observations or safe-driving thresholds.",
+      "source": {
+        "kind": "supplied-generated-illustration",
+        "credit": "Original course illustration generated for Science 24.",
+        "url": null,
+        "suppliedFile": "sources/supplied-package/assets/gen-d-l02-distraction.png",
+        "suppliedSha256": "aecc2e96a295239fdc13e41a1f72ddfa6fd5ee17363f6d7167641fae0977a069",
+        "disposition": "Supplied image preserved and used without further pixel changes."
+      }
+    },
+    {
+      "lesson": "04",
+      "id": "d-distance",
+      "sha256": "51e71deabd64ef77afef243875a1064b2c1ae80fa4bddf31ad678b6ddde37dff",
+      "review": "Existing 1600 m round trip illustrated as simplified 800 m out + 800 m back; endpoint matches start, giving zero displacement. Original speed/time practice retained.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": null,
+        "canonicalOwner": "projects/science24-unit-d/workspace/assets/visual-refresh/d-distance.svg"
+      }
+    },
+    {
+      "lesson": "07",
+      "id": "d-momentum",
+      "sha256": "fd12e1192f8d24dd481aecb81a2b0bb58f043ff5312d0653ec67f5c12e49b0ce",
+      "review": "Same-velocity illustration independently recomputed: 70×5 = +350; 750×5 = +3750 kg·m/s. Both are explicit simplified model systems. Original 750 kg / 100 km/h worked example retained.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": null,
+        "canonicalOwner": "projects/science24-unit-d/workspace/assets/visual-refresh/d-momentum.svg"
+      }
+    },
+    {
+      "lesson": "08",
+      "id": "d-impulse",
+      "sha256": "ea01b3a3d947506a30dfd49d0e160ab7f3c4cf58d18695d2186ab41be0697c05",
+      "review": "Independent products: 100×2 = 400×0.5 = 200 N·s. Both constant-force rectangle areas match; graph shows magnitudes and native text requires direction.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": null,
+        "canonicalOwner": "projects/science24-unit-d/workspace/assets/visual-refresh/d-impulse.svg"
+      }
+    },
+    {
+      "lesson": "09",
+      "id": "d-stopping-force",
+      "sha256": "caa02f24630878b4e5a1665edcc4e19a274586e8fc33ac715c285e2df9d9bf67",
+      "review": "Original case checked: 1000 kg, +10 m/s to rest, Δp = −10000 kg·m/s. Fmean = −20000 N in 0.5 s; −5000 N in 2 s. Equal-area rectangles represent average-force alternatives, not measured collision peaks.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": null,
+        "canonicalOwner": "projects/science24-unit-d/workspace/assets/visual-refresh/d-stopping-force.svg"
+      }
+    },
+    {
+      "lesson": "13",
+      "id": "d-summary",
+      "sha256": "ce8f0cfec340a517853b631a7b764a230ba922353d51e0e257e4d5f1f022aa0a",
+      "review": "Reaction distance v×t plus braking distance distinguished from impact impulse Δp = Fmean×Δt. Longer impact duration reduces mean force for the same momentum change.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": null,
+        "canonicalOwner": "projects/science24-unit-d/workspace/assets/visual-refresh/d-summary.svg"
+      }
+    }
+  ],
+  "otherDispositions": [],
+  "allLessonDispositions": 13
+}

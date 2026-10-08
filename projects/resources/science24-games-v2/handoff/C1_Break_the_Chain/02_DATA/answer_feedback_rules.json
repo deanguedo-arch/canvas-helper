@@ -1,0 +1,73 @@
+{
+  "game_id": "C1",
+  "version": "2.0.0-design",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "C1-W01",
+      "accepted_result": "Use one measure on each stated route; addressing only the board leaves the hand route open.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P01",
+      "accepted_result": "Choose route-specific measures; multiple supported combinations may be valid.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P02",
+      "accepted_result": "Ventilation and source reduction address the supplied routes; table cleaning alone does not.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P03",
+      "accepted_result": "Use evidence-supported prevention; antibiotics are treatment for some bacterial infections, not a universal route blocker.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P04",
+      "accepted_result": "Immune memory belongs to adaptive immunity; vaccination prepares a response and is not an instant cure.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-T01",
+      "accepted_result": "Choose two route-matched measures and explain any remaining route. The model does not predict real infection probability.",
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    }
+  ]
+}

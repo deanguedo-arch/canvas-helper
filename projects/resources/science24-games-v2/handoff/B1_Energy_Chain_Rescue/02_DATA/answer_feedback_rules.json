@@ -1,0 +1,93 @@
+{
+  "game_id": "B1",
+  "version": "2.0.0-design",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "B1-W01",
+      "accepted_result": {
+        "light": 45,
+        "thermal": 155
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P01",
+      "accepted_result": {
+        "motion": 180,
+        "thermal": 280,
+        "sound": 40
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P02",
+      "accepted_result": {
+        "electrical": 780,
+        "thermal": 180,
+        "sound": 40
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P03",
+      "accepted_result": {
+        "motion": 150,
+        "thermal": 450
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P04",
+      "accepted_result": {
+        "stored_chemical": 320,
+        "thermal": 80
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-T01",
+      "accepted_result": {
+        "motion": 450,
+        "thermal": 750
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    }
+  ]
+}
